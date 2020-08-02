@@ -1,0 +1,8 @@
+# Book settings
+title: Twisted bilayer WSe2
+author: Hidde Dijkstra
+logo: logo.png
+
+latex:
+  latex_documents:
+    targetname: book.tex
