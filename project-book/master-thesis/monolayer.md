@@ -12,20 +12,24 @@ kernelspec:
   name: python3
 ---
 
-# Hoi boi
+# Monolayer WSe$_2$
 
 ```{code-cell} ipython3
 :tags: [hide-input]
 
 import numpy as np
-from numpy.linalg import matrix_power as mat_pow
 import matplotlib.pyplot as plt
-from datetime import datetime
-plt.rcParams['figure.figsize'] = [15, 10]
+import drawSvg as draw
+from myst_nb import glue
+
+def rot_mat(θ):
+    return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
 ```
 
+We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model (TBM) by Liu et al. {cite}'three_band'. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the $xy$ plane:
+
 ```{code-cell} ipython3
-:tags: [remove-output, hide-input]
+:tags: [hide-input]
 
 class LatVec:
     a_1 = np.array([1, 0])
@@ -66,11 +70,31 @@ class LatVec:
             return self.scale*(self.i*self.b_1 + self.j*self.b_2)
         else:
             return self.scale*(self.i*self.a_1 + self.j*self.a_2)
-        
-    def rot(self, θ):
-        R_θ = np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
-        return R_θ @ self.vec
+    
+    def plot(self, container, atom_radius=0.2, atom_color='darkblue', θ=0, atom="", bonds=False, **kwargs):
+        origin = self.vec 
+        a_list = [self.a_1, self.a_2, self.a_1-self.a_2]      
+        if θ != 0:
+            origin = rot_mat(θ) @ self.vec
+            a_list = [rot_mat(θ) @ a for a in a_list]
+        for a in a_list:
+            container.append(draw.Line(*(origin-a/2), *(origin+a/2), **kwargs))
+            gradient = draw.RadialGradient(*origin, atom_radius)
+        gradient.addStop(0, 'white', 1)
+        gradient.addStop(1, atom_color, 1)
+        container.append(draw.Circle(*origin, atom_radius, fill=gradient, **kwargs))
+        container.append(draw.Text(atom, atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
+        return container
+    
+container = draw.Drawing(5, 3, origin='center', displayInline=False)
+for (i, j) in [(0, 0), (1, 0), (0, 1), (1, -1), (-1, 0), (0, -1), (-1, 1), 
+               (-2, 1), (-2, 0), (-1, -1), (2, 0), (1, 1), (2, -1)]:
+    container = LatVec(i, j).plot(container, stroke= 'black', bonds=True, atom='W', stroke_width=0.02)
+#glue('fig', container.setRenderSize(900), display=False)
+container.setRenderSize(900)
 ```
+
+
 
 ```{code-cell} ipython3
 class Supercell:
@@ -130,7 +154,7 @@ class Supercell:
 ```
 
 ```{code-cell} ipython3
-n, m = 6, 7
+"""n, m = 6, 7
 layer_1 = Supercell(n, m)
 layer_2 = Supercell(m, n)
 z_hopping = layer_1.interlayer_hopping_array(layer_2)
@@ -148,29 +172,8 @@ for lat_vec in [layer_2.v_1+layer_2.v_2, layer_2.v_1,  layer_2.v_2, LatVec(0, 0)
     layer_2.plot_supercell([i for i in range(layer_2.N_atoms) if np.linalg.norm(z_hopping[i, j_2]) < 1], lat_vec=lat_vec, c='red', marker='d')
 
 plt.gca().set_aspect('equal', adjustable='box')
-plt.axis('off')
+plt.axis('off')"""
 ```
-
-bla bla
-
-```{glue:figure} my-fig
----
-figclass: margin-caption
-name: figfig
----
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan tellus nec pulvinar lacinia. Pellentesque sed tristique augue. Aenean in congue lorem. Duis commodo auctor est quis pharetra. Aenean interdum at ligula id blandit. Vestibulum feugiat dignissim leo, eu maximus ex convallis sed. Sed dolor lectus, viverra non nulla et, hendrerit vulputate nisi. Etiam nec orci laoreet, facilisis nunc id, semper ex.
-```
-bla bla
-
-```{figure} ../logo.png
----
-figclass: margin-caption
-name: figfig2
----
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan tellus nec pulvinar lacinia. Pellentesque sed tristique augue. Aenean in congue lorem. Duis commodo auctor est quis pharetra. Aenean interdum at ligula id blandit. Vestibulum feugiat dignissim leo, eu maximus ex convallis sed. Sed dolor lectus, viverra non nulla et, hendrerit vulputate nisi. Etiam nec orci laoreet, facilisis nunc id, semper ex.
-```
-
-+++
 
 Dit was de functie:
 
@@ -179,31 +182,36 @@ f(x) = x^2
 $$
 
 ```{code-cell} ipython3
-from bokeh.plotting import figure, show, output_notebook
+import svgwrite
 
-# prepare some data
-x = [1, 2, 3, 4, 5]
-y = [6, 7, 2, 4, 5]
-
-
-# create a new plot with a title and axis labels
-p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
-
-# add a line renderer with legend and line thickness
-p.line(x, y, legend_label="Temp.", line_width=2)
-output_notebook()
-# show the results
-show(p)
-
-glue("my-fig2", p, display=True)
+dwg = svgwrite.Drawing()
+link = dwg.add(dwg.a("http://link.to/internet"))
+square = link.add(dwg.rect((0, 0), (1, 1), fill='blue'))
 ```
 
-```{glue:figure} my-fig2
----
-figclass: margin-caption
-name: figfig2
----
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan tellus nec pulvinar lacinia. Pellentesque sed tristique augue. Aenean in congue lorem. Duis commodo auctor est quis pharetra. Aenean interdum at ligula id blandit. Vestibulum feugiat dignissim leo, eu maximus ex convallis sed. Sed dolor lectus, viverra non nulla et, hendrerit vulputate nisi. Etiam nec orci laoreet, facilisis nunc id, semper ex.
+```{code-cell} ipython3
+display(dwg.get_xml())
+```
+
+```{code-cell} ipython3
+container = draw.Drawing(6, 3, origin='center')
+container.append(draw.Line(-3, 0, 3, 0, stroke='white', stroke_width='0.7'))
+gradient = draw.RadialGradient(0, 0, 1)
+gradient.addStop(0, 'white', 1)
+gradient.addStop(1, 'darkblue', 1)
+container.append(draw.Circle(0, 0, 1, fill=gradient, stroke_width=0.1, stroke='white'))
+container.append(draw.Text("W", 1, 0, 0, text_anchor='middle', alignment_baseline="central"))
+container.setRenderSize(200)
+container
+```
+
+```{code-cell} ipython3
+container.height = 200
+container
+```
+
+```{code-cell} ipython3
+container
 ```
 
 ```{code-cell} ipython3

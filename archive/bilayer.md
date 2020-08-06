@@ -244,7 +244,6 @@ layer_1.Δθ*2*180/np.pi
 ```
 
 ```{code-cell} ipython3
-
 j_1 = 2
 j_2 = 44
 for lat_vec in [layer_1.v_1+layer_1.v_2, layer_1.v_1,  layer_1.v_2, LatVec(0, 0)]:
