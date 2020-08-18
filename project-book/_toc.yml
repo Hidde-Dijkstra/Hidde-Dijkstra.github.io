@@ -2,4 +2,8 @@
 - file: master-thesis/intro
   sections:
     - file: master-thesis/monolayer
+    - file: master-thesis/bibliography
+- file: topological-insulators/intro
+  sections:
+    - file: topological-insulators/week_1_band_structure
 
