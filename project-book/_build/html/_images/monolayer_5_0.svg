@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1000" height="350" viewBox="-500.0 -175.0 1000 350">
+<defs>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d0">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="0" r="50" gradientUnits="userSpaceOnUse" id="d1">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="red" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d2">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d3">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d4">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="red" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d5">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="red" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d6">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d7">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d8">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="red" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d9">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="red" stop-opacity="0.7" />
+</radialGradient>
+<radialGradient cx="0" cy="-100" r="50" gradientUnits="userSpaceOnUse" id="d10">
+<stop offset="0" stop-color="white" stop-opacity="0.7" />
+<stop offset="173.21" stop-color="dodgerblue" stop-opacity="0.7" />
+</radialGradient>
+</defs>
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d0)" transform="translate(0 0)
+rotate(180 0 0)" />
+<ellipse cx="0" cy="0" rx="100" ry="25" stroke="black" fill="url(#d1)" transform="rotate(0 0 0)
+translate(0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d2)" transform="translate(0 0)
+rotate(0 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d3)" transform="translate(300 0)
+rotate(85 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d4)" transform="translate(300 0)
+rotate(95 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d5)" transform="translate(300 0)
+rotate(275 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d6)" transform="translate(300 0)
+rotate(265 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d7)" transform="translate(-300 0)
+rotate(85 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d8)" transform="translate(-300 0)
+rotate(95 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d9)" transform="translate(-300 0)
+rotate(275 0 0)" />
+<path d="M 0,0 C -173.21,-200 173.21,-200 0,0 z" stroke="black" fill="url(#d10)" transform="translate(-300 0)
+rotate(265 0 0)" />
+</svg>
