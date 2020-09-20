@@ -6,3 +6,9 @@ H=-\frac{1}{2m}\nabla_{\mathbf r}^2+V(\mathbf r),
 ```
 here, and in the future, we take $\hbar =1$.
 
+Any eigenstate $\psi(\mathbf r)$ must obey the same symmetries as the Hamiltonian. Accordingly we can write $\psi(\mathbf r)=\text e^{i\mathbf k\cdot\mathbf r}\phi(\mathbf r)$, with $\phi(\mathbf r)=\phi(\mathbf r+\mathbf T)$ for all $\mathbf T$. This $k$ in the exponent is called the *quasimomentum* and is defined modulo
+
+import numpy as np
+
+print(sum([50*(1/2)**k for k in range(11)]))
+
