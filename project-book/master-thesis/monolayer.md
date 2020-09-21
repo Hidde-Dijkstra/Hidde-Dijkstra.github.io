@@ -168,11 +168,8 @@ glue('fig:d_z2-d_xy', container, display=False)
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  source_hidden: true
-tags: [remove-cell]
----
+:tags: [remove-cell]
+
 var_dic = {
     "t_1": 0.034, 
     "t_2": 0.263, 
@@ -310,90 +307,6 @@ $$
 ```
 
 ```{bibliography} references.bib
-```
-
-```{code-cell} ipython3
-class Index:
-    
-    def __init__(self, i, j):
-        self.i = i
-        self.j = j
-        
-    def __mul__(self, other):
-        return self.i * other[0] + self.j * other[1]
-    
-    def __rmul__(self, other):
-        return other * self
-        
-        
-class Lattice:
-    
-    
-    def __init__(self, a_1, a_2, W, H):
-        self.a = [a_1, a_2]
-        self.W = W
-        self.H = H
-        self.unit_cell = []
-        self.grid = []
-        
-    def add_atom(self, atom):        
-        N_1, N_2 = [min(int(self.W/np.abs(a[0]+0.00001)), int(self.H/np.abs(a[1]+0.00001))) for a in self.a]
-        self.unit_cell.append(atom)
-        self.grid.append([Index(i, j) for i in range(-N_1, N_1+1) for j in range(-N_2, N_2+1) if self.in_lattice(i, j, atom.position)])
-        
-    def in_lattice(self, i, j, position):
-        return np.all(np.abs(position+Index(i, j)*self.a) < [self.W/2, self.H/2])
-    
-    def draw_lattice(self):
-        container = draw.Drawing(self.W, self.H, origin="center", displayInline=False)
-        for i, atom in enumerate(self.unit_cell):
-            for grid_point in self.grid[i]:
-                component_list = atom.draw_bonds(grid_point*self.a)
-                [container.append(component) for component in component_list]
-        for i, atom in enumerate(self.unit_cell):
-            if atom.atom_radius == None:
-                atom.atom_radius = min([np.linalg.norm(a) for a in self.a]) / len(self.unit_cell) / 5 
-            for grid_point in self.grid[i]:
-                component_list = atom.draw_atom(grid_point*self.a)
-                [container.append(component) for component in component_list]
-        return container
-                
-    def NN(self, atom_1, atom_2, bond_list):
-        for bond in bond_list:
-            atom_1.bonds.append(atom_2.position+Index(*bond)*self.a)
-            if atom_1 != atom_2:
-                atom_2.bonds.append(-atom_1.bonds[-1])
-    
-
-
-class LatticeAtom:
-    
-    
-    def __init__(self, position_in_unit_cell, name=None, atom_color='blue', atom_radius=None):       
-        self.position = np.array(position_in_unit_cell)
-        self.name = name
-        self.atom_color = atom_color
-        self.atom_radius = atom_radius
-        self.bonds = []
-    
-    def draw_bonds(self, displacement, **kwargs):
-        bond_components = []
-        origin = displacement + self.position
-        for bond in self.bonds:
-            bond_components.append(draw.Line(*origin, *(origin+bond), stroke='white', stroke_width=0.01, **kwargs))
-        return bond_components
-        
-    def draw_atom(self, displacement, **kwargs):
-        atom_components = []
-        origin = displacement + self.position
-        gradient = draw.RadialGradient(*origin, self.atom_radius)
-        gradient.addStop(0, 'white', 1)
-        gradient.addStop(1, self.atom_color, 1)
-        atom_components.append(draw.Circle(*origin, self.atom_radius, fill=gradient, **kwargs))
-        if self.name != None:
-            atom_components.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
-        return atom_components 
-        
 ```
 
 ```{code-cell} ipython3

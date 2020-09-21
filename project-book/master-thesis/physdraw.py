@@ -28,21 +28,21 @@ class Lattice:
     def add_atom(self, atom):        
         N_1, N_2 = [1+min(int(self.W/np.abs(a[0]+0.00001)), int(self.H/np.abs(a[1]+0.00001))) for a in [rot_mat(self.θ)@a for a in self.a]]
         self.unit_cell.append(atom)
+        if atom.atom_radius == None:
+            atom.atom_radius = min([np.linalg.norm(a) for a in self.a]) / min(N_1, N_2) / 5 
         self.grid.append([Index(i, j) for i in range(-N_1, N_1+1) for j in range(-N_2, N_2+1) if self.in_lattice(i, j, atom)])
         
     def in_lattice(self, i, j, atom):
-        origin = np.abs(rot_mat(self.θ) @ (position+Index(i, j)*self.a))
-        return np.all(origin < [self.W/2, self.H/2])
+        origin = np.abs(rot_mat(self.θ) @ (atom.position+Index(i, j)*self.a))
+        return np.all(origin-atom.atom_radius < [self.W/2, self.H/2])
     
     def draw_lattice(self):
-        container = draw.Drawing(self.W, self.H, origin="center", displayInline=False)
+        container = []
         for i, atom in enumerate(self.unit_cell):
             for grid_point in self.grid[i]:
                 component_list = atom.draw_bonds(grid_point*self.a, self.θ)
                 [container.append(component) for component in component_list]
         for i, atom in enumerate(self.unit_cell):
-            if atom.atom_radius == None:
-                atom.atom_radius = min([np.linalg.norm(a) for a in self.a]) / np.sqrt(len(self.unit_cell)) / 5 
             for grid_point in self.grid[i]:
                 component_list = atom.draw_atom(grid_point*self.a, self.θ)
                 [container.append(component) for component in component_list]
@@ -83,8 +83,10 @@ class LatticeAtom:
         if self.name != None:
             atom_components.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
         return atom_components 
+    
         
 class Orbital:  
+    
     
     def lobe(self, color, rotate=0, translate=(0, 0), stroke="black", **kwargs):
         gradient = draw.RadialGradient(0, 100, 50)

@@ -4,7 +4,7 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.12'
+    format_version: '0.9'
     jupytext_version: 1.5.2
 kernelspec:
   display_name: Python 3
@@ -15,7 +15,6 @@ kernelspec:
 # Monolayer WSe$_2$
 
 +++
-
 
 We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model (TBM) by Liu et al. {cite}`three_band`. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the $xy$ plane with real space unit vectors:
 ```{math}
@@ -31,7 +30,6 @@ We consider one atom as the origin and label every other atom using the integers
 \vec a_1 + j\vec a_2$:
 
 +++
-
 
 ```{glue:figure} fig:lattice
 ```
@@ -66,6 +64,10 @@ and collect them in the matrix $\mathcal E$:
 +++
 
 ```{bibliography} references.bib
+```
+
+```{code-cell} ipython3
+import new1
 ```
 
 ```{code-cell} ipython3
