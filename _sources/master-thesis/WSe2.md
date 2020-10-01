@@ -23,7 +23,7 @@ from myst_nb import glue
 
 We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model (TBM) by Liu et al. {cite}`three_band`. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the $xy$ plane: 
 
-```python tags=["remove-cell"]
+```python tags=["hide-cell"]
 width, height = 4, 2.7
 container = draw.Drawing(width, height, origin="center")
 W = moire.LatticeAtom([0, 0], atom_radius=0.2)
@@ -35,7 +35,11 @@ lattice.NN(W, W, [(1, 0), (0, 1), (1, -1), (-1, 0), (0, -1), (-1, 1)])
 lattice.NN(W, Se2, [(0, 0), (-1, 0), (0, -1)])
 for atom in lattice.draw_lattice():
     container.append(atom)
+container.setRenderSize(500)
 glue('fig:wse2 lattice', container)
+```
+
+```{glue:figure} fig:wse2 lattice
 ```
 
 with real space unit vectors:
@@ -43,9 +47,9 @@ with real space unit vectors:
 \vec a_1=\begin{pmatrix}1\\ 0\end{pmatrix}\text{ and } \vec a_2=\frac12\begin{pmatrix}1\\ \sqrt{3}\end{pmatrix},    
 ```
 and reciprocal lattice vectors:
-$$
+```{math}
 \vec b_1=2\pi\begin{pmatrix}1\\ -1/\sqrt{3}\end{pmatrix}\text{ and } \vec b_2=2\pi\begin{pmatrix}0\\ 2/\sqrt{3}\end{pmatrix},    
-$$
+```
 where length is in units of the lattice spacing $a$ between two tungsten atoms.
 
 We consider one atom as the origin and label every other atom using the integers $i$ and $j$ which connect this atom to the origin with the vector $i
@@ -70,7 +74,14 @@ glue('fig:d_z2-d_xy', container, display=False)
 ```{glue:figure} fig:d_z2-d_xy
 ```
 
+```python
+var_dic = moire.WSe2.var_dic
+for var_key in var_dic:
+    glue("var:"+var_key, var_dic[var_key], display=False)
+```
 
+```python
+"""
 ```{admonition} GGA coupling constants in eV
 Coupling constants for WSe$_2$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. These constants are for NN hopping left to right with respect to the $x$-axis. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. These are the GGA constants from {cite}`three_band`.
 | $t_1$| $t_2$| $t_3$| $t_{12}$| $t_{13}$| $t_{23}$| $\varepsilon_1$| $\varepsilon_3$| $\lambda_{SOC}$|
@@ -86,7 +97,8 @@ and collect them in the matrix $\mathcal E$:
         t_{13}&-t_{23}&t_3
     \end{pmatrix}.
 ```
-
+"""
+```
 
 ```{bibliography} references.bib
 ```

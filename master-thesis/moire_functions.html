@@ -214,7 +214,7 @@
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">drawSvg</span> <span class="k">as</span> <span class="nn">draw</span>
 <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_power</span> <span class="k">as</span> <span class="n">mat_pow</span>
@@ -227,7 +227,7 @@
 <h2>Lattice drawing class<a class="headerlink" href="#lattice-drawing-class" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Index</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Index</span><span class="p">:</span>
  
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
@@ -276,15 +276,15 @@
         <span class="k">return</span> <span class="n">container</span>
                 
     <span class="k">def</span> <span class="nf">NN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atom_1</span><span class="p">,</span> <span class="n">atom_2</span><span class="p">,</span> <span class="n">bond_list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">atom_1</span><span class="o">.</span><span class="n">bond_style</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1">#atom_1.bond_style.append(kwargs)</span>
         <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">bond_list</span><span class="p">:</span>
             <span class="n">atom_1</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom_2</span><span class="o">.</span><span class="n">position</span><span class="o">+</span><span class="n">Index</span><span class="p">(</span><span class="o">*</span><span class="n">bond</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">atom_1</span> <span class="o">!=</span> <span class="n">atom_2</span><span class="p">:</span>
-                <span class="n">atom_2</span><span class="o">.</span><span class="n">bond_style</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="c1">#atom_2.bond_style.append(kwargs)</span>
                 <span class="n">atom_2</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">atom_1</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
                 
     <span class="k">def</span> <span class="nf">draw_lattice_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        
+        <span class="k">pass</span>
     
 
 
@@ -299,7 +299,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">bonds</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bond_style</span> <span class="o">=</span> <span class="p">[]</span>
     
-    <span class="k">def</span> <span class="nf">draw_bonds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">displacement</span><span class="p">,</span> <span class="n">θ</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">draw_bonds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">displacement</span><span class="p">,</span> <span class="n">θ</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">bond_components</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">origin</span> <span class="o">=</span> <span class="n">rot_mat</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">displacement</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bonds</span><span class="p">:</span>
@@ -360,21 +360,13 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-eb967d14e678&gt;&quot;</span><span class="gt">, line </span><span class="mi">62</span>
-    <span class="k">class</span> <span class="nc">LatticeAtom</span><span class="p">:</span>
-                      <span class="o">^</span>
-<span class="ne">IndentationError</span>: expected an indented block
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="moire-supercell-class">
 <h2>Moiré supercell class<a class="headerlink" href="#moire-supercell-class" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LatVec</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LatVec</span><span class="p">:</span>
     <span class="c1"># We identify each atom as the two integers i and j which connect it to the origin. </span>
     <span class="c1"># Using a pythonic object we can define how two of these vectors interact.</span>
     <span class="n">a_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -496,7 +488,7 @@
 <h2>WSe<span class="math notranslate nohighlight">\(_2\)</span> specific calculations<a class="headerlink" href="#wse-2-specific-calculations" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WSe2</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WSe2</span><span class="p">:</span>
     <span class="n">var_dic</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;t_1&quot;</span><span class="p">:</span> <span class="mf">0.034</span><span class="p">,</span> 
         <span class="s2">&quot;t_2&quot;</span><span class="p">:</span> <span class="mf">0.263</span><span class="p">,</span> 

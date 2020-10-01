@@ -77,15 +77,15 @@ class Lattice:
         return container
                 
     def NN(self, atom_1, atom_2, bond_list, **kwargs):
-        atom_1.bond_style.append(kwargs)
+        #atom_1.bond_style.append(kwargs)
         for bond in bond_list:
             atom_1.bonds.append(atom_2.position+Index(*bond)*self.a)
             if atom_1 != atom_2:
-                atom_2.bond_style.append(kwargs)
+                #atom_2.bond_style.append(kwargs)
                 atom_2.bonds.append(-atom_1.bonds[-1])
                 
     def draw_lattice_vectors(self, **kwargs):
-        
+        pass
     
 
 
@@ -100,7 +100,7 @@ class LatticeAtom:
         self.bonds = []
         self.bond_style = []
     
-    def draw_bonds(self, displacement, θ):
+    def draw_bonds(self, displacement, θ, **kwargs):
         bond_components = []
         origin = rot_mat(θ) @ (displacement + self.position)
         for bond in self.bonds:
