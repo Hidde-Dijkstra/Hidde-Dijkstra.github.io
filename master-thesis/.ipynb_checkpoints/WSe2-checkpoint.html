@@ -14,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -36,7 +37,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Moiré functions" href="moire_functions.html" />
     <link rel="prev" title="Twisted bilayer WSe\(_2\)" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +93,11 @@
      <span class="math notranslate nohighlight">
       \(_2\)
      </span>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="moire_functions.html">
+     Moiré functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -185,9 +191,12 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">drawSvg</span> <span class="k">as</span> <span class="nn">draw</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="n">my_variable</span> <span class="o">=</span> <span class="s2">&quot;here is some text!&quot;</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;hoi&quot;</span><span class="p">,</span> <span class="n">my_variable</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model (TBM) by Liu et al. <a class="bibtex reference internal" href="bibliography.html#three-band" id="id1">[LSY+13]</a>. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
+<p> We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model (TBM) by Liu et al. <a class="bibtex reference internal" href="bibliography.html#three-band" id="id1">[LSY+13]</a>. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">2.7</span>
 <span class="n">container</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">moire</span><span class="o">.</span><span class="n">LatticeAtom</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">atom_radius</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -200,7 +209,7 @@
 <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">lattice</span><span class="o">.</span><span class="n">draw_lattice</span><span class="p">():</span>
     <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
 <span class="n">container</span><span class="o">.</span><span class="n">setRenderSize</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;fig:wse2 lattice&#39;</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+<span class="c1">#glue(&quot;hoi&quot;, container)</span>
 </pre></div>
 </div>
 <p>with real space unit vectors:</p>
@@ -285,7 +294,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Twisted bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span></a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="next page">Bibliography</a>
+    <a class='right-next' id="next-link" href="moire_functions.html" title="next page">Moiré functions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

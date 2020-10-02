@@ -19,11 +19,14 @@ import moire_functions as moire
 import numpy as np
 import drawSvg as draw
 from myst_nb import glue
+
+my_variable = "here is some text!"
+glue("hoi", my_variable)
 ```
 
 We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model (TBM) by Liu et al. {cite}`three_band`. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the $xy$ plane: 
 
-```python tags=["hide-cell"]
+```python
 width, height = 4, 2.7
 container = draw.Drawing(width, height, origin="center")
 W = moire.LatticeAtom([0, 0], atom_radius=0.2)
@@ -36,10 +39,10 @@ lattice.NN(W, Se2, [(0, 0), (-1, 0), (0, -1)])
 for atom in lattice.draw_lattice():
     container.append(atom)
 container.setRenderSize(500)
-glue('fig:wse2 lattice', container)
+glue("hoi", container)
 ```
 
-```{glue:figure} fig:wse2 lattice
+```{glue:} hoi
 ```
 
 with real space unit vectors:
