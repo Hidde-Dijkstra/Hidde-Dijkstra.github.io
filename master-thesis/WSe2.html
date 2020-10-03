@@ -209,17 +209,18 @@
 <p>where length is in units of the lattice spacing <span class="math notranslate nohighlight">\(a\)</span> between two tungsten atoms.</p>
 <div class="section" id="symmetries">
 <h2>Symmetries<a class="headerlink" href="#symmetries" title="Permalink to this headline">¶</a></h2>
-<p>The symmetric point group of this triangular lattice is <span class="math notranslate nohighlight">\(D_3\)</span> with elements <span class="math notranslate nohighlight">\(\{E, C_3, C^2_3,\sigma_v, \sigma_v', \sigma_v''\}\)</span>. The rotations are in the <span class="math notranslate nohighlight">\(xy\)</span> plane, while the reflections are with respect to the <span class="math notranslate nohighlight">\(yz\)</span>, <span class="math notranslate nohighlight">\(xz\)</span> and <span class="math notranslate nohighlight">\(xy\)</span> planes. <span class="math notranslate nohighlight">\(C_6\)</span> is not a symmetry element of this lattice since this operation exchanges triangles containing Se<span class="math notranslate nohighlight">\(_2\)</span> and empty triangles.</p>
+<p>The symmetric point group of this triangular lattice is <span class="math notranslate nohighlight">\(D_3\)</span> with generators <span class="math notranslate nohighlight">\(\{C_3, \sigma\}\)</span>. <span class="math notranslate nohighlight">\(C_3\)</span> is a rotation of <span class="math notranslate nohighlight">\(2\pi/3\)</span> in the <span class="math notranslate nohighlight">\(xy\)</span> plane and <span class="math notranslate nohighlight">\(\sigma\)</span> is a reflection with respect to the bisector of <span class="math notranslate nohighlight">\(\vec a_1\)</span> and <span class="math notranslate nohighlight">\(\vec a_2\)</span>. <span class="math notranslate nohighlight">\(C_6\)</span> is not a symmetry element of this lattice since this operation exchanges triangles containing Se<span class="math notranslate nohighlight">\(_2\)</span> and empty triangles.</p>
 <p>We restrict the orbitals of tungsten to the <span class="math notranslate nohighlight">\(d\)</span> orbitals <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, which dictate the low energy <span class="math notranslate nohighlight">\(K\)</span> points. The other orbitals are either at a different energy scale or do not mix with these orbitals due to the symmetries of the lattice. The tight binding hopping matrix between these orbitals in the hopping direction <span class="math notranslate nohighlight">\(\vec a_1\)</span> writes:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}    \mathcal H_{\vec{a}_1} = \begin{pmatrix}
         t_1&amp;t_{12}&amp;t_{13}\\
         -t_{12}&amp;t_2&amp;t_{23}\\
         t_{13}&amp;-t_{23}&amp;t_3
-    \end{pmatrix}.\end{split}\]</div>
+    \end{pmatrix},\end{split}\]</div>
+<p>in the basis <span class="math notranslate nohighlight">\((d_{x^2-y^2}\, d_{xy}\,d_{z^2})\)</span>.</p>
 <div class="admonition-gga-coupling-constants-in-ev admonition">
 <p class="admonition-title">GGA coupling constants in eV</p>
-<p>Coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. These constants are for NN hopping left to right with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. These are the GGA constants from <a class="bibtex reference internal" href="#three-band" id="id2">[LSY+13]</a>.</p>
+<p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <a class="bibtex reference internal" href="#three-band" id="id2">[LSY+13]</a>.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(t_1\)</span></p></th>
@@ -248,18 +249,13 @@
 </table>
 <p>where all energies are measured in eV.</p>
 </div>
-<p>and collect them in the matrix <span class="math notranslate nohighlight">\(\mathcal E\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}    \mathcal E = \begin{pmatrix}
-        t_1&amp;t_{12}&amp;t_{13}\\
-        -t_{12}&amp;t_2&amp;t_{23}\\
-        t_{13}&amp;-t_{23}&amp;t_3
-    \end{pmatrix}.\end{split}\]</div>
-<div class="figure align-default">
+<p>Surprisingly, <span class="math notranslate nohighlight">\(\mathcal H_{\vec a_1}\)</span> is not symmetric. We recognize the lack of <span class="math notranslate nohighlight">\(C_6\)</span> symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>:</p>
+<div class="figure align-default" id="id4">
 <div class="cell_output docutils container">
 <img alt="../_images/images_5_0.svg" src="../_images/images_5_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Representation of atomic orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, the colors represent the different signs of the lobes.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<p>hoi</p>
+<p>Mirroring the hopping direction is equivalent to applying a reflection with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis. The <span class="math notranslate nohighlight">\(d_{xy}\)</span> orbital changes sign under this operation so <span class="math notranslate nohighlight">\(t_{32}=-t_{23}\)</span>. If this reflection was a symmetry element of the lattice we would require <span class="math notranslate nohighlight">\(t_{32}=t_{23}\)</span>, forcing <span class="math notranslate nohighlight">\(t_{23}=0\)</span>. We can use a similar argument to exclude the <span class="math notranslate nohighlight">\(d_{xz}\)</span> and <span class="math notranslate nohighlight">\(d_{yz}\)</span> orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the <span class="math notranslate nohighlight">\(xy\)</span> plane.</p>
 <p id="bibtex-bibliography-master-thesis/WSe2-0"><dl class="citation">
 <dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
 <dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
@@ -272,9 +268,6 @@
 </dd>
 </dl>
 </p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 
