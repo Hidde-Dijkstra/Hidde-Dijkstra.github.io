@@ -104,7 +104,7 @@ class LatticeAtom:
         bond_components = []
         origin = rot_mat(θ) @ (displacement + self.position)
         for bond in self.bonds:
-            bond_components.append(draw.Line(*origin, *(origin+bond), stroke='white', stroke_width=0.01, **kwargs))
+            bond_components.append(draw.Line(*origin, *(origin+bond), stroke='black', stroke_width=0.01, **kwargs))
         return bond_components
         
     def draw_atom(self, displacement, θ, **kwargs):
@@ -113,7 +113,7 @@ class LatticeAtom:
         gradient = draw.RadialGradient(*origin, self.atom_radius)
         gradient.addStop(0, 'white', 1)
         gradient.addStop(1, self.atom_color, 1)
-        atom_components.append(draw.Circle(*origin, self.atom_radius, fill=gradient, **kwargs))
+        atom_components.append(draw.Circle(*origin, self.atom_radius, stroke='black', stroke_width=0.01, fill=gradient, **kwargs))
         if self.name != None:
             atom_components.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
         return atom_components 
