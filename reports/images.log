@@ -24,17 +24,17 @@ moire.d_z2(container)
 moire.d_xy(container, translate=(3, 0))
 moire.d_xy(container, translate=(-3, 0))
 container.append(draw.Line(0, -2, 0, 2, stroke='black', stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
-container.setRenderSize(1000)
+container.setRenderSize(700)
 glue('fig:d_z2-d_xy', container)
 ------------------
 
 [0;31m------------------------------------------------------------------------[0m
 [0;31mNameError[0m                              Traceback (most recent call last)
-[0;32m<ipython-input-3-ffcc0a290505>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-3-c9e6e0bfd490>[0m in [0;36m<module>[0;34m[0m
 [1;32m      5[0m [0mmoire[0m[0;34m.[0m[0md_xy[0m[0;34m([0m[0mcontainer[0m[0;34m,[0m [0mtranslate[0m[0;34m=[0m[0;34m([0m[0;36m3[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      6[0m [0mmoire[0m[0;34m.[0m[0md_xy[0m[0;34m([0m[0mcontainer[0m[0;34m,[0m [0mtranslate[0m[0;34m=[0m[0;34m([0m[0;34m-[0m[0;36m3[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 7[0;31m [0mcontainer[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mdraw[0m[0;34m.[0m[0mLine[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;34m-[0m[0;36m2[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m2[0m[0;34m,[0m [0mstroke[0m[0;34m=[0m[0;34m'black'[0m[0;34m,[0m [0mstroke_width[0m[0;34m=[0m[0mstroke_width[0m[0;34m,[0m [0mstroke_dasharray[0m[0;34m=[0m[0;34m"0.05,0.05"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      8[0m [0mcontainer[0m[0;34m.[0m[0msetRenderSize[0m[0;34m([0m[0;36m1000[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0mcontainer[0m[0;34m.[0m[0msetRenderSize[0m[0;34m([0m[0;36m700[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      9[0m [0mglue[0m[0;34m([0m[0;34m'fig:d_z2-d_xy'[0m[0;34m,[0m [0mcontainer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;31mNameError[0m: name 'stroke_width' is not defined

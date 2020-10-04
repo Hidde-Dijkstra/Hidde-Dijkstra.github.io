@@ -15,6 +15,7 @@ jupyter:
 # Monolayer WSe$_2$
 
 
+## Lattice
 We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model by Liu et al. {cite}`three_band`. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the $xy$ plane: 
 
 
@@ -56,15 +57,32 @@ in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
 
 ```{admonition} GGA coupling constants in eV
 GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. {cite}`three_band`.
-| $t_1$| $t_2$| $t_3$| $t_{12}$| $t_{13}$| $t_{23}$| $\varepsilon_1$| $\varepsilon_3$| $\lambda_{SOC}$|
-|:----:|:----:|:----:|:-------:|:-------:|:-------:|:--------------:|:--------------:|:--------------:|
-|{glue:}`var:t_1`|{glue:}`var:t_2`|{glue:}`var:t_3`|{glue:}`var:t_12`|{glue:}`var:t_13`|{glue:}`var:t_23`|{glue:}`var:ε_1`|{glue:}`var:ε_3`|{glue:}`var:λ_SOC`|
+```{list-table}
+:header-rows: 1
+* - $t_1$
+  - $t_2$
+  - $t_3$
+  - $t_{12}$
+  - $t_{13}$
+  - $t_{23}$
+  - $\varepsilon_1$
+  - $\varepsilon_3$
+  - $\lambda_{SOC}$
+* - {glue:}`var:t_1`
+  - {glue:}`var:t_2`
+  - {glue:}`var:t_3`
+  - {glue:}`var:t_12`
+  - {glue:}`var:t_13`
+  - {glue:}`var:t_23`
+  - {glue:}`var:ε_1`
+  - {glue:}`var:ε_3`
+  - {glue:}`var:λ_SOC`|
+```
 where all energies are measured in eV. 
 ```
 
 
-
-Surprisingly, $\mathcal H_{\vec a_1}$ is not symmetric. We recognize the lack of $C_6$ symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals $d_{xy}$ and $d_{z^2}$:
+Surprisingly, $\mathcal H_0$ is not symmetric. We recognize the lack of $C_6$ symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals $d_{xy}$ and $d_{z^2}$:
 
 ```{glue:figure} fig:d_z2-d_xy
 Representation of atomic orbitals $d_{xy}$ and $d_{z^2}$, the colors represent the different signs of the lobes. We see that the $d_{z^2}$ orbital is symmetric under reflection while the $d_{xy}$ are antisymmetric.
@@ -93,17 +111,103 @@ $$
 which leads us to express $R'(\theta)$ in matrix form as:
 
 $$
-R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}\rightarrow \mathcal R=R(\pi/3)=\begin{pmatrix}-1/2&-\sqrt{3}/2\\ \sqrt{3}/2&-1/2\end{pmatrix}.
+R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}\rightarrow \mathcal R=R'(\pi/3)\oplus 1=\begin{pmatrix}-1/2&-\sqrt{3}/2\\ \sqrt{3}/2&-1/2\end{pmatrix} \oplus 1.
 $$
 
 Powers of $\mathcal R$ now rotate the orbitals towards the respective hopping axes. Next we need also rotate $\mathcal H_0$ to adhere to the lattice symmetries. We use powers of $C_6$ which we express as $\text{Diag}([1, -1, 1])$ in accordance with the arguments of the previous part on lattice symmetry. 
 
-We now give the hopping matrix for each hopping vector in $\{\vec a_1, \vec a_2, -\vec a_1+\vec a_2, -\vec a_1, -\vec a_2, \vec a_1-\vec a_2\}$ (enumeration starts at zero):
+We now give the hopping matrix for each hopping vector in: 
+
+$$A = \{ \vec a_1, \vec a_2, -\vec a_1+\vec a_2, -\vec a_1, -\vec a_2, \vec a_1-\vec a_2 \} ,$$ 
+
+where enumeration starts at zero:
 
 $$
 \mathcal H_i = \mathcal R^i C_6^i \mathcal H_0C_6^i \mathcal R^{-i}.
 $$
 
 
+## Hamiltonian
+
+The total hopping Hamiltonian is now the sum of all $\mathcal H_i$ multiplied by the appropriate complex phases:
+
+$$
+\mathcal H_{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =     \mathcal H_\text{hop}=\begin{pmatrix}
+        h_1&h_{12}&h_{13}\\ h_{12}^\dagger&h_2&h_{23}\\
+        h_{13}^\dagger&h_{23}^\dagger&h_3
+    \end{pmatrix} ,
+$$
+
+```{dropdown} with: (click dropdown for justification)
+
+We start by noticing that all rotation matrices share a quite similar form:
+
+```{list-table}The matrix expressions for $R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
+:header-rows: 1
+* - $I_3$
+  - $RC_6$
+  - $R^2C_6^2=R^2$
+  - $R^3C_6^3=C_6$
+  - $R^4C_6^4=R$
+  - $R^5C_6^5=R^2C_6$
+* - $I_2$
+  - $\begin{pmatrix}-1/2&\sqrt{3}/2\\\sqrt{3}/2&1/2 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&\sqrt{3}/2\\-\sqrt{3}/2&-1/2 \end{pmatrix}$
+  - $\begin{pmatrix}1&0\\0&-1 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\-\sqrt{3}/2&1/2 \end{pmatrix}$ 
+```
+As such we can express all of them as some variant of:
+
+$$
+\mathcal \tilde R(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha &\beta&0\\
+    \beta'&\alpha'&0\\
+    0&0&1
+    \end{pmatrix}
+$$
+
+where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal R$ come from table \ref{tab:rotation matrices}:
+
+$$
+    \mathcal M=\mathcal {\rildeRH_0\tilde R}^\dagger=
+    \begin{pmatrix}
+        \alpha^2t_1+\beta^2t_2&\alpha\beta'(t_1-t_2)+(\alpha\alpha'-\beta\beta')t_{12}&\alpha t_{13}+\beta t_{23}\\
+        \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&\alpha^2t_2+\beta^2t_1&\beta't_{13}+\alpha't_{23}\\
+        \alpha t_{13}-\beta t_{23}&\beta't_{13}-\alpha't_{23}&t_3
+        \label{eq:rot applied}
+    \end{pmatrix},
+$$
+
+```
+```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$.
+:header-rows: 1
+* -  
+  - Real
+  - Imaginary
+* - $h_1$
+  - $2t_1\cos 2\tilde k_x+(t_1+3t_2)\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_2$
+  - $2t_2\cos 2\tilde k_x+(t_2+3t_1)\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_3$
+  - $2t_3\cos 2\tilde k_x+4t_3\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_{12}$
+  - $\sqrt3(t_2-t_1)\sin\tilde k_x\sin\tilde k_y$
+  - $2t_{12}(\sin 2\tilde k_x-2\sin\tilde k_x\cos\tilde k_y)$
+* - $h_{13}$
+  - $2t_{13}(\cos2\tilde k_x-\cos\tilde k_x\cos\tilde k_y)$
+  - $2\sqrt{3}t_{23}\cos\tilde k_x\sin\tilde k_y$
+* - $h_{23}$
+  - $-2\sqrt3t_{13}\sin\tilde k_x\sin\tilde k_y$
+  - $2t_{23}(\sin 2\tilde k_x+\sin\tilde k_x\cos\tilde k_y)$
+```
+
+
 ```{bibliography} references.bib
+```
+
+```python
+
 ```
