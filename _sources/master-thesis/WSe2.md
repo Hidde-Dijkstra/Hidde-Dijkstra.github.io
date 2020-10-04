@@ -23,13 +23,17 @@ Triangular lattice of WSe$_2$, the blue atoms respresent the tungsten atoms whil
 ```
 
 with real space unit vectors:
-```{math}
+
+$$
 \vec a_1=\begin{pmatrix}1\\ 0\end{pmatrix}\text{ and } \vec a_2=\frac12\begin{pmatrix}1\\ \sqrt{3}\end{pmatrix},    
-```
+$$
+
 and reciprocal lattice vectors:
-```{math}
+
+$$
 \vec b_1=2\pi\begin{pmatrix}1\\ -1/\sqrt{3}\end{pmatrix}\text{ and } \vec b_2=2\pi\begin{pmatrix}0\\ 2/\sqrt{3}\end{pmatrix},    
-```
+$$
+
 where length is in units of the lattice spacing $a$ between two tungsten atoms.
 
 
@@ -39,13 +43,13 @@ The symmetric point group of this triangular lattice is $D_3$ with generators $\
 
 We restrict the orbitals of tungsten to the $d$ orbitals $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$, which dictate the low energy $K$ points. The other orbitals are either at a different energy scale or do not mix with these orbitals due to the symmetries of the lattice. The tight binding hopping matrix between these orbitals in the hopping direction $\vec a_1$ writes:
 
-```{math}
-    \mathcal H_{\vec{a}_1} = \begin{pmatrix}
+$$
+    \mathcal H_0 = \begin{pmatrix}
         t_1&t_{12}&t_{13}\\
         -t_{12}&t_2&t_{23}\\
         t_{13}&-t_{23}&t_3
     \end{pmatrix},
-```
+$$
 
 in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
 
@@ -78,17 +82,26 @@ Two $d_{x^2-y^2}$ orbitals at angle $\theta$ with respect to the principal axis 
 
 We can however decompose any misaligned $d$ orbital as a linear sum of all $d$ orbitals aligned with the hopping axis. Since $d_{z^2}$ is symmetric under rotation in the $xy$ plane we can exclude this orbital from our analysis. We assume the existence of some matrix $R(\theta) = R'(\theta)\oplus 1$ which governs rotations in our basis and apply it to the $d_{x^2-y^2}$ orbital:
 
-```{math}
+$$
 \begin{align*}
 R'(\theta)|{x^2-y^2}\rangle &= |{(x\cos\theta +y\sin\theta )^2-(y\cos\theta -x\sin\theta )^2}\rangle\\
 &=|{x^2\cos^2\theta +y^2\sin^2\theta +xy\sin2\theta-y^2\cos^2\theta -x^2\sin^2\theta +xy\sin2\theta}\rangle\\
 &=\cos2\theta|x^2-y^2\rangle + \sin2\theta|2xy\rangle,
 \end{align*}
-```
+$$
+
 which leads us to express $R'(\theta)$ in matrix form as:
 
 $$
-R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}.
+R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}\rightarrow \mathcal R=R(\pi/3)=\begin{pmatrix}-1/2&-\sqrt{3}/2\\ \sqrt{3}/2&-1/2\end{pmatrix}.
+$$
+
+Powers of $\mathcal R$ now rotate the orbitals towards the respective hopping axes. Next we need also rotate $\mathcal H_0$ to adhere to the lattice symmetries. We use powers of $C_6$ which we express as $\text{Diag}([1, -1, 1])$ in accordance with the arguments of the previous part on lattice symmetry. 
+
+We now give the hopping matrix for each hopping vector in $\{\vec a_1, \vec a_2, -\vec a_1+\vec a_2, -\vec a_1, -\vec a_2, \vec a_1-\vec a_2\}$ (enumeration starts at zero):
+
+$$
+\mathcal H_i = \mathcal R^i C_6^i \mathcal H_0C_6^i \mathcal R^{-i}.
 $$
 
 
