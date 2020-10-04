@@ -86,6 +86,7 @@ R'(\theta)|{x^2-y^2}\rangle &= |{(x\cos\theta +y\sin\theta )^2-(y\cos\theta -x\s
 \end{align*}
 ```
 which leads us to express $R'(\theta)$ in matrix form as:
+
 $$
 R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}.
 $$
