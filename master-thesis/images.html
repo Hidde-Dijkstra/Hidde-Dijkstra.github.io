@@ -255,13 +255,26 @@
 <span class="n">moire</span><span class="o">.</span><span class="n">d_z2</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
 <span class="n">moire</span><span class="o">.</span><span class="n">d_xy</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">moire</span><span class="o">.</span><span class="n">d_xy</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">stroke_width</span><span class="o">=</span><span class="n">stroke_width</span><span class="p">,</span> <span class="n">stroke_dasharray</span><span class="o">=</span><span class="s2">&quot;0.05,0.05&quot;</span><span class="p">))</span>
 <span class="n">container</span><span class="o">.</span><span class="n">setRenderSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;fig:d_z2-d_xy&#39;</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_5_0.svg" src="../_images/images_5_0.svg" /></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">ffcc0a290505</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">moire</span><span class="o">.</span><span class="n">d_xy</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">moire</span><span class="o">.</span><span class="n">d_xy</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">stroke_width</span><span class="o">=</span><span class="n">stroke_width</span><span class="p">,</span> <span class="n">stroke_dasharray</span><span class="o">=</span><span class="s2">&quot;0.05,0.05&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">container</span><span class="o">.</span><span class="n">setRenderSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;fig:d_z2-d_xy&#39;</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;stroke_width&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="rotating-orbitals">
 <h3>Rotating orbitals<a class="headerlink" href="#rotating-orbitals" title="Permalink to this headline">¶</a></h3>
