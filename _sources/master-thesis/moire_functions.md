@@ -117,29 +117,33 @@ class LatticeAtom:
         if self.name != None:
             atom_components.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
         return atom_components 
-    
-        
+```
+
+## Drawing orbitals
+
+```{code-cell} ipython3
 class Orbital:  
     
     
     def lobe(self, color, rotate=0, translate=(0, 0), stroke="black", **kwargs):
-        gradient = draw.RadialGradient(0, 100, 50)
+        gradient = draw.RadialGradient(0, 1, 0.5)
         gradient.addStop(0, 'white', 0.7)
-        gradient.addStop(173.21, color, 0.7)
+        gradient.addStop(np.sqrt(3), color, 0.7)
         transform = "translate(" + " ".join([str(i) for i in translate]) + ")\nrotate(" + str(rotate) + " 0 0)"
-        return draw.Path(d="M 0,0 C -173.21,-200 173.21,-200 0,0 z", stroke=stroke, fill=gradient, transform=transform, **kwargs)
+        my_path = "M 0,0 C " + str(-np.sqrt(3)) + ",-2 " + str(np.sqrt(3)) +",-2 0,0 z"
+        return draw.Path(d=my_path, stroke=stroke, stroke_width=0.01, fill=gradient, transform=transform, **kwargs)
     
     def circle(self, color, ellipse=False, rotate=0, translate=(0, 0), stroke="black", **kwargs):
-        gradient = draw.RadialGradient(0, 0, 50)
+        gradient = draw.RadialGradient(0, 0, 0.5)
         gradient.addStop(0, 'white', 0.7)
-        gradient.addStop(173.21, color, 0.7)
+        gradient.addStop(np.sqrt(3), color, 0.7)
         transform = "rotate(" + str(rotate) + " 0 0)\ntranslate(" + " ".join([str(i) for i in translate]) + ")"
         if ellipse:
             clip = draw.ClipPath()
-            clip.append(draw.Ellipse(0, 0, 50, 12.5, transform=transform))
-            return draw.Ellipse(0, 0, 100, 25, stroke=stroke, fill=gradient, transform=transform, **kwargs) 
+            clip.append(draw.Ellipse(0, 0, 0.5, 0.125, transform=transform))
+            return draw.Ellipse(0, 0, 1, 0.25, stroke=stroke, stroke_width=0.01, fill=gradient, transform=transform, **kwargs) 
         else:
-            return draw.Circle(0, 0, 50, stroke=stroke, fill=gradient, transform=transform, **kwargs)
+            return draw.Circle(0, 0, 0.5, stroke=stroke, stroke_width=0.01, fill=gradient, transform=transform, **kwargs)
 
 class d_xy(Orbital):
     
@@ -155,6 +159,14 @@ class d_z2(Orbital):
         container.append(self.lobe("dodgerblue", rotate=180+rotate, translate=translate))
         container.append(self.circle("red", ellipse=True, rotate=rotate, translate=translate))
         container.append(self.lobe("dodgerblue", rotate=rotate, translate=translate))
+        
+class d_x2y2(Orbital):
+    
+    def __init__(self, container, translate=(0, 0), rotate=0):
+        container.append(self.lobe("dodgerblue", rotate=180+rotate, translate=translate))
+        container.append(self.lobe("dodgerblue", rotate=rotate, translate=translate))
+        container.append(self.lobe("red", rotate=90+rotate, translate=translate))
+        container.append(self.lobe("red", rotate=270+rotate, translate=translate))
 
 def rot_mat(θ):
     return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])

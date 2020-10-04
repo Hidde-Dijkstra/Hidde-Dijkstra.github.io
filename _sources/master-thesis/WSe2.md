@@ -68,5 +68,14 @@ Representation of atomic orbitals $d_{xy}$ and $d_{z^2}$, the colors represent t
 Mirroring the hopping direction is equivalent to applying a reflection with respect to the $y$-axis. The $d_{xy}$ orbital changes sign under this operation so $t_{32}=-t_{23}$. If this reflection was a symmetry element of the lattice we would require $t_{32}=t_{23}$, forcing $t_{23}=0$. We can use a similar argument to exclude the $d_{xz}$ and $d_{yz}$ orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the $xy$ plane.
 
 
+## Rotating orbitals
+
+Having figured out the hopping terms for $\pm\vec a_1$, we need also formulate the coupling between orbitals at an angle with respect to the principal axis:
+
+```{glue:figure} fig:rotate_orbital
+Two $d_{x^2-y^2}$ orbitals at angle $\theta$ with respect to the principal axis of the orbitals.
+```
+
+
 ```{bibliography} references.bib
 ```
