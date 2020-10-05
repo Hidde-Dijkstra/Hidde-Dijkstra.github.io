@@ -142,7 +142,7 @@ $$
 
 We start by noticing that all rotation matrices share a quite similar form:
 
-:::{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
+```{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
 :header-rows: 1
 * - $I_3$
   - $\mathcal RC_6$
@@ -156,20 +156,17 @@ We start by noticing that all rotation matrices share a quite similar form:
   - $\begin{pmatrix}1&0\\0&-1 \end{pmatrix}$
   - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2 \end{pmatrix}$
   - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\-\sqrt{3}/2&1/2 \end{pmatrix}$ 
-:::
+```
 As such we can express all of them as some variant of:
 
 $$
-\mathcal \tilde R(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha &\beta&0\\
-    \beta'&\alpha'&0\\
-    0&0&1
-    \end{pmatrix}
+\mathcal \tilde R(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&\beta&0\\\beta'&\alpha'&0\\0&0&1\end{pmatrix}
 $$
 
 where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal R$ come from table \ref{tab:rotation matrices}:
 
 $$
-    \mathcal M=\mathcal {\rilde RH_0\tilde R}^\dagger=
+    \mathcal M=\mathcal {\tilde RH_0\tilde R}^\dagger=
     \begin{pmatrix}
         \alpha^2t_1+\beta^2t_2&\alpha\beta'(t_1-t_2)+(\alpha\alpha'-\beta\beta')t_{12}&\alpha t_{13}+\beta t_{23}\\
         \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&\alpha^2t_2+\beta^2t_1&\beta't_{13}+\alpha't_{23}\\
