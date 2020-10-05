@@ -59,6 +59,7 @@ in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
 GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. {cite}`three_band`.
 ```{list-table}
 :header-rows: 1
+:name: tab:constants
 * - $t_1$
   - $t_2$
   - $t_3$
@@ -144,7 +145,7 @@ We start by noticing that all rotation matrices share a quite similar form:
 
 ```{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
 :header-rows: 1
-:name: rotation-matrices
+:name: tab:rotation-matrices
 * - $I_3$
   - $\mathcal RC_6$
   - $\mathcal R^2C_6^2=\mathcal R^2$
@@ -164,7 +165,7 @@ $$
 \mathcal{\tilde R}(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&\beta&0\\\beta'&\alpha'&0\\0&0&1\end{pmatrix}
 $$
 
-where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal{\tilde R}$ come from {numref}`rotation-matrices`:
+where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal{\tilde R}$ come from {numref}`tab:rotation-matrices`:
 
 $$
     \mathcal M=\mathcal {\tilde RH_0\tilde R}^\dagger=
@@ -173,19 +174,21 @@ $$
         \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&\alpha^2t_2+\beta^2t_1&\beta't_{13}+\alpha't_{23}\\
         \alpha t_{13}-\beta t_{23}&\beta't_{13}-\alpha't_{23}&t_3
         \label{eq:rot applied}
-    \end{pmatrix},
+    \end{pmatrix}.
 $$
 
-Now we can express the hopping Hamiltonian as a sum of $\mathcal M$ matrices:
+Now we express the hopping Hamiltonian as a sum of $\mathcal M$ matrices:
 
 $$
-\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\e{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\e{i\sigma k_x/2+i\tau k_y\sqrt3/2}
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e{i\sigma k_x/2+i\tau k_y\sqrt3/2},
 $$
 
+the advantage of which is that we quickly see which terms contribute (co)sines. For example we see that a component proportional to $\alpha\beta'\propto \sigma\tau$ will result in a sine for both $k_x$ and $k_y$ for the second sum. Collecting all terms we acquire {numref}`tab:hopping-terms`  
 ````
 
-```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$.
+```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$. We split the terms in real and imaginary parts for clarity.
 :header-rows: 1
+:name: tab:hopping-terms
 * -  
   - Real
   - Imaginary
@@ -208,6 +211,22 @@ $$
   - $-2\sqrt3t_{13}\sin\tilde k_x\sin\tilde k_y$
   - $2t_{23}(\sin 2\tilde k_x+\sin\tilde k_x\cos\tilde k_y)$
 ```
+
+Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow {cite}`three_band` which gives the SOC contribution of the Hamiltonian as $\lambda_{SOC}/2\cdot\mathbf{L\cdot S}$, with pure $z$ polarized spin, doubling the degrees of freedom. We write, with $\sigma=\pm1$ as the two spin possibilities:
+
+$$
+    \mathcal H_\text{on-site}(\sigma)=\begin{pmatrix}
+        \varepsilon_{1}&\lambda_\text{SOC}\sigma i&0\\
+        -\lambda_\text{SOC}\sigma i&\varepsilon_{1}&0\\
+        0&0&\varepsilon_{3}
+    \end{pmatrix},
+$$
+
+with $\varepsilon$ the energy of the $d_{x^2-y^2}$ and $d_{xy}$ orbitals, which are equal due to symmetry. $\varepsilon_3$ is the energy of the $d_{z^2}$ orbital. All values are given in {numref}`tab:constants`. The total Hamiltonian is:
+
+$$
+\mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
+$$
 
 
 ```{bibliography} references.bib

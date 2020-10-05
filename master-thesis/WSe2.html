@@ -212,10 +212,10 @@
 <div class="section" id="lattice">
 <h2>Lattice<a class="headerlink" href="#lattice" title="Permalink to this headline">¶</a></h2>
 <p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model by Liu et al. <a class="bibtex reference internal" href="#three-band" id="id1">[LSY+13]</a>. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id4">
 <div class="cell_output docutils container">
 <img alt="../_images/images_3_0.svg" src="../_images/images_3_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Triangular lattice of WSe<span class="math notranslate nohighlight">\(_2\)</span>, the blue atoms respresent the tungsten atoms while the red the (di)selenide.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Triangular lattice of WSe<span class="math notranslate nohighlight">\(_2\)</span>, the blue atoms respresent the tungsten atoms while the red the (di)selenide.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>with real space unit vectors:</p>
 <div class="math notranslate nohighlight">
@@ -245,7 +245,7 @@
 <div class="admonition-gga-coupling-constants-in-ev admonition">
 <p class="admonition-title">GGA coupling constants in eV</p>
 <p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <a class="bibtex reference internal" href="#three-band" id="id2">[LSY+13]</a>.</p>
-<table class="table">
+<table class="table" id="tab-constants">
 <colgroup>
 <col style="width: 11%" />
 <col style="width: 11%" />
@@ -285,20 +285,20 @@
 <p>where all energies are measured in eV.</p>
 </div>
 <p>Surprisingly, <span class="math notranslate nohighlight">\(\mathcal H_0\)</span> is not symmetric. We recognize the lack of <span class="math notranslate nohighlight">\(C_6\)</span> symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>:</p>
-<div class="figure align-default" id="id4">
+<div class="figure align-default" id="id5">
 <div class="cell_output docutils container">
 <img alt="../_images/images_5_0.svg" src="../_images/images_5_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Representation of atomic orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, the colors represent the different signs of the lobes. We see that the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital is symmetric under reflection while the <span class="math notranslate nohighlight">\(d_{xy}\)</span> are antisymmetric.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Representation of atomic orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, the colors represent the different signs of the lobes. We see that the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital is symmetric under reflection while the <span class="math notranslate nohighlight">\(d_{xy}\)</span> are antisymmetric.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>Mirroring the hopping direction is equivalent to applying a reflection with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis. The <span class="math notranslate nohighlight">\(d_{xy}\)</span> orbital changes sign under this operation so <span class="math notranslate nohighlight">\(t_{32}=-t_{23}\)</span>. If this reflection was a symmetry element of the lattice we would require <span class="math notranslate nohighlight">\(t_{32}=t_{23}\)</span>, forcing <span class="math notranslate nohighlight">\(t_{23}=0\)</span>. We can use a similar argument to exclude the <span class="math notranslate nohighlight">\(d_{xz}\)</span> and <span class="math notranslate nohighlight">\(d_{yz}\)</span> orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the <span class="math notranslate nohighlight">\(xy\)</span> plane.</p>
 </div>
 <div class="section" id="rotating-orbitals">
 <h2>Rotating orbitals<a class="headerlink" href="#rotating-orbitals" title="Permalink to this headline">¶</a></h2>
 <p>Having figured out the hopping terms for <span class="math notranslate nohighlight">\(\pm\vec a_1\)</span>, we need also formulate the coupling between orbitals at an angle with respect to the principal axis:</p>
-<div class="figure align-default" id="id5">
+<div class="figure align-default" id="id6">
 <div class="cell_output docutils container">
 <img alt="../_images/images_7_0.svg" src="../_images/images_7_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Two <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals at angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect to the principal axis of the orbitals.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Two <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals at angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect to the principal axis of the orbitals.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>We can however decompose any misaligned <span class="math notranslate nohighlight">\(d\)</span> orbital as a linear sum of all <span class="math notranslate nohighlight">\(d\)</span> orbitals aligned with the hopping axis. Since <span class="math notranslate nohighlight">\(d_{z^2}\)</span> is symmetric under rotation in the <span class="math notranslate nohighlight">\(xy\)</span> plane we can exclude this orbital from our analysis. We assume the existence of some matrix <span class="math notranslate nohighlight">\(R(\theta) = R'(\theta)\oplus 1\)</span> which governs rotations in our basis and apply it to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbital:</p>
 <div class="math notranslate nohighlight">
@@ -342,8 +342,8 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
 <p class="card-text">We start by noticing that all rotation matrices share a quite similar form:</p>
-<table class="table" id="rotation-matrices">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">The matrix expressions for <span class="math notranslate nohighlight">\(\mathcal R^iC_6^i\)</span> excluding the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> component which is block diagonal.</span><a class="headerlink" href="#rotation-matrices" title="Permalink to this table">¶</a></caption>
+<table class="table" id="tab-rotation-matrices">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">The matrix expressions for <span class="math notranslate nohighlight">\(\mathcal R^iC_6^i\)</span> excluding the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> component which is block diagonal.</span><a class="headerlink" href="#tab-rotation-matrices" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 17%" />
@@ -376,7 +376,7 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 \[\begin{split}
 \mathcal{\tilde R}(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&amp;\beta&amp;0\\\beta'&amp;\alpha'&amp;0\\0&amp;0&amp;1\end{pmatrix}
 \end{split}\]</div>
-<p class="card-text">where <span class="math notranslate nohighlight">\(\alpha^2=\alpha'^2\)</span>, <span class="math notranslate nohighlight">\(\beta^2=\beta'^2\)</span> and <span class="math notranslate nohighlight">\(\alpha\beta'=-\alpha'\beta\)</span>. This rotation allows a general expression for the matrix components of <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> where the constants in <span class="math notranslate nohighlight">\(\mathcal{\tilde R}\)</span> come from <a class="reference internal" href="#rotation-matrices"><span class="std std-numref">Table 1</span></a>:</p>
+<p class="card-text">where <span class="math notranslate nohighlight">\(\alpha^2=\alpha'^2\)</span>, <span class="math notranslate nohighlight">\(\beta^2=\beta'^2\)</span> and <span class="math notranslate nohighlight">\(\alpha\beta'=-\alpha'\beta\)</span>. This rotation allows a general expression for the matrix components of <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> where the constants in <span class="math notranslate nohighlight">\(\mathcal{\tilde R}\)</span> come from <a class="reference internal" href="#tab-rotation-matrices"><span class="std std-numref">Table 2</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     \mathcal M=\mathcal {\tilde RH_0\tilde R}^\dagger=
@@ -385,16 +385,17 @@ with: (click dropdown for justification)<div class="summary-down docutils">
         \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&amp;\alpha^2t_2+\beta^2t_1&amp;\beta't_{13}+\alpha't_{23}\\
         \alpha t_{13}-\beta t_{23}&amp;\beta't_{13}-\alpha't_{23}&amp;t_3
         \label{eq:rot applied}
-    \end{pmatrix},
+    \end{pmatrix}.
 \end{split}\]</div>
-<p class="card-text">Now we can express the hopping Hamiltonian as a sum of <span class="math notranslate nohighlight">\(\mathcal M\)</span> matrices:</p>
+<p class="card-text">Now we express the hopping Hamiltonian as a sum of <span class="math notranslate nohighlight">\(\mathcal M\)</span> matrices:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\e{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\e{i\sigma k_x/2+i\tau k_y\sqrt3/2}
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e{i\sigma k_x/2+i\tau k_y\sqrt3/2},
 \]</div>
+<p class="card-text">the advantage of which is that we quickly see which terms contribute (co)sines. For example we see that a component proportional to <span class="math notranslate nohighlight">\(\alpha\beta'\propto \sigma\tau\)</span> will result in a sine for both <span class="math notranslate nohighlight">\(k_x\)</span> and <span class="math notranslate nohighlight">\(k_y\)</span> for the second sum. Collecting all terms we acquire <a class="reference internal" href="#tab-hopping-terms"><span class="std std-numref">Table 3</span></a></p>
 </div>
-</details><table class="table" id="id6">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Hamiltonian components with <span class="math notranslate nohighlight">\(\tilde k_x=k_x/2\)</span> and <span class="math notranslate nohighlight">\(\tilde k_y = k_y\cdot \sqrt3/2\)</span>.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+</details><table class="table" id="tab-hopping-terms">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Hamiltonian components with <span class="math notranslate nohighlight">\(\tilde k_x=k_x/2\)</span> and <span class="math notranslate nohighlight">\(\tilde k_y = k_y\cdot \sqrt3/2\)</span>. We split the terms in real and imaginary parts for clarity.</span><a class="headerlink" href="#tab-hopping-terms" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -433,11 +434,25 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 </tr>
 </tbody>
 </table>
+<p>Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow <a class="bibtex reference internal" href="#three-band" id="id3">[LSY+13]</a> which gives the SOC contribution of the Hamiltonian as <span class="math notranslate nohighlight">\(\lambda_{SOC}/2\cdot\mathbf{L\cdot S}\)</span>, with pure <span class="math notranslate nohighlight">\(z\)</span> polarized spin, doubling the degrees of freedom. We write, with <span class="math notranslate nohighlight">\(\sigma=\pm1\)</span> as the two spin possibilities:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathcal H_\text{on-site}(\sigma)=\begin{pmatrix}
+        \varepsilon_{1}&amp;\lambda_\text{SOC}\sigma i&amp;0\\
+        -\lambda_\text{SOC}\sigma i&amp;\varepsilon_{1}&amp;0\\
+        0&amp;0&amp;\varepsilon_{3}
+    \end{pmatrix},
+\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\varepsilon\)</span> the energy of the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> and <span class="math notranslate nohighlight">\(d_{xy}\)</span> orbitals, which are equal due to symmetry. <span class="math notranslate nohighlight">\(\varepsilon_3\)</span> is the energy of the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital. All values are given in <a class="reference internal" href="#tab-constants"><span class="std std-numref">Table 1</span></a>. The total Hamiltonian is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
+\]</div>
 <p id="bibtex-bibliography-master-thesis/WSe2-0"><dl class="citation">
 <dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
 <dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
 </dd>
-<dt class="bibtex label" id="three-band"><span class="brackets">LSY+13</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dt class="bibtex label" id="three-band"><span class="brackets">LSY+13</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
 <dd><p>Gui-Bin Liu, Wen-Yu Shan, Yugui Yao, Wang Yao, and Di Xiao. Three-band tight-binding model for monolayers of group-vib transition metal dichalcogenides. <em>Phys. Rev. B</em>, 88:085433, Aug 2013. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevB.88.085433">https://link.aps.org/doi/10.1103/PhysRevB.88.085433</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevB.88.085433">doi:10.1103/PhysRevB.88.085433</a>.</p>
 </dd>
 <dt class="bibtex label" id="twse2-experiment"><span class="brackets">WSG+19</span></dt>
