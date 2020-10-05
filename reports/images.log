@@ -17,26 +17,11 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-container = draw.Drawing(10, 3.5, origin="center")
-orb = moire.Orbital()
-#container.append(orb.lobe('blue'))
-moire.d_z2(container)
-moire.d_xy(container, translate=(3, 0))
-moire.d_xy(container, translate=(-3, 0))
-container.append(draw.Line(0, -2, 0, 2, stroke='black', stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
-container.setRenderSize(700)
-glue('fig:d_z2-d_xy', container)
+*([0, 1])
 ------------------
 
-[0;31m--------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-3-c9e6e0bfd490>[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0mmoire[0m[0;34m.[0m[0md_xy[0m[0;34m([0m[0mcontainer[0m[0;34m,[0m [0mtranslate[0m[0;34m=[0m[0;34m([0m[0;36m3[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0mmoire[0m[0;34m.[0m[0md_xy[0m[0;34m([0m[0mcontainer[0m[0;34m,[0m [0mtranslate[0m[0;34m=[0m[0;34m([0m[0;34m-[0m[0;36m3[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 7[0;31m [0mcontainer[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mdraw[0m[0;34m.[0m[0mLine[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0;34m-[0m[0;36m2[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m2[0m[0;34m,[0m [0mstroke[0m[0;34m=[0m[0;34m'black'[0m[0;34m,[0m [0mstroke_width[0m[0;34m=[0m[0mstroke_width[0m[0;34m,[0m [0mstroke_dasharray[0m[0;34m=[0m[0;34m"0.05,0.05"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      8[0m [0mcontainer[0m[0;34m.[0m[0msetRenderSize[0m[0;34m([0m[0;36m700[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      9[0m [0mglue[0m[0;34m([0m[0;34m'fig:d_z2-d_xy'[0m[0;34m,[0m [0mcontainer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;36m  File [0;32m"<ipython-input-8-3c2976f43949>"[0;36m, line [0;32m4[0m
+[0;31mSyntaxError[0m[0;31m:[0m can't use starred expression here
 
-[0;31mNameError[0m: name 'stroke_width' is not defined
-NameError: name 'stroke_width' is not defined
+SyntaxError: can't use starred expression here (<ipython-input-8-3c2976f43949>, line 4)
 

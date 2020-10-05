@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="500" height="500.0" viewBox="-1.5 -1.5 3 3">
+<defs>
+<marker markerWidth="4.0" markerHeight="4.0" viewBox="-0.25 -0.5 1.0 1.0" orient="auto" id="d0">
+<path d="M-0.25,0.5 L-0.25,-0.5 L0.75,0 Z" fill="red" />
+</marker>
+<marker markerWidth="4.0" markerHeight="4.0" viewBox="-0.25 -0.5 1.0 1.0" orient="auto" id="d1">
+<path d="M-0.25,0.5 L-0.25,-0.5 L0.75,0 Z" fill="red" />
+</marker>
+<marker markerWidth="4.0" markerHeight="4.0" viewBox="-0.25 -0.5 1.0 1.0" orient="auto" id="d2">
+<path d="M-0.25,0.5 L-0.25,-0.5 L0.75,0 Z" fill="red" />
+</marker>
+</defs>
+<path d="M1,0 L0.5,-0.8660254037844386 L-0.5,-0.8660254037844386 L-1,0 L-0.5,0.8660254037844386 L0.5,0.8660254037844386 Z" stroke-width="0.01" stroke="blue" />
+<path d="M0,0 L0.455,-0.0" stroke="red" stroke-width="0.015" fill="none" marker-end="url(#d0)" />
+<path d="M0,0 L1,0" stroke="red" stroke-width="0.015" />
+<path d="M1,0 L0.8975,-0.1775352077758099" stroke="red" stroke-width="0.015" fill="none" marker-end="url(#d1)" />
+<path d="M1,0 L0.75,-0.4330127018922193" stroke="red" stroke-width="0.015" />
+<path d="M0.75,-0.4330127018922193 L0.41397114317029976,-0.23900635094610967" stroke="red" stroke-width="0.015" fill="none" marker-end="url(#d2)" />
+<path d="M0.75,-0.4330127018922193 L0,0" stroke="red" stroke-width="0.015" />
+<circle cx="0" cy="0" r="0.02" fill="red" />
+<text x="-0.1" y="-0.0" font-size="0.2" fill="black" text-anchor="middle" transform="translate(0,0.06)">Γ</text>
+<circle cx="1" cy="0" r="0.02" fill="red" />
+<text x="1.1" y="-0.0" font-size="0.2" fill="black" text-anchor="middle" transform="translate(0,0.06)">K</text>
+<circle cx="0.75" cy="-0.4330127018922193" r="0.02" fill="red" />
+<text x="0.85" y="-0.5330127018922193" font-size="0.2" fill="black" text-anchor="middle" transform="translate(0,0.06)">M</text>
+</svg>

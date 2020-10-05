@@ -197,6 +197,11 @@
    Hamiltonian
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#band-structure">
+   Band structure
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -266,7 +271,7 @@
 <th class="head"><p><span class="math notranslate nohighlight">\(t_{23}\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\varepsilon_1\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\varepsilon_3\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(\lambda_{SOC}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -329,7 +334,7 @@ R'(\theta)=\begin{pmatrix}\cos2\theta&amp;-\sin2\theta\\ \sin2\theta&amp;\cos2\t
 <p>The total hopping Hamiltonian is now the sum of all <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> multiplied by the appropriate complex phases:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mathcal H_{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
+\mathcal H_\text{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
         h_1&amp;h_{12}&amp;h_{13}\\ h_{12}^\dagger&amp;h_2&amp;h_{23}\\
         h_{13}^\dagger&amp;h_{23}^\dagger&amp;h_3
     \end{pmatrix} ,
@@ -390,7 +395,7 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 <p class="card-text">Now we express the hopping Hamiltonian as a sum of <span class="math notranslate nohighlight">\(\mathcal M\)</span> matrices:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e{i\sigma k_x/2+i\tau k_y\sqrt3/2},
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e^{i\sigma k_x/2+i\tau k_y\sqrt3/2},
 \]</div>
 <p class="card-text">the advantage of which is that we quickly see which terms contribute (co)sines. For example we see that a component proportional to <span class="math notranslate nohighlight">\(\alpha\beta'\propto \sigma\tau\)</span> will result in a sine for both <span class="math notranslate nohighlight">\(k_x\)</span> and <span class="math notranslate nohighlight">\(k_y\)</span> for the second sum. Collecting all terms we acquire <a class="reference internal" href="#tab-hopping-terms"><span class="std std-numref">Table 3</span></a></p>
 </div>
@@ -448,6 +453,32 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 \[
 \mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
 \]</div>
+</div>
+<div class="section" id="band-structure">
+<h2>Band structure<a class="headerlink" href="#band-structure" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="figure align-default" id="fig-k-path">
+<div class="cell_output docutils container">
+<img alt="../_images/images_11_0.svg" src="../_images/images_11_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Path along high symmetry points of the Brillouin zone: <span class="math notranslate nohighlight">\(\Gamma:(0,\,0)\)</span>, <span class="math notranslate nohighlight">\(K:(4\pi/3, \,0)\)</span> and <span class="math notranslate nohighlight">\(M:(\pi,\,\pi/\sqrt3)\)</span>.</span><a class="headerlink" href="#fig-k-path" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>We solve for the bandstructure along the path connecting the high symmetry <span class="math notranslate nohighlight">\(\Gamma\)</span>, <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(M\)</span> points as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">k_path</span></code>. We set the zero of energy at the maximum of the valence band, at the <span class="math notranslate nohighlight">\(K\)</span> point: <span class="math notranslate nohighlight">\((4\pi/3, \,0)\)</span>. Here the couplings with the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital in <a class="reference internal" href="#tab-hopping-terms"><span class="std std-numref">Table 3</span></a> go to zero and we solve for the eigenvalues of the Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal H^\sigma(K) = \begin{pmatrix}
+        -\frac32(t_1+t_2)+\varepsilon_1&amp;-i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)\\
+        i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)&amp;-\frac32(t_1+t_2)+\varepsilon_1
+    \end{pmatrix}
+    \oplus \begin{pmatrix}-3t_3+\varepsilon_3\end{pmatrix},
+\end{split}\]</div>
+<p>and we conclude that the maximum of the valence band is at energy:</p>
+<div class="math notranslate nohighlight">
+\[
+    E_K(\sigma) = \varepsilon_1-\frac32(t_1+t_2)-(3\sqrt3t_{12}-\lambda_\text{SOC}\sigma).
+\]</div>
+<p>We notice that the SOC lowers (raises) the <span class="math notranslate nohighlight">\(K\)</span> point of the valence band, at the <span class="math notranslate nohighlight">\(-K\)</span> point the opposite takes place. The <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(-K\)</span> points of the conduction band at energies <span class="math notranslate nohighlight">\(-3t_3+\varepsilon_3\)</span> are however unaffected.</p>
 <p id="bibtex-bibliography-master-thesis/WSe2-0"><dl class="citation">
 <dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
 <dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
@@ -460,9 +491,6 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 </dd>
 </dl>
 </p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 

@@ -68,7 +68,7 @@ GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscri
   - $t_{23}$
   - $\varepsilon_1$
   - $\varepsilon_3$
-  - $\lambda_{SOC}$
+  - $\lambda_\text{SOC}$
 * - {glue:}`var:t_1`
   - {glue:}`var:t_2`
   - {glue:}`var:t_3`
@@ -133,7 +133,7 @@ $$
 The total hopping Hamiltonian is now the sum of all $\mathcal H_i$ multiplied by the appropriate complex phases:
 
 $$
-\mathcal H_{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
+\mathcal H_\text{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
         h_1&h_{12}&h_{13}\\ h_{12}^\dagger&h_2&h_{23}\\
         h_{13}^\dagger&h_{23}^\dagger&h_3
     \end{pmatrix} ,
@@ -180,7 +180,7 @@ $$
 Now we express the hopping Hamiltonian as a sum of $\mathcal M$ matrices:
 
 $$
-\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e{i\sigma k_x/2+i\tau k_y\sqrt3/2},
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e^{i\sigma k_x/2+i\tau k_y\sqrt3/2},
 $$
 
 the advantage of which is that we quickly see which terms contribute (co)sines. For example we see that a component proportional to $\alpha\beta'\propto \sigma\tau$ will result in a sine for both $k_x$ and $k_y$ for the second sum. Collecting all terms we acquire {numref}`tab:hopping-terms`  
@@ -229,9 +229,33 @@ $$
 $$
 
 
-```{bibliography} references.bib
+## Band structure
+
+````{margin}
+```{glue:figure} fig:k_path
+:name: fig:k_path
+Path along high symmetry points of the Brillouin zone: $\Gamma:(0,\,0)$, $K:(4\pi/3, \,0)$ and $M:(\pi,\,\pi/\sqrt3)$.
 ```
+````
 
-```python
+We solve for the bandstructure along the path connecting the high symmetry $\Gamma$, $K$ and $M$ points as shown in {numref}`k_path`. We set the zero of energy at the maximum of the valence band, at the $K$ point: $(4\pi/3, \,0)$. Here the couplings with the $d_{z^2}$ orbital in {numref}`tab:hopping-terms` go to zero and we solve for the eigenvalues of the Hamiltonian:
 
+$$
+\mathcal H^\sigma(K) = \begin{pmatrix}
+        -\frac32(t_1+t_2)+\varepsilon_1&-i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)\\
+        i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)&-\frac32(t_1+t_2)+\varepsilon_1
+    \end{pmatrix}
+    \oplus \begin{pmatrix}-3t_3+\varepsilon_3\end{pmatrix},
+$$
+
+and we conclude that the maximum of the valence band is at energy:
+
+$$
+    E_K(\sigma) = \varepsilon_1-\frac32(t_1+t_2)-(3\sqrt3t_{12}-\lambda_\text{SOC}\sigma).
+$$
+
+We notice that the SOC lowers (raises) the $K$ point of the valence band, at the $-K$ point the opposite takes place. The $K$ and $-K$ points of the conduction band at energies $-3t_3+\varepsilon_3$ are however unaffected.
+
+
+```{bibliography} references.bib
 ```

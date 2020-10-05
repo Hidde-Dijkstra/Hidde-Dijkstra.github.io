@@ -199,6 +199,11 @@
    Constants
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-path">
+   K path
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -301,6 +306,74 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="k-path">
+<h2>K path<a class="headerlink" href="#k-path" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arrow</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">stroke_width</span><span class="o">=</span><span class="mf">0.015</span><span class="p">):</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
+    <span class="n">Δx</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">my_arrow</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Δx</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Δx</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">my_arrow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Lines</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Δx</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">Δx</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">Δx</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">close</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">stroke</span><span class="o">=</span><span class="n">stroke</span><span class="p">,</span> <span class="n">stroke_width</span><span class="o">=</span><span class="n">stroke_width</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+              <span class="n">marker_end</span><span class="o">=</span><span class="n">my_arrow</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">stroke_width</span><span class="o">*</span><span class="n">Δx</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="o">*</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">L</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="n">start</span><span class="p">))</span>
+    
+<span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+<span class="n">arrow_width</span> <span class="o">=</span> <span class="mf">0.015</span>
+<span class="n">corners</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">)]]</span>
+<span class="n">path_symbols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Γ&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">]</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)]</span>
+<span class="n">container</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">stroke_width</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">corner</span> <span class="ow">in</span> <span class="n">corners</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">L</span><span class="p">(</span><span class="o">*</span><span class="n">corner</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>
+<span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">3</span>] + path[i]) / 2
+    <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arrow</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">mid</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">stroke_width</span><span class="o">=</span><span class="n">arrow_width</span><span class="p">))</span>
+    <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="o">*</span><span class="p">(</span><span class="n">path</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="k">3</span>]), stroke=color, stroke_width=arrow_width))
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">))</span>
+    <span class="n">container</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">draw</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">path_symbols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">offset</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">center</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
+<span class="n">container</span><span class="o">.</span><span class="n">setRenderSize</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;fig:k_path&#39;</span><span class="p">,</span> <span class="n">container</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/images_11_0.svg" src="../_images/images_11_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">%</span><span class="k">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-8-3c2976f43949&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+<span class="ne">SyntaxError</span>: can&#39;t use starred expression here
+</pre></div>
+</div>
 </div>
 </div>
 </div>
