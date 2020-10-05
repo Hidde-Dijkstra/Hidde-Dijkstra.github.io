@@ -132,7 +132,7 @@ $$
 The total hopping Hamiltonian is now the sum of all $\mathcal H_i$ multiplied by the appropriate complex phases:
 
 $$
-\mathcal H_{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =     \mathcal H_\text{hop}=\begin{pmatrix}
+\mathcal H_{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
         h_1&h_{12}&h_{13}\\ h_{12}^\dagger&h_2&h_{23}\\
         h_{13}^\dagger&h_{23}^\dagger&h_3
     \end{pmatrix} ,
@@ -144,6 +144,7 @@ We start by noticing that all rotation matrices share a quite similar form:
 
 ```{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
 :header-rows: 1
+:name: rotation-matrices
 * - $I_3$
   - $\mathcal RC_6$
   - $\mathcal R^2C_6^2=\mathcal R^2$
@@ -160,10 +161,10 @@ We start by noticing that all rotation matrices share a quite similar form:
 As such we can express all of them as some variant of:
 
 $$
-\mathcal \tilde R(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&\beta&0\\\beta'&\alpha'&0\\0&0&1\end{pmatrix}
+\mathcal{\tilde R}(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&\beta&0\\\beta'&\alpha'&0\\0&0&1\end{pmatrix}
 $$
 
-where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal R$ come from table \ref{tab:rotation matrices}:
+where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal{\tilde R}$ come from {numref}`rotation-matrices`:
 
 $$
     \mathcal M=\mathcal {\tilde RH_0\tilde R}^\dagger=
@@ -173,6 +174,12 @@ $$
         \alpha t_{13}-\beta t_{23}&\beta't_{13}-\alpha't_{23}&t_3
         \label{eq:rot applied}
     \end{pmatrix},
+$$
+
+Now we can express the hopping Hamiltonian as a sum of $\mathcal M$ matrices:
+
+$$
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\e{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\e{i\sigma k_x/2+i\tau k_y\sqrt3/2}
 $$
 
 ````
