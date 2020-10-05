@@ -142,21 +142,21 @@ $$
 
 We start by noticing that all rotation matrices share a quite similar form:
 
-```{list-table} The matrix expressions for $R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
+:::{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
 :header-rows: 1
 * - $I_3$
-  - $RC_6$
-  - $R^2C_6^2=R^2$
-  - $R^3C_6^3=C_6$
-  - $R^4C_6^4=R$
-  - $R^5C_6^5=R^2C_6$
+  - $\mathcal RC_6$
+  - $\mathcal R^2C_6^2=\mathcal R^2$
+  - $\mathcal R^3C_6^3=C_6$
+  - $\mathcal R^4C_6^4=\mathcal R$
+  - $\mathcal R^5C_6^5=\mathcal R^2C_6$
 * - $I_2$
   - $\begin{pmatrix}-1/2&\sqrt{3}/2\\\sqrt{3}/2&1/2 \end{pmatrix}$
   - $\begin{pmatrix}-1/2&\sqrt{3}/2\\-\sqrt{3}/2&-1/2 \end{pmatrix}$
   - $\begin{pmatrix}1&0\\0&-1 \end{pmatrix}$
   - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2 \end{pmatrix}$
   - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\-\sqrt{3}/2&1/2 \end{pmatrix}$ 
-```
+:::
 As such we can express all of them as some variant of:
 
 $$
@@ -169,7 +169,7 @@ $$
 where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal R$ come from table \ref{tab:rotation matrices}:
 
 $$
-    \mathcal M=\mathcal {\rildeRH_0\tilde R}^\dagger=
+    \mathcal M=\mathcal {\rilde RH_0\tilde R}^\dagger=
     \begin{pmatrix}
         \alpha^2t_1+\beta^2t_2&\alpha\beta'(t_1-t_2)+(\alpha\alpha'-\beta\beta')t_{12}&\alpha t_{13}+\beta t_{23}\\
         \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&\alpha^2t_2+\beta^2t_1&\beta't_{13}+\alpha't_{23}\\
@@ -179,6 +179,7 @@ $$
 $$
 
 ```
+
 ```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$.
 :header-rows: 1
 * -  

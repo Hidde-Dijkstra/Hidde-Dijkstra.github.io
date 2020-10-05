@@ -344,37 +344,30 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
 <p class="card-text">We start by noticing that all rotation matrices share a quite similar form:</p>
-<table class="table" id="id5">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">The matrix expressions for <span class="math notranslate nohighlight">\(R^iC_6^i\)</span> excluding the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> component which is block diagonal.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(I_3\)</span></p></th>
-<th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(RC_6\)</span></p></th>
-<th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(R^2C_6^2=R^2\)</span></p></th>
-<th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(R^3C_6^3=C_6\)</span></p></th>
-<th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(R^4C_6^4=R\)</span></p></th>
-<th class="head"><p class="card-text"><span class="math notranslate nohighlight">\(R^5C_6^5=R^2C_6\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="card-text"><span class="math notranslate nohighlight">\(I_2\)</span></p></td>
-<td><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;\sqrt{3}/2\\\sqrt{3}/2&amp;1/2 \end{pmatrix}\)</span></p></td>
-<td><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;\sqrt{3}/2\\-\sqrt{3}/2&amp;-1/2 \end{pmatrix}\)</span></p></td>
-<td><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}1&amp;0\\0&amp;-1 \end{pmatrix}\)</span></p></td>
-<td><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;-\sqrt{3}/2\\\sqrt{3}/2&amp;-1/2 \end{pmatrix}\)</span></p></td>
-<td><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;-\sqrt{3}/2\\-\sqrt{3}/2&amp;1/2 \end{pmatrix}\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</details><p>As such we can express all of them as some variant of:</p>
+<p class="card-text">:::{list-table} The matrix expressions for <span class="math notranslate nohighlight">\(\mathcal R^iC_6^i\)</span> excluding the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> component which is block diagonal.
+:header-rows: 1</p>
+<ul class="simple">
+<li><ul>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(I_3\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\mathcal RC_6\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\mathcal R^2C_6^2=\mathcal R^2\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\mathcal R^3C_6^3=C_6\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\mathcal R^4C_6^4=\mathcal R\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\mathcal R^5C_6^5=\mathcal R^2C_6\)</span></p></li>
+</ul>
+</li>
+<li><ul>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(I_2\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;\sqrt{3}/2\\\sqrt{3}/2&amp;1/2 \end{pmatrix}\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;\sqrt{3}/2\\-\sqrt{3}/2&amp;-1/2 \end{pmatrix}\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}1&amp;0\\0&amp;-1 \end{pmatrix}\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;-\sqrt{3}/2\\\sqrt{3}/2&amp;-1/2 \end{pmatrix}\)</span></p></li>
+<li><p class="card-text"><span class="math notranslate nohighlight">\(\begin{pmatrix}-1/2&amp;-\sqrt{3}/2\\-\sqrt{3}/2&amp;1/2 \end{pmatrix}\)</span>
+:::
+As such we can express all of them as some variant of:</p></li>
+</ul>
+</li>
+</ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \mathcal \tilde R(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha &amp;\beta&amp;0\\
@@ -382,10 +375,10 @@ with: (click dropdown for justification)<div class="summary-down docutils">
     0&amp;0&amp;1
     \end{pmatrix}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\alpha^2=\alpha'^2\)</span>, <span class="math notranslate nohighlight">\(\beta^2=\beta'^2\)</span> and <span class="math notranslate nohighlight">\(\alpha\beta'=-\alpha'\beta\)</span>. This rotation allows a general expression for the matrix components of <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> where the constants in <span class="math notranslate nohighlight">\(\mathcal R\)</span> come from table \ref{tab:rotation matrices}:</p>
+<p class="card-text">where <span class="math notranslate nohighlight">\(\alpha^2=\alpha'^2\)</span>, <span class="math notranslate nohighlight">\(\beta^2=\beta'^2\)</span> and <span class="math notranslate nohighlight">\(\alpha\beta'=-\alpha'\beta\)</span>. This rotation allows a general expression for the matrix components of <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> where the constants in <span class="math notranslate nohighlight">\(\mathcal R\)</span> come from table \ref{tab:rotation matrices}:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \mathcal M=\mathcal {\rildeRH_0\tilde R}^\dagger=
+    \mathcal M=\mathcal {\rilde RH_0\tilde R}^\dagger=
     \begin{pmatrix}
         \alpha^2t_1+\beta^2t_2&amp;\alpha\beta'(t_1-t_2)+(\alpha\alpha'-\beta\beta')t_{12}&amp;\alpha t_{13}+\beta t_{23}\\
         \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&amp;\alpha^2t_2+\beta^2t_1&amp;\beta't_{13}+\alpha't_{23}\\
@@ -393,31 +386,47 @@ with: (click dropdown for justification)<div class="summary-down docutils">
         \label{eq:rot applied}
     \end{pmatrix},
 \end{split}\]</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$.
-:header-rows: 1
-* -  
-  - Real
-  - Imaginary
-* - $h_1$
-  - $2t_1\cos 2\tilde k_x+(t_1+3t_2)\cos\tilde k_x\cos\tilde k_y$
-  - 0
-* - $h_2$
-  - $2t_2\cos 2\tilde k_x+(t_2+3t_1)\cos\tilde k_x\cos\tilde k_y$
-  - 0
-* - $h_3$
-  - $2t_3\cos 2\tilde k_x+4t_3\cos\tilde k_x\cos\tilde k_y$
-  - 0
-* - $h_{12}$
-  - $\sqrt3(t_2-t_1)\sin\tilde k_x\sin\tilde k_y$
-  - $2t_{12}(\sin 2\tilde k_x-2\sin\tilde k_x\cos\tilde k_y)$
-* - $h_{13}$
-  - $2t_{13}(\cos2\tilde k_x-\cos\tilde k_x\cos\tilde k_y)$
-  - $2\sqrt{3}t_{23}\cos\tilde k_x\sin\tilde k_y$
-* - $h_{23}$
-  - $-2\sqrt3t_{13}\sin\tilde k_x\sin\tilde k_y$
-  - $2t_{23}(\sin 2\tilde k_x+\sin\tilde k_x\cos\tilde k_y)$
-</pre></div>
 </div>
+</details><table class="table" id="id5">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Hamiltonian components with <span class="math notranslate nohighlight">\(\tilde k_x=k_x/2\)</span> and <span class="math notranslate nohighlight">\(\tilde k_y = k_y\cdot \sqrt3/2\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Real</p></th>
+<th class="head"><p>Imaginary</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_1\cos 2\tilde k_x+(t_1+3t_2)\cos\tilde k_x\cos\tilde k_y\)</span></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_2\cos 2\tilde k_x+(t_2+3t_1)\cos\tilde k_x\cos\tilde k_y\)</span></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h_3\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_3\cos 2\tilde k_x+4t_3\cos\tilde k_x\cos\tilde k_y\)</span></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h_{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sqrt3(t_2-t_1)\sin\tilde k_x\sin\tilde k_y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_{12}(\sin 2\tilde k_x-2\sin\tilde k_x\cos\tilde k_y)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h_{13}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_{13}(\cos2\tilde k_x-\cos\tilde k_x\cos\tilde k_y)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2\sqrt{3}t_{23}\cos\tilde k_x\sin\tilde k_y\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h_{23}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-2\sqrt3t_{13}\sin\tilde k_x\sin\tilde k_y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2t_{23}(\sin 2\tilde k_x+\sin\tilde k_x\cos\tilde k_y)\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <p id="bibtex-bibliography-master-thesis/WSe2-0"><dl class="citation">
 <dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
 <dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
