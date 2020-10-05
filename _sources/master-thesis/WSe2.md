@@ -55,7 +55,7 @@ $$
 in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
 
 
-```{admonition} GGA coupling constants in eV
+````{admonition} GGA coupling constants in eV
 GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. {cite}`three_band`.
 ```{list-table}
 :header-rows: 1
@@ -76,10 +76,10 @@ GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscri
   - {glue:}`var:t_23`
   - {glue:}`var:ε_1`
   - {glue:}`var:ε_3`
-  - {glue:}`var:λ_SOC`|
+  - {glue:}`var:λ_SOC`
 ```
 where all energies are measured in eV. 
-```
+````
 
 
 Surprisingly, $\mathcal H_0$ is not symmetric. We recognize the lack of $C_6$ symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals $d_{xy}$ and $d_{z^2}$:
@@ -138,7 +138,7 @@ $$
     \end{pmatrix} ,
 $$
 
-```{dropdown} with: (click dropdown for justification)
+````{dropdown} with: (click dropdown for justification)
 
 We start by noticing that all rotation matrices share a quite similar form:
 
@@ -175,7 +175,7 @@ $$
     \end{pmatrix},
 $$
 
-```
+````
 
 ```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$.
 :header-rows: 1
