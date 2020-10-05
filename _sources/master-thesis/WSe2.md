@@ -142,7 +142,7 @@ $$
 
 We start by noticing that all rotation matrices share a quite similar form:
 
-```{list-table}The matrix expressions for $R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
+```{list-table} The matrix expressions for $R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
 :header-rows: 1
 * - $I_3$
   - $RC_6$
