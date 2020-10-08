@@ -20,8 +20,8 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 bs.show()
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;31m-----------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                        Traceback (most recent call last)
 [0;32m<ipython-input-10-e499ad8146b5>[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mbs[0m[0;34m.[0m[0mshow[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m

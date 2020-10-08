@@ -39,10 +39,12 @@ kernelspec:
 ### 8 October
 
 * Looking for papers on twisted bilayer WSe$_2$
-    * [Deep moir´e potentials in twisted transition metal dichalcogenide bilayers](https://arxiv.org/pdf/2008.07696.pdf) about stacking types between $WSe_2$ and $MSe_2$, does not seem so useful.
+    * [Deep moir´e potentials in twisted transition metal dichalcogenide bilayers](https://arxiv.org/pdf/2008.07696.pdf) about stacking types between WSe$_2$ and MSe$_2$, does not seem so useful.
     * [Atomic reconstruction and moiré patterns in transition metal
 dichalcogenide van der Waals heterostructures](https://arxiv.org/pdf/1911.12282.pdf) seems to be about fractional filling of moiré supercells between MoS(e)$_2$ WS(e)$_2$. For some reason popular heterostructure.
-    *
+    * [Flat bands in long moiré wavelength twisted bilayer
+WSe2] (https://arxiv.org/pdf/1910.13068.pdf) talks a lot about AA vs AB stacking and localization of wavefunctions but does not give information about dimensions of the lattice/coupling.
+* Just do DFT ourselves?
 
 ### 6-7 October
 
