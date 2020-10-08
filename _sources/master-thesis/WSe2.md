@@ -228,7 +228,7 @@ $$
 \mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
 $$
 
-
+<!-- #region -->
 ## Band structure
 
 ````{margin}
@@ -238,7 +238,7 @@ Path along high symmetry points of the Brillouin zone: $\Gamma:(0,\,0)$, $K:(4\p
 ```
 ````
 
-We solve for the bandstructure along the path connecting the high symmetry $\Gamma$, $K$ and $M$ points as shown in {numref}`k_path`. We set the zero of energy at the maximum of the valence band, at the $K$ point: $(4\pi/3, \,0)$. Here the couplings with the $d_{z^2}$ orbital in {numref}`tab:hopping-terms` go to zero and we solve for the eigenvalues of the Hamiltonian:
+We solve for the bandstructure along the path connecting the high symmetry $\Gamma$, $K$ and $M$ points as shown in {numref}`fig:k_path`. We set the zero of energy at the maximum of the valence band, at the $K$ point: $(4\pi/3, \,0)$. Here the couplings with the $d_{z^2}$ orbital in {numref}`tab:hopping-terms` go to zero and we solve for the eigenvalues of the Hamiltonian:
 
 $$
 \mathcal H^\sigma(K) = \begin{pmatrix}
@@ -256,6 +256,16 @@ $$
 
 We notice that the SOC lowers (raises) the $K$ point of the valence band, at the $-K$ point the opposite takes place. The $K$ and $-K$ points of the conduction band at energies $-3t_3+\varepsilon_3$ are however unaffected.
 
+```{glue:figure} fig:band_structure_unit_cell
+:name: band_structure_unit_cell
+band plot
+```
+
 
 ```{bibliography} references.bib
+```
+<!-- #endregion -->
+
+```python
+
 ```

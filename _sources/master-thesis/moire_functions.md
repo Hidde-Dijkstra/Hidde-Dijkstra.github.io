@@ -20,7 +20,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import drawSvg as draw
 from numpy.linalg import matrix_power as mat_pow
 ```
@@ -172,9 +172,93 @@ def rot_mat(θ):
     return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
 ```
 
+## Band structure calculations
+
+```{code-cell} ipython3
+class BandStructure:
+    
+    
+    def __init__(self, H):
+        self.H = H
+          
+    def plot_band_structure(self, σ_list=[0], E_ref=None):
+        colors = ['blue', 'red', 'green']
+        N = len(self.H((0, 0), 1))
+        energies = np.zeros((len(self.k_path), N, len(σ_list)))
+        for i in range(len(self.k_path)):
+            for j in range(len(σ_list)):
+                energies[i, :, j] = np.linalg.eigvalsh(self.H(self.k_path[i], σ_list[j]))
+        fig = go.Figure()        
+        for j in range(len(σ_list)):
+            style_dict = {
+                'legendgroup': 'σ='+str(σ_list[j]),
+                'mode': 'lines',
+                'line': {'color': colors[j]},
+                'name': 'σ='+str(σ_list[j])
+            }
+            fig.add_trace(go.Scatter(y=energies[:, 0, j], **style_dict))
+            for i in range(1, N):
+                fig.add_trace(go.Scatter(y=energies[:, i, j], showlegend=False, **style_dict))
+        fig.update_xaxes(ticktext=self.k_tags, tickvals=[sum(self.spacing[:i]) for i in range(len(self.spacing)+1)])
+        if E_ref != None:
+            fig.update_yaxes(tickvals=E_ref)
+        fig.update_layout(xaxis_title=r"$k$", yaxis_title= 'Energy (eV)')
+        return fig
+    
+    def set_k_path(self, k_list, k_tags, N_points):
+        self.k_tags = k_tags
+        k_norms = [np.linalg.norm(k_list[i+1]-k_list[i]) for i in range(len(k_list)-1)]
+        self.spacing = [int(N_points*k_norms[i]/sum(k_norms)) for i in range(len(k_norms))]
+        self.k_path = []
+        for i in range(len(self.spacing)):
+            self.k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/self.spacing[i] for j in range(self.spacing[i])]
+        self.k_path += [k_list[-1]]
+```
+
+```{code-cell} ipython3
+var_dic = {
+        "t_1": 0.034, 
+        "t_2": 0.263, 
+        "t_3": -0.207, 
+        "t_12": 0.329, 
+        "t_13": 0.486, 
+        "t_23": 0.457, 
+        "ε_1": 2.179, 
+        "ε_3": 0.943, 
+        "λ_SOC": 0.228
+    }
+    
+t_1, t_2, t_3, t_12, t_13, t_23, ε_1, ε_3, λ_SOC = var_dic.values()
+
+def H_mono(k, σ):
+    k_x, k_y = k[0]/2, k[1]*np.sqrt(3)/2
+    cos2x, cosx, cosy = np.cos(2*k_x), np.cos(k_x), np.cos(k_y)
+    sin2x, sinx, siny = np.sin(2*k_x), np.sin(k_x), np.sin(k_y)
+    h_1 = 2*t_1*cos2x + (t_1+3*t_2)*cosx*cosy
+    h_2 = 2*t_2*cos2x + (t_2+3*t_1)*cosx*cosy
+    h_3 = 2*t_3*cos2x + 4*t_3*cosx*cosy
+    h_12 = np.sqrt(3)*(t_2-t_1)*sinx*siny + 2j*t_12*(sin2x-2*sinx*cosy)
+    h_13 = 2*t_13*(cos2x-cosx*cosy) + 2j*np.sqrt(3)*t_23*cosx*siny
+    h_23 = -2*np.sqrt(3)*t_13*sinx*siny + 2j*t_23*(sin2x+sinx*cosy)
+    return np.array([
+        [ε_1+h_1, 1j*λ_SOC*σ+h_12, h_13],
+        [-1j*λ_SOC*σ+np.conj(h_12), ε_1+h_2, h_23],
+        [np.conj(h_13), np.conj(h_23), ε_3+h_3]
+    ])
+
+bs = BandStructure(H_mono)
+bs.set_k_path([np.array([0, 0]), np.array([4*np.pi/3, 0]), np.array([np.pi, np.pi/np.sqrt(3)]), np.zeros(2)], 
+          [r'$\Gamma$', 'K', 'M', r'$\Gamma$'], 300)
+bs.plot_band_structure([-1, 0, 1])
+```
+
 ## Moiré supercell class
 
 ```{code-cell} ipython3
+---
+jupyter:
+  source_hidden: true
+---
 class LatVec:
     # We identify each atom as the two integers i and j which connect it to the origin. 
     # Using a pythonic object we can define how two of these vectors interact.
@@ -381,18 +465,7 @@ class WSe2:
         plt.ylabel('Energy (eV)')
         if k_tags != None:
             plt.xticks([sum(spacing[:i]) for i in range(len(spacing)+1)], k_tags)
-        
-    
-    def k_path(self, k_list, N_points, spacing=None):
-        if spacing == None:
-            k_norms = [np.linalg.norm(k_list[i+1]-k_list[i]) for i in range(len(k_list)-1)]
-            spacing = [int(N_points*k_norms[i]/sum(k_norms)) for i in range(len(k_norms))]
-        k_path = []
-        for i in range(len(spacing)):
-            k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/spacing[i] for j in range(spacing[i])]
-        k_path += [k_list[-1]]
-        return spacing, k_path
-    
+            
     def H_WSe2_bilayer(self, k, σ, t_0):
         H = np.zeros((6*self.layer_1.N_atoms, 6*self.layer_1.N_atoms), dtype=complex)
         H[0:3*self.layer_1.N_atoms, 0:3*self.layer_1.N_atoms] = self.H_WSe2_mono(k, σ, self.layer_1, rotate=True)
