@@ -25,6 +25,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
@@ -221,7 +222,7 @@
 <h1>Monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span><a class="headerlink" href="#monolayer-wse-2" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lattice">
 <h2>Lattice<a class="headerlink" href="#lattice" title="Permalink to this headline">¶</a></h2>
-<p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model by Liu et al. <a class="bibtex reference internal" href="#three-band" id="id1">[LSY+13]</a>. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
+<p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model by Liu et al. <a class="bibtex reference internal" href="bibliography.html#three-band" id="id1">[LSY+13]</a>. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
 <div class="figure align-default" id="id4">
 <div class="cell_output docutils container">
 <img alt="../_images/images_3_0.svg" src="../_images/images_3_0.svg" /></div>
@@ -254,7 +255,7 @@
 <p>in the basis <span class="math notranslate nohighlight">\((d_{x^2-y^2}\, d_{xy}\,d_{z^2})\)</span>.</p>
 <div class="admonition-gga-coupling-constants-in-ev admonition">
 <p class="admonition-title">GGA coupling constants in eV</p>
-<p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <a class="bibtex reference internal" href="#three-band" id="id2">[LSY+13]</a>.</p>
+<p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <a class="bibtex reference internal" href="bibliography.html#three-band" id="id2">[LSY+13]</a>.</p>
 <table class="table" id="tab-constants">
 <colgroup>
 <col style="width: 11%" />
@@ -444,7 +445,7 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 </tr>
 </tbody>
 </table>
-<p>Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow <a class="bibtex reference internal" href="#three-band" id="id3">[LSY+13]</a> which gives the SOC contribution of the Hamiltonian as <span class="math notranslate nohighlight">\(\lambda_{SOC}/2\cdot\mathbf{L\cdot S}\)</span>, with pure <span class="math notranslate nohighlight">\(z\)</span> polarized spin, doubling the degrees of freedom. We write, with <span class="math notranslate nohighlight">\(\sigma=\pm1\)</span> as the two spin possibilities:</p>
+<p>Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow <a class="bibtex reference internal" href="bibliography.html#three-band" id="id3">[LSY+13]</a> which gives the SOC contribution of the Hamiltonian as <span class="math notranslate nohighlight">\(\lambda_{SOC}/2\cdot\mathbf{L\cdot S}\)</span>, with pure <span class="math notranslate nohighlight">\(z\)</span> polarized spin, doubling the degrees of freedom. We write, with <span class="math notranslate nohighlight">\(\sigma=\pm1\)</span> as the two spin possibilities:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     \mathcal H_\text{on-site}(\sigma)=\begin{pmatrix}
@@ -487,26 +488,18 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 <p>We notice that the SOC lowers (raises) the <span class="math notranslate nohighlight">\(K\)</span> point of the valence band, at the <span class="math notranslate nohighlight">\(-K\)</span> point the opposite takes place. The <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(-K\)</span> points of the conduction band at energies <span class="math notranslate nohighlight">\(-3t_3+\varepsilon_3\)</span> are however unaffected.</p>
 <div class="figure align-default" id="band-structure-unit-cell">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;moire_functions.BandStructure at 0x7d43532a08d0&gt;
-</pre></div>
-</div>
 </div>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">band plot</span><a class="headerlink" href="#band-structure-unit-cell" title="Permalink to this image">¶</a></p>
 </div>
 <p id="bibtex-bibliography-master-thesis/WSe2-0"><dl class="citation">
-<dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
-<dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
-</dd>
 <dt class="bibtex label" id="three-band"><span class="brackets">LSY+13</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
 <dd><p>Gui-Bin Liu, Wen-Yu Shan, Yugui Yao, Wang Yao, and Di Xiao. Three-band tight-binding model for monolayers of group-vib transition metal dichalcogenides. <em>Phys. Rev. B</em>, 88:085433, Aug 2013. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevB.88.085433">https://link.aps.org/doi/10.1103/PhysRevB.88.085433</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevB.88.085433">doi:10.1103/PhysRevB.88.085433</a>.</p>
-</dd>
-<dt class="bibtex label" id="twse2-experiment"><span class="brackets">WSG+19</span></dt>
-<dd><p>Lei Wang, En-Min Shih, Augusto Ghiotto, Lede Xian, Daniel Rhodes, Cheng Tan, Martin Claassen, Dante Kennes, Yusong Bai, Bumho Kim, Kenji Watanabe, Takashi Taniguchi, Xiaoyang Zhu, James Hone, Angel Rubio, Abhay Pasupathy, and Cory Dean. Magic continuum in twisted bilayer wse2. pages, 10 2019.</p>
 </dd>
 </dl>
 </p>
 <!-- #endregion -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+
 </pre></div>
 </div>
 </div>

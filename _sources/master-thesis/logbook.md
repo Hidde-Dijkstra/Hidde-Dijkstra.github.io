@@ -36,6 +36,14 @@ kernelspec:
 
 ### Meeting
 
+### 8 October
+
+* Looking for papers on twisted bilayer WSe$_2$
+    * [Deep moir´e potentials in twisted transition metal dichalcogenide bilayers](https://arxiv.org/pdf/2008.07696.pdf) about stacking types between $WSe_2$ and $MSe_2$, does not seem so useful.
+    * [Atomic reconstruction and moiré patterns in transition metal
+dichalcogenide van der Waals heterostructures](https://arxiv.org/pdf/1911.12282.pdf) seems to be about fractional filling of moiré supercells between MoS(e)$_2$ WS(e)$_2$. For some reason popular heterostructure.
+    *
+
 ### 6-7 October
 
 * Rewrite explanation for derivation of Hamiltonian elements.
