@@ -1,9 +1,15 @@
 # Book settings
 title: Twisted bilayer WSe2
 author: Hidde Dijkstra
-logo: logo.png
 
 latex:
   latex_documents:
     targetname: book.tex
+    
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    
+
     

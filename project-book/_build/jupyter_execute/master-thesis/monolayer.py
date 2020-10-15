@@ -1,269 +1,324 @@
 # Monolayer WSe$_2$
 
+import moire_functions as moire
 import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
 import drawSvg as draw
 from myst_nb import glue
 
-def rot_mat(θ):
-    return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
+## Lattice
 
-We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model (TBM) by Liu et al. {cite}`three_band`. In the TBM of mWSe2 the hopping is modeled using only the tungsten sites, forming a triangular lattice in the $xy$ plane with real space unit vectors:
-```{math}
-\vec a_1=\begin{pmatrix}1\\ 0\end{pmatrix}\text{ and } \vec a_2=\frac12\begin{pmatrix}1\\ \sqrt{3}\end{pmatrix},    
-```
-and reciprocal lattice vectors:
-```{math}
-\vec b_1=2\pi\begin{pmatrix}1\\ -1/\sqrt{3}\end{pmatrix}\text{ and } \vec b_2=2\pi\begin{pmatrix}0\\ 2/\sqrt{3}\end{pmatrix},    
-```
-where length is in units of the lattice spacing $a$ between two tungsten atoms.
+width, height = 4, 2.6
+drawing = draw.Drawing(width, height, origin="center")
+W = moire.LatticeAtom([0, 0], atom_radius=0.2)
+Se2 = moire.LatticeAtom([1/2, 1/(2*np.sqrt(3))], atom_color='red', atom_radius=0.1)
+lattice = moire.Lattice([1, 0], [1/2, np.sqrt(3)/2], width, height)
+lattice.add_atom(W)
+lattice.add_atom(Se2)
+lattice.NN(W, W, [(1, 0), (0, 1), (1, -1), (-1, 0), (0, -1), (-1, 1)])
+drawing.append(lattice.draw_lattice())
+drawing.append(lattice.draw_lattice_vectors(centralize=False, color='red', stroke_width=0.04))
+drawing.setRenderSize(500)
+glue("fig:lattice", drawing)
 
-We consider one atom as the origin and label every other atom using the integers $i$ and $j$ which connect this atom to their origin with the vector $i
-\vec a_1 + j\vec a_2$:
 
-class LatVec:
-    # We identify each atom as the two integers i and j which connect it to the origin. 
-    # Using a pythonic object we can define how two of these vectors interact.
-    a_1 = np.array([1, 0])
-    a_2 = np.array([1/2, np.sqrt(3)/2])
-    b_1 = 2*np.pi * np.array([1, -1/np.sqrt(3)])
-    b_2 = 2*np.pi * np.array([0, 2/np.sqrt(3)])
-    
-    def __init__(self, i, j, reciprocal=False, scale=1):
-        self.i = i
-        self.j = j
-        self.scale = scale
-        self.reciprocal = reciprocal
-        self.vec = self.vectorize()
-        
-    def __add__(self, other):
-        return LatVec(self.i+other.i, self.j+other.j)
-    
-    def __eq__(self, other):
-        return (self.i==other.i) & (self.j==other.j)
-    
-    def __and__(self, other):
-        # A simple way to get all hopping vectors from two unit vectors.
-        return [self, other.neg(), self.neg()+other.neg(), self.neg(), other, self+other]
-    
-    def __mul__(self, other):
-        if type(other) == LatVec:
-            return np.dot(self.vec, other.vec)
-        else:
-            return np.dot(self.vec, other)
-        
-    def __rmul__(self, other):
-        return self * other
-    
-    def neg(self):
-        return LatVec(-self.i, -self.j)
-    
-    def vectorize(self):
-        if self.reciprocal:
-            return self.scale*(self.i*self.b_1 + self.j*self.b_2)
-        else:
-            return self.scale*(self.i*self.a_1 + self.j*self.a_2)
-    
-    def plot(self, container, atom_radius=0.2, atom_color='darkblue', θ=0, atom="", bonds=False, displace=0, **kwargs):
-        origin = self.vec + displace
-        a_list = [self.a_1, self.a_2, self.a_1-self.a_2]      
-        if θ != 0:
-            origin = rot_mat(θ) @ self.vec
-            a_list = [rot_mat(θ) @ a for a in a_list]
-        if bonds: 
-            for a in a_list:
-                container.append(draw.Line(*(origin-a/2), *(origin+a/2), **kwargs))
-        gradient = draw.RadialGradient(*origin, atom_radius)
-        gradient.addStop(0, 'white', 1)
-        gradient.addStop(1, atom_color, 1)
-        container.append(draw.Circle(*origin, atom_radius, fill=gradient, **kwargs))
-        container.append(draw.Text(atom, atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
-        return container
-    
-container = draw.Drawing(4, 2.3, origin='center', displayInline=False)
-for (i, j) in [(i, j) for i in range(-3, 3) for j in range(-2, 2)]:
-    container = LatVec(i, j).plot(container, stroke='black', atom_color='red', bonds=True, atom=str(i)+','+str(j), stroke_width=0.015)
-    container = LatVec(i, j).plot(container, stroke='black', atom_color='blue', atom="Se2", stroke_width=0.01, 
-                                  displace=[1/2, 1/3], atom_radius=0.15)
-container.setRenderSize(1000)
-glue('fig:lattice', container, display=False)
+We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model by Liu et al. {cite}`three_band`. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the $xy$ plane: 
 
 ```{glue:figure} fig:lattice
+Triangular lattice of WSe$_2$, the blue atoms respresent the tungsten atoms while the red the (di)selenide.
 ```
 
-The symmetric point group of this triangular lattice is $D_3$ with elements $\{E, C_3, C^2_3,\sigma_v, \sigma_v', \sigma_v''\}$. The rotations are in the $xy$ plane, while the reflections are with respect to the $yz$, $xz$ and $xy$ planes. $C_6$ is not a symmetry element of this lattice since this operation exchanges triangles containing Se$_2$ and empty triangles.
+with real space unit vectors:
 
-We restrict the orbitals of tungsten to the $d$ orbitals $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$, which dictate the low energy $K$ points. The other orbitals are either at a different energy scale or do not mix with these orbitals due to the symmetries of the lattice. Since $C_6$ is not a symmetry element, $C_2=C_6\prod C_3$ is not either.
+$$
+\vec a_1=\begin{pmatrix}1\\ 0\end{pmatrix}\text{ and } \vec a_2=\frac12\begin{pmatrix}1\\ \sqrt{3}\end{pmatrix},    
+$$
 
-class Orbital:  
-    
-    def lobe(self, color, rotate=0, translate=(0, 0), stroke="black", **kwargs):
-        gradient = draw.RadialGradient(0, 100, 50)
-        gradient.addStop(0, 'white', 0.7)
-        gradient.addStop(173.21, color, 0.7)
-        transform = "translate(" + " ".join([str(i) for i in translate]) + ")\nrotate(" + str(rotate) + " 0 0)"
-        return draw.Path(d="M 0,0 C -173.21,-200 173.21,-200 0,0 z", stroke=stroke, fill=gradient, transform=transform, **kwargs)
-    
-    def circle(self, color, ellipse=False, rotate=0, translate=(0, 0), stroke="black", **kwargs):
-        gradient = draw.RadialGradient(0, 0, 50)
-        gradient.addStop(0, 'white', 0.7)
-        gradient.addStop(173.21, color, 0.7)
-        transform = "rotate(" + str(rotate) + " 0 0)\ntranslate(" + " ".join([str(i) for i in translate]) + ")"
-        if ellipse:
-            clip = draw.ClipPath()
-            clip.append(draw.Ellipse(0, 0, 50, 12.5, transform=transform))
-            return draw.Ellipse(0, 0, 100, 25, stroke=stroke, fill=gradient, transform=transform, **kwargs) 
-        else:
-            return draw.Circle(0, 0, 50, stroke=stroke, fill=gradient, transform=transform, **kwargs)
+and reciprocal lattice vectors:
 
-class d_xy(Orbital):
-    
-    def __init__(self, container, translate=(0, 0), rotate=0):
-        container.append(self.lobe("dodgerblue", rotate=85+rotate, translate=translate))
-        container.append(self.lobe("red", rotate=95+rotate, translate=translate))
-        container.append(self.lobe("red", rotate=275+rotate, translate=translate))
-        container.append(self.lobe("dodgerblue", rotate=265+rotate, translate=translate))
-        
-class d_z2(Orbital):
-    
-    def __init__(self, container, translate=(0, 0), rotate=0):
-        container.append(self.lobe("dodgerblue", rotate=180+rotate, translate=translate))
-        container.append(self.circle("red", ellipse=True, rotate=rotate, translate=translate))
-        container.append(self.lobe("dodgerblue", rotate=rotate, translate=translate))
+$$
+\vec b_1=2\pi\begin{pmatrix}1\\ -1/\sqrt{3}\end{pmatrix}\text{ and } \vec b_2=2\pi\begin{pmatrix}0\\ 2/\sqrt{3}\end{pmatrix},    
+$$
 
-container = draw.Drawing(1000, 350, origin="center")
-d_z2(container)
-d_xy(container, translate=(300, 0))
-d_xy(container, translate=(-300, 0))
-glue('fig:d_z2-d_xy', container, display=False)
+where length is in units of the lattice spacing $a$ between two tungsten atoms.
 
-```{glue:figure} fig:d_z2-d_xy
-```
+## Symmetries
 
-var_dic = {
-    "t_1": 0.034, 
-    "t_2": 0.263, 
-    "t_3": -0.207, 
-    "t_12": 0.329, 
-    "t_13": 0.486, 
-    "t_23": 0.457, 
-    "ε_1": 2.179, 
-    "ε_3": 0.942, 
-    "λ_SOC": 0.228
-}
-t_1, t_2, t_3, t_12, t_13, t_23, ε_1, ε_3, λ_SOC = var_dic.values()
-for var_key in var_dic:
-    glue("var:"+var_key, var_dic[var_key], display=False)
+The symmetric point group of this triangular lattice is $D_3$ with generators $\{C_3, \sigma\}$. $C_3$ is a rotation of $2\pi/3$ in the $xy$ plane and $\sigma$ is a reflection with respect to the bisector of $\vec a_1$ and $\vec a_2$. $C_6$ is not a symmetry element of this lattice since this operation exchanges triangles containing Se$_2$ and empty triangles.
 
-```{admonition} GGA coupling constants in eV
-Coupling constants for WSe$_2$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. These constants are for NN hopping left to right with respect to the $x$-axis. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. These are the GGA constants from {cite}`three_band`.
-| $t_1$| $t_2$| $t_3$| $t_{12}$| $t_{13}$| $t_{23}$| $\varepsilon_1$| $\varepsilon_3$| $\lambda_{SOC}$|
-|:----:|:----:|:----:|:-------:|:-------:|:-------:|:--------------:|:--------------:|:--------------:|
-|{glue:}`var:t_1`|{glue:}`var:t_2`|{glue:}`var:t_3`|{glue:}`var:t_12`|{glue:}`var:t_13`|{glue:}`var:t_23`|{glue:}`var:ε_1`|{glue:}`var:ε_3`|{glue:}`var:λ_SOC`|
-where all energies are measured in eV. 
-```
+We restrict the orbitals of tungsten to the $d$ orbitals $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$, which dictate the low energy $K$ points. The other orbitals are either at a different energy scale or do not mix with these orbitals due to the symmetries of the lattice. The tight binding hopping matrix between these orbitals in the hopping direction $\vec a_1$ writes:
 
-
- and collect them in the matrix $\mathcal E$:
-```{math}
-    \mathcal E = \begin{pmatrix}
+$$
+    \mathcal H_0 = \begin{pmatrix}
         t_1&t_{12}&t_{13}\\
         -t_{12}&t_2&t_{23}\\
         t_{13}&-t_{23}&t_3
+    \end{pmatrix},
+$$
+
+in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
+
+var_dic = moire.WSe2.var_dic
+for var_key in var_dic:
+    glue("var:"+var_key, var_dic[var_key])
+
+````{admonition} GGA coupling constants in eV
+GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. {cite}`three_band`.
+```{list-table}
+:header-rows: 1
+:name: tab:constants
+* - $t_1$
+  - $t_2$
+  - $t_3$
+  - $t_{12}$
+  - $t_{13}$
+  - $t_{23}$
+  - $\varepsilon_1$
+  - $\varepsilon_3$
+  - $\lambda_\text{SOC}$
+* - {glue:}`var:t_1`
+  - {glue:}`var:t_2`
+  - {glue:}`var:t_3`
+  - {glue:}`var:t_12`
+  - {glue:}`var:t_13`
+  - {glue:}`var:t_23`
+  - {glue:}`var:ε_1`
+  - {glue:}`var:ε_3`
+  - {glue:}`var:λ_SOC`
+```
+where all energies are measured in eV. 
+````
+
+
+Surprisingly, $\mathcal H_0$ is not symmetric. We recognize the lack of $C_6$ symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals $d_{xy}$ and $d_{z^2}$:
+
+```{glue:figure} fig:d_z2-d_xy
+Representation of atomic orbitals $d_{xy}$ and $d_{z^2}$, the colors represent the different signs of the lobes. We see that the $d_{z^2}$ orbital is symmetric under reflection while the $d_{xy}$ are antisymmetric.
+```
+Mirroring the hopping direction is equivalent to applying a reflection with respect to the $y$-axis. The $d_{xy}$ orbital changes sign under this operation so $t_{32}=-t_{23}$. If this reflection was a symmetry element of the lattice we would require $t_{32}=t_{23}$, forcing $t_{23}=0$. We can use a similar argument to exclude the $d_{xz}$ and $d_{yz}$ orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the $xy$ plane.
+
+## Rotating orbitals
+
+drawing = draw.Drawing(10, 3.5, origin="center")
+stroke_width = 0.03
+orb = moire.Orbital()
+drawing.append(orb.d_z2())
+drawing.append(orb.d_xy(translate=(3, 0)))
+drawing.append(orb.d_xy(translate=(-3, 0)))
+drawing.append(draw.Line(0, -2, 0, 2, stroke='black', stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
+drawing.setRenderSize(700)
+glue('fig:d_z2-d_xy', drawing)
+
+pos_1 = (1.5, 1.5)
+pos_2 = (4.5, 1.5+np.sqrt(3))
+R = 0.5
+stroke_width = 0.03
+color = 'black'
+drawing = draw.Drawing(7, 5)
+orb = moire.Orbital()
+drawing.append(orb.d_x2y2(translate=(pos_1[0], -pos_1[1])))
+drawing.append(orb.d_x2y2(translate=(pos_2[0], -pos_2[1])))
+drawing.append(draw.Line(*pos_1, *pos_2, stroke=color, stroke_width=stroke_width))
+drawing.append(draw.Line(*pos_1, pos_2[0], pos_1[1], stroke=color, stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
+drawing.append(draw.Line(pos_2[0], pos_1[1], *pos_2, stroke=color, stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
+drawing.append(draw.Arc(*pos_1, R, 30, 0, cw=True, stroke=color, stroke_width=stroke_width, fill='none'))
+drawing.append(draw.Text('θ', R*2/3, pos_1[0]+1.5*R*np.cos(np.pi/12), pos_1[1]+1.5*R*np.sin(np.pi/12), center=0.6, fill=color))
+drawing.setRenderSize(500)
+glue('fig:rotate_orbital', drawing)
+
+Having figured out the hopping terms for $\pm\vec a_1$, we need also formulate the coupling between orbitals at an angle with respect to the principal axis:
+
+```{glue:figure} fig:rotate_orbital
+Two $d_{x^2-y^2}$ orbitals at angle $\theta$ with respect to the principal axis of the orbitals.
+```
+
+We can however decompose any misaligned $d$ orbital as a linear sum of all $d$ orbitals aligned with the hopping axis. Since $d_{z^2}$ is symmetric under rotation in the $xy$ plane we can exclude this orbital from our analysis. We assume the existence of some matrix $R(\theta) = R'(\theta)\oplus 1$ which governs rotations in our basis and apply it to the $d_{x^2-y^2}$ orbital:
+
+$$
+\begin{align*}
+R'(\theta)|{x^2-y^2}\rangle &= |{(x\cos\theta +y\sin\theta )^2-(y\cos\theta -x\sin\theta )^2}\rangle\\
+&=|{x^2\cos^2\theta +y^2\sin^2\theta +xy\sin2\theta-y^2\cos^2\theta -x^2\sin^2\theta +xy\sin2\theta}\rangle\\
+&=\cos2\theta|x^2-y^2\rangle + \sin2\theta|2xy\rangle,
+\end{align*}
+$$
+
+which leads us to express $R'(\theta)$ in matrix form as:
+
+$$
+R'(\theta)=\begin{pmatrix}\cos2\theta&-\sin2\theta\\ \sin2\theta&\cos2\theta\end{pmatrix}\rightarrow \mathcal R=R'(\pi/3)\oplus 1=\begin{pmatrix}-1/2&-\sqrt{3}/2\\ \sqrt{3}/2&-1/2\end{pmatrix} \oplus 1.
+$$
+
+Powers of $\mathcal R$ now rotate the orbitals towards the respective hopping axes. Next we need also rotate $\mathcal H_0$ to adhere to the lattice symmetries. We use powers of $C_6$ which we express as $\text{Diag}([1, -1, 1])$ in accordance with the arguments of the previous part on lattice symmetry. 
+
+We now give the hopping matrix for each hopping vector in: 
+
+$$A = \{ \vec a_1, \vec a_2, -\vec a_1+\vec a_2, -\vec a_1, -\vec a_2, \vec a_1-\vec a_2 \} ,$$ 
+
+where enumeration starts at zero:
+
+$$
+\mathcal H_i = \mathcal R^i C_6^i \mathcal H_0C_6^i \mathcal R^{-i}.
+$$
+
+## Hamiltonian
+
+The total hopping Hamiltonian is now the sum of all $\mathcal H_i$ multiplied by the appropriate complex phases:
+
+$$
+\mathcal H_\text{hop}(\mathbf k) = \sum_{i=0}^5\mathcal H_i \text e^{i \mathbf k\cdot A_i} =    \begin{pmatrix}
+        h_1&h_{12}&h_{13}\\ h_{12}^\dagger&h_2&h_{23}\\
+        h_{13}^\dagger&h_{23}^\dagger&h_3
+    \end{pmatrix} ,
+$$
+
+````{dropdown} with: (click dropdown for justification)
+
+We start by noticing that all rotation matrices share a quite similar form:
+
+```{list-table} The matrix expressions for $\mathcal R^iC_6^i$ excluding the $d_{z^2}$ component which is block diagonal.
+:header-rows: 1
+:name: tab:rotation-matrices
+* - $I_3$
+  - $\mathcal RC_6$
+  - $\mathcal R^2C_6^2=\mathcal R^2$
+  - $\mathcal R^3C_6^3=C_6$
+  - $\mathcal R^4C_6^4=\mathcal R$
+  - $\mathcal R^5C_6^5=\mathcal R^2C_6$
+* - $I_2$
+  - $\begin{pmatrix}-1/2&\sqrt{3}/2\\\sqrt{3}/2&1/2 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&\sqrt{3}/2\\-\sqrt{3}/2&-1/2 \end{pmatrix}$
+  - $\begin{pmatrix}1&0\\0&-1 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2 \end{pmatrix}$
+  - $\begin{pmatrix}-1/2&-\sqrt{3}/2\\-\sqrt{3}/2&1/2 \end{pmatrix}$ 
+```
+As such we can express all of them as some variant of:
+
+$$
+\mathcal{\tilde R}(\alpha, \alpha', \beta, \beta')=\begin{pmatrix}\alpha&\beta&0\\\beta'&\alpha'&0\\0&0&1\end{pmatrix}
+$$
+
+where $\alpha^2=\alpha'^2$, $\beta^2=\beta'^2$ and $\alpha\beta'=-\alpha'\beta$. This rotation allows a general expression for the matrix components of $\mathcal H_i$ where the constants in $\mathcal{\tilde R}$ come from {numref}`tab:rotation-matrices`:
+
+$$
+    \mathcal M=\mathcal {\tilde RH_0\tilde R}^\dagger=
+    \begin{pmatrix}
+        \alpha^2t_1+\beta^2t_2&\alpha\beta'(t_1-t_2)+(\alpha\alpha'-\beta\beta')t_{12}&\alpha t_{13}+\beta t_{23}\\
+        \alpha\beta'(t_1-t_2)-(\alpha\alpha'-\beta\beta')t_{12}&\alpha^2t_2+\beta^2t_1&\beta't_{13}+\alpha't_{23}\\
+        \alpha t_{13}-\beta t_{23}&\beta't_{13}-\alpha't_{23}&t_3
+        \label{eq:rot applied}
     \end{pmatrix}.
-```
-
-class Supercell:
-    hop_list = LatVec(1, 0) & LatVec(0, -1)
-    
-    def __init__(self, m, n):
-        self.v_1 = LatVec(m, n)    
-        self.v_2 = LatVec(n+m, -m)
-        self.w_1 = LatVec(m, n+m, True, 1/(m**2+m*n+n**2))
-        self.w_2 = LatVec(n, -m, True, 1/(m**2+m*n+n**2))
-        r = max(m, n)
-        self.grid = [LatVec(i, j) for i in range(0, 3*r) for j in range(-r, r+1) if self.in_supercell(i, j)]
-        self.N_atoms = len(self.grid)
-        self.Δθ = np.arctan((n-m)/(n+m)/np.sqrt(3))
-        self.construct_NN_array()
-         
-    def in_supercell(self, i, j, tol=10**-5):
-        M = np.linalg.inv(np.array([self.v_1.vec, self.v_2.vec]).T)
-        λ, μ = M @ LatVec(i, j).vec
-        in_parellogram = (tol < λ < 1-tol) and (tol < μ < 1-tol) 
-        return in_parellogram or (i, j) == (0, 0)
-    
-    def construct_NN_array(self):
-        self.NN_array = np.zeros((self.N_atoms, 6, 2), dtype=int)
-        for i in range(self.N_atoms):
-            self.NN_array[i, :] = [self.find_NN(i, h_vec) for h_vec in self.hop_list]
-            
-    def find_NN(self, i, h_vec):
-        for m, lat_vec in enumerate((self.v_1 & self.v_2) + [LatVec(0, 0)]):
-            if self.grid[i]+h_vec+lat_vec in self.grid:
-                return self.grid.index(self.grid[i]+h_vec+lat_vec), m
-        raise Exception('No NN found for '+str(i)+' '+str(h_vec))
-                
-    def interlayer_hopping_array(self, supercell, tol=10**-5):
-        if self.N_atoms != supercell.N_atoms:
-            raise Exception('Supercells have a different number of atoms')
-        if np.abs(self.Δθ + supercell.Δθ) > tol:
-            raise Exception('Unequal twist angles')
-        z_hopping = np.zeros((self.N_atoms, self.N_atoms, 2))
-        for i in range(self.N_atoms):
-            vec_i = supercell.grid[i].rot(-supercell.Δθ)    
-            for j in range(self.N_atoms):
-                min_ΔR = 10**6
-                for lat_vec in (self.v_1 & self.v_2) + [LatVec(0, 0)]:
-                    vec_j_trial = (self.grid[j]+lat_vec).rot(-self.Δθ)
-                    if np.linalg.norm(vec_i-vec_j_trial) < min_ΔR:
-                        min_ΔR = np.linalg.norm(vec_i-vec_j_trial)
-                        vec_j = vec_j_trial
-                z_hopping[i, j] = vec_i - vec_j
-        return z_hopping
-    
-    def plot_supercell(self, grid_points=None, *, lat_vec=LatVec(0, 0), rotate=True, **kwargs):
-        if grid_points == None:
-            grid_points = range(self.N_atoms)
-        grid_array = np.array([(self.grid[i]+lat_vec).rot(-self.Δθ*rotate) for i in grid_points])
-        plt.scatter(grid_array[:, 0], grid_array[:, 1], **kwargs)
-
-"""n, m = 6, 7
-layer_1 = Supercell(n, m)
-layer_2 = Supercell(m, n)
-z_hopping = layer_1.interlayer_hopping_array(layer_2)
-layer_1.Δθ*2*180/np.pi
-
-j_1 = 2
-j_2 = 44
-for lat_vec in [layer_1.v_1+layer_1.v_2, layer_1.v_1,  layer_1.v_2, LatVec(0, 0)]:
-    layer_1.plot_supercell(lat_vec=lat_vec, c='green', s=10)
-    layer_1.plot_supercell(list(layer_1.NN_array[j_1, :]), lat_vec=lat_vec, c='blue', marker='d')
-    layer_1.plot_supercell([j_1], lat_vec=lat_vec, c='blue', s=70, marker='D')
-    layer_1.plot_supercell([j_2], lat_vec=lat_vec, c='blue', marker='D', s=70)
-for lat_vec in [layer_2.v_1+layer_2.v_2, layer_2.v_1,  layer_2.v_2, LatVec(0, 0)]:
-    layer_2.plot_supercell(lat_vec=lat_vec, c='orange', s=10)
-    layer_2.plot_supercell([i for i in range(layer_2.N_atoms) if np.linalg.norm(z_hopping[i, j_2]) < 1], lat_vec=lat_vec, c='red', marker='d')
-
-plt.gca().set_aspect('equal', adjustable='box')
-plt.axis('off')"""
-
-Dit was de functie:
-
-$$
-f(x) = x^2
 $$
 
+Now we express the hopping Hamiltonian as a sum of $\mathcal M$ matrices:
 
+$$
+\mathcal H_\text{hop} = \sum_{\sigma\in\{-1, 1\}}\mathcal M(1, \sigma, 0, 0)\text e^{i\sigma k_x}+\sum_{\sigma,\tau\in\{-1, 1\}}\mathcal M\left(-\frac12,\frac\sigma2, \frac{\tau\sqrt3}{2},\frac{\sigma\tau\sqrt3}2\right)\text e^{i\sigma k_x/2+i\tau k_y\sqrt3/2},
+$$
 
-```{bibliography} references.bib
+the advantage of which is that we quickly see which terms contribute (co)sines. For example we see that a component proportional to $\alpha\beta'\propto \sigma\tau$ will result in a sine for both $k_x$ and $k_y$ for the second sum. Collecting all terms we acquire {numref}`tab:hopping-terms`  
+````
+
+```{list-table} Hamiltonian components with $\tilde k_x=k_x/2$ and $\tilde k_y = k_y\cdot \sqrt3/2$. We split the terms in real and imaginary parts for clarity.
+:header-rows: 1
+:name: tab:hopping-terms
+* -  
+  - Real
+  - Imaginary
+* - $h_1$
+  - $2t_1\cos 2\tilde k_x+(t_1+3t_2)\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_2$
+  - $2t_2\cos 2\tilde k_x+(t_2+3t_1)\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_3$
+  - $2t_3\cos 2\tilde k_x+4t_3\cos\tilde k_x\cos\tilde k_y$
+  - 0
+* - $h_{12}$
+  - $\sqrt3(t_1-t_2)\sin\tilde k_x\sin\tilde k_y$
+  - $2t_{12}(\sin 2\tilde k_x-2\sin\tilde k_x\cos\tilde k_y)$
+* - $h_{13}$
+  - $2t_{13}(\cos2\tilde k_x-\cos\tilde k_x\cos\tilde k_y)$
+  - $2\sqrt{3}t_{23}\cos\tilde k_x\sin\tilde k_y$
+* - $h_{23}$
+  - $-2\sqrt3t_{13}\sin\tilde k_x\sin\tilde k_y$
+  - $2t_{23}(\sin 2\tilde k_x+\sin\tilde k_x\cos\tilde k_y)$
 ```
 
-[0, 0] + np.array([2, 0])
+Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow {cite}`three_band` which gives the SOC contribution of the Hamiltonian as $\lambda_{SOC}/2\cdot\mathbf{L\cdot S}$, with pure $z$ polarized spin, doubling the degrees of freedom. We write, with $\sigma=\pm1$ as the two spin possibilities:
 
-" ".join(["i", "r"])
+$$
+    \mathcal H_\text{on-site}(\sigma)=\begin{pmatrix}
+        \varepsilon_{1}&\lambda_\text{SOC}\sigma i&0\\
+        -\lambda_\text{SOC}\sigma i&\varepsilon_{1}&0\\
+        0&0&\varepsilon_{3}
+    \end{pmatrix},
+$$
 
-```{bibliography} references.bib
+with $\varepsilon$ the energy of the $d_{x^2-y^2}$ and $d_{xy}$ orbitals, which are equal due to symmetry. $\varepsilon_3$ is the energy of the $d_{z^2}$ orbital. All values are given in {numref}`tab:constants`. The total Hamiltonian is:
+
+$$
+\mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
+$$
+
+## Band structure
+
+color = 'red'
+arrow_width = 0.02
+corners = [(1/2, np.sqrt(3)/2), (-1/2, np.sqrt(3)/2), (-1, 0), (-1/2, -np.sqrt(3)/2), (1/2, -np.sqrt(3)/2)]
+path = [np.array(point) for point in [(0, 0), (1, 0), (3/4, np.sqrt(3)/4)]]
+path_symbols = ["Γ", "K", "M"]
+offset = [(-0.1, 0), (0.1, 0), (0.1, 0.1)]
+drawing = draw.Drawing(3, 3, origin="center")
+p = draw.Path(stroke_width=0.01, stroke='blue', fill='none')
+p.M(1, 0)
+for corner in corners:
+    p.L(*corner)
+p.Z()
+drawing.append(p)
+for i in range(3):
+    mid = (path[(i+1)%3] + path[i]) / 2
+    drawing.append(moire.arrow(path[i], mid, stroke=color, stroke_width=arrow_width))
+    drawing.append(draw.Line(*(path[i]), *(path[(i+1)%3]), stroke=color, stroke_width=arrow_width))
+for i in range(3):
+    drawing.append(draw.Circle(*(path[i]), 0.02, fill=color))
+    drawing.append(draw.Text(path_symbols[i], 0.2, *(path[i]+offset[i]), center=0.6, fill='black'))
+drawing.setRenderSize(500)
+glue('fig:k_path', drawing)
+
+````{margin}
+```{glue:figure} fig:k_path
+:name: fig:k_path
+Path along high symmetry points of the Brillouin zone: $\Gamma:(0,\,0)$, $K:(4\pi/3, \,0)$ and $M:(\pi,\,\pi/\sqrt3)$.
+```
+````
+
+We solve for the bandstructure along the path connecting the high symmetry $\Gamma$, $K$ and $M$ points as shown in {numref}`fig:k_path`. We set the zero of energy at the maximum of the valence band, at the $K$ point: $(4\pi/3, \,0)$. Here the couplings with the $d_{z^2}$ orbital in {numref}`tab:hopping-terms` go to zero and we solve for the eigenvalues of the Hamiltonian:
+
+$$
+\mathcal H^\sigma(K) = \begin{pmatrix}
+        -\frac32(t_1+t_2)+\varepsilon_1&-i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)\\
+        i(3\sqrt3t_{12}+\lambda_\text{SOC}\sigma)&-\frac32(t_1+t_2)+\varepsilon_1
+    \end{pmatrix}
+    \oplus \begin{pmatrix}-3t_3+\varepsilon_3\end{pmatrix},
+$$
+
+and we conclude that the maximum of the valence band is at energy:
+
+$$
+    E_K(\sigma) = \varepsilon_1-\frac32(t_1+t_2)-(3\sqrt3t_{12}-\lambda_\text{SOC}\sigma).
+$$
+
+We notice that the SOC lowers (raises) the $K$ point of the valence band, at the $-K$ point the opposite takes place. The $K$ and $-K$ points of the conduction band at energies $-3t_3+\varepsilon_3$ are however unaffected.
+
+```python
+WSe2 = moire.WSe2(1, 2)
+
+def H(k, σ):
+    return WSe2.H_mono(k, σ)
+
+bs = moire.BandStructure(H)
+bs.set_k_path([np.array([0, 0]), np.array([4*np.pi/3, 0]), np.array([np.pi, np.pi/np.sqrt(3)]), np.zeros(2)], 
+          [r'$\Gamma$', 'K', 'M', r'$\Gamma$'], 300)
+bs.plot_band_structure([-1, 0, 1])
+
 ```
 

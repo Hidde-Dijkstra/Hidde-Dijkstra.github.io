@@ -2,5 +2,8 @@
 - file: master-thesis/intro
   sections:
     - file: master-thesis/monolayer
+    - file: master-thesis/supercell
+    - file: master-thesis/moire_functions
+    - file: master-thesis/logbook
     - file: master-thesis/bibliography
 
