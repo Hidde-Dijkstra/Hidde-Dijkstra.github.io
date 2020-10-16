@@ -1,6 +1,5 @@
 ---
 jupytext:
-  formats: ipynb,md:myst
   text_representation:
     extension: .md
     format_name: myst
@@ -12,14 +11,11 @@ kernelspec:
   name: python3
 ---
 
-# Log Book
+# Logbook
 
 +++
 
-## To-do:
-* Draw lattice vectors in lattice 
-* Combine svg objects into one to pass from functions so I do not need to pass the container as argument
-* Investigate how to use ipywidgets to toggle between different $m$ and $n$ for bilayer lattice
+## To-do: 
 * Rename files for clarity
 * Figure out how to wrap function for small screen viewing (or maybe scroll bar like for tables)
 * Write introduction file and update site image
@@ -32,9 +28,38 @@ kernelspec:
 
 +++
 
+## 9-15 October
+
+### Meeting
+
+### 15 October
+
+* Find papers on bilayer WSe$_2$:
+    * [Isotope Effect in Bilayer WSe2](https://pubs.acs.org/doi/pdf/10.1021/acs.nanolett.8b04269) interlayer distance is 1.3 nm.
+    * [Spin-Layer Locking Effects in Optical Orientation of Exciton Spin in
+Bilayer WSe2](https://arxiv.org/pdf/1311.7087.pdf) AB stacking tight-binding useless since assumes coupling of d_$z2$ orbital to other layer is zero due to symmetry, only coupling between valence bands.
+
+### 14 October
+
+* Made tabbed plots for different supercells
+* Wrote pseudocode to explain NN code
+
+### 12-13 October
+
+* Combine svg objects into groups for clearer code, apparently groups cannot be elements of groups.
+
+### 10-11 October
+
+* Fail to add caption to html figure, probable need to wait for update of jupyterbook
+
++++
+
 ## 2-8 October
 
 ### Meeting
+
+* Find papers using people that cite relevant papers
+* Consider only in plane rotations of orbitals for interlayer hopping
 
 ### 8 October
 
@@ -43,7 +68,7 @@ kernelspec:
     * [Atomic reconstruction and moiré patterns in transition metal
 dichalcogenide van der Waals heterostructures](https://arxiv.org/pdf/1911.12282.pdf) seems to be about fractional filling of moiré supercells between MoS(e)$_2$ WS(e)$_2$. For some reason popular heterostructure.
     * [Flat bands in long moiré wavelength twisted bilayer
-WSe2] (https://arxiv.org/pdf/1910.13068.pdf) talks a lot about AA vs AB stacking and localization of wavefunctions but does not give information about dimensions of the lattice/coupling.
+WSe2](https://arxiv.org/pdf/1910.13068.pdf) talks a lot about AA vs AB stacking and localization of wavefunctions but does not give information about dimensions of the lattice/coupling.
 * Just do DFT ourselves?
 
 ### 6-7 October
@@ -60,7 +85,7 @@ WSe2] (https://arxiv.org/pdf/1910.13068.pdf) talks a lot about AA vs AB stacking
 
 ### 3-4 October
 
-* Write lattice drawing class for svg lattice which also works for (rotated) bilayer lattices.  
+* Write lattice drawing class for svg lattice which also works for (rotated) bilayer lattices.
 
 +++
 

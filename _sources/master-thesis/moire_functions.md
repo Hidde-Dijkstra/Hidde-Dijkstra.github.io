@@ -12,22 +12,43 @@ kernelspec:
   name: python3
 ---
 
-# Moiré functions
+# Code
 
 +++
 
 ## Dependencies
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 import plotly.graph_objects as go
 import drawSvg as draw
 from numpy.linalg import matrix_power as mat_pow
 ```
 
-## Lattice drawing class
+## Utility functions
 
-```{code-cell} ipython3
+```{code-cell}
+def rot_mat(θ):
+    return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
+
+def arrow(start, end, stroke_width=0.1, stroke='black', **kwargs):
+    start, end = np.array(start), np.array(end)
+    Δx = 3
+    my_arrow = draw.Marker(-1+Δx/4, -0.5, Δx/4, 0.5, scale=4, orient='auto')
+    my_arrow.append(draw.Lines(-1+Δx/4, -0.5, -1+Δx/4, 0.5, Δx/4, 0, close=True, fill=stroke))
+    p = draw.Path(stroke=stroke, stroke_width=stroke_width, fill='none',
+              marker_end=my_arrow, **kwargs)
+    t = 1 - stroke_width*Δx/np.linalg.norm(end-start)
+    return p.M(*start).L(*(t*(end-start)+start))
+```
+
+## Drawing
+
++++
+
+### Lattice
+
+```{code-cell}
 class Index:
  
 
@@ -51,7 +72,7 @@ class Lattice:
         self.H = H
         self.unit_cell = []
         self.grid = []
-        self.θ = θ
+        self.θ = -θ
         
     def add_atom(self, atom):        
         N_1, N_2 = [1+min(int(self.W/np.abs(a[0]+0.00001)), int(self.H/np.abs(a[1]+0.00001))) for a in [rot_mat(self.θ)@a for a in self.a]]
@@ -63,19 +84,7 @@ class Lattice:
     def in_lattice(self, i, j, atom):
         origin = np.abs(rot_mat(self.θ) @ (atom.position+Index(i, j)*self.a))
         return np.all(origin-atom.atom_radius < [self.W/2, self.H/2])
-    
-    def draw_lattice(self):
-        container = []
-        for i, atom in enumerate(self.unit_cell):
-            for grid_point in self.grid[i]:
-                component_list = atom.draw_bonds(grid_point*self.a, self.θ)
-                [container.append(component) for component in component_list]
-        for i, atom in enumerate(self.unit_cell):
-            for grid_point in self.grid[i]:
-                component_list = atom.draw_atom(grid_point*self.a, self.θ)
-                [container.append(component) for component in component_list]
-        return container
-                
+        
     def NN(self, atom_1, atom_2, bond_list, **kwargs):
         #atom_1.bond_style.append(kwargs)
         for bond in bond_list:
@@ -83,9 +92,36 @@ class Lattice:
             if atom_1 != atom_2:
                 #atom_2.bond_style.append(kwargs)
                 atom_2.bonds.append(-atom_1.bonds[-1])
-                
-    def draw_lattice_vectors(self, **kwargs):
-        pass
+    
+    def draw_lattice(self, origin=(0, 0)):
+        group = draw.Group()
+        for i, atom in enumerate(self.unit_cell):
+            for grid_point in self.grid[i]:
+                group.append(atom.draw_bonds(grid_point*self.a, self.θ), z=0)                
+                group.append(atom.draw_atom(grid_point*self.a, self.θ), z=1)
+        return group
+               
+    def draw_lattice_vectors(self, vec_symbols=['a₁', 'a₂'], origin=(0, 0), centralize=True, stroke_width=0.1, color='black',
+                             **kwargs):
+        rot = rot_mat(self.θ)
+        group = draw.Group()
+        if centralize:
+            origin += sum(self.a) / 2
+        group.append(arrow(rot@origin, rot@(origin+self.a[0]), stroke_width=stroke_width, stroke=color, **kwargs))
+        group.append(arrow(rot@origin, rot@(origin+self.a[1]), stroke_width=stroke_width, stroke=color, **kwargs))
+        group.append(draw.Text(vec_symbols[0], stroke_width*10, *(rot@(origin+self.a[0])), fill=color))
+        group.append(draw.Text(vec_symbols[1], stroke_width*10, *(rot@(origin+self.a[1])), fill=color))
+        return group
+    
+    def draw_unit_cell(self, origin=(0, 0), **kwargs):
+        rot = rot_mat(self.θ)
+        group = draw.Group()
+        for i in range(2):
+            N = int(np.sqrt(self.H**2+self.W**2)/np.linalg.norm(self.a[1-i])) + 1
+            for j in range(-N, N+1):
+                vector = np.sqrt(self.H**2+self.W**2) * self.a[i]/np.linalg.norm(self.a[i])
+                group.append(draw.Line(*(rot@(origin-vector+j*self.a[1-i])), *(rot@(origin+vector+j*self.a[1-i])), **kwargs))
+        return group
     
 
 
@@ -101,27 +137,27 @@ class LatticeAtom:
         self.bond_style = []
     
     def draw_bonds(self, displacement, θ, **kwargs):
-        bond_components = []
+        group = draw.Group()
         origin = rot_mat(θ) @ (displacement + self.position)
         for bond in self.bonds:
-            bond_components.append(draw.Line(*origin, *(origin+bond), stroke='black', stroke_width=0.01, **kwargs))
-        return bond_components
-        
+            group.append(draw.Line(*origin, *(origin+bond), stroke='black', stroke_width=0.01, **kwargs))
+        return group
+    
     def draw_atom(self, displacement, θ, **kwargs):
-        atom_components = []
+        group = draw.Group()
         origin = rot_mat(θ) @ (displacement + self.position)
         gradient = draw.RadialGradient(*origin, self.atom_radius)
         gradient.addStop(0, 'white', 1)
         gradient.addStop(1, self.atom_color, 1)
-        atom_components.append(draw.Circle(*origin, self.atom_radius, stroke='black', stroke_width=0.01, fill=gradient, **kwargs))
+        group.append(draw.Circle(*origin, self.atom_radius, stroke='black', stroke_width=0.01, fill=gradient, **kwargs))
         if self.name != None:
-            atom_components.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
-        return atom_components 
+            group.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
+        return group
 ```
 
-## Drawing orbitals
+### Orbitals
 
-```{code-cell} ipython3
+```{code-cell}
 class Orbital:  
     
     
@@ -144,37 +180,37 @@ class Orbital:
             return draw.Ellipse(0, 0, 1, 0.25, stroke=stroke, stroke_width=0.01, fill=gradient, transform=transform, **kwargs) 
         else:
             return draw.Circle(0, 0, 0.5, stroke=stroke, stroke_width=0.01, fill=gradient, transform=transform, **kwargs)
-
-class d_xy(Orbital):
     
-    def __init__(self, container, translate=(0, 0), rotate=0):
-        container.append(self.lobe("dodgerblue", rotate=85+rotate, translate=translate))
-        container.append(self.lobe("red", rotate=95+rotate, translate=translate))
-        container.append(self.lobe("red", rotate=275+rotate, translate=translate))
-        container.append(self.lobe("dodgerblue", rotate=265+rotate, translate=translate))
-        
-class d_z2(Orbital):
+    def d_xy(self, translate=(0, 0), rotate=0, neg_color="dodgerblue", pos_color="red",
+             **kwargs):
+        group = draw.Group(**kwargs)
+        group.append(self.lobe(neg_color, rotate=85+rotate, translate=translate))
+        group.append(self.lobe(pos_color, rotate=95+rotate, translate=translate))
+        group.append(self.lobe(pos_color, rotate=275+rotate, translate=translate))
+        group.append(self.lobe(neg_color, rotate=265+rotate, translate=translate))
+        return group
     
-    def __init__(self, container, translate=(0, 0), rotate=0):
-        container.append(self.lobe("dodgerblue", rotate=180+rotate, translate=translate))
-        container.append(self.circle("red", ellipse=True, rotate=rotate, translate=translate))
-        container.append(self.lobe("dodgerblue", rotate=rotate, translate=translate))
-        
-class d_x2y2(Orbital):
+    def d_z2(self, translate=(0, 0), rotate=0, neg_color="dodgerblue", pos_color="red",
+             **kwargs):
+        group = draw.Group(**kwargs)
+        group.append(self.lobe(neg_color, rotate=180+rotate, translate=translate))
+        group.append(self.circle(pos_color, ellipse=True, rotate=rotate, translate=translate))
+        group.append(self.lobe(neg_color, rotate=rotate, translate=translate))
+        return group
     
-    def __init__(self, container, translate=(0, 0), rotate=0):
-        container.append(self.lobe("dodgerblue", rotate=180+rotate, translate=translate))
-        container.append(self.lobe("dodgerblue", rotate=rotate, translate=translate))
-        container.append(self.lobe("red", rotate=90+rotate, translate=translate))
-        container.append(self.lobe("red", rotate=270+rotate, translate=translate))
-
-def rot_mat(θ):
-    return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
+    def d_x2y2(self, translate=(0, 0), rotate=0, neg_color="dodgerblue", pos_color="red",
+               **kwargs):
+        group = draw.Group(**kwargs)
+        group.append(self.lobe(neg_color, rotate=180+rotate, translate=translate))
+        group.append(self.lobe(neg_color, rotate=rotate, translate=translate))
+        group.append(self.lobe(pos_color, rotate=90+rotate, translate=translate))
+        group.append(self.lobe(pos_color, rotate=270+rotate, translate=translate))
+        return group
 ```
 
-## Band structure calculations
+## Band structure
 
-```{code-cell} ipython3
+```{code-cell}
 class BandStructure:
     
     
@@ -215,50 +251,9 @@ class BandStructure:
         self.k_path += [k_list[-1]]
 ```
 
-```{code-cell} ipython3
-var_dic = {
-        "t_1": 0.034, 
-        "t_2": 0.263, 
-        "t_3": -0.207, 
-        "t_12": 0.329, 
-        "t_13": 0.486, 
-        "t_23": 0.457, 
-        "ε_1": 2.179, 
-        "ε_3": 0.943, 
-        "λ_SOC": 0.228
-    }
-    
-t_1, t_2, t_3, t_12, t_13, t_23, ε_1, ε_3, λ_SOC = var_dic.values()
+## Moiré supercell
 
-def H_mono(k, σ):
-    k_x, k_y = k[0]/2, k[1]*np.sqrt(3)/2
-    cos2x, cosx, cosy = np.cos(2*k_x), np.cos(k_x), np.cos(k_y)
-    sin2x, sinx, siny = np.sin(2*k_x), np.sin(k_x), np.sin(k_y)
-    h_1 = 2*t_1*cos2x + (t_1+3*t_2)*cosx*cosy
-    h_2 = 2*t_2*cos2x + (t_2+3*t_1)*cosx*cosy
-    h_3 = 2*t_3*cos2x + 4*t_3*cosx*cosy
-    h_12 = np.sqrt(3)*(t_2-t_1)*sinx*siny + 2j*t_12*(sin2x-2*sinx*cosy)
-    h_13 = 2*t_13*(cos2x-cosx*cosy) + 2j*np.sqrt(3)*t_23*cosx*siny
-    h_23 = -2*np.sqrt(3)*t_13*sinx*siny + 2j*t_23*(sin2x+sinx*cosy)
-    return np.array([
-        [ε_1+h_1, 1j*λ_SOC*σ+h_12, h_13],
-        [-1j*λ_SOC*σ+np.conj(h_12), ε_1+h_2, h_23],
-        [np.conj(h_13), np.conj(h_23), ε_3+h_3]
-    ])
-
-bs = BandStructure(H_mono)
-bs.set_k_path([np.array([0, 0]), np.array([4*np.pi/3, 0]), np.array([np.pi, np.pi/np.sqrt(3)]), np.zeros(2)], 
-          [r'$\Gamma$', 'K', 'M', r'$\Gamma$'], 300)
-bs.plot_band_structure([-1, 0, 1])
-```
-
-## Moiré supercell class
-
-```{code-cell} ipython3
----
-jupyter:
-  source_hidden: true
----
+```{code-cell}
 class LatVec:
     # We identify each atom as the two integers i and j which connect it to the origin. 
     # Using a pythonic object we can define how two of these vectors interact.
@@ -360,23 +355,20 @@ class Supercell:
                 z_hopping[i, j] = vec_i - vec_j
         return z_hopping
                         
-    def plot(self, W, H, rotate=True, atom_color='blue', atom_radius=0.2):
-        if rotate == True:
-            supercell = Lattice(self.v_1.vec, self.v_2.vec, W, H, θ=self.Δθ)
-        else:
-            supercell = Lattice(self.v_1.vec, self.v_2.vec, W, H)        
+    def lattice(self, W, H, rotate=True, atom_color='blue', atom_radius=0.2):
+        supercell = Lattice(self.v_1.vec, self.v_2.vec, W, H, θ=self.Δθ*rotate)
         for atom in self.grid:
             supercell.add_atom(LatticeAtom(atom.vec, atom_color=atom_color, atom_radius=atom_radius))
-        return supercell.draw_lattice()
+        return supercell
     
     def reduce_k_point(self, k):
         α, β = np.linalg.inv([[self.w_1*self.w_1, self.w_1*self.w_2], [self.w_1*self.w_2, self.w_2*self.w_2]]) @ np.array([np.dot(k, self.w_1.vec), np.dot(k, self.w_2.vec)]).T
         return np.modf(α)[0]*self.w_1.vec + np.modf(β)[0]*self.w_2.vec
 ```
 
-## WSe$_2$ specific calculations
+## WSe$_2$
 
-```{code-cell} ipython3
+```{code-cell}
 class WSe2:
     var_dic = {
         "t_1": 0.034, 
@@ -411,8 +403,23 @@ class WSe2:
         self.z_hop = []
         for i in range(self.layer_1.N_atoms):
             self.z_hop += [[(j, z_hopping[i, j]) for j in range(self.layer_2.N_atoms) if np.linalg.norm(z_hopping[i, j])<R_max]]
+            
+    def H_mono(self, k, σ):
+        k_x, k_y = k[0]/2, k[1]*np.sqrt(3)/2
+        cos2x, cosx, cosy = np.cos(2*k_x), np.cos(k_x), np.cos(k_y)
+        sin2x, sinx, siny = np.sin(2*k_x), np.sin(k_x), np.sin(k_y)
+        h_1 = 2*self.t_1*cos2x + (self.t_1+3*self.t_2)*cosx*cosy
+        h_2 = 2*self.t_2*cos2x + (self.t_2+3*self.t_1)*cosx*cosy
+        h_3 = 2*self.t_3*cos2x + 4*self.t_3*cosx*cosy
+        h_12 = np.sqrt(3)*(self.t_1-self.t_2)*sinx*siny + 2j*self.t_12*(sin2x-2*sinx*cosy)
+        h_13 = 2*self.t_13*(cos2x-cosx*cosy) + 2j*np.sqrt(3)*self.t_23*cosx*siny
+        h_23 = -2*np.sqrt(3)*self.t_13*sinx*siny + 2j*self.t_23*(sin2x+sinx*cosy)
+        return np.array([
+            [self.ε_1+h_1, 1j*self.λ_SOC*σ+h_12, h_13],
+            [-1j*self.λ_SOC*σ+np.conj(h_12), self.ε_1+h_2, h_23],
+            [np.conj(h_13), np.conj(h_23), self.ε_3+h_3]
+        ])
     
-        
     def H_WSe2_mono(self, k, σ, layer, rotate=False):
         if rotate:
             k = np.array([[np.cos(layer.Δθ), -np.sin(layer.Δθ)], [np.sin(layer.Δθ), np.cos(layer.Δθ)]]) @ k
@@ -422,49 +429,10 @@ class WSe2:
             for j in range(6):
                 m = layer.NN_array[i][j]['NN']
                 H[3*i:3*(i+1), 3*m:3*(m+1)] = self.E_list[j] * np.exp(1j*np.dot(layer.NN_array[i][j]['LatVec'].vec, k))
-        return H
-    
-    def plot_mono_bands(self, σ, k_list, N_points, layer=None, k_tags=None, **kwargs):
-        if layer == None:
-            layer = self.layer_1
-        spacing, k_path_unit = self.k_path(k_list, N_points)
-        N_points = len(k_path_unit)
-        k_path_super = self.k_path([layer.reduce_k_point(k) for k in k_list], N_points, spacing)[1]
-        #k_path_super = k_path_unit
-        ε_supercell = np.zeros((N_points, 3*layer.N_atoms))
-        ε_unitcell = np.zeros((N_points, 3))
-        for i in range(N_points):
-            my_H = (sum([self.E_list[j] * np.exp(1j*np.dot(layer.hop_list[j].vec, k_path_unit[i])) for j in range(6)]) 
+        my_H = (sum([self.E_list[j] * np.exp(1j*np.dot(layer.hop_list[j].vec, k)) for j in range(6)]) 
                     + self.E_levels + self.λ_SOC*np.array([[0, 1j*σ, 0], [-1j*σ, 0, 0], [0, 0, 0]]))
-            ε_unitcell[i, :] = np.linalg.eigh(my_H)[0]
-            ε_supercell[i, :] = np.linalg.eigh(self.H_WSe2_mono(k_path_super[i], σ, layer))[0]
-        for x in [sum(spacing[:i]) for i in range(len(spacing)+1)]:
-            plt.axvline(x=x, linewidth=0.5, color='black', ls='--')
-        plt.axhline(y=0, linewidth=0.5, color='black', ls='--')
-        plt.axhline(y=self.E_1-self.E_0, linewidth=0.5, color='black', ls='--')
-        plt.plot(range(N_points), ε_supercell-self.E_0, c='b')
-        plt.plot(range(N_points), ε_unitcell-self.E_0, c='r')
-        plt.ylabel('Energy (eV)')
-        if k_tags != None:
-            plt.xticks([sum(spacing[:i]) for i in range(len(spacing)+1)], k_tags)
-            
-    def plot_bilayer_bands(self, σ, t_0, k_list, N_points, k_tags=None, print_time=False, **kwargs):
-        spacing, k_path_super = self.k_path([self.layer_1.reduce_k_point(k) for k in k_list], N_points)
-        N_points = len(k_path_super)
-        ε_supercell = np.zeros((N_points, 6*self.layer_1.N_atoms))
-        for i in range(N_points):
-            startTime = datetime.now()
-            ε_supercell[i, :] = np.linalg.eigh(self.H_WSe2_bilayer(k_path_super[i], σ, t_0))[0]
-            if print_time:
-                print(datetime.now()-startTime)
-        for x in [sum(spacing[:i]) for i in range(len(spacing)+1)]:
-            plt.axvline(x=x, linewidth=0.5, color='black', ls='--')
-        plt.axhline(y=0, linewidth=0.5, color='black', ls='--')
-        plt.axhline(y=self.E_1-self.E_0, linewidth=0.5, color='black', ls='--')
-        plt.plot(range(N_points), ε_supercell-self.E_0, c='b')
-        plt.ylabel('Energy (eV)')
-        if k_tags != None:
-            plt.xticks([sum(spacing[:i]) for i in range(len(spacing)+1)], k_tags)
+        
+        return my_H
             
     def H_WSe2_bilayer(self, k, σ, t_0):
         H = np.zeros((6*self.layer_1.N_atoms, 6*self.layer_1.N_atoms), dtype=complex)
@@ -476,5 +444,4 @@ class WSe2:
                 H[3*i+2+3*self.layer_1.N_atoms, 3*j+2] = t * np.exp(1j*np.dot(k, hop_vec))
                 H[3*j+2, 3*i+2+3*self.layer_1.N_atoms] = t * np.exp(-1j*np.dot(k, hop_vec))
         return H
-        
 ```

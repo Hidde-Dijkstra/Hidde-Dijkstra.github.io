@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Supercell &#8212; Twisted bilayer WSe2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Code" href="moire_functions.html" />
+    <link rel="prev" title="Monolayer WSe\(_2\)" href="monolayer.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Twisted bilayer WSe2</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Hoi hoi
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   Twisted bilayer WSe
+   <span class="math notranslate nohighlight">
+    \(_2\)
+   </span>
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="monolayer.html">
+     Monolayer WSe
+     <span class="math notranslate nohighlight">
+      \(_2\)
+     </span>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Supercell
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="moire_functions.html">
+     Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="logbook.html">
+     Logbook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bibliography.html">
+     Bibliography
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/master-thesis/supercell.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/master-thesis/supercell.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/master-thesis/supercell.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#monolayer-supercell">
+   Monolayer supercell
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nearest-neighbors">
+     Nearest neighbors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduced-brillouin-zone">
+     Reduced Brillouin zone
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bilayer-supercell">
+   Bilayer supercell
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Nearest neighbors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="supercell">
+<h1>Supercell<a class="headerlink" href="#supercell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="monolayer-supercell">
+<h2>Monolayer supercell<a class="headerlink" href="#monolayer-supercell" title="Permalink to this headline">¶</a></h2>
+<p>We construct a supercell by spanning a parallelogram with integer multiples of the unit cell vectors <span class="math notranslate nohighlight">\(a_1\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec v_1=m\vec a_1+n\vec a_2\text{ and } \vec v_2= (n+m)\vec a_1-m\vec a_2,
+\]</div>
+<p>which result in reciprocal lattice vectors:</p>
+<div class="math notranslate nohighlight" id="equation-eq-reciprocal-supercell">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
+<p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="e10d56ac-a37f-4462-9988-c1084aacd829" name="813ff3b8-170c-4cac-9f51-7f7bdda042e7" type="radio">
+</input><label class="tabbed-label" for="e10d56ac-a37f-4462-9988-c1084aacd829">
+&lt;math&gt;n=1&lt;/math&gt;, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice13">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_3_0.svg" src="../_images/supercell_3_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="eff83abe-0860-40d2-816e-1570758394e2" name="813ff3b8-170c-4cac-9f51-7f7bdda042e7" type="radio">
+</input><label class="tabbed-label" for="eff83abe-0860-40d2-816e-1570758394e2">
+&lt;math&gt;n=3&lt;/math&gt;, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice31">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_3_1.svg" src="../_images/supercell_3_1.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=3\)</span> and <span class="math notranslate nohighlight">\(m=1\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice31" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="nearest-neighbors">
+<h3>Nearest neighbors<a class="headerlink" href="#nearest-neighbors" title="Permalink to this headline">¶</a></h3>
+<p>Our next task is to find the nearest neighbors (NN) of all atoms within the supercell. We follow the following procedure:</p>
+<div class="admonition-pseudo-code-for-interlayer-nn-algorithm admonition">
+<p class="admonition-title">Pseudo code for interlayer NN algorithm</p>
+<p><strong>for</strong> atom i <strong>in</strong> supercell, hopping vector <span class="math notranslate nohighlight">\(h\)</span> <strong>in</strong> <span class="math notranslate nohighlight">\(\{\pm\vec a_1, \pm\vec a_2, \pm(\vec a_2-\vec a_1)\}\)</span>:</p>
+<blockquote>
+<div><p><strong>for</strong> atom j <strong>in</strong> supercell:</p>
+<blockquote>
+<div><p>displacement vector = position(atom i) - position(atom j)<br />
+<strong>if</strong> displacement vector == hopping vector <span class="math notranslate nohighlight">\(h\)</span>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">atom</span> <span class="pre">i</span> <span class="pre">and</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">are</span> <span class="pre">NN</span> <span class="pre">for</span> <span class="pre">hopping</span> <span class="pre">vector</span> <span class="pre">h</span></code><br />
+NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
+<strong>break</strong> for loop</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>if</strong> no NN found:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">NN</span> <span class="pre">in</span> <span class="pre">other</span> <span class="pre">supercell</span></code><br />
+<strong>for</strong> atom j <strong>in</strong> supercell, supercell vector <span class="math notranslate nohighlight">\(v\)</span> <strong>in</strong> <span class="math notranslate nohighlight">\(\{\pm \vec v_1, \pm \vec v_2, \pm(\vec v_2+\vec v_1)\}\)</span>:</p>
+<blockquote>
+<div><p>displacement vector = position(atom i) - position(atom j)<br />
+<strong>if</strong> displacement vector == hopping vector <span class="math notranslate nohighlight">\(h\)</span> + supercell vector <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">atom</span> <span class="pre">i</span> <span class="pre">and</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">are</span> <span class="pre">NN</span> <span class="pre">for</span> <span class="pre">hopping</span> <span class="pre">vector</span> <span class="pre">h</span> <span class="pre">and</span> <span class="pre">lattice</span> <span class="pre">vector</span> <span class="pre">v</span></code><br />
+NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
+<strong>break</strong> for loop</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>return</strong> NN list</p>
+</div>
+<p>Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells <span class="math notranslate nohighlight">\(\pm(v_1-v_2)\)</span> since we cannot hop to those from our supercell.</p>
+</div>
+<div class="section" id="reduced-brillouin-zone">
+<h3>Reduced Brillouin zone<a class="headerlink" href="#reduced-brillouin-zone" title="Permalink to this headline">¶</a></h3>
+<p>The increase in the amount of atoms in the supercell increases the number of bands which are partial duplicates of the single atom unit-cell, a procces known as backfolding. The lattice vectors for the supercell become larger, the corresponding Brillouin becomes smaller, as is apparant in <a class="reference internal" href="#equation-eq-reciprocal-supercell">(1)</a>.  Our purpose now is to translate the high symmetry <span class="math notranslate nohighlight">\(\Gamma, M, K\)</span> point to their reduced Brillouin zone counterparts: <span class="math notranslate nohighlight">\(\bar\Gamma, \bar M, \bar K\)</span>. To this end we consider some vector <span class="math notranslate nohighlight">\(\vec \nu\)</span> in the unit cell Brillouin zone and write it in reciprocal supercell vector basis:</p>
+<div class="math notranslate nohighlight">
+\[
+    \vec\nu=\alpha \vec w_1+\beta \vec w_2. 
+\]</div>
+<p>We now take the inner products with the respective reciprocal vectors to acquire the constants <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}\alpha\\\beta\end{pmatrix}=\begin{pmatrix}|\vec w_1|^2&amp;\vec w_1\cdot\vec w_2\\\vec w_1\cdot\vec w_2&amp;|\vec w_2|^2\end{pmatrix}^{-1}\begin{pmatrix}\vec \nu\cdot\vec w_1\\\vec \nu\cdot\vec w_2\end{pmatrix}.
+\end{split}\]</div>
+<p>We finish by taking the decimal part of both <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> for the equivalent vector in the reduced Brillouin zone.</p>
+</div>
+</div>
+<div class="section" id="bilayer-supercell">
+<h2>Bilayer supercell<a class="headerlink" href="#bilayer-supercell" title="Permalink to this headline">¶</a></h2>
+<p>Now for the bilayer we stack the lattices of <a class="reference internal" href="#fig-lattice13"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-lattice31"><span class="std std-numref">Fig. 6</span></a> with twist angle:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta\theta = 2\arctan\left|\frac1{\sqrt3}\frac{n-m}{n+m}\right|,
+\]</div>
+<p>which is the angle of <span class="math notranslate nohighlight">\(\vec v_1+\vec v_2\)</span> with the <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
+<div class="section" id="id1">
+<h3>Nearest neighbors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-pseudo-code-for-intralayer-nn-algorithm admonition">
+<p class="admonition-title">Pseudo code for intralayer NN algorithm</p>
+<p><strong>for</strong> atom i <strong>in</strong> layer 1:</p>
+<blockquote>
+<div><p><strong>for</strong> atom j <strong>in</strong> layer 2:</p>
+<blockquote>
+<div><p>minimal displacement = <span class="math notranslate nohighlight">\(\infty\)</span><br />
+<strong>for</strong> supercell lattice vector <strong>in</strong> <span class="math notranslate nohighlight">\(\{0, \pm\vec v_1, \pm\vec v_2, \pm(\vec v_1+\vec v_2)\}\)</span>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">supercell</span> <span class="pre">lattice</span> <span class="pre">vectors</span> <span class="pre">translate</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">equivalent</span> <span class="pre">atom</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">neighboring</span> <span class="pre">supercell.</span></code><br />
+displacement vector = position(atom i) - position(atom j) + supercell lattice vector<br />
+<code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">displacement</span> <span class="pre">vector</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">vector</span> <span class="pre">connecting</span> <span class="pre">atom</span> <span class="pre">i</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">atom</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">xy</span> <span class="pre">plane.</span></code>
+<strong>if</strong> norm(displacement vector) <span class="math notranslate nohighlight">\(&lt;\)</span> minimal displacement:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">atom</span> <span class="pre">i</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">equivalent</span> <span class="pre">atom</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">the</span> <span class="pre">previously</span> <span class="pre">found</span> <span class="pre">distance</span> <span class="pre">then</span> <span class="pre">we</span> <span class="pre">save</span> <span class="pre">this</span> <span class="pre">displacement</span> <span class="pre">vector.</span></code><br />
+minimal displacement = norm(displacement vector)<br />
+hopping vector = displacement vector</p>
+</div></blockquote>
+<p>interlayer hopping list [i, j] = hopping vector</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>return</strong>  interlayer hopping list</p>
+</div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="fd6cefa5-06be-4a4a-b089-9fa42b1b3ccb" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
+</input><label class="tabbed-label" for="fd6cefa5-06be-4a4a-b089-9fa42b1b3ccb">
+&lt;math&gt;n=2&lt;/math&gt;</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-2">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_9_0.svg" src="../_images/supercell_9_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="e4e2a70a-e3b6-4a8c-b2ff-e9777385cdfb" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
+</input><label class="tabbed-label" for="e4e2a70a-e3b6-4a8c-b2ff-e9777385cdfb">
+&lt;math&gt;n=3&lt;/math&gt;</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-3">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_9_1.svg" src="../_images/supercell_9_1.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="e8548db1-0a0d-4a84-82fa-69cb5b8decba" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
+</input><label class="tabbed-label" for="e8548db1-0a0d-4a84-82fa-69cb5b8decba">
+&lt;math&gt;n=4&lt;/math&gt;</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-4">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_9_2.svg" src="../_images/supercell_9_2.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="d4d63420-cfed-4357-a7ac-e815777d9fc1" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
+</input><label class="tabbed-label" for="d4d63420-cfed-4357-a7ac-e815777d9fc1">
+&lt;math&gt;n=5&lt;/math&gt;</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-5">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_9_3.svg" src="../_images/supercell_9_3.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=5\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="3efb822c-4f34-4182-b23f-df04b8c1a055" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
+</input><label class="tabbed-label" for="3efb822c-4f34-4182-b23f-df04b8c1a055">
+&lt;math&gt;n=6&lt;/math&gt;</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-6">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_9_4.svg" src="../_images/supercell_9_4.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./master-thesis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="monolayer.html" title="previous page">Monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span></a>
+    <a class='right-next' id="next-link" href="moire_functions.html" title="next page">Code</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Hidde Dijkstra<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

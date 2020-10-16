@@ -1,0 +1,1498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="500" height="350.0" viewBox="-5.0 -3.5 10 7">
+<defs>
+<radialGradient cx="0.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d0">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.998625428903524" cy="0.052414241836095915" r="0.2" gradientUnits="userSpaceOnUse" id="d1">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5433302083054463" cy="-0.7862136275414386" r="0.2" gradientUnits="userSpaceOnUse" id="d2">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.997250857807048" cy="0.10482848367219183" r="0.2" gradientUnits="userSpaceOnUse" id="d3">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.54195563720897" cy="-0.7337993857053428" r="0.2" gradientUnits="userSpaceOnUse" id="d4">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.174695404318261" cy="3.1972687520018512" r="0.2" gradientUnits="userSpaceOnUse" id="d5">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0866604166108926" cy="-1.5724272550828773" r="0.2" gradientUnits="userSpaceOnUse" id="d6">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.45117150730865" cy="0.9958705948858223" r="0.2" gradientUnits="userSpaceOnUse" id="d7">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.995876286710572" cy="0.15724272550828775" r="0.2" gradientUnits="userSpaceOnUse" id="d8">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.540581066112494" cy="-0.6813851438692469" r="0.2" gradientUnits="userSpaceOnUse" id="d9">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.176069975414737" cy="3.249682993837947" r="0.2" gradientUnits="userSpaceOnUse" id="d10">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0852858455144165" cy="-1.5200130132467815" r="0.2" gradientUnits="userSpaceOnUse" id="d11">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.6313651960128146" cy="2.4110551244604124" r="0.2" gradientUnits="userSpaceOnUse" id="d12">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.6299906249163385" cy="-2.3586408826243166" r="0.2" gradientUnits="userSpaceOnUse" id="d13">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.449796936212174" cy="1.0482848367219182" r="0.2" gradientUnits="userSpaceOnUse" id="d14">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.994501715614096" cy="0.20965696734438366" r="0.2" gradientUnits="userSpaceOnUse" id="d15">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5392064950160185" cy="-0.6289709020331509" r="0.2" gradientUnits="userSpaceOnUse" id="d16">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.1774445465112127" cy="3.302097235674043" r="0.2" gradientUnits="userSpaceOnUse" id="d17">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.08391127441794" cy="-1.4675987714106855" r="0.2" gradientUnits="userSpaceOnUse" id="d18">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.6327397671092907" cy="2.463469366296508" r="0.2" gradientUnits="userSpaceOnUse" id="d19">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0880349877073683" cy="1.6248414969189737" r="0.2" gradientUnits="userSpaceOnUse" id="d20">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.3576382352153775" cy="-2.830369059149179" r="0.2" gradientUnits="userSpaceOnUse" id="d21">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.9037175857137756" cy="1.9393269479355486" r="0.2" gradientUnits="userSpaceOnUse" id="d22">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.8129334558134556" cy="-3.6689969285267137" r="0.2" gradientUnits="userSpaceOnUse" id="d23">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.4484223651156976" cy="1.1006990785580142" r="0.2" gradientUnits="userSpaceOnUse" id="d24">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.99312714451762" cy="0.26207120918047955" r="0.2" gradientUnits="userSpaceOnUse" id="d25">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.1788191176076888" cy="3.3545114775101386" r="0.2" gradientUnits="userSpaceOnUse" id="d26">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.6341143382057666" cy="2.5158836081326044" r="0.2" gradientUnits="userSpaceOnUse" id="d27">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0894095588038444" cy="1.6772557387550695" r="0.2" gradientUnits="userSpaceOnUse" id="d28">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5447047794019222" cy="0.8386278693775352" r="0.2" gradientUnits="userSpaceOnUse" id="d29">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.3590128063118536" cy="-2.7779548173130832" r="0.2" gradientUnits="userSpaceOnUse" id="d30">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.9023430146173" cy="1.9917411897716446" r="0.2" gradientUnits="userSpaceOnUse" id="d31">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.8143080269099316" cy="-3.616582686690618" r="0.2" gradientUnits="userSpaceOnUse" id="d32">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.1801936887041649" cy="3.406925719346235" r="0.2" gradientUnits="userSpaceOnUse" id="d33">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.6354889093022426" cy="2.5682978499687" r="0.2" gradientUnits="userSpaceOnUse" id="d34">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.09078412990032038" cy="1.7296699805911655" r="0.2" gradientUnits="userSpaceOnUse" id="d35">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.45392064950160177" cy="0.8910421112136312" r="0.2" gradientUnits="userSpaceOnUse" id="d36">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.9050921568102517" cy="-1.8869127060994524" r="0.2" gradientUnits="userSpaceOnUse" id="d37">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.3603873774083297" cy="-2.7255405754769875" r="0.2" gradientUnits="userSpaceOnUse" id="d38">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.8156825980064073" cy="-3.564168444854522" r="0.2" gradientUnits="userSpaceOnUse" id="d39">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.18156825980064073" cy="3.4593399611823306" r="0.2" gradientUnits="userSpaceOnUse" id="d40">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.36313651960128146" cy="2.620712091804796" r="0.2" gradientUnits="userSpaceOnUse" id="d41">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.9078412990032037" cy="1.7820842224272615" r="0.2" gradientUnits="userSpaceOnUse" id="d42">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.4525460784051258" cy="0.9434563530497271" r="0.2" gradientUnits="userSpaceOnUse" id="d43">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.9064667279067278" cy="-1.8344984642633564" r="0.2" gradientUnits="userSpaceOnUse" id="d44">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.3617619485048056" cy="-2.6731263336408913" r="0.2" gradientUnits="userSpaceOnUse" id="d45">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.8170571691028833" cy="-3.511754203018426" r="0.2" gradientUnits="userSpaceOnUse" id="d46">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.8170571691028833" cy="3.5117542030184263" r="0.2" gradientUnits="userSpaceOnUse" id="d47">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.3617619485048056" cy="2.6731263336408917" r="0.2" gradientUnits="userSpaceOnUse" id="d48">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.9064667279067276" cy="1.8344984642633573" r="0.2" gradientUnits="userSpaceOnUse" id="d49">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.4525460784051258" cy="-0.9434563530497262" r="0.2" gradientUnits="userSpaceOnUse" id="d50">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.9078412990032037" cy="-1.7820842224272606" r="0.2" gradientUnits="userSpaceOnUse" id="d51">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.36313651960128146" cy="-2.6207120918047955" r="0.2" gradientUnits="userSpaceOnUse" id="d52">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.18156825980064073" cy="-3.45933996118233" r="0.2" gradientUnits="userSpaceOnUse" id="d53">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.8156825980064073" cy="3.5641684448545226" r="0.2" gradientUnits="userSpaceOnUse" id="d54">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.3603873774083297" cy="2.725540575476988" r="0.2" gradientUnits="userSpaceOnUse" id="d55">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.9050921568102517" cy="1.8869127060994533" r="0.2" gradientUnits="userSpaceOnUse" id="d56">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.4539206495016018" cy="-0.8910421112136303" r="0.2" gradientUnits="userSpaceOnUse" id="d57">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.09078412990032034" cy="-1.7296699805911646" r="0.2" gradientUnits="userSpaceOnUse" id="d58">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.6354889093022426" cy="-2.5682978499686997" r="0.2" gradientUnits="userSpaceOnUse" id="d59">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.1801936887041649" cy="-3.4069257193462343" r="0.2" gradientUnits="userSpaceOnUse" id="d60">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.8143080269099316" cy="3.6165826866906183" r="0.2" gradientUnits="userSpaceOnUse" id="d61">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.9023430146173" cy="-1.9917411897716442" r="0.2" gradientUnits="userSpaceOnUse" id="d62">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.3590128063118536" cy="2.7779548173130837" r="0.2" gradientUnits="userSpaceOnUse" id="d63">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5447047794019222" cy="-0.8386278693775343" r="0.2" gradientUnits="userSpaceOnUse" id="d64">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0894095588038444" cy="-1.6772557387550686" r="0.2" gradientUnits="userSpaceOnUse" id="d65">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.6341143382057666" cy="-2.515883608132604" r="0.2" gradientUnits="userSpaceOnUse" id="d66">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.1788191176076888" cy="-3.354511477510138" r="0.2" gradientUnits="userSpaceOnUse" id="d67">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.99312714451762" cy="-0.2620712091804789" r="0.2" gradientUnits="userSpaceOnUse" id="d68">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.4484223651156976" cy="-1.1006990785580135" r="0.2" gradientUnits="userSpaceOnUse" id="d69">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.8129334558134556" cy="3.668996928526714" r="0.2" gradientUnits="userSpaceOnUse" id="d70">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.9037175857137756" cy="-1.9393269479355482" r="0.2" gradientUnits="userSpaceOnUse" id="d71">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.3576382352153775" cy="2.8303690591491795" r="0.2" gradientUnits="userSpaceOnUse" id="d72">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0880349877073683" cy="-1.6248414969189728" r="0.2" gradientUnits="userSpaceOnUse" id="d73">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.6327397671092907" cy="-2.4634693662965077" r="0.2" gradientUnits="userSpaceOnUse" id="d74">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.08391127441794" cy="1.4675987714106862" r="0.2" gradientUnits="userSpaceOnUse" id="d75">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.1774445465112127" cy="-3.3020972356740423" r="0.2" gradientUnits="userSpaceOnUse" id="d76">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5392064950160185" cy="0.6289709020331515" r="0.2" gradientUnits="userSpaceOnUse" id="d77">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.994501715614096" cy="-0.209656967344383" r="0.2" gradientUnits="userSpaceOnUse" id="d78">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.449796936212174" cy="-1.0482848367219175" r="0.2" gradientUnits="userSpaceOnUse" id="d79">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.6299906249163385" cy="2.358640882624317" r="0.2" gradientUnits="userSpaceOnUse" id="d80">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.6313651960128146" cy="-2.411055124460412" r="0.2" gradientUnits="userSpaceOnUse" id="d81">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0852858455144165" cy="1.520013013246782" r="0.2" gradientUnits="userSpaceOnUse" id="d82">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.176069975414737" cy="-3.2496829938379466" r="0.2" gradientUnits="userSpaceOnUse" id="d83">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.540581066112494" cy="0.6813851438692475" r="0.2" gradientUnits="userSpaceOnUse" id="d84">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.995876286710572" cy="-0.15724272550828708" r="0.2" gradientUnits="userSpaceOnUse" id="d85">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.45117150730865" cy="-0.9958705948858216" r="0.2" gradientUnits="userSpaceOnUse" id="d86">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0866604166108926" cy="1.572427255082878" r="0.2" gradientUnits="userSpaceOnUse" id="d87">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.174695404318261" cy="-3.1972687520018503" r="0.2" gradientUnits="userSpaceOnUse" id="d88">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.54195563720897" cy="0.7337993857053434" r="0.2" gradientUnits="userSpaceOnUse" id="d89">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.997250857807048" cy="-0.10482848367219116" r="0.2" gradientUnits="userSpaceOnUse" id="d90">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5433302083054463" cy="0.7862136275414393" r="0.2" gradientUnits="userSpaceOnUse" id="d91">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.998625428903524" cy="-0.05241424183609525" r="0.2" gradientUnits="userSpaceOnUse" id="d92">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d93">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.998625428903524" cy="-0.052414241836095915" r="0.2" gradientUnits="userSpaceOnUse" id="d94">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5433302083054463" cy="0.7862136275414386" r="0.2" gradientUnits="userSpaceOnUse" id="d95">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.997250857807048" cy="-0.10482848367219183" r="0.2" gradientUnits="userSpaceOnUse" id="d96">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.45117150730865" cy="-0.9958705948858223" r="0.2" gradientUnits="userSpaceOnUse" id="d97">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.54195563720897" cy="0.7337993857053428" r="0.2" gradientUnits="userSpaceOnUse" id="d98">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.995876286710572" cy="-0.15724272550828775" r="0.2" gradientUnits="userSpaceOnUse" id="d99">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.449796936212174" cy="-1.0482848367219182" r="0.2" gradientUnits="userSpaceOnUse" id="d100">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.3576382352153775" cy="2.830369059149179" r="0.2" gradientUnits="userSpaceOnUse" id="d101">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.9037175857137756" cy="-1.9393269479355486" r="0.2" gradientUnits="userSpaceOnUse" id="d102">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.174695404318261" cy="-3.1972687520018512" r="0.2" gradientUnits="userSpaceOnUse" id="d103">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0866604166108926" cy="1.5724272550828773" r="0.2" gradientUnits="userSpaceOnUse" id="d104">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.540581066112494" cy="0.6813851438692469" r="0.2" gradientUnits="userSpaceOnUse" id="d105">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.994501715614096" cy="-0.20965696734438366" r="0.2" gradientUnits="userSpaceOnUse" id="d106">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.8129334558134556" cy="3.6689969285267137" r="0.2" gradientUnits="userSpaceOnUse" id="d107">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.4484223651156976" cy="-1.1006990785580142" r="0.2" gradientUnits="userSpaceOnUse" id="d108">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.3590128063118536" cy="2.7779548173130832" r="0.2" gradientUnits="userSpaceOnUse" id="d109">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.9023430146173" cy="-1.9917411897716446" r="0.2" gradientUnits="userSpaceOnUse" id="d110">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.9050921568102517" cy="1.8869127060994524" r="0.2" gradientUnits="userSpaceOnUse" id="d111">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.176069975414737" cy="-3.249682993837947" r="0.2" gradientUnits="userSpaceOnUse" id="d112">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0852858455144165" cy="1.5200130132467815" r="0.2" gradientUnits="userSpaceOnUse" id="d113">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5392064950160185" cy="0.6289709020331509" r="0.2" gradientUnits="userSpaceOnUse" id="d114">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.99312714451762" cy="-0.26207120918047955" r="0.2" gradientUnits="userSpaceOnUse" id="d115">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.8143080269099316" cy="3.616582686690618" r="0.2" gradientUnits="userSpaceOnUse" id="d116">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.3603873774083297" cy="2.7255405754769875" r="0.2" gradientUnits="userSpaceOnUse" id="d117">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.9064667279067278" cy="1.8344984642633564" r="0.2" gradientUnits="userSpaceOnUse" id="d118">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.4525460784051258" cy="0.9434563530497262" r="0.2" gradientUnits="userSpaceOnUse" id="d119">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.6313651960128146" cy="-2.4110551244604124" r="0.2" gradientUnits="userSpaceOnUse" id="d120">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.6299906249163385" cy="2.3586408826243166" r="0.2" gradientUnits="userSpaceOnUse" id="d121">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.1774445465112127" cy="-3.302097235674043" r="0.2" gradientUnits="userSpaceOnUse" id="d122">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.08391127441794" cy="1.4675987714106855" r="0.2" gradientUnits="userSpaceOnUse" id="d123">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.8156825980064073" cy="3.564168444854522" r="0.2" gradientUnits="userSpaceOnUse" id="d124">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.3617619485048056" cy="2.6731263336408913" r="0.2" gradientUnits="userSpaceOnUse" id="d125">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.9078412990032037" cy="1.7820842224272606" r="0.2" gradientUnits="userSpaceOnUse" id="d126">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.4539206495016018" cy="0.8910421112136303" r="0.2" gradientUnits="userSpaceOnUse" id="d127">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.6327397671092907" cy="-2.463469366296508" r="0.2" gradientUnits="userSpaceOnUse" id="d128">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.1788191176076888" cy="-3.3545114775101386" r="0.2" gradientUnits="userSpaceOnUse" id="d129">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.8170571691028833" cy="3.511754203018426" r="0.2" gradientUnits="userSpaceOnUse" id="d130">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.36313651960128146" cy="2.6207120918047955" r="0.2" gradientUnits="userSpaceOnUse" id="d131">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.09078412990032034" cy="1.7296699805911646" r="0.2" gradientUnits="userSpaceOnUse" id="d132">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5447047794019222" cy="0.8386278693775343" r="0.2" gradientUnits="userSpaceOnUse" id="d133">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0880349877073683" cy="-1.6248414969189737" r="0.2" gradientUnits="userSpaceOnUse" id="d134">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.6341143382057666" cy="-2.5158836081326044" r="0.2" gradientUnits="userSpaceOnUse" id="d135">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.1801936887041649" cy="-3.406925719346235" r="0.2" gradientUnits="userSpaceOnUse" id="d136">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.18156825980064073" cy="3.45933996118233" r="0.2" gradientUnits="userSpaceOnUse" id="d137">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.6354889093022426" cy="2.5682978499686997" r="0.2" gradientUnits="userSpaceOnUse" id="d138">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0894095588038444" cy="1.6772557387550686" r="0.2" gradientUnits="userSpaceOnUse" id="d139">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0894095588038444" cy="-1.6772557387550695" r="0.2" gradientUnits="userSpaceOnUse" id="d140">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.6354889093022426" cy="-2.5682978499687" r="0.2" gradientUnits="userSpaceOnUse" id="d141">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.18156825980064073" cy="-3.4593399611823306" r="0.2" gradientUnits="userSpaceOnUse" id="d142">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.1801936887041649" cy="3.4069257193462343" r="0.2" gradientUnits="userSpaceOnUse" id="d143">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.6341143382057666" cy="2.515883608132604" r="0.2" gradientUnits="userSpaceOnUse" id="d144">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0880349877073683" cy="1.6248414969189728" r="0.2" gradientUnits="userSpaceOnUse" id="d145">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5447047794019222" cy="-0.8386278693775352" r="0.2" gradientUnits="userSpaceOnUse" id="d146">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.09078412990032038" cy="-1.7296699805911655" r="0.2" gradientUnits="userSpaceOnUse" id="d147">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.36313651960128146" cy="-2.620712091804796" r="0.2" gradientUnits="userSpaceOnUse" id="d148">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.8170571691028833" cy="-3.5117542030184263" r="0.2" gradientUnits="userSpaceOnUse" id="d149">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.1788191176076888" cy="3.354511477510138" r="0.2" gradientUnits="userSpaceOnUse" id="d150">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.6327397671092907" cy="2.4634693662965077" r="0.2" gradientUnits="userSpaceOnUse" id="d151">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.45392064950160177" cy="-0.8910421112136312" r="0.2" gradientUnits="userSpaceOnUse" id="d152">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.9078412990032037" cy="-1.7820842224272615" r="0.2" gradientUnits="userSpaceOnUse" id="d153">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.3617619485048056" cy="-2.6731263336408917" r="0.2" gradientUnits="userSpaceOnUse" id="d154">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.8156825980064073" cy="-3.5641684448545226" r="0.2" gradientUnits="userSpaceOnUse" id="d155">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.08391127441794" cy="-1.4675987714106862" r="0.2" gradientUnits="userSpaceOnUse" id="d156">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.1774445465112127" cy="3.3020972356740423" r="0.2" gradientUnits="userSpaceOnUse" id="d157">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.6299906249163385" cy="-2.358640882624317" r="0.2" gradientUnits="userSpaceOnUse" id="d158">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.6313651960128146" cy="2.411055124460412" r="0.2" gradientUnits="userSpaceOnUse" id="d159">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.4525460784051258" cy="-0.9434563530497271" r="0.2" gradientUnits="userSpaceOnUse" id="d160">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.9064667279067276" cy="-1.8344984642633573" r="0.2" gradientUnits="userSpaceOnUse" id="d161">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.3603873774083297" cy="-2.725540575476988" r="0.2" gradientUnits="userSpaceOnUse" id="d162">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.8143080269099316" cy="-3.6165826866906183" r="0.2" gradientUnits="userSpaceOnUse" id="d163">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.99312714451762" cy="0.2620712091804789" r="0.2" gradientUnits="userSpaceOnUse" id="d164">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5392064950160185" cy="-0.6289709020331515" r="0.2" gradientUnits="userSpaceOnUse" id="d165">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0852858455144165" cy="-1.520013013246782" r="0.2" gradientUnits="userSpaceOnUse" id="d166">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.176069975414737" cy="3.2496829938379466" r="0.2" gradientUnits="userSpaceOnUse" id="d167">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.9050921568102517" cy="-1.8869127060994533" r="0.2" gradientUnits="userSpaceOnUse" id="d168">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.9023430146173" cy="1.9917411897716442" r="0.2" gradientUnits="userSpaceOnUse" id="d169">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.3590128063118536" cy="-2.7779548173130837" r="0.2" gradientUnits="userSpaceOnUse" id="d170">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.4484223651156976" cy="1.1006990785580135" r="0.2" gradientUnits="userSpaceOnUse" id="d171">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.8129334558134556" cy="-3.668996928526714" r="0.2" gradientUnits="userSpaceOnUse" id="d172">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.994501715614096" cy="0.209656967344383" r="0.2" gradientUnits="userSpaceOnUse" id="d173">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.540581066112494" cy="-0.6813851438692475" r="0.2" gradientUnits="userSpaceOnUse" id="d174">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0866604166108926" cy="-1.572427255082878" r="0.2" gradientUnits="userSpaceOnUse" id="d175">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.174695404318261" cy="3.1972687520018503" r="0.2" gradientUnits="userSpaceOnUse" id="d176">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.9037175857137756" cy="1.9393269479355482" r="0.2" gradientUnits="userSpaceOnUse" id="d177">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.3576382352153775" cy="-2.8303690591491795" r="0.2" gradientUnits="userSpaceOnUse" id="d178">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.449796936212174" cy="1.0482848367219175" r="0.2" gradientUnits="userSpaceOnUse" id="d179">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.995876286710572" cy="0.15724272550828708" r="0.2" gradientUnits="userSpaceOnUse" id="d180">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.54195563720897" cy="-0.7337993857053434" r="0.2" gradientUnits="userSpaceOnUse" id="d181">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.45117150730865" cy="0.9958705948858216" r="0.2" gradientUnits="userSpaceOnUse" id="d182">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.997250857807048" cy="0.10482848367219116" r="0.2" gradientUnits="userSpaceOnUse" id="d183">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5433302083054463" cy="-0.7862136275414393" r="0.2" gradientUnits="userSpaceOnUse" id="d184">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.998625428903524" cy="0.05241424183609525" r="0.2" gradientUnits="userSpaceOnUse" id="d185">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+</defs>
+<g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g>
+<circle cx="0.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d0)" />
+</g>
+<g>
+<circle cx="0.998625428903524" cy="0.052414241836095915" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d1)" />
+</g>
+<g>
+<circle cx="1.5433302083054463" cy="-0.7862136275414386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d2)" />
+</g>
+<g>
+<circle cx="1.997250857807048" cy="0.10482848367219183" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d3)" />
+</g>
+<g>
+<circle cx="2.54195563720897" cy="-0.7337993857053428" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d4)" />
+</g>
+<g>
+<circle cx="-5.174695404318261" cy="3.1972687520018512" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d5)" />
+</g>
+<g>
+<circle cx="3.0866604166108926" cy="-1.5724272550828773" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d6)" />
+</g>
+<g>
+<circle cx="2.45117150730865" cy="0.9958705948858223" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d7)" />
+</g>
+<g>
+<circle cx="2.995876286710572" cy="0.15724272550828775" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d8)" />
+</g>
+<g>
+<circle cx="3.540581066112494" cy="-0.6813851438692469" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d9)" />
+</g>
+<g>
+<circle cx="-4.176069975414737" cy="3.249682993837947" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d10)" />
+</g>
+<g>
+<circle cx="4.0852858455144165" cy="-1.5200130132467815" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d11)" />
+</g>
+<g>
+<circle cx="-3.6313651960128146" cy="2.4110551244604124" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d12)" />
+</g>
+<g>
+<circle cx="4.6299906249163385" cy="-2.3586408826243166" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d13)" />
+</g>
+<g>
+<circle cx="3.449796936212174" cy="1.0482848367219182" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d14)" />
+</g>
+<g>
+<circle cx="3.994501715614096" cy="0.20965696734438366" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d15)" />
+</g>
+<g>
+<circle cx="4.5392064950160185" cy="-0.6289709020331509" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d16)" />
+</g>
+<g>
+<circle cx="-3.1774445465112127" cy="3.302097235674043" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d17)" />
+</g>
+<g>
+<circle cx="5.08391127441794" cy="-1.4675987714106855" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d18)" />
+</g>
+<g>
+<circle cx="-2.6327397671092907" cy="2.463469366296508" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d19)" />
+</g>
+<g>
+<circle cx="-2.0880349877073683" cy="1.6248414969189737" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d20)" />
+</g>
+<g>
+<circle cx="-4.3576382352153775" cy="-2.830369059149179" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d21)" />
+</g>
+<g>
+<circle cx="3.9037175857137756" cy="1.9393269479355486" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d22)" />
+</g>
+<g>
+<circle cx="-3.8129334558134556" cy="-3.6689969285267137" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d23)" />
+</g>
+<g>
+<circle cx="4.4484223651156976" cy="1.1006990785580142" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d24)" />
+</g>
+<g>
+<circle cx="4.99312714451762" cy="0.26207120918047955" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d25)" />
+</g>
+<g>
+<circle cx="-2.1788191176076888" cy="3.3545114775101386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d26)" />
+</g>
+<g>
+<circle cx="-1.6341143382057666" cy="2.5158836081326044" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d27)" />
+</g>
+<g>
+<circle cx="-1.0894095588038444" cy="1.6772557387550695" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d28)" />
+</g>
+<g>
+<circle cx="-0.5447047794019222" cy="0.8386278693775352" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d29)" />
+</g>
+<g>
+<circle cx="-3.3590128063118536" cy="-2.7779548173130832" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d30)" />
+</g>
+<g>
+<circle cx="4.9023430146173" cy="1.9917411897716446" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d31)" />
+</g>
+<g>
+<circle cx="-2.8143080269099316" cy="-3.616582686690618" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d32)" />
+</g>
+<g>
+<circle cx="-1.1801936887041649" cy="3.406925719346235" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d33)" />
+</g>
+<g>
+<circle cx="-0.6354889093022426" cy="2.5682978499687" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d34)" />
+</g>
+<g>
+<circle cx="-0.09078412990032038" cy="1.7296699805911655" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d35)" />
+</g>
+<g>
+<circle cx="0.45392064950160177" cy="0.8910421112136312" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d36)" />
+</g>
+<g>
+<circle cx="-2.9050921568102517" cy="-1.8869127060994524" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d37)" />
+</g>
+<g>
+<circle cx="-2.3603873774083297" cy="-2.7255405754769875" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d38)" />
+</g>
+<g>
+<circle cx="-1.8156825980064073" cy="-3.564168444854522" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d39)" />
+</g>
+<g>
+<circle cx="-0.18156825980064073" cy="3.4593399611823306" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d40)" />
+</g>
+<g>
+<circle cx="0.36313651960128146" cy="2.620712091804796" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d41)" />
+</g>
+<g>
+<circle cx="0.9078412990032037" cy="1.7820842224272615" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d42)" />
+</g>
+<g>
+<circle cx="1.4525460784051258" cy="0.9434563530497271" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d43)" />
+</g>
+<g>
+<circle cx="-1.9064667279067278" cy="-1.8344984642633564" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d44)" />
+</g>
+<g>
+<circle cx="-1.3617619485048056" cy="-2.6731263336408913" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d45)" />
+</g>
+<g>
+<circle cx="-0.8170571691028833" cy="-3.511754203018426" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d46)" />
+</g>
+<g>
+<circle cx="0.8170571691028833" cy="3.5117542030184263" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d47)" />
+</g>
+<g>
+<circle cx="1.3617619485048056" cy="2.6731263336408917" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d48)" />
+</g>
+<g>
+<circle cx="1.9064667279067276" cy="1.8344984642633573" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d49)" />
+</g>
+<g>
+<circle cx="-1.4525460784051258" cy="-0.9434563530497262" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d50)" />
+</g>
+<g>
+<circle cx="-0.9078412990032037" cy="-1.7820842224272606" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d51)" />
+</g>
+<g>
+<circle cx="-0.36313651960128146" cy="-2.6207120918047955" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d52)" />
+</g>
+<g>
+<circle cx="0.18156825980064073" cy="-3.45933996118233" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d53)" />
+</g>
+<g>
+<circle cx="1.8156825980064073" cy="3.5641684448545226" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d54)" />
+</g>
+<g>
+<circle cx="2.3603873774083297" cy="2.725540575476988" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d55)" />
+</g>
+<g>
+<circle cx="2.9050921568102517" cy="1.8869127060994533" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d56)" />
+</g>
+<g>
+<circle cx="-0.4539206495016018" cy="-0.8910421112136303" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d57)" />
+</g>
+<g>
+<circle cx="0.09078412990032034" cy="-1.7296699805911646" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d58)" />
+</g>
+<g>
+<circle cx="0.6354889093022426" cy="-2.5682978499686997" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d59)" />
+</g>
+<g>
+<circle cx="1.1801936887041649" cy="-3.4069257193462343" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d60)" />
+</g>
+<g>
+<circle cx="2.8143080269099316" cy="3.6165826866906183" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d61)" />
+</g>
+<g>
+<circle cx="-4.9023430146173" cy="-1.9917411897716442" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d62)" />
+</g>
+<g>
+<circle cx="3.3590128063118536" cy="2.7779548173130837" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d63)" />
+</g>
+<g>
+<circle cx="0.5447047794019222" cy="-0.8386278693775343" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d64)" />
+</g>
+<g>
+<circle cx="1.0894095588038444" cy="-1.6772557387550686" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d65)" />
+</g>
+<g>
+<circle cx="1.6341143382057666" cy="-2.515883608132604" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d66)" />
+</g>
+<g>
+<circle cx="2.1788191176076888" cy="-3.354511477510138" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d67)" />
+</g>
+<g>
+<circle cx="-4.99312714451762" cy="-0.2620712091804789" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d68)" />
+</g>
+<g>
+<circle cx="-4.4484223651156976" cy="-1.1006990785580135" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d69)" />
+</g>
+<g>
+<circle cx="3.8129334558134556" cy="3.668996928526714" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d70)" />
+</g>
+<g>
+<circle cx="-3.9037175857137756" cy="-1.9393269479355482" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d71)" />
+</g>
+<g>
+<circle cx="4.3576382352153775" cy="2.8303690591491795" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d72)" />
+</g>
+<g>
+<circle cx="2.0880349877073683" cy="-1.6248414969189728" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d73)" />
+</g>
+<g>
+<circle cx="2.6327397671092907" cy="-2.4634693662965077" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d74)" />
+</g>
+<g>
+<circle cx="-5.08391127441794" cy="1.4675987714106862" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d75)" />
+</g>
+<g>
+<circle cx="3.1774445465112127" cy="-3.3020972356740423" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d76)" />
+</g>
+<g>
+<circle cx="-4.5392064950160185" cy="0.6289709020331515" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d77)" />
+</g>
+<g>
+<circle cx="-3.994501715614096" cy="-0.209656967344383" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d78)" />
+</g>
+<g>
+<circle cx="-3.449796936212174" cy="-1.0482848367219175" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d79)" />
+</g>
+<g>
+<circle cx="-4.6299906249163385" cy="2.358640882624317" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d80)" />
+</g>
+<g>
+<circle cx="3.6313651960128146" cy="-2.411055124460412" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d81)" />
+</g>
+<g>
+<circle cx="-4.0852858455144165" cy="1.520013013246782" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d82)" />
+</g>
+<g>
+<circle cx="4.176069975414737" cy="-3.2496829938379466" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d83)" />
+</g>
+<g>
+<circle cx="-3.540581066112494" cy="0.6813851438692475" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d84)" />
+</g>
+<g>
+<circle cx="-2.995876286710572" cy="-0.15724272550828708" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d85)" />
+</g>
+<g>
+<circle cx="-2.45117150730865" cy="-0.9958705948858216" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d86)" />
+</g>
+<g>
+<circle cx="-3.0866604166108926" cy="1.572427255082878" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d87)" />
+</g>
+<g>
+<circle cx="5.174695404318261" cy="-3.1972687520018503" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d88)" />
+</g>
+<g>
+<circle cx="-2.54195563720897" cy="0.7337993857053434" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d89)" />
+</g>
+<g>
+<circle cx="-1.997250857807048" cy="-0.10482848367219116" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d90)" />
+</g>
+<g>
+<circle cx="-1.5433302083054463" cy="0.7862136275414393" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d91)" />
+</g>
+<g>
+<circle cx="-0.998625428903524" cy="-0.05241424183609525" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d92)" />
+</g>
+</g>
+<g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g>
+<circle cx="0.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d93)" />
+</g>
+<g>
+<circle cx="0.998625428903524" cy="-0.052414241836095915" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d94)" />
+</g>
+<g>
+<circle cx="1.5433302083054463" cy="0.7862136275414386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d95)" />
+</g>
+<g>
+<circle cx="1.997250857807048" cy="-0.10482848367219183" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d96)" />
+</g>
+<g>
+<circle cx="2.45117150730865" cy="-0.9958705948858223" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d97)" />
+</g>
+<g>
+<circle cx="2.54195563720897" cy="0.7337993857053428" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d98)" />
+</g>
+<g>
+<circle cx="2.995876286710572" cy="-0.15724272550828775" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d99)" />
+</g>
+<g>
+<circle cx="3.449796936212174" cy="-1.0482848367219182" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d100)" />
+</g>
+<g>
+<circle cx="-4.3576382352153775" cy="2.830369059149179" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d101)" />
+</g>
+<g>
+<circle cx="3.9037175857137756" cy="-1.9393269479355486" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d102)" />
+</g>
+<g>
+<circle cx="-5.174695404318261" cy="-3.1972687520018512" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d103)" />
+</g>
+<g>
+<circle cx="3.0866604166108926" cy="1.5724272550828773" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d104)" />
+</g>
+<g>
+<circle cx="3.540581066112494" cy="0.6813851438692469" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d105)" />
+</g>
+<g>
+<circle cx="3.994501715614096" cy="-0.20965696734438366" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d106)" />
+</g>
+<g>
+<circle cx="-3.8129334558134556" cy="3.6689969285267137" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d107)" />
+</g>
+<g>
+<circle cx="4.4484223651156976" cy="-1.1006990785580142" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d108)" />
+</g>
+<g>
+<circle cx="-3.3590128063118536" cy="2.7779548173130832" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d109)" />
+</g>
+<g>
+<circle cx="4.9023430146173" cy="-1.9917411897716446" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d110)" />
+</g>
+<g>
+<circle cx="-2.9050921568102517" cy="1.8869127060994524" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d111)" />
+</g>
+<g>
+<circle cx="-4.176069975414737" cy="-3.249682993837947" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d112)" />
+</g>
+<g>
+<circle cx="4.0852858455144165" cy="1.5200130132467815" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d113)" />
+</g>
+<g>
+<circle cx="4.5392064950160185" cy="0.6289709020331509" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d114)" />
+</g>
+<g>
+<circle cx="4.99312714451762" cy="-0.26207120918047955" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d115)" />
+</g>
+<g>
+<circle cx="-2.8143080269099316" cy="3.616582686690618" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d116)" />
+</g>
+<g>
+<circle cx="-2.3603873774083297" cy="2.7255405754769875" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d117)" />
+</g>
+<g>
+<circle cx="-1.9064667279067278" cy="1.8344984642633564" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d118)" />
+</g>
+<g>
+<circle cx="-1.4525460784051258" cy="0.9434563530497262" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d119)" />
+</g>
+<g>
+<circle cx="-3.6313651960128146" cy="-2.4110551244604124" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d120)" />
+</g>
+<g>
+<circle cx="4.6299906249163385" cy="2.3586408826243166" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d121)" />
+</g>
+<g>
+<circle cx="-3.1774445465112127" cy="-3.302097235674043" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d122)" />
+</g>
+<g>
+<circle cx="5.08391127441794" cy="1.4675987714106855" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d123)" />
+</g>
+<g>
+<circle cx="-1.8156825980064073" cy="3.564168444854522" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d124)" />
+</g>
+<g>
+<circle cx="-1.3617619485048056" cy="2.6731263336408913" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d125)" />
+</g>
+<g>
+<circle cx="-0.9078412990032037" cy="1.7820842224272606" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d126)" />
+</g>
+<g>
+<circle cx="-0.4539206495016018" cy="0.8910421112136303" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d127)" />
+</g>
+<g>
+<circle cx="-2.6327397671092907" cy="-2.463469366296508" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d128)" />
+</g>
+<g>
+<circle cx="-2.1788191176076888" cy="-3.3545114775101386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d129)" />
+</g>
+<g>
+<circle cx="-0.8170571691028833" cy="3.511754203018426" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d130)" />
+</g>
+<g>
+<circle cx="-0.36313651960128146" cy="2.6207120918047955" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d131)" />
+</g>
+<g>
+<circle cx="0.09078412990032034" cy="1.7296699805911646" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d132)" />
+</g>
+<g>
+<circle cx="0.5447047794019222" cy="0.8386278693775343" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d133)" />
+</g>
+<g>
+<circle cx="-2.0880349877073683" cy="-1.6248414969189737" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d134)" />
+</g>
+<g>
+<circle cx="-1.6341143382057666" cy="-2.5158836081326044" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d135)" />
+</g>
+<g>
+<circle cx="-1.1801936887041649" cy="-3.406925719346235" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d136)" />
+</g>
+<g>
+<circle cx="0.18156825980064073" cy="3.45933996118233" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d137)" />
+</g>
+<g>
+<circle cx="0.6354889093022426" cy="2.5682978499686997" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d138)" />
+</g>
+<g>
+<circle cx="1.0894095588038444" cy="1.6772557387550686" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d139)" />
+</g>
+<g>
+<circle cx="-1.0894095588038444" cy="-1.6772557387550695" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d140)" />
+</g>
+<g>
+<circle cx="-0.6354889093022426" cy="-2.5682978499687" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d141)" />
+</g>
+<g>
+<circle cx="-0.18156825980064073" cy="-3.4593399611823306" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d142)" />
+</g>
+<g>
+<circle cx="1.1801936887041649" cy="3.4069257193462343" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d143)" />
+</g>
+<g>
+<circle cx="1.6341143382057666" cy="2.515883608132604" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d144)" />
+</g>
+<g>
+<circle cx="2.0880349877073683" cy="1.6248414969189728" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d145)" />
+</g>
+<g>
+<circle cx="-0.5447047794019222" cy="-0.8386278693775352" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d146)" />
+</g>
+<g>
+<circle cx="-0.09078412990032038" cy="-1.7296699805911655" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d147)" />
+</g>
+<g>
+<circle cx="0.36313651960128146" cy="-2.620712091804796" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d148)" />
+</g>
+<g>
+<circle cx="0.8170571691028833" cy="-3.5117542030184263" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d149)" />
+</g>
+<g>
+<circle cx="2.1788191176076888" cy="3.354511477510138" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d150)" />
+</g>
+<g>
+<circle cx="2.6327397671092907" cy="2.4634693662965077" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d151)" />
+</g>
+<g>
+<circle cx="0.45392064950160177" cy="-0.8910421112136312" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d152)" />
+</g>
+<g>
+<circle cx="0.9078412990032037" cy="-1.7820842224272615" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d153)" />
+</g>
+<g>
+<circle cx="1.3617619485048056" cy="-2.6731263336408917" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d154)" />
+</g>
+<g>
+<circle cx="1.8156825980064073" cy="-3.5641684448545226" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d155)" />
+</g>
+<g>
+<circle cx="-5.08391127441794" cy="-1.4675987714106862" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d156)" />
+</g>
+<g>
+<circle cx="3.1774445465112127" cy="3.3020972356740423" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d157)" />
+</g>
+<g>
+<circle cx="-4.6299906249163385" cy="-2.358640882624317" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d158)" />
+</g>
+<g>
+<circle cx="3.6313651960128146" cy="2.411055124460412" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d159)" />
+</g>
+<g>
+<circle cx="1.4525460784051258" cy="-0.9434563530497271" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d160)" />
+</g>
+<g>
+<circle cx="1.9064667279067276" cy="-1.8344984642633573" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d161)" />
+</g>
+<g>
+<circle cx="2.3603873774083297" cy="-2.725540575476988" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d162)" />
+</g>
+<g>
+<circle cx="2.8143080269099316" cy="-3.6165826866906183" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d163)" />
+</g>
+<g>
+<circle cx="-4.99312714451762" cy="0.2620712091804789" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d164)" />
+</g>
+<g>
+<circle cx="-4.5392064950160185" cy="-0.6289709020331515" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d165)" />
+</g>
+<g>
+<circle cx="-4.0852858455144165" cy="-1.520013013246782" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d166)" />
+</g>
+<g>
+<circle cx="4.176069975414737" cy="3.2496829938379466" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d167)" />
+</g>
+<g>
+<circle cx="2.9050921568102517" cy="-1.8869127060994533" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d168)" />
+</g>
+<g>
+<circle cx="-4.9023430146173" cy="1.9917411897716442" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d169)" />
+</g>
+<g>
+<circle cx="3.3590128063118536" cy="-2.7779548173130837" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d170)" />
+</g>
+<g>
+<circle cx="-4.4484223651156976" cy="1.1006990785580135" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d171)" />
+</g>
+<g>
+<circle cx="3.8129334558134556" cy="-3.668996928526714" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d172)" />
+</g>
+<g>
+<circle cx="-3.994501715614096" cy="0.209656967344383" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d173)" />
+</g>
+<g>
+<circle cx="-3.540581066112494" cy="-0.6813851438692475" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d174)" />
+</g>
+<g>
+<circle cx="-3.0866604166108926" cy="-1.572427255082878" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d175)" />
+</g>
+<g>
+<circle cx="5.174695404318261" cy="3.1972687520018503" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d176)" />
+</g>
+<g>
+<circle cx="-3.9037175857137756" cy="1.9393269479355482" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d177)" />
+</g>
+<g>
+<circle cx="4.3576382352153775" cy="-2.8303690591491795" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d178)" />
+</g>
+<g>
+<circle cx="-3.449796936212174" cy="1.0482848367219175" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d179)" />
+</g>
+<g>
+<circle cx="-2.995876286710572" cy="0.15724272550828708" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d180)" />
+</g>
+<g>
+<circle cx="-2.54195563720897" cy="-0.7337993857053434" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d181)" />
+</g>
+<g>
+<circle cx="-2.45117150730865" cy="0.9958705948858216" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d182)" />
+</g>
+<g>
+<circle cx="-1.997250857807048" cy="0.10482848367219116" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d183)" />
+</g>
+<g>
+<circle cx="-1.5433302083054463" cy="-0.7862136275414393" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d184)" />
+</g>
+<g>
+<circle cx="-0.998625428903524" cy="0.05241424183609525" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d185)" />
+</g>
+</g>
+</svg>

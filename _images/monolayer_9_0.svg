@@ -47,12 +47,15 @@
 <stop offset="1.7320508075688772" stop-color="dodgerblue" stop-opacity="0.7" />
 </radialGradient>
 </defs>
+<g>
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d0)" transform="translate(0 0)
 rotate(180 0 0)" />
 <ellipse cx="0" cy="0" rx="1" ry="0.25" stroke="black" stroke-width="0.01" fill="url(#d1)" transform="rotate(0 0 0)
 translate(0 0)" />
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d2)" transform="translate(0 0)
 rotate(0 0 0)" />
+</g>
+<g>
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d3)" transform="translate(3 0)
 rotate(85 0 0)" />
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d4)" transform="translate(3 0)
@@ -61,6 +64,8 @@ rotate(95 0 0)" />
 rotate(275 0 0)" />
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d6)" transform="translate(3 0)
 rotate(265 0 0)" />
+</g>
+<g>
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d7)" transform="translate(-3 0)
 rotate(85 0 0)" />
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d8)" transform="translate(-3 0)
@@ -69,5 +74,6 @@ rotate(95 0 0)" />
 rotate(275 0 0)" />
 <path d="M 0,0 C -1.7320508075688772,-2 1.7320508075688772,-2 0,0 z" stroke="black" stroke-width="0.01" fill="url(#d10)" transform="translate(-3 0)
 rotate(265 0 0)" />
+</g>
 <path d="M0,2 L0,-2" stroke="black" stroke-width="0.03" stroke-dasharray="0.05,0.05" />
 </svg>
