@@ -354,6 +354,8 @@ $$
 We notice that the SOC lowers (raises) the $K$ point of the valence band, at the $-K$ point the opposite takes place. The $K$ and $-K$ points of the conduction band at energies $-3t_3+\varepsilon_3$ are however unaffected.
 
 ```{code-cell} ipython3
+:tags: [remove-input]
+
 WSe2 = moire.WSe2(1, 2)
 
 def H(k, σ):
@@ -366,7 +368,5 @@ bs.plot_band_structure([-1, 0, 1])
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-input]
-
 
 ```

@@ -259,18 +259,18 @@
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e10d56ac-a37f-4462-9988-c1084aacd829" name="813ff3b8-170c-4cac-9f51-7f7bdda042e7" type="radio">
-</input><label class="tabbed-label" for="e10d56ac-a37f-4462-9988-c1084aacd829">
-&lt;math&gt;n=1&lt;/math&gt;, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
+<input checked="checked" id="ec8ac80f-3fd2-41cf-b856-831b556405d6" name="4b640ba4-38fd-4102-adca-fa12e4f9782f" type="radio">
+</input><label class="tabbed-label" for="ec8ac80f-3fd2-41cf-b856-831b556405d6">
+Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice13">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_3_0.svg" src="../_images/supercell_3_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="eff83abe-0860-40d2-816e-1570758394e2" name="813ff3b8-170c-4cac-9f51-7f7bdda042e7" type="radio">
-</input><label class="tabbed-label" for="eff83abe-0860-40d2-816e-1570758394e2">
-&lt;math&gt;n=3&lt;/math&gt;, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
+<input id="60274dd9-49df-425e-ac3f-71339b5c64e0" name="4b640ba4-38fd-4102-adca-fa12e4f9782f" type="radio">
+</input><label class="tabbed-label" for="60274dd9-49df-425e-ac3f-71339b5c64e0">
+Supercell for <span class="math notranslate nohighlight">\(n=3\)</span>, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice31">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_3_1.svg" src="../_images/supercell_3_1.svg" /></div>
@@ -312,7 +312,7 @@ NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
 </div></blockquote>
 <p><strong>return</strong> NN list</p>
 </div>
-<p>Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells <span class="math notranslate nohighlight">\(\pm(v_1-v_2)\)</span> since we cannot hop to those from our supercell.</p>
+<p>Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells <span class="math notranslate nohighlight">\(\pm(v_1-v_2)\)</span> since we cannot hop to those from our supercell. The atomic bonds in <a class="reference internal" href="#fig-lattice31"><span class="std std-numref">Fig. 6</span></a> are a direct result of this algorithm. We see that each atom within the supercell knows precisely which atom it bonds to in the neighboring supercell.</p>
 </div>
 <div class="section" id="reduced-brillouin-zone">
 <h3>Reduced Brillouin zone<a class="headerlink" href="#reduced-brillouin-zone" title="Permalink to this headline">¶</a></h3>
@@ -336,9 +336,10 @@ NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
 \[
 \Delta\theta = 2\arctan\left|\frac1{\sqrt3}\frac{n-m}{n+m}\right|,
 \]</div>
-<p>which is the angle of <span class="math notranslate nohighlight">\(\vec v_1+\vec v_2\)</span> with the <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
+<p>which is twice the angle of <span class="math notranslate nohighlight">\(\vec v_1+\vec v_2\)</span> with the <span class="math notranslate nohighlight">\(x\)</span>-axis, with the factor two coming from the twisting of two layers.</p>
 <div class="section" id="id1">
 <h3>Nearest neighbors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>For the nearest neighbors of some atom in layer one in layer two we consider the <span class="math notranslate nohighlight">\(xy\)</span> displacement between this atom and all atoms in layer two. If this distance is larger than some maximal distance <span class="math notranslate nohighlight">\(R_\text{max}\)</span> we take the overlap between the wavefunctions to be zero due to exponential decay of the orbital wavefunctions. In the pseudo code below we show the procedure to check each representation of each respective atom in layer two in the neighboring supercells to find the closest match with the atom in layer one:</p>
 <div class="admonition-pseudo-code-for-intralayer-nn-algorithm admonition">
 <p class="admonition-title">Pseudo code for intralayer NN algorithm</p>
 <p><strong>for</strong> atom i <strong>in</strong> layer 1:</p>
@@ -363,50 +364,42 @@ hopping vector = displacement vector</p>
 </div></blockquote>
 <p><strong>return</strong>  interlayer hopping list</p>
 </div>
+<p>Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(m\)</span> equal to <span class="math notranslate nohighlight">\(n+1\)</span>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="fd6cefa5-06be-4a4a-b089-9fa42b1b3ccb" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
-</input><label class="tabbed-label" for="fd6cefa5-06be-4a4a-b089-9fa42b1b3ccb">
-&lt;math&gt;n=2&lt;/math&gt;</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-lattice-n-2">
+<input checked="checked" id="e403ab29-650f-4d22-95df-baa9babcf152" name="97337d7f-0232-4064-ba13-44e23d8c6c55" type="radio">
+</input><label class="tabbed-label" for="e403ab29-650f-4d22-95df-baa9babcf152">
+Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-1">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_9_0.svg" src="../_images/supercell_9_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="e4e2a70a-e3b6-4a8c-b2ff-e9777385cdfb" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
-</input><label class="tabbed-label" for="e4e2a70a-e3b6-4a8c-b2ff-e9777385cdfb">
-&lt;math&gt;n=3&lt;/math&gt;</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-lattice-n-3">
+<input id="abcf5e9c-8203-4f03-b8da-3c3777ef4cf3" name="97337d7f-0232-4064-ba13-44e23d8c6c55" type="radio">
+</input><label class="tabbed-label" for="abcf5e9c-8203-4f03-b8da-3c3777ef4cf3">
+Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-2">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_9_1.svg" src="../_images/supercell_9_1.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="e8548db1-0a0d-4a84-82fa-69cb5b8decba" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
-</input><label class="tabbed-label" for="e8548db1-0a0d-4a84-82fa-69cb5b8decba">
-&lt;math&gt;n=4&lt;/math&gt;</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-lattice-n-4">
+<input id="c7e753f0-e10e-443f-91fa-ef30fed8243b" name="97337d7f-0232-4064-ba13-44e23d8c6c55" type="radio">
+</input><label class="tabbed-label" for="c7e753f0-e10e-443f-91fa-ef30fed8243b">
+Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-3">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_9_2.svg" src="../_images/supercell_9_2.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d4d63420-cfed-4357-a7ac-e815777d9fc1" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
-</input><label class="tabbed-label" for="d4d63420-cfed-4357-a7ac-e815777d9fc1">
-&lt;math&gt;n=5&lt;/math&gt;</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-lattice-n-5">
+<input id="eb04209c-9352-4431-9419-9c9d1738c16e" name="97337d7f-0232-4064-ba13-44e23d8c6c55" type="radio">
+</input><label class="tabbed-label" for="eb04209c-9352-4431-9419-9c9d1738c16e">
+Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-lattice-n-4">
 <div class="cell_output docutils container">
 <img alt="../_images/supercell_9_3.svg" src="../_images/supercell_9_3.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=5\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-5" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="3efb822c-4f34-4182-b23f-df04b8c1a055" name="d294278e-883d-44d9-ac8f-da80a48d82c5" type="radio">
-</input><label class="tabbed-label" for="3efb822c-4f34-4182-b23f-df04b8c1a055">
-&lt;math&gt;n=6&lt;/math&gt;</label><div class="tabbed-content docutils">
-<div class="figure align-default" id="fig-lattice-n-6">
-<div class="cell_output docutils container">
-<img alt="../_images/supercell_9_4.svg" src="../_images/supercell_9_4.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

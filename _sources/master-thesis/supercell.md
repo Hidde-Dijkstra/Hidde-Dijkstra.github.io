@@ -31,10 +31,10 @@ m, n = 3, 1
 for index in [(n, m), (m, n)]:
     width, height = 10, 7
     layer = moire.Supercell(*index)
-    lattice = layer.lattice(width, height, rotate=False)
+    lattice = layer.lattice(width, height, rotate=False, NN_intralayer=True)
     drawing = draw.Drawing(width, height, origin="center")
-    drawing.append(lattice.draw_lattice())
     drawing.append(lattice.draw_unit_cell(stroke='red', stroke_width=0.1, stroke_dasharray="0.05,0.05"))
+    drawing.append(lattice.draw_lattice())
     drawing.append(lattice.draw_lattice_vectors(vec_symbols=['v₁', 'v₂'], origin=-sum(lattice.a), color='red', stroke_width=0.1))
     drawing.setRenderSize(500)
     glue("fig:lattice"+str(index[0])+str(index[1]), drawing)
@@ -54,13 +54,13 @@ which result in reciprocal lattice vectors:
 ```
 with $m$ and $n$ arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require $m$ and $n$ to be coprime to prevent other atoms falling on the border. Exchanging the two integers $m$ and $n$ results in a mirrored version of the supercell which we will use for the bilayer.
 
-````{tabbed} $n=1$, $m=3$
+````{tabbed} Supercell for $n=1$, $m=3$
 ```{glue:figure} fig:lattice13
 :name: fig:lattice13
 Supercell for $n=1$ and $m=3$, only one corner atom is included in unit cell.
 ```
 ````
-````{tabbed} $n=3$, $m=1$
+````{tabbed} Supercell for $n=3$, $m=1$
 ```{glue:figure} fig:lattice31
 :name: fig:lattice31
 Supercell for $n=3$ and $m=1$, only one corner atom is included in unit cell.
@@ -94,7 +94,7 @@ Our next task is to find the nearest neighbors (NN) of all atoms within the supe
 **return** NN list
 ```
 
-Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells $\pm(v_1-v_2)$ since we cannot hop to those from our supercell.
+Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells $\pm(v_1-v_2)$ since we cannot hop to those from our supercell. The atomic bonds in {numref}`fig:lattice31` are a direct result of this algorithm. We see that each atom within the supercell knows precisely which atom it bonds to in the neighboring supercell. 
 
 +++
 
@@ -124,11 +124,13 @@ $$
 \Delta\theta = 2\arctan\left|\frac1{\sqrt3}\frac{n-m}{n+m}\right|,
 $$
 
-which is the angle of $\vec v_1+\vec v_2$ with the $x$-axis.
+which is twice the angle of $\vec v_1+\vec v_2$ with the $x$-axis, with the factor two coming from the twisting of two layers.
 
 +++
 
 ### Nearest neighbors
+
+For the nearest neighbors of some atom in layer one in layer two we consider the $xy$ displacement between this atom and all atoms in layer two. If this distance is larger than some maximal distance $R_\text{max}$ we take the overlap between the wavefunctions to be zero due to exponential decay of the orbital wavefunctions. In the pseudo code below we show the procedure to check each representation of each respective atom in layer two in the neighboring supercells to find the closest match with the atom in layer one:
 
 ```{admonition} Pseudo code for intralayer NN algorithm
 **for** atom i **in** layer 1:  
@@ -151,49 +153,37 @@ which is the angle of $\vec v_1+\vec v_2$ with the $x$-axis.
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-m, n = 3, 1
 width, height = 10, 7
-for index in range(2, 7):
+for index in range(1, 5):
     drawing = draw.Drawing(width, height, origin="center")
-    for i, layer in enumerate([moire.Supercell(index, index+1), moire.Supercell(index+1, index)]):
-        lattice = layer.lattice(width, height)
-        drawing.append(lattice.draw_lattice())
-    #drawing.append(lattice.draw_unit_cell(stroke='red', stroke_width=0.1, stroke_dasharray="0.05,0.05"))
-    #drawing.append(lattice.draw_lattice_vectors(vec_symbols=['v₁', 'v₂'], origin=-sum(lattice.a), color='red', stroke_width=0.1))
+    md = moire.Bilayer(index+1, index)
+    lattice = md.lattice(width, height, NN_interlayer=True)
+    drawing.append(lattice.draw_unit_cell(stroke='darkorchid', stroke_width=0.1, stroke_dasharray="0.05,0.05"))
+    drawing.append(lattice.draw_lattice())
     drawing.setRenderSize(500)
     glue("fig:lattice_n="+str(index), drawing)
 ```
 
-````{tabbed} $n=2$
+Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of $n$ with $m$ equal to $n+1$:
+
+````{tabbed} Bilayer for $n=1$
+```{glue:figure} fig:lattice_n=1
+:name: fig:lattice_n=1
+Supercell for $n=1$ and $m=2$, only one corner atom is included in unit cell.
+````
+````{tabbed} Bilayer for $n=2$
 ```{glue:figure} fig:lattice_n=2
 :name: fig:lattice_n=2
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 ````
-````{tabbed} $n=3$
+````{tabbed} Bilayer for $n=3$
 ```{glue:figure} fig:lattice_n=3
 :name: fig:lattice_n=3
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 ```
 ````
-````{tabbed} $n=4$
+````{tabbed} Bilayer for $n=4$
 ```{glue:figure} fig:lattice_n=4
 :name: fig:lattice_n=4
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
-```
-````
-````{tabbed} $n=5$
-```{glue:figure} fig:lattice_n=5
-:name: fig:lattice_n=5
-Supercell for $n=5$ and $m=3$, only one corner atom is included in unit cell.
-```
-````
-````{tabbed} $n=6$
-```{glue:figure} fig:lattice_n=6
-:name: fig:lattice_n=6
-Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
-```
-````
-
-```{code-cell} ipython3
-
 ```
