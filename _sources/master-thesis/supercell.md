@@ -139,7 +139,7 @@ For the nearest neighbors of some atom in layer one in layer two we consider the
 >> **for** supercell lattice vector **in** $\{0, \pm\vec v_1, \pm\vec v_2, \pm(\vec v_1+\vec v_2)\}$:  
 >>> ```The supercell lattice vectors translate atom j to an equivalent atom in a neighboring supercell.```  
 >>> displacement vector = position(atom i) - position(atom j) + supercell lattice vector  
->>> ```The displacement vector is the vector connecting atom i with an atom equivalent to atom j in the xy plane.``` 
+>>> ```The displacement vector is the vector connecting atom i with an atom equivalent to atom j in the xy plane.```  
 >>> **if** norm(displacement vector) $<$ minimal displacement:  
 >>>> ```If the distance between atom i and the equivalent atom is smaller than the previously found distance then we save this displacement vector.```  
 >>>> minimal displacement = norm(displacement vector)  
@@ -187,3 +187,7 @@ Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 :name: fig:lattice_n=4
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 ```
+
++++
+
+### Symmetry

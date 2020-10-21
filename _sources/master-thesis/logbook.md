@@ -25,12 +25,33 @@ kernelspec:
 * Include horizontal lines in band structure
 * Choose theme for plotly plots
 * Write explanations for code when refactoring is done
+* Make lattice arrows prettier
+* Text for lattice vectors not so readable: include stroke
+
++++
+
+## 16-22 October
+
+## 21 October
+* New proposal for sign choice which adheres to symmetries: divide circle in six and have the signs alternate between following parts.
+* Inspect paper and prepare presentation.
+
+## 20 October
+* Finally managed to visualize interlayer coupling without errors. Proof that code works. 
+
+## 17-18 October
+* Figured out that a space is required after a $:name:$ keyword for myst markdown to allow buiding of jupyterbook 
 
 +++
 
 ## 9-15 October
 
 ### Meeting
+
+* Next week: presentation on [Interlayer coupling in commensurate and incommensurate bilayer structures of
+transition metal dichalcogenides](https://arxiv.org/pdf/1610.00869.pdf)
+* Consider symmetry sign choice for interlayer coupling.
+* Interlayer coupling vanishes at $K$ point for conductance band ($d_{z^2}$ orbitals) so we need to take all orbital hopping into account.
 
 ### 15 October
 
@@ -99,3 +120,11 @@ Talked about restarting the project. Louk set out the general plan of the projec
 * Commentate code
 * Find articles on interlayer coupling of WSe$_2$
 * Consider $d$ orbital decomposition between the bilayer atoms.
+
++++
+
+## Completed
+
+* Draw lattice vectors in lattice plots
+* Outlign unit cell
+* Insert pseudo code
