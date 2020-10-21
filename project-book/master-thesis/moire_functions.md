@@ -1,32 +1,33 @@
-# -*- coding: utf-8 -*-
-# ---
-# jupyter:
-#   jupytext:
-#     formats: md:myst,py:light
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.6.0
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
+---
+jupytext:
+  formats: md:myst,py:light
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 
-# # Code
+# Code
 
-# ## Dependencies
++++
 
+## Dependencies
+
+```{code-cell} ipython3
 import numpy as np
 import plotly.graph_objects as go
 import drawSvg as draw
 from numpy.linalg import matrix_power as mat_pow
+```
 
+## Utility functions
 
-# ## Utility functions
-
-# +
+```{code-cell} ipython3
 def rot_mat(θ):
     return np.array([[np.cos(θ), -np.sin(θ)], [np.sin(θ), np.cos(θ)]])
 
@@ -39,15 +40,15 @@ def arrow(start, end, stroke_width=0.1, stroke='black', **kwargs):
               marker_end=my_arrow, **kwargs)
     t = 1 - stroke_width*Δx/np.linalg.norm(end-start)
     return p.M(*start).L(*(t*(end-start)+start))
+```
 
+## Drawing
 
-# -
++++
 
-# ## Drawing
+### Lattice
 
-# ### Lattice
-
-# +
+```{code-cell} ipython3
 class Index:
  
 
@@ -154,12 +155,11 @@ class LatticeAtom:
         if self.name != None:
             group.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
         return group
+```
 
+### Orbitals
 
-# -
-
-# ### Orbitals
-
+```{code-cell} ipython3
 class Orbital:  
     
     
@@ -208,10 +208,11 @@ class Orbital:
         group.append(self.lobe(pos_color, rotate=90+rotate, translate=translate))
         group.append(self.lobe(pos_color, rotate=270+rotate, translate=translate))
         return group
+```
 
+## Band structure
 
-# ## Band structure
-
+```{code-cell} ipython3
 class BandStructure:
     
     
@@ -250,11 +251,11 @@ class BandStructure:
         for i in range(len(self.spacing)):
             self.k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/self.spacing[i] for j in range(self.spacing[i])]
         self.k_path += [k_list[-1]]
+```
 
+## Moiré supercell
 
-# ## Moiré supercell
-
-# +
+```{code-cell} ipython3
 class LatVec:
     # We identify each atom as the two integers i and j which connect it to the origin. 
     # Using a pythonic object we can define how two of these vectors interact.
@@ -402,10 +403,11 @@ class Bilayer:
         return bilayer
      
         
-# -
+```
 
-# ## WSe$_2$
+## WSe$_2$
 
+```{code-cell} ipython3
 class WSe2:
     var_dic = {
         "t_1": 0.034, 
@@ -484,5 +486,8 @@ class WSe2:
                 H[3*i+2+3*self.layer_1.N_atoms, 3*j+2] = t * np.exp(1j*np.dot(k, hop_vec))
                 H[3*j+2, 3*i+2+3*self.layer_1.N_atoms] = t * np.exp(-1j*np.dot(k, hop_vec))
         return H
+```
 
+```{code-cell} ipython3
 
+```

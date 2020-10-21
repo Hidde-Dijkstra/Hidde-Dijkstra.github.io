@@ -1,13 +1,33 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Monolayer WSe$_2$
+
+```{code-cell} ipython3
+:tags: [remove-cell]
 
 import moire_functions as moire
 import numpy as np
 import drawSvg as draw
 from myst_nb import glue
+```
 
 ## Lattice
 
 We base our tight binding model of monolayer WSe$_2$ (mWSe$_2$) on the three band model by Liu et al. {cite}`three_band`. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the $xy$ plane:
+
+```{code-cell} ipython3
+:tags: [remove-cell]
 
 width, height = 4, 2.6
 drawing = draw.Drawing(width, height, origin="center")
@@ -21,6 +41,7 @@ drawing.append(lattice.draw_lattice())
 drawing.append(lattice.draw_lattice_vectors(centralize=False, color='red', stroke_width=0.04))
 drawing.setRenderSize(500)
 glue("fig:lattice", drawing)
+```
 
 ```{glue:figure} fig:lattice
 Triangular lattice of WSe$_2$, the blue atoms respresent the tungsten atoms while the red the (di)selenide.
@@ -40,6 +61,8 @@ $$
 
 where length is in units of the lattice spacing $a$ between two tungsten atoms.
 
++++
+
 ## Symmetries
 
 The symmetric point group of this triangular lattice is $D_3$ with generators $\{C_3, \sigma\}$. $C_3$ is a rotation of $2\pi/3$ in the $xy$ plane and $\sigma$ is a reflection with respect to the bisector of $\vec a_1$ and $\vec a_2$. $C_6$ is not a symmetry element of this lattice since this operation exchanges triangles containing Se$_2$ and empty triangles.
@@ -56,9 +79,13 @@ $$
 
 in the basis $(d_{x^2-y^2}\, d_{xy}\,d_{z^2})$.
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 var_dic = moire.WSe2.var_dic
 for var_key in var_dic:
     glue("var:"+var_key, var_dic[var_key])
+```
 
 ````{admonition} GGA coupling constants in eV
 GGA coupling constants for WSe$_2$ in the hopping direction $\vec{a}_1$, subscripts 1, 2 and 3 refer to the $d_{x^2-y^2}$, $d_{xy}$ and $d_{z^2}$ orbitals respectively. $\varepsilon_i$ are the on-site energies where $\varepsilon_1=\varepsilon_2$ due to symmetry. $\lambda_\text{SOC}$ is the spin orbit coupling. {cite}`three_band`.
@@ -95,7 +122,12 @@ Representation of atomic orbitals $d_{xy}$ and $d_{z^2}$, the colors represent t
 ```
 Mirroring the hopping direction is equivalent to applying a reflection with respect to the $y$-axis. The $d_{xy}$ orbital changes sign under this operation so $t_{32}=-t_{23}$. If this reflection was a symmetry of the lattice we would require $t_{32}=t^*_{23}$, forcing $t_{23}=0$. We can use a similar argument to exclude the $d_{xz}$ and $d_{yz}$ orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the $xy$ plane.
 
++++
+
 ## Rotating orbitals
+
+```{code-cell} ipython3
+:tags: [remove-cell]
 
 drawing = draw.Drawing(10, 3.5, origin="center")
 stroke_width = 0.03
@@ -106,6 +138,10 @@ drawing.append(orb.d_xy(translate=(-3, 0)))
 drawing.append(draw.Line(0, -2, 0, 2, stroke='black', stroke_width=stroke_width, stroke_dasharray="0.05,0.05"))
 drawing.setRenderSize(700)
 glue('fig:d_z2-d_xy', drawing)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
 
 pos_1 = (1.5, 1.5)
 pos_2 = (4.5, 1.5+np.sqrt(3))
@@ -123,6 +159,7 @@ drawing.append(draw.Arc(*pos_1, R, 30, 0, cw=True, stroke=color, stroke_width=st
 drawing.append(draw.Text('θ', R*2/3, pos_1[0]+1.5*R*np.cos(np.pi/12), pos_1[1]+1.5*R*np.sin(np.pi/12), center=0.6, fill=color))
 drawing.setRenderSize(500)
 glue('fig:rotate_orbital', drawing)
+```
 
 Having figured out the hopping terms for $\pm\vec a_1$, we need also formulate the coupling between orbitals at an angle with respect to the principal axis:
 
@@ -157,6 +194,8 @@ where enumeration starts at zero:
 $$
 \mathcal H_i = \mathcal R^i C_6^i \mathcal H_0C_6^i \mathcal R^{-i}.
 $$
+
++++
 
 ## Hamiltonian
 
@@ -258,7 +297,12 @@ $$
 \mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
 $$
 
++++
+
 ## Band structure
+
+```{code-cell} ipython3
+:tags: [remove-cell]
 
 color = 'red'
 arrow_width = 0.02
@@ -282,6 +326,7 @@ for i in range(3):
     drawing.append(draw.Text(path_symbols[i], 0.2, *(path[i]+offset[i]), center=0.6, fill='black'))
 drawing.setRenderSize(500)
 glue('fig:k_path', drawing)
+```
 
 ````{margin}
 ```{glue:figure} fig:k_path
@@ -308,6 +353,9 @@ $$
 
 We notice that the SOC lowers (raises) the $K$ point of the valence band, at the $-K$ point the opposite takes place. The $K$ and $-K$ points of the conduction band at energies $-3t_3+\varepsilon_3$ are however unaffected.
 
+```{code-cell} ipython3
+:tags: [remove-input]
+
 WSe2 = moire.WSe2(1, 2)
 
 def H(k, σ):
@@ -317,4 +365,8 @@ bs = moire.BandStructure(H)
 bs.set_k_path([np.array([0, 0]), np.array([4*np.pi/3, 0]), np.array([np.pi, np.pi/np.sqrt(3)]), np.zeros(2)], 
           [r'$\Gamma$', 'K', 'M', r'$\Gamma$'], 300)
 bs.plot_band_structure([-1, 0, 1])
+```
 
+```{code-cell} ipython3
+
+```
