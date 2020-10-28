@@ -317,4 +317,3 @@ bs = moire.BandStructure(H)
 bs.set_k_path([np.array([0, 0]), np.array([4*np.pi/3, 0]), np.array([np.pi, np.pi/np.sqrt(3)]), np.zeros(2)], 
           [r'$\Gamma$', 'K', 'M', r'$\Gamma$'], 300)
 bs.plot_band_structure([-1, 0, 1])
-

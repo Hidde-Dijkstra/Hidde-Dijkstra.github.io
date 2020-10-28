@@ -21,25 +21,47 @@ kernelspec:
 * Write introduction file and update site image
 * Make lattice drawing class more variable
 * Include reciprocal vectors in k_path image
-* Resolve reference conflicts
 * Include horizontal lines in band structure
 * Choose theme for plotly plots
 * Write explanations for code when refactoring is done
 * Make lattice arrows prettier
 * Text for lattice vectors not so readable: include stroke
+* Update captions
+
++++
+
+## 23-29 October
+
+### Meeting
+
+### 27-28 October
+
+* Selenide atoms ruin nice interlayer hopping, no regularity. 
+* New idea: restrict interlayer NN to 1/2 of distance between tungsten atoms. Not so strange, for AB stacked bilayer graphene other hoppings are also ignored. 
+* DFT to find coupling and fit exponential curve.
+
+### -26 October
+* Realize my original idea for interlayer coupling using [Interlayer coupling in commensurate and incommensurate bilayer structures of
+transition metal dichalcogenides](https://arxiv.org/pdf/1610.00869.pdf) does not work since it is difficult to untangle the Fourier approach to hoppings between different sites instead of bands.
 
 +++
 
 ## 16-22 October
 
-## 21 October
+### Meeting
+
+* Gave presentation on [Interlayer coupling in commensurate and incommensurate bilayer structures of
+transition metal dichalcogenides](https://arxiv.org/pdf/1610.00869.pdf).
+* Figure out how to rotate interlayer coupling.
+
+### 21 October
 * New proposal for sign choice which adheres to symmetries: divide circle in six and have the signs alternate between following parts.
 * Inspect paper and prepare presentation.
 
-## 20 October
+### 20 October
 * Finally managed to visualize interlayer coupling without errors. Proof that code works. 
 
-## 17-18 October
+### 17-18 October
 * Figured out that a space is required after a $:name:$ keyword for myst markdown to allow buiding of jupyterbook 
 
 +++
@@ -128,3 +150,4 @@ Talked about restarting the project. Louk set out the general plan of the projec
 * Draw lattice vectors in lattice plots
 * Outlign unit cell
 * Insert pseudo code
+* Resolve reference conflicts
