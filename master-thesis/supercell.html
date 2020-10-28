@@ -233,9 +233,24 @@
      Nearest neighbors
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interlayer-hopping">
+   Interlayer hopping
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#symmetry">
-     Symmetry
+    <a class="reference internal nav-link" href="#mathbf-k-points-hoppings">
+     <span class="math notranslate nohighlight">
+      \(\mathbf K\)
+     </span>
+     -points hoppings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mircoscopic-model">
+     Mircoscopic model
     </a>
    </li>
   </ul>
@@ -264,8 +279,8 @@
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="24091bc6-38fc-49c0-8899-f16b98606aa1" name="3383b57d-94f5-4714-b678-ed92e0fd991b" type="radio">
-</input><label class="tabbed-label" for="24091bc6-38fc-49c0-8899-f16b98606aa1">
+<input checked="checked" id="328ddde4-4078-4dfd-96ca-b8bc3dbb965c" name="fc9db233-b514-448f-9ee4-ea10a8d0da7f" type="radio">
+</input><label class="tabbed-label" for="328ddde4-4078-4dfd-96ca-b8bc3dbb965c">
 Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice13">
 <div class="cell_output docutils container">
@@ -273,8 +288,8 @@ Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span c
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="2145e078-dbad-4145-a771-2cfc3b3118c4" name="3383b57d-94f5-4714-b678-ed92e0fd991b" type="radio">
-</input><label class="tabbed-label" for="2145e078-dbad-4145-a771-2cfc3b3118c4">
+<input id="b3af895b-8430-400b-a75d-434e621398ba" name="fc9db233-b514-448f-9ee4-ea10a8d0da7f" type="radio">
+</input><label class="tabbed-label" for="b3af895b-8430-400b-a75d-434e621398ba">
 Supercell for <span class="math notranslate nohighlight">\(n=3\)</span>, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice31">
 <div class="cell_output docutils container">
@@ -371,8 +386,8 @@ hopping vector = displacement vector</p>
 </div>
 <p>Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(m\)</span> equal to <span class="math notranslate nohighlight">\(n+1\)</span>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="9d6baecf-59d0-48ec-b928-336a95054fed" name="34204fa6-95ea-4758-aafc-cc9e01fe87da" type="radio">
-</input><label class="tabbed-label" for="9d6baecf-59d0-48ec-b928-336a95054fed">
+<input checked="checked" id="4a3994a0-d624-450f-b2ab-79baec74af83" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
+</input><label class="tabbed-label" for="4a3994a0-d624-450f-b2ab-79baec74af83">
 Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-1">
 <div class="cell_output docutils container">
@@ -380,8 +395,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="4308b4af-8416-45fe-a027-95f1039bbd34" name="34204fa6-95ea-4758-aafc-cc9e01fe87da" type="radio">
-</input><label class="tabbed-label" for="4308b4af-8416-45fe-a027-95f1039bbd34">
+<input id="65a18e4a-5447-416d-aa0c-1cf47b51af7d" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
+</input><label class="tabbed-label" for="65a18e4a-5447-416d-aa0c-1cf47b51af7d">
 Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-2">
 <div class="cell_output docutils container">
@@ -389,8 +404,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="8ccf5a15-f190-4b7b-a514-1abb1cf71a50" name="34204fa6-95ea-4758-aafc-cc9e01fe87da" type="radio">
-</input><label class="tabbed-label" for="8ccf5a15-f190-4b7b-a514-1abb1cf71a50">
+<input id="ab9932ff-2926-48d7-a5ad-479f2c71cf10" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
+</input><label class="tabbed-label" for="ab9932ff-2926-48d7-a5ad-479f2c71cf10">
 Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-3">
 <div class="cell_output docutils container">
@@ -398,8 +413,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5768bb8a-c7ef-4fc6-a8ca-a13948af426d" name="34204fa6-95ea-4758-aafc-cc9e01fe87da" type="radio">
-</input><label class="tabbed-label" for="5768bb8a-c7ef-4fc6-a8ca-a13948af426d">
+<input id="d73c0c7a-d17c-4a33-a45c-1aea6f887689" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
+</input><label class="tabbed-label" for="d73c0c7a-d17c-4a33-a45c-1aea6f887689">
 Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-4">
 <div class="cell_output docutils container">
@@ -409,8 +424,33 @@ Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><di
 </div>
 </div>
 </div>
-<div class="section" id="symmetry">
-<h3>Symmetry<a class="headerlink" href="#symmetry" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="interlayer-hopping">
+<h2>Interlayer hopping<a class="headerlink" href="#interlayer-hopping" title="Permalink to this headline">¶</a></h2>
+<p>The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the <span class="math notranslate nohighlight">\(xy\)</span> plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries.</p>
+<div class="section" id="mathbf-k-points-hoppings">
+<h3><span class="math notranslate nohighlight">\(\mathbf K\)</span>-points hoppings<a class="headerlink" href="#mathbf-k-points-hoppings" title="Permalink to this headline">¶</a></h3>
+<p>Wang et al. <a class="bibtex reference internal" href="zbibliography.html#interlayer-coupling" id="id2">[WWY+17]</a> discuss bilayers where the layers have a relative displacement of <span class="math notranslate nohighlight">\(\mathbf r_0\)</span> in the <span class="math notranslate nohighlight">\(xy\)</span> plane. They investigate interlayer hoppings between <span class="math notranslate nohighlight">\(\mathbf K\)</span> points, where the conduction band consists of the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital and the valence band of a linear combination of the <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals. They conclude that under first approximation the hopping between the band <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n'\)</span> with wavevectors <span class="math notranslate nohighlight">\(\mathbf k\)</span> and <span class="math notranslate nohighlight">\(\mathbf k'\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n, \mathbf k|H|n',\mathbf k'\rangle = \text e^{\tau\mathbf K\cdot\mathbf r_0}\sum_{\mathbf \kappa\mathbf \kappa'}\delta_{\mathbf k-\mathbf k', \tau \mathbf \kappa-\tau'\mathbf \kappa'}\tau_{nn'}(\tau \mathbf \kappa+\mathbf k)\text e^{-i\tau\mathbf \kappa\cdot\mathbf r_0}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\tau^i\)</span> a sign indicating the valley. The summation is over all <span class="math notranslate nohighlight">\(\mathbf K\)</span> points in the respective Brillouin zones.</p>
+<p>The interest of this equation is that it allows us to extract hoppings for all <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. There is however no apparent method to translate this result back to a microscopic model.</p>
+</div>
+<div class="section" id="mircoscopic-model">
+<h3>Mircoscopic model<a class="headerlink" href="#mircoscopic-model" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="sidebar-title">Interference of hopping terms</p>
+<div class="figure align-default" id="fig-latticewithse2">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_14_0.svg" src="../_images/supercell_14_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Superlattice with selenide atoms.</span><a class="headerlink" href="#fig-latticewithse2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>There is a reason why the micropscopic model does not play nice. The selenide atoms in both layers interfere with the interlayer hopping trajectories. Locally, the placement of these atoms can seem random, although obeying the lattice symmetries, see <a class="reference internal" href="#fig-latticewithse2"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the <span class="math notranslate nohighlight">\(d_{xy}\)</span> and the other two <span class="math notranslate nohighlight">\(d\)</span> orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the <span class="math notranslate nohighlight">\(\mathf K\)</span> points.</p>
+<p>We suggest circumventing this problem by restricting interlayer NN to atoms with an <span class="math notranslate nohighlight">\(xy\)</span> distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings.</p>
 </div>
 </div>
 </div>

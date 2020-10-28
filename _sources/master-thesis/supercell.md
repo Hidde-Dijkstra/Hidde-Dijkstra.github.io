@@ -186,8 +186,57 @@ Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 ```{glue:figure} fig:lattice_n=4
 :name: fig:lattice_n=4
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
-```
+````
 
 +++
 
-### Symmetry
+## Interlayer hopping
+
+The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the $xy$ plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries. 
+
++++
+
+### $\mathbf K$-points hoppings
+
+Wang et al. {cite}`interlayer_coupling` discuss bilayers where the layers have a relative displacement of $\mathbf r_0$ in the $xy$ plane. They investigate interlayer hoppings between $\mathbf K$ points, where the conduction band consists of the $d_{z^2}$ orbital and the valence band of a linear combination of the $d_{xy}$ and $d_{x^2-y^2}$ orbitals. They conclude that under first approximation the hopping between the band $n$ and $n'$ with wavevectors $\mathbf k$ and $\mathbf k'$ is:
+
+$$
+\langle n, \mathbf k|H|n',\mathbf k'\rangle = \text e^{\tau\mathbf K\cdot\mathbf r_0}\sum_{\mathbf \kappa\mathbf \kappa'}\delta_{\mathbf k-\mathbf k', \tau \mathbf \kappa-\tau'\mathbf \kappa'}\tau_{nn'}(\tau \mathbf \kappa+\mathbf k)\text e^{-i\tau\mathbf \kappa\cdot\mathbf r_0}
+$$
+
+with $\tau^i$ a sign indicating the valley. The summation is over all $\mathbf K$ points in the respective Brillouin zones. 
+
++++
+
+The interest of this equation is that it allows us to extract hoppings for all $\mathbf r_0$. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement $\mathbf r_0$. There is however no apparent method to translate this result back to a microscopic model. 
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+width, height = 6, 4
+drawing = draw.Drawing(width, height, origin="center")
+md = moire.Bilayer(2, 3)
+lattice = md.lattice(width, height, NN_interlayer=True, add_Se2=True)
+drawing.append(lattice.draw_lattice())
+drawing.setRenderSize(700)
+glue("fig:lattice_with_Se2", drawing)
+```
+
+### Mircoscopic model
+
+````{sidebar} Interference of hopping terms
+```{glue:figure} fig:lattice_with_Se2
+:name: fig:latticewithSe2
+Superlattice with selenide atoms.
+```
+````
+
+There is a reason why the micropscopic model does not play nice. The selenide atoms in both layers interfere with the interlayer hopping trajectories. Locally, the placement of these atoms can seem random, although obeying the lattice symmetries, see {numref}`fig:latticewithSe2`. 
+
+We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the $d_{xy}$ and the other two $d$ orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the $\mathf K$ points. 
+
+We suggest circumventing this problem by restricting interlayer NN to atoms with an $xy$ distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings. 
+
+```{code-cell} ipython3
+
+```

@@ -73,7 +73,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Hoi hoi
+   Home
   </a>
  </li>
 </ul>
@@ -110,7 +110,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
+    <a class="reference internal" href="zbibliography.html">
      Bibliography
     </a>
    </li>
@@ -235,6 +235,26 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interlayer-hopping">
+   Interlayer hopping
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathbf-k-points-hoppings">
+     <span class="math notranslate nohighlight">
+      \(\mathbf K\)
+     </span>
+     -points hoppings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mircoscopic-model">
+     Mircoscopic model
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -259,8 +279,8 @@
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a8fd09f9-b702-4e18-aea4-3b498bcd7b82" name="6b2e6ca3-92ea-42a2-ac18-9332a2dd94ed" type="radio">
-</input><label class="tabbed-label" for="a8fd09f9-b702-4e18-aea4-3b498bcd7b82">
+<input checked="checked" id="2f174af1-eec7-40d1-be24-c2555fee2264" name="5126b0b8-9e7c-46e8-8894-066956eab6a1" type="radio">
+</input><label class="tabbed-label" for="2f174af1-eec7-40d1-be24-c2555fee2264">
 Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice13">
 <div class="cell_output docutils container">
@@ -268,8 +288,8 @@ Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span c
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="44d86263-bd73-46f8-8799-823d70853b7d" name="6b2e6ca3-92ea-42a2-ac18-9332a2dd94ed" type="radio">
-</input><label class="tabbed-label" for="44d86263-bd73-46f8-8799-823d70853b7d">
+<input id="0c1b27f5-23f8-4d00-b2ba-60edb2355d1a" name="5126b0b8-9e7c-46e8-8894-066956eab6a1" type="radio">
+</input><label class="tabbed-label" for="0c1b27f5-23f8-4d00-b2ba-60edb2355d1a">
 Supercell for <span class="math notranslate nohighlight">\(n=3\)</span>, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice31">
 <div class="cell_output docutils container">
@@ -351,7 +371,7 @@ NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">supercell</span> <span class="pre">lattice</span> <span class="pre">vectors</span> <span class="pre">translate</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">equivalent</span> <span class="pre">atom</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">neighboring</span> <span class="pre">supercell.</span></code><br />
 displacement vector = position(atom i) - position(atom j) + supercell lattice vector<br />
-<code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">displacement</span> <span class="pre">vector</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">vector</span> <span class="pre">connecting</span> <span class="pre">atom</span> <span class="pre">i</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">atom</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">xy</span> <span class="pre">plane.</span></code>
+<code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">displacement</span> <span class="pre">vector</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">vector</span> <span class="pre">connecting</span> <span class="pre">atom</span> <span class="pre">i</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">atom</span> <span class="pre">equivalent</span> <span class="pre">to</span> <span class="pre">atom</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">xy</span> <span class="pre">plane.</span></code><br />
 <strong>if</strong> norm(displacement vector) <span class="math notranslate nohighlight">\(&lt;\)</span> minimal displacement:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">If</span> <span class="pre">the</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">atom</span> <span class="pre">i</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">equivalent</span> <span class="pre">atom</span> <span class="pre">is</span> <span class="pre">smaller</span> <span class="pre">than</span> <span class="pre">the</span> <span class="pre">previously</span> <span class="pre">found</span> <span class="pre">distance</span> <span class="pre">then</span> <span class="pre">we</span> <span class="pre">save</span> <span class="pre">this</span> <span class="pre">displacement</span> <span class="pre">vector.</span></code><br />
@@ -366,8 +386,8 @@ hopping vector = displacement vector</p>
 </div>
 <p>Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(m\)</span> equal to <span class="math notranslate nohighlight">\(n+1\)</span>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d54d203c-50c5-4bb7-bdd9-5c0cc454a68d" name="ae044317-7e5d-4bc2-86be-b4586c40dd84" type="radio">
-</input><label class="tabbed-label" for="d54d203c-50c5-4bb7-bdd9-5c0cc454a68d">
+<input checked="checked" id="0e9d8593-d7a9-4d7f-acdc-49b3a90b902c" name="7da57790-9a34-4e4a-9645-a055f10e6341" type="radio">
+</input><label class="tabbed-label" for="0e9d8593-d7a9-4d7f-acdc-49b3a90b902c">
 Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-1">
 <div class="cell_output docutils container">
@@ -375,8 +395,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="61211cfa-43e1-430e-9594-3f6077447cb9" name="ae044317-7e5d-4bc2-86be-b4586c40dd84" type="radio">
-</input><label class="tabbed-label" for="61211cfa-43e1-430e-9594-3f6077447cb9">
+<input id="42bc11cd-70a0-42be-bd59-c458e9830365" name="7da57790-9a34-4e4a-9645-a055f10e6341" type="radio">
+</input><label class="tabbed-label" for="42bc11cd-70a0-42be-bd59-c458e9830365">
 Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-2">
 <div class="cell_output docutils container">
@@ -384,8 +404,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="847096e6-babf-4ddc-83ca-7eba31026ca8" name="ae044317-7e5d-4bc2-86be-b4586c40dd84" type="radio">
-</input><label class="tabbed-label" for="847096e6-babf-4ddc-83ca-7eba31026ca8">
+<input id="93005920-1928-4a8d-8980-534ea4ed0dea" name="7da57790-9a34-4e4a-9645-a055f10e6341" type="radio">
+</input><label class="tabbed-label" for="93005920-1928-4a8d-8980-534ea4ed0dea">
 Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-3">
 <div class="cell_output docutils container">
@@ -393,8 +413,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="ed4dd799-6232-413a-902a-47225794c106" name="ae044317-7e5d-4bc2-86be-b4586c40dd84" type="radio">
-</input><label class="tabbed-label" for="ed4dd799-6232-413a-902a-47225794c106">
+<input id="d7c9efdf-f37a-4806-a00a-65b881f93be7" name="7da57790-9a34-4e4a-9645-a055f10e6341" type="radio">
+</input><label class="tabbed-label" for="d7c9efdf-f37a-4806-a00a-65b881f93be7">
 Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-4">
 <div class="cell_output docutils container">
@@ -403,6 +423,32 @@ Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><di
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="interlayer-hopping">
+<h2>Interlayer hopping<a class="headerlink" href="#interlayer-hopping" title="Permalink to this headline">¶</a></h2>
+<p>The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the <span class="math notranslate nohighlight">\(xy\)</span> plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries.</p>
+<div class="section" id="mathbf-k-points-hoppings">
+<h3><span class="math notranslate nohighlight">\(\mathbf K\)</span>-points hoppings<a class="headerlink" href="#mathbf-k-points-hoppings" title="Permalink to this headline">¶</a></h3>
+<p>Wang et al. <a class="bibtex reference internal" href="zbibliography.html#interlayer-coupling" id="id2">[WWY+17]</a> discuss bilayers where the layers have a relative displacement of <span class="math notranslate nohighlight">\(\mathbf r_0\)</span> in the <span class="math notranslate nohighlight">\(xy\)</span> plane. They investigate interlayer hoppings between <span class="math notranslate nohighlight">\(\mathbf K\)</span> points, where the conduction band consists of the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital and the valence band of a linear combination of the <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals. They conclude that under first approximation the hopping between the band <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n'\)</span> with wavevectors <span class="math notranslate nohighlight">\(\mathbf k\)</span> and <span class="math notranslate nohighlight">\(\mathbf k'\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n, \mathbf k|H|n',\mathbf k'\rangle = \text e^{\tau\mathbf K\cdot\mathbf r_0}\sum_{\mathbf \kappa\mathbf \kappa'}\delta_{\mathbf k-\mathbf k', \tau \mathbf \kappa-\tau'\mathbf \kappa'}\tau_{nn'}(\tau \mathbf \kappa+\mathbf k)\text e^{-i\tau\mathbf \kappa\cdot\mathbf r_0}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\tau^i\)</span> a sign indicating the valley. The summation is over all <span class="math notranslate nohighlight">\(\mathbf K\)</span> points in the respective Brillouin zones.</p>
+<p>The interest of this equation is that it allows us to extract hoppings for all <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. There is however no apparent method to translate this result back to a microscopic model.</p>
+</div>
+<div class="section" id="mircoscopic-model">
+<h3>Mircoscopic model<a class="headerlink" href="#mircoscopic-model" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="sidebar-title">Hoi</p>
+<div class="figure align-default" id="fig-latticewithse2">
+<div class="cell_output docutils container">
+<img alt="../_images/supercell_14_0.svg" src="../_images/supercell_14_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Caption</span><a class="headerlink" href="#fig-latticewithse2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>There is a reason why the micropscopic model does not play nice. The selenide atoms in both layers interfere with the interlayer hopping trajectories. Locally, the placement of these atoms can seem random, although obeying the lattice symmetries, see <a class="reference internal" href="#fig-latticewithse2"><span class="std std-numref">Fig. 11</span></a>.</p>
 </div>
 </div>
 </div>

@@ -44,9 +44,54 @@ def arrow(start, end, stroke_width=0.1, stroke='black', **kwargs):
 
 ## Drawing
 
+We collect several classes and function which produce SVG (scalable vector graphics) images using the drawSvg module. The main container for an image is always generated in the chapter file which is then filled with svg element groups which can pass on any arguments to its child elements (such as circles, lines etc.).
+
 +++
 
+### Lattice Atom
+
+We introduce a class designed to deal with anything related to individual atoms. We can tell this atom to draw itself and its bonds.
+
+```{code-cell} ipython3
+class LatticeAtom:
+    
+    
+    def __init__(self, position_in_unit_cell, name=None, atom_color='blue', atom_radius=None):       
+        self.position = np.array(position_in_unit_cell)
+        self.name = name
+        self.atom_color = atom_color
+        self.atom_radius = atom_radius
+        self.bonds = []
+        self.bond_style = []
+    
+    def draw_bonds(self, displacement, θ, **kwargs):
+        group = draw.Group()
+        origin = rot_mat(θ) @ (displacement + self.position)
+        for bond in self.bonds:
+            destination = rot_mat(θ) @ (displacement+bond)
+            group.append(draw.Line(*origin, *destination, stroke='black', stroke_width=0.01, **kwargs))
+        return group
+    
+    def draw_atom(self, displacement, θ, **kwargs):
+        group = draw.Group()
+        origin = rot_mat(θ) @ (displacement + self.position)
+        gradient = draw.RadialGradient(*origin, self.atom_radius)
+        gradient.addStop(0, 'white', 1)
+        gradient.addStop(1, self.atom_color, 1)
+        group.append(draw.Circle(*origin, self.atom_radius, stroke='black', stroke_width=0.01, fill=gradient, **kwargs))
+        if self.name != None:
+            group.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
+        return group
+```
+
 ### Lattice
+
+We use the atom objects from the previous class to construct any 2d lattice. The procedure to draw a lattice:
+1. Create a lattice object by passing both lattice vectors and the width and height of the desired image.
+2. For each atom in the unit cell: create an atom object and pass it to the `add_atom` function.
+3. Connect two atoms as NN with the `NN` function where the third argument is a list of lattice vectors (eg passing `[(1 0)]` tells the class that the second atom is in the unit cell connected via $1*a_1+0*a_2$).
+4. Create a svg group with the `draw_lattice` function and append it to your svg image container.
+5. Add lattice vectors and unit cell outline with the `draw_lattice_vectors` and `draw_unit_cell` functions.
 
 ```{code-cell} ipython3
 class Index:
@@ -123,41 +168,11 @@ class Lattice:
                 vector = np.sqrt(self.H**2+self.W**2) * self.a[i]/np.linalg.norm(self.a[i])
                 group.append(draw.Line(*(rot@(origin-vector+j*self.a[1-i])), *(rot@(origin+vector+j*self.a[1-i])), **kwargs))
         return group
-    
-
-
-class LatticeAtom:
-    
-    
-    def __init__(self, position_in_unit_cell, name=None, atom_color='blue', atom_radius=None):       
-        self.position = np.array(position_in_unit_cell)
-        self.name = name
-        self.atom_color = atom_color
-        self.atom_radius = atom_radius
-        self.bonds = []
-        self.bond_style = []
-    
-    def draw_bonds(self, displacement, θ, **kwargs):
-        group = draw.Group()
-        origin = rot_mat(θ) @ (displacement + self.position)
-        for bond in self.bonds:
-            destination = rot_mat(θ) @ (displacement+bond)
-            group.append(draw.Line(*origin, *destination, stroke='black', stroke_width=0.01, **kwargs))
-        return group
-    
-    def draw_atom(self, displacement, θ, **kwargs):
-        group = draw.Group()
-        origin = rot_mat(θ) @ (displacement + self.position)
-        gradient = draw.RadialGradient(*origin, self.atom_radius)
-        gradient.addStop(0, 'white', 1)
-        gradient.addStop(1, self.atom_color, 1)
-        group.append(draw.Circle(*origin, self.atom_radius, stroke='black', stroke_width=0.01, fill=gradient, **kwargs))
-        if self.name != None:
-            group.append(draw.Text(self.name, self.atom_radius, *origin, text_anchor='middle', alignment_baseline="central"))
-        return group
 ```
 
 ### Orbitals
+
+The orbital class produces drawings of orbitals which we build from two basic components: lobes and circles. More orbitals might be added later.
 
 ```{code-cell} ipython3
 class Orbital:  
@@ -384,12 +399,17 @@ class Bilayer:
                     interlayer_NN[i].append([j, *my_hop])
         return interlayer_NN
     
-    def lattice(self, W, H, atom_color=['blue', 'red'], atom_radius=0.2, NN_interlayer=False, NN_intralayer=False):
+    def lattice(self, W, H, atom_color=['blue', 'red'], atom_radius=0.2, NN_interlayer=False, NN_intralayer=False, add_Se2=False,
+               Se2_color=['blueviolet', 'coral']):
         bilayer = Lattice(*self.v, W, H)
+        Se2_list = []
         for i, layer in enumerate([self.layer_1, self.layer_2]):
             rot = rot_mat(-layer.Δθ)
             for atom in layer.grid:
-                bilayer.add_atom(LatticeAtom(rot @ atom.vec, atom_color=atom_color[i], atom_radius=atom_radius))
+                bilayer.add_atom(LatticeAtom(rot@atom.vec, atom_color=atom_color[i], atom_radius=atom_radius))
+                if add_Se2:
+                    pos = atom.vec + (1/2, (1-2*i)/(2*np.sqrt(3)))
+                    Se2_list.append(LatticeAtom(rot@pos, atom_color=Se2_color[i], atom_radius=atom_radius/2))
         if NN_interlayer:
             for i, atom in enumerate(bilayer.unit_cell[:self.N]):
                 for NN in self.interlayer_NN[i]:
@@ -399,7 +419,10 @@ class Bilayer:
             for j, layer in enumerate([self.layer_1, self.layer_2]):
                 for i, atom in enumerate(bilayer.unit_cell[j*self.N:(j+1)*self.N]):
                     for NN in layer.intralayer_NN[i]:
-                        bilayer.NN(atom, bilayer.unit_cell[self.N*j+NN[0]], [NN[1:]])                                    
+                        bilayer.NN(atom, bilayer.unit_cell[self.N*j+NN[0]], [NN[1:]])
+        if add_Se2:
+            for Se2 in Se2_list:
+                bilayer.add_atom(Se2)
         return bilayer
      
         
