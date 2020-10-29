@@ -27,12 +27,15 @@ kernelspec:
 * Make lattice arrows prettier
 * Text for lattice vectors not so readable: include stroke
 * Update captions
+* Probably mistake in energy levels monolayer, look into it.
 
 +++
 
 ## 23-29 October
 
-### Meeting
+### 29 October
+
+* Wrote proposal hopping function
 
 ### 27-28 October
 
@@ -62,7 +65,7 @@ transition metal dichalcogenides](https://arxiv.org/pdf/1610.00869.pdf).
 * Finally managed to visualize interlayer coupling without errors. Proof that code works. 
 
 ### 17-18 October
-* Figured out that a space is required after a $:name:$ keyword for myst markdown to allow buiding of jupyterbook 
+* Figured out that a space is required after a $:name:$ keyword for myst markdown to allow buiding of jupyterbook
 
 +++
 

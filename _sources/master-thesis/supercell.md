@@ -94,7 +94,7 @@ Our next task is to find the nearest neighbors (NN) of all atoms within the supe
 **return** NN list
 ```
 
-Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells $\pm(v_1-v_2)$ since we cannot hop to those from our supercell. The atomic bonds in {numref}`fig:lattice31` are a direct result of this algorithm. We see that each atom within the supercell knows precisely which atom it bonds to in the neighboring supercell. 
+Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells $\pm(v_1-v_2)$ since we cannot hop to those from our supercell. The atomic bonds in {numref}`fig:lattice31` are a direct result of this algorithm. We see that each atom within the supercell knows precisely which atom it bonds to in the neighboring supercell.
 
 +++
 
@@ -192,7 +192,7 @@ Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 
 ## Interlayer hopping
 
-The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the $xy$ plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries. 
+The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the $xy$ plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries.
 
 +++
 
@@ -204,11 +204,11 @@ $$
 \langle n, \mathbf k|H|n',\mathbf k'\rangle = \text e^{\tau\mathbf K\cdot\mathbf r_0}\sum_{\mathbf \kappa\mathbf \kappa'}\delta_{\mathbf k-\mathbf k', \tau \mathbf \kappa-\tau'\mathbf \kappa'}\tau_{nn'}(\tau \mathbf \kappa+\mathbf k)\text e^{-i\tau\mathbf \kappa\cdot\mathbf r_0}
 $$
 
-with $\tau^i$ a sign indicating the valley. The summation is over all $\mathbf K$ points in the respective Brillouin zones. 
+with $\tau^i$ a sign indicating the valley. The summation is over all $\mathbf K$ points in the respective Brillouin zones.
 
 +++
 
-The interest of this equation is that it allows us to extract hoppings for all $\mathbf r_0$. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement $\mathbf r_0$. There is however no apparent method to translate this result back to a microscopic model. 
+The interest of this equation is that it allows us to extract hoppings for all $\mathbf r_0$. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement $\mathbf r_0$. There is however no apparent method to translate this result back to a microscopic model.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -233,9 +233,53 @@ Superlattice with selenide atoms.
 
 There is a reason why the micropscopic model does not play nice. The selenide atoms in both layers interfere with the interlayer hopping trajectories. Locally, the placement of these atoms can seem random, although obeying the lattice symmetries, see {numref}`fig:latticewithSe2`. 
 
-We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the $d_{xy}$ and the other two $d$ orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the $\mathf K$ points. 
+We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the $d_{xy}$ and the other two $d$ orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the $\mathbf K$ points. 
 
-We suggest circumventing this problem by restricting interlayer NN to atoms with an $xy$ distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings. 
+We suggest circumventing this problem by restricting interlayer NN to atoms with an $xy$ distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings.
+
++++
+
+All in all we propose the following interlayer hopping matrix:
+
+$$
+H_t(r, \theta)=\left(R'(\theta)\oplus 1\right)\begin{pmatrix}
+\tau_1(r)&\tau_{12}(r)&\tau_{13}(r)\\
+\tau_{12}(r)&\tau_2(r)&\tau_{23}(r)\\
+\tau_{13}(r)&\tau_{23}(r)&\tau_3(r)
+\end{pmatrix}\left(R'(\theta)^{-1}\oplus 1\right)
+$$
+
+with $R'(\theta)$ defined in {eq}`eq:rotation_matrix`. We assume that maximal coupling between same orbitals occurs for $r=0$ and decay exponentially afterwards with some characteristic length $r_0$:
+
+$$
+\tau_i(r) = \tau_i \text e^{-r/r_0},
+$$
+
+with $\tau_i$ the interlayer coupling for $r=0$. 
+
+For the other hoppings the $r$ dependence could be more complicated. We assume there exists some function $\rho_{ij}(r)$ which acts as weight:
+
+$$
+\tau_{ij}(r) = \tau_{ij}\rho_{ij}(r),
+$$
+
+with the $\tau_{ij}$ some constant.
+
+We reduce the amount of variables using symmetries of the orbitals:
+* Orbitals $d_{xy}$ and $d_{x^2-y^2}$ are rotations of each other $\rightarrow$ $\tau_1=\tau_2$.
+* Orbital $d_{xy}$ is anti-symmetric with respect to the $x$-axis while $d_{x^2-y^2}$ and $d_{z^2}$ are symmetric $\rightarrow$ $\tau_{12}=\tau_{23}=0$.
+* Orbital $d_{z^2}$ has rotational symmetry while $d_{x^2-y^2}$ changes sign under $C_4$ $\rightarrow$ coupling zero at the origin. 
+
+The last statement implies a maximum coupling strength for some $r_\text{max}$, after which the coupling decays exponentially. We propose using the following weight to achieve the requirements:
+
+$$
+\rho_{13}(r) = \left\{\begin{array}{c c}
+\text e^{-(r-r_\text{max})/r_0} & r>=r_\text{max},\\
+r/r_\text{max}& r < r_\text{max}.
+\end{array}\right.
+$$
+
+Here we have taken the same $r_0$ to reduce the number of parameters and we take $\tau_{13}$ as the coupling at $r_\text{max}$.
 
 ```{code-cell} ipython3
 

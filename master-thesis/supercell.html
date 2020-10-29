@@ -276,11 +276,11 @@
 \]</div>
 <p>which result in reciprocal lattice vectors:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reciprocal-supercell">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="328ddde4-4078-4dfd-96ca-b8bc3dbb965c" name="fc9db233-b514-448f-9ee4-ea10a8d0da7f" type="radio">
-</input><label class="tabbed-label" for="328ddde4-4078-4dfd-96ca-b8bc3dbb965c">
+<input checked="checked" id="961f972b-e0c0-4cc4-80b1-01cd4ab31646" name="480611e8-ff67-438e-804e-35ff89254ba5" type="radio">
+</input><label class="tabbed-label" for="961f972b-e0c0-4cc4-80b1-01cd4ab31646">
 Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice13">
 <div class="cell_output docutils container">
@@ -288,8 +288,8 @@ Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span c
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b3af895b-8430-400b-a75d-434e621398ba" name="fc9db233-b514-448f-9ee4-ea10a8d0da7f" type="radio">
-</input><label class="tabbed-label" for="b3af895b-8430-400b-a75d-434e621398ba">
+<input id="a7ac813f-6a55-4671-8f4a-98414fbfd1a6" name="480611e8-ff67-438e-804e-35ff89254ba5" type="radio">
+</input><label class="tabbed-label" for="a7ac813f-6a55-4671-8f4a-98414fbfd1a6">
 Supercell for <span class="math notranslate nohighlight">\(n=3\)</span>, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice31">
 <div class="cell_output docutils container">
@@ -336,7 +336,7 @@ NN_list [i, <span class="math notranslate nohighlight">\(h\)</span>] = j<br />
 </div>
 <div class="section" id="reduced-brillouin-zone">
 <h3>Reduced Brillouin zone<a class="headerlink" href="#reduced-brillouin-zone" title="Permalink to this headline">¶</a></h3>
-<p>The increase in the amount of atoms in the supercell increases the number of bands which are partial duplicates of the single atom unit-cell, a procces known as backfolding. The lattice vectors for the supercell become larger, the corresponding Brillouin becomes smaller, as is apparant in <a class="reference internal" href="#equation-eq-reciprocal-supercell">(1)</a>.  Our purpose now is to translate the high symmetry <span class="math notranslate nohighlight">\(\Gamma, M, K\)</span> point to their reduced Brillouin zone counterparts: <span class="math notranslate nohighlight">\(\bar\Gamma, \bar M, \bar K\)</span>. To this end we consider some vector <span class="math notranslate nohighlight">\(\vec \nu\)</span> in the unit cell Brillouin zone and write it in reciprocal supercell vector basis:</p>
+<p>The increase in the amount of atoms in the supercell increases the number of bands which are partial duplicates of the single atom unit-cell, a procces known as backfolding. The lattice vectors for the supercell become larger, the corresponding Brillouin becomes smaller, as is apparant in <a class="reference internal" href="#equation-eq-reciprocal-supercell">(2)</a>.  Our purpose now is to translate the high symmetry <span class="math notranslate nohighlight">\(\Gamma, M, K\)</span> point to their reduced Brillouin zone counterparts: <span class="math notranslate nohighlight">\(\bar\Gamma, \bar M, \bar K\)</span>. To this end we consider some vector <span class="math notranslate nohighlight">\(\vec \nu\)</span> in the unit cell Brillouin zone and write it in reciprocal supercell vector basis:</p>
 <div class="math notranslate nohighlight">
 \[
     \vec\nu=\alpha \vec w_1+\beta \vec w_2. 
@@ -386,8 +386,8 @@ hopping vector = displacement vector</p>
 </div>
 <p>Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(m\)</span> equal to <span class="math notranslate nohighlight">\(n+1\)</span>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4a3994a0-d624-450f-b2ab-79baec74af83" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
-</input><label class="tabbed-label" for="4a3994a0-d624-450f-b2ab-79baec74af83">
+<input checked="checked" id="26f73e7c-4223-41f2-94c4-c8dbf53471a5" name="17609ff9-c086-4116-ae4e-6dcf9b52a410" type="radio">
+</input><label class="tabbed-label" for="26f73e7c-4223-41f2-94c4-c8dbf53471a5">
 Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-1">
 <div class="cell_output docutils container">
@@ -395,8 +395,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="65a18e4a-5447-416d-aa0c-1cf47b51af7d" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
-</input><label class="tabbed-label" for="65a18e4a-5447-416d-aa0c-1cf47b51af7d">
+<input id="fa9f0d7e-d6a6-49b0-a6f3-1c262efd5555" name="17609ff9-c086-4116-ae4e-6dcf9b52a410" type="radio">
+</input><label class="tabbed-label" for="fa9f0d7e-d6a6-49b0-a6f3-1c262efd5555">
 Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-2">
 <div class="cell_output docutils container">
@@ -404,8 +404,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="ab9932ff-2926-48d7-a5ad-479f2c71cf10" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
-</input><label class="tabbed-label" for="ab9932ff-2926-48d7-a5ad-479f2c71cf10">
+<input id="48c408ce-6f34-4998-96b6-df707fbdd200" name="17609ff9-c086-4116-ae4e-6dcf9b52a410" type="radio">
+</input><label class="tabbed-label" for="48c408ce-6f34-4998-96b6-df707fbdd200">
 Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-3">
 <div class="cell_output docutils container">
@@ -413,8 +413,8 @@ Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><di
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d73c0c7a-d17c-4a33-a45c-1aea6f887689" name="bc65f235-722b-472b-83c6-d454ed94ed48" type="radio">
-</input><label class="tabbed-label" for="d73c0c7a-d17c-4a33-a45c-1aea6f887689">
+<input id="5c908a69-30b8-4d15-9867-e567032d64d0" name="17609ff9-c086-4116-ae4e-6dcf9b52a410" type="radio">
+</input><label class="tabbed-label" for="5c908a69-30b8-4d15-9867-e567032d64d0">
 Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-4">
 <div class="cell_output docutils container">
@@ -449,8 +449,44 @@ Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><di
 </div>
 </div>
 <p>There is a reason why the micropscopic model does not play nice. The selenide atoms in both layers interfere with the interlayer hopping trajectories. Locally, the placement of these atoms can seem random, although obeying the lattice symmetries, see <a class="reference internal" href="#fig-latticewithse2"><span class="std std-numref">Fig. 11</span></a>.</p>
-<p>We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the <span class="math notranslate nohighlight">\(d_{xy}\)</span> and the other two <span class="math notranslate nohighlight">\(d\)</span> orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the <span class="math notranslate nohighlight">\(\mathf K\)</span> points.</p>
+<p>We have no reason to believe that a hopping going straight through two selenide atoms will be equivalent to one completely forgoing them. We have seen for the monolayer that the existence of the symmetry breaking selenide atoms allowed coupling between the <span class="math notranslate nohighlight">\(d_{xy}\)</span> and the other two <span class="math notranslate nohighlight">\(d\)</span> orbitals. This coupling has the same order of magnitude as the other couplings, indicating that their presence cannot be ignored. We stress that this holds true for the microscopic model, a continuum model ignores microscopic perturbations since we stay close to the <span class="math notranslate nohighlight">\(\mathbf K\)</span> points.</p>
 <p>We suggest circumventing this problem by restricting interlayer NN to atoms with an <span class="math notranslate nohighlight">\(xy\)</span> distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings.</p>
+<p>All in all we propose the following interlayer hopping matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_t(r, \theta)=\left(R'(\theta)\oplus 1\right)\begin{pmatrix}
+\tau_1(r)&amp;\tau_{12}(r)&amp;\tau_{13}(r)\\
+\tau_{12}(r)&amp;\tau_2(r)&amp;\tau_{23}(r)\\
+\tau_{13}(r)&amp;\tau_{23}(r)&amp;\tau_3(r)
+\end{pmatrix}\left(R'(\theta)^{-1}\oplus 1\right)
+\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(R'(\theta)\)</span> defined in <a class="reference internal" href="monolayer.html#equation-eq-rotation-matrix">(1)</a>. We assume that maximal coupling between same orbitals occurs for <span class="math notranslate nohighlight">\(r=0\)</span> and decay exponentially afterwards with some characteristic length <span class="math notranslate nohighlight">\(r_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_i(r) = \tau_i \text e^{-r/r_0},
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\tau_i\)</span> the interlayer coupling for <span class="math notranslate nohighlight">\(r=0\)</span>.</p>
+<p>For the other hoppings the <span class="math notranslate nohighlight">\(r\)</span> dependence could be more complicated. We assume there exists some function <span class="math notranslate nohighlight">\(\rho_{ij}(r)\)</span> which acts as weight:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{ij}(r) = \tau_{ij}\rho_{ij}(r),
+\]</div>
+<p>with the <span class="math notranslate nohighlight">\(\tau_{ij}\)</span> some constant.</p>
+<p>We reduce the amount of variables using symmetries of the orbitals:</p>
+<ul class="simple">
+<li><p>Orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> are rotations of each other <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\tau_1=\tau_2\)</span>.</p></li>
+<li><p>Orbital <span class="math notranslate nohighlight">\(d_{xy}\)</span> is anti-symmetric with respect to the <span class="math notranslate nohighlight">\(x\)</span>-axis while <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> are symmetric <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\tau_{12}=\tau_{23}=0\)</span>.</p></li>
+<li><p>Orbital <span class="math notranslate nohighlight">\(d_{z^2}\)</span> has rotational symmetry while <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> changes sign under <span class="math notranslate nohighlight">\(C_4\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> coupling zero at the origin.</p></li>
+</ul>
+<p>The last statement implies a maximum coupling strength for some <span class="math notranslate nohighlight">\(r_\text{max}\)</span>, after which the coupling decays exponentially. We propose using the following weight to achieve the requirements:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\rho_{13}(r) = \left\{\begin{array}{c c}
+\text e^{-(r-r_\text{max})/r_0} &amp; r&gt;=r_\text{max},\\
+r/r_\text{max}&amp; r &lt; r_\text{max}.
+\end{array}\right.
+\end{split}\]</div>
+<p>Here we have taken the same <span class="math notranslate nohighlight">\(r_0\)</span> to reduce the number of parameters and we take <span class="math notranslate nohighlight">\(\tau_{13}\)</span> as the coupling at <span class="math notranslate nohighlight">\(r_\text{max}\)</span>.</p>
 </div>
 </div>
 </div>
