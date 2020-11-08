@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: '0.9'
+    jupytext_version: 1.5.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -213,12 +213,14 @@ The interest of this equation is that it allows us to extract hoppings for all $
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-width, height = 6, 4
+width, height = 6.5, 2
 drawing = draw.Drawing(width, height, origin="center")
 md = moire.Bilayer(2, 3)
 lattice = md.lattice(width, height, NN_interlayer=True, add_Se2=True)
 drawing.append(lattice.draw_lattice())
 drawing.setRenderSize(700)
+drawing.saveSvg('logo.svg')
+
 glue("fig:lattice_with_Se2", drawing)
 ```
 
