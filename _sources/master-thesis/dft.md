@@ -81,7 +81,7 @@ We take lattice spacing $a=1$ in 1d with mock Bloch wavefunction:
 $$
 u_{k}(x)=\cos(\pi x) (\cos(6\pi x)-2\cos(k))\cdot \text e^{ixf(k)},
 $$(eq:trialu)
-````{sidebar} Phase dependance on $k$
+````{margin}
 ```{glue:figure} fig:f_func
 Phase of $u_k$ compared to linear dependance on $k$.
 ```
