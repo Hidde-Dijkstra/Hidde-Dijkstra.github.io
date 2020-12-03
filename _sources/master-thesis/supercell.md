@@ -273,3 +273,7 @@ r/r_\text{max}& r < r_\text{max}.
 $$
 
 Here we have taken the same $r_0$ to reduce the number of parameters and we take $\tau_{13}$ as the coupling at $r_\text{max}$.
+
+```{code-cell} ipython3
+
+```

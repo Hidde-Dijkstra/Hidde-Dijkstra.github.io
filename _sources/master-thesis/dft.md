@@ -19,7 +19,29 @@ $$
 |\mathbf Rn\rangle=\frac{V}{(2\pi)^2}\int_{BZ}\text d\mathbf k\, \text e^{-i\mathbf k\cdot\mathbf R}|\psi_{n\mathbf k}\rangle.
 $$(eq:wannier_transform)
 
-+++
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import numpy as np
+from myst_nb import glue
+from scipy import integrate
+import matplotlib.pyplot as plt
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+f = lambda k: (1-np.cos(np.mod(k, np.pi*2)/2)**5)*np.pi + (k - np.mod(k, 2*np.pi))
+
+fig, ax = plt.subplots()    
+ax.set_xlabel(r"$k$")
+ax.set_ylabel(r"$f$")
+ax.plot(np.linspace(0, 20, 100), f(np.linspace(0, 20, 100)))
+ax.plot(np.linspace(0, 20, 100), np.linspace(0, 20, 100))
+glue("fig:f_func", fig, display=False)
+```
 
 ## Projection method
 
@@ -51,27 +73,26 @@ $$(eq:tildepsi)
 
 We illustrate the projection method using an example of a 1d isolated band with mock Bloch wavefunction $\psi_\mathbf k(\mathbf r)=u_\mathbf k(\mathbf r)\text e^{i\mathbf k\cdot\mathbf r}$. This functions must obey the periodicity requirements:
 
-* $u_{\mathbf k+\mathbf G}(\mathbf r)=u_{\mathbf k}(\mathbf r)$, with $\mathbf G$ a reciprocal lattice vector.
+* $\psi_{\mathbf k+\mathbf G}(\mathbf r)=\psi_{\mathbf k}(\mathbf r)$, with $\mathbf G$ a reciprocal lattice vector $\rightarrow u_{\mathbf k+\mathbf G}(\mathbf r)=\text e^{-i\mathbf G\cdot\mathbf r}u_{\mathbf k}(\mathbf r)$.
 * $u_\mathbf k(\mathbf r+\mathbf T)=u_\mathbf k(\mathbf r)$, with $\mathbf T$ a lattice vector.
 
 We take lattice spacing $a=1$ in 1d with mock Bloch wavefunction:
 
 $$
-u_{k}(x)=\cos(\pi x) (\cos(6\pi x)-2\cos(k)).
+u_{k}(x)=\cos(\pi x) (\cos(6\pi x)-2\cos(k))\cdot \text e^{ixf(k)},
 $$(eq:trialu)
+````{sidebar} Phase dependance on $k$
+```{glue:figure} fig:f_func
+Phase of $u_k$ compared to linear dependance on $k$.
+```
+````
+with $f(k+2\pi)=f(k)+2\pi$:
+
+$$
+    f(k) = \pi\left(1-\cos^5\frac{\text{mod}(k, 2\pi)}2\right) + (k - \text{mod}(k, 2\pi))
+$$
 
 We plot $\psi_{k}(x)$:
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import numpy as np
-from myst_nb import glue
-from scipy import integrate
-import matplotlib.pyplot as plt
-```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -84,8 +105,11 @@ k_N = 100
 x_0 = 1.5
 k_mesh = np.linspace(0, 2*np.pi, k_N)
 
+def f(k):
+    return (1-np.cos(np.mod(k, np.pi*2)/2)**5)*np.pi + (k - np.mod(k, 2*np.pi))
+
 def u(x, k):
-    return np.cos(np.pi*x) *(np.cos(np.pi*6*x)-2*np.cos(k))
+    return np.cos(np.pi*x) *(np.cos(np.pi*6*x)-2*np.cos(k)) * np.exp(-1j*x*f(k))
 
 norms = np.sqrt([integrate.quad(lambda x: np.abs(u(x, k))**2, -0.5, 0.5)[0] for k in k_mesh])
 
@@ -158,12 +182,12 @@ Any normalization of $g$ and $\psi$ will cancel in the construction of the ortho
 :tags: [remove-cell]
 
 def g(x):
-    return np.exp(-x**2)
+    return np.exp(-x**2*6)
 
 L = 3
 norm = np.sqrt(integrate.quad(lambda x: g(x)**2, -L, L)[0])
 
-def f(x):
+def f_norm(x):
     return g(x) / norm
 
 N = k_N
@@ -171,8 +195,8 @@ f_k = np.zeros(N, dtype=complex)
 
 
 for j in range(N):
-    f_k[j] = integrate.quad(lambda x: f(x)*np.real(bloch(x, j)), -L, L)[0]
-    f_k[j] += 1j*integrate.quad(lambda x: f(x)*np.imag(bloch(x, j)), -L, L)[0]
+    f_k[j] = integrate.quad(lambda x: f_norm(x)*np.real(bloch(x, j)), -L, L)[0]
+    f_k[j] += 1j*integrate.quad(lambda x: f_norm(x)*np.imag(bloch(x, j)), -L, L)[0]
 plt.plot(np.real(f_k))
 plt.plot(np.imag(f_k))
 plt.show()
@@ -199,7 +223,7 @@ glue("fig:sinc", fig, display=False)
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-x_0 = 3
+x_0 = 10
 M = 200
 y = sum([(f_k[step]/ np.abs(f_k[step])* np.conj(bloch(np.linspace(-x_0, x_0, M), step))) for step in range(N)])
 my_y = np.divide(y, np.sqrt(2*x_0/M*sum(np.abs(y)**2)))
@@ -404,8 +428,4 @@ glue("fig:output_functions", fig, display=False)
 
 +++
 
-The three Wannier wavefunctions in {ref}`three-band-wannier` resemble the atomic orbitals chosen for the $g_i$. The $p$ orbitals delocalize to neighboring sites. 
-
-```{code-cell} ipython3
-
-```
+The three Wannier wavefunctions in {ref}`three-band-wannier` resemble the atomic orbitals chosen for the $g_i$. The $p$ orbitals delocalize to neighboring sites.
