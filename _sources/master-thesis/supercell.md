@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -22,8 +22,6 @@ import drawSvg as draw
 from myst_nb import glue
 ```
 
-## Monolayer supercell
-
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
@@ -39,6 +37,8 @@ for index in [(n, m), (m, n)]:
     drawing.setRenderSize(500)
     glue("fig:lattice"+str(index[0])+str(index[1]), drawing)
 ```
+
+## Monolayer supercell
 
 We construct a supercell by spanning a parallelogram with integer multiples of the unit cell vectors $a_1$ and $a_2$:
 
@@ -96,7 +96,6 @@ Our next task is to find the nearest neighbors (NN) of all atoms within the supe
 
 Here we iterate over all pairs of sites to see if they are NN. For those sites on the border of the supercell we check the supercells bordering ours for the NN sites. We need not consider the neighboring supercells $\pm(v_1-v_2)$ since we cannot hop to those from our supercell. The atomic bonds in {numref}`fig:lattice31` are a direct result of this algorithm. We see that each atom within the supercell knows precisely which atom it bonds to in the neighboring supercell.
 
-+++
 
 ### Reduced Brillouin zone
 
@@ -114,7 +113,6 @@ $$
 
 We finish by taking the decimal part of both $\alpha$ and $\beta$ for the equivalent vector in the reduced Brillouin zone.
 
-+++
 
 ## Bilayer supercell
 
@@ -126,7 +124,6 @@ $$
 
 which is twice the angle of $\vec v_1+\vec v_2$ with the $x$-axis, with the factor two coming from the twisting of two layers.
 
-+++
 
 ### Nearest neighbors
 
@@ -188,13 +185,11 @@ Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 Supercell for $n=2$ and $m=3$, only one corner atom is included in unit cell.
 ````
 
-+++
 
 ## Interlayer hopping
 
 The interlayer hopping is significantly more complicated then the intralayer hopping. Each pair of atoms can have a potentially arbitrary distance and angle in the $xy$ plane. That we know what these are does not garantuee that we can find the corresponding hopping strength using symmetries.
 
-+++
 
 ### $\mathbf K$-points hoppings
 
@@ -206,25 +201,22 @@ $$
 
 with $\tau^i$ a sign indicating the valley. The summation is over all $\mathbf K$ points in the respective Brillouin zones.
 
-+++
 
 The interest of this equation is that it allows us to extract hoppings for all $\mathbf r_0$. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement $\mathbf r_0$. There is however no apparent method to translate this result back to a microscopic model.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-width, height = 6.5, 2
+width, height = 6.5, 4
 drawing = draw.Drawing(width, height, origin="center")
 md = moire.Bilayer(2, 3)
 lattice = md.lattice(width, height, NN_interlayer=True, add_Se2=True)
 drawing.append(lattice.draw_lattice())
 drawing.setRenderSize(700)
-drawing.saveSvg('logo.svg')
-
 glue("fig:lattice_with_Se2", drawing)
 ```
 
-### Mircoscopic model
+### Microscopic model
 
 ````{sidebar} Interference of hopping terms
 ```{glue:figure} fig:lattice_with_Se2
@@ -239,7 +231,6 @@ We have no reason to believe that a hopping going straight through two selenide 
 
 We suggest circumventing this problem by restricting interlayer NN to atoms with an $xy$ distance of half of the atomic distance. Since the distance to the selenide atoms is always greater than half we can ignore their contribution to these hoppings.
 
-+++
 
 All in all we propose the following interlayer hopping matrix:
 
@@ -282,7 +273,3 @@ r/r_\text{max}& r < r_\text{max}.
 $$
 
 Here we have taken the same $r_0$ to reduce the number of parameters and we take $\tau_{13}$ as the coupling at $r_\text{max}$.
-
-```{code-cell} ipython3
-
-```

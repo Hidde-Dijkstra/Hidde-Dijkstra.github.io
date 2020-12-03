@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supercell &#8212; hidde-dijkstra.github.io</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -46,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -57,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Code" href="moire_functions.html" />
+    <link rel="next" title="Wannierization" href="dft.html" />
     <link rel="prev" title="Monolayer WSe\(_2\)" href="monolayer.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -118,6 +119,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Supercell
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dft.html">
+     Wannierization
     </a>
    </li>
    <li class="toctree-l2">
@@ -272,8 +278,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mircoscopic-model">
-     Mircoscopic model
+    <a class="reference internal nav-link" href="#microscopic-model">
+     Microscopic model
     </a>
    </li>
   </ul>
@@ -303,21 +309,21 @@
 <span class="eqno">(2)<a class="headerlink" href="#equation-eq-reciprocal-supercell" title="Permalink to this equation">¶</a></span>\[\vec w_1=\frac{m\vec b_1+(n+m)\vec b_2}{n^2+nm+m^2}\text{ and } \vec w_2=\frac{n\vec b_1-m\vec b_2}{n^2+nm+m^2}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> arbitrary integers. We choose to include only the atom at the origin of these vectors in the supercell, all other corners belong to other supercells. We require <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> to be coprime to prevent other atoms falling on the border. Exchanging the two integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> results in a mirrored version of the supercell which we will use for the bilayer.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8ca10a16-7bfd-4cc3-9758-97f16c5947fe" name="5456481f-5ae6-444a-8cc1-5297d49a55ee" type="radio">
-</input><label class="tabbed-label" for="8ca10a16-7bfd-4cc3-9758-97f16c5947fe">
+<input checked="checked" id="ccd0bf2e-0be1-4653-bfd4-0a527ef58757" name="85e40037-7dfc-4c74-acb6-60188c94d18e" type="radio">
+</input><label class="tabbed-label" for="ccd0bf2e-0be1-4653-bfd4-0a527ef58757">
 Supercell for <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(m=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice13">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_3_0.svg" src="../_images/supercell_3_0.svg" /></div>
+<img alt="../_images/supercell_2_0.svg" src="../_images/supercell_2_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice13" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d337a7aa-a45b-4181-8591-2de75d204ea4" name="5456481f-5ae6-444a-8cc1-5297d49a55ee" type="radio">
-</input><label class="tabbed-label" for="d337a7aa-a45b-4181-8591-2de75d204ea4">
+<input id="73982294-c122-4887-bd1e-59f5b495d6fd" name="85e40037-7dfc-4c74-acb6-60188c94d18e" type="radio">
+</input><label class="tabbed-label" for="73982294-c122-4887-bd1e-59f5b495d6fd">
 Supercell for <span class="math notranslate nohighlight">\(n=3\)</span>, <span class="math notranslate nohighlight">\(m=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice31">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_3_1.svg" src="../_images/supercell_3_1.svg" /></div>
+<img alt="../_images/supercell_2_1.svg" src="../_images/supercell_2_1.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=3\)</span> and <span class="math notranslate nohighlight">\(m=1\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice31" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -410,39 +416,39 @@ hopping vector = displacement vector</p>
 </div>
 <p>Now we have a flexible description of the structure of the bilayer with all nearest neighbors for both the inter- and intralayer coupling. We show the interlayer nearest neighbors for selected values of <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(m\)</span> equal to <span class="math notranslate nohighlight">\(n+1\)</span>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="74fe8d13-3e38-4ba4-8be6-6c5ef5a06c5e" name="70bd5142-8e98-4367-9650-df5c218f3a0d" type="radio">
-</input><label class="tabbed-label" for="74fe8d13-3e38-4ba4-8be6-6c5ef5a06c5e">
+<input checked="checked" id="2b89c2a5-06f4-46dd-b74a-6f6b76f151b1" name="b9069abe-b48c-4bd8-bad3-e16e773bb031" type="radio">
+</input><label class="tabbed-label" for="2b89c2a5-06f4-46dd-b74a-6f6b76f151b1">
 Bilayer for <span class="math notranslate nohighlight">\(n=1\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-1">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_9_0.svg" src="../_images/supercell_9_0.svg" /></div>
+<img alt="../_images/supercell_5_0.svg" src="../_images/supercell_5_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=1\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1e65e686-ee2b-42c8-91b5-92d409d8c4c0" name="70bd5142-8e98-4367-9650-df5c218f3a0d" type="radio">
-</input><label class="tabbed-label" for="1e65e686-ee2b-42c8-91b5-92d409d8c4c0">
+<input id="c807a9d6-eeed-43f1-8af5-3ce9beda5ca5" name="b9069abe-b48c-4bd8-bad3-e16e773bb031" type="radio">
+</input><label class="tabbed-label" for="c807a9d6-eeed-43f1-8af5-3ce9beda5ca5">
 Bilayer for <span class="math notranslate nohighlight">\(n=2\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-2">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_9_1.svg" src="../_images/supercell_9_1.svg" /></div>
+<img alt="../_images/supercell_5_1.svg" src="../_images/supercell_5_1.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="8ce3aac0-8910-40bb-8d22-41d0d5af430e" name="70bd5142-8e98-4367-9650-df5c218f3a0d" type="radio">
-</input><label class="tabbed-label" for="8ce3aac0-8910-40bb-8d22-41d0d5af430e">
+<input id="2b2b9b9d-0043-4839-a12a-299dee12fc8d" name="b9069abe-b48c-4bd8-bad3-e16e773bb031" type="radio">
+</input><label class="tabbed-label" for="2b2b9b9d-0043-4839-a12a-299dee12fc8d">
 Bilayer for <span class="math notranslate nohighlight">\(n=3\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-3">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_9_2.svg" src="../_images/supercell_9_2.svg" /></div>
+<img alt="../_images/supercell_5_2.svg" src="../_images/supercell_5_2.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="044ad4d9-ba67-4180-b8eb-9718e9d9e6cd" name="70bd5142-8e98-4367-9650-df5c218f3a0d" type="radio">
-</input><label class="tabbed-label" for="044ad4d9-ba67-4180-b8eb-9718e9d9e6cd">
+<input id="fd8641e6-8178-46ce-b933-11601db96bd9" name="b9069abe-b48c-4bd8-bad3-e16e773bb031" type="radio">
+</input><label class="tabbed-label" for="fd8641e6-8178-46ce-b933-11601db96bd9">
 Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-lattice-n-4">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_9_3.svg" src="../_images/supercell_9_3.svg" /></div>
+<img alt="../_images/supercell_5_3.svg" src="../_images/supercell_5_3.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Supercell for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(m=3\)</span>, only one corner atom is included in unit cell.</span><a class="headerlink" href="#fig-lattice-n-4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -462,13 +468,13 @@ Bilayer for <span class="math notranslate nohighlight">\(n=4\)</span></label><di
 <p>with <span class="math notranslate nohighlight">\(\tau^i\)</span> a sign indicating the valley. The summation is over all <span class="math notranslate nohighlight">\(\mathbf K\)</span> points in the respective Brillouin zones.</p>
 <p>The interest of this equation is that it allows us to extract hoppings for all <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. The authors themselves suggest that locally a Moiré lattice with small twist angle is just a normal lattice with some local displacement <span class="math notranslate nohighlight">\(\mathbf r_0\)</span>. There is however no apparent method to translate this result back to a microscopic model.</p>
 </div>
-<div class="section" id="mircoscopic-model">
-<h3>Mircoscopic model<a class="headerlink" href="#mircoscopic-model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="microscopic-model">
+<h3>Microscopic model<a class="headerlink" href="#microscopic-model" title="Permalink to this headline">¶</a></h3>
 <div class="sidebar">
 <p class="sidebar-title">Interference of hopping terms</p>
 <div class="figure align-default" id="fig-latticewithse2">
 <div class="cell_output docutils container">
-<img alt="../_images/supercell_14_0.svg" src="../_images/supercell_14_0.svg" /></div>
+<img alt="../_images/supercell_7_0.svg" src="../_images/supercell_7_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Superlattice with selenide atoms.</span><a class="headerlink" href="#fig-latticewithse2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -544,7 +550,7 @@ r/r_\text{max}&amp; r &lt; r_\text{max}.
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="monolayer.html" title="previous page">Monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span></a>
-    <a class='right-next' id="next-link" href="moire_functions.html" title="next page">Code</a>
+    <a class='right-next' id="next-link" href="dft.html" title="next page">Wannierization</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

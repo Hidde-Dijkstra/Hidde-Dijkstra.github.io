@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="500" height="350.0" viewBox="-5.0 -3.5 10 7">
+<defs>
+<radialGradient cx="-3.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d0">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d1">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d2">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d3">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d4">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0" cy="-3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d5">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.5" cy="-0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d6">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d7">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d8">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d9">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d10">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d11">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d12">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0" cy="-3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d13">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5" cy="-0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d14">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d15">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d16">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d17">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d18">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d19">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d20">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d21">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d22">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d23">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d24">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d25">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d26">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d27">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d28">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0" cy="-3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d29">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d30">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0" cy="-2.220446049250313e-16" r="0.2" gradientUnits="userSpaceOnUse" id="d31">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d32">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0" cy="-3.464101615137755" r="0.2" gradientUnits="userSpaceOnUse" id="d33">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d34">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d35">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0" cy="-1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d36">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d37">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d38">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d39">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d40">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d41">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d42">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d43">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d44">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d45">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d46">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d47">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d48">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d49">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0" cy="-3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d50">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d51">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0" cy="-2.220446049250313e-16" r="0.2" gradientUnits="userSpaceOnUse" id="d52">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-0.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d53">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0" cy="-3.464101615137755" r="0.2" gradientUnits="userSpaceOnUse" id="d54">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d55">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d56">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0" cy="-1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d57">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d58">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.0" cy="-3.4641016151377553" r="0.2" gradientUnits="userSpaceOnUse" id="d59">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d60">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d61">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d62">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d63">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d64">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d65">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d66">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d67">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="3.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d68">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5" cy="-2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d69">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0" cy="0.0" r="0.2" gradientUnits="userSpaceOnUse" id="d70">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.0" cy="-3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d71">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d72">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5" cy="-2.5980762113533165" r="0.2" gradientUnits="userSpaceOnUse" id="d73">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0" cy="-2.220446049250313e-16" r="0.2" gradientUnits="userSpaceOnUse" id="d74">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d75">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0" cy="-3.464101615137755" r="0.2" gradientUnits="userSpaceOnUse" id="d76">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d77">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d78">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.0" cy="-1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d79">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-5.0" cy="-2.220446049250313e-16" r="0.2" gradientUnits="userSpaceOnUse" id="d80">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d81">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.0" cy="-3.4641016151377553" r="0.2" gradientUnits="userSpaceOnUse" id="d82">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d83">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d84">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.0" cy="-1.7320508075688774" r="0.2" gradientUnits="userSpaceOnUse" id="d85">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="4.5" cy="0.8660254037844386" r="0.2" gradientUnits="userSpaceOnUse" id="d86">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-4.5" cy="0.8660254037844384" r="0.2" gradientUnits="userSpaceOnUse" id="d87">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-2.0" cy="3.4641016151377544" r="0.2" gradientUnits="userSpaceOnUse" id="d88">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-3.5" cy="-2.5980762113533165" r="0.2" gradientUnits="userSpaceOnUse" id="d89">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="-1.0" cy="-2.220446049250313e-16" r="0.2" gradientUnits="userSpaceOnUse" id="d90">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="1.5" cy="2.598076211353316" r="0.2" gradientUnits="userSpaceOnUse" id="d91">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="0.0" cy="-3.464101615137755" r="0.2" gradientUnits="userSpaceOnUse" id="d92">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="2.5" cy="-0.8660254037844388" r="0.2" gradientUnits="userSpaceOnUse" id="d93">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<radialGradient cx="5.0" cy="1.7320508075688772" r="0.2" gradientUnits="userSpaceOnUse" id="d94">
+<stop offset="0" stop-color="white" stop-opacity="1" />
+<stop offset="1" stop-color="blue" stop-opacity="1" />
+</radialGradient>
+<marker markerWidth="4.0" markerHeight="4.0" viewBox="-0.25 -0.5 1.0 1.0" orient="auto" id="d95">
+<path d="M-0.25,0.5 L-0.25,-0.5 L0.75,0 Z" fill="red" />
+</marker>
+<marker markerWidth="4.0" markerHeight="4.0" viewBox="-0.25 -0.5 1.0 1.0" orient="auto" id="d96">
+<path d="M-0.25,0.5 L-0.25,-0.5 L0.75,0 Z" fill="red" />
+</marker>
+</defs>
+<g>
+<path d="M-21.8492128917429,-7.46038502281343 L1.8492128917428996,-13.324224668013098" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-19.3492128917429,-4.862308811460114 L4.3492128917429,-10.726148456659782" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-16.8492128917429,-2.264232600106798 L6.8492128917429,-8.128072245306466" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-14.3492128917429,0.3338436112465182 L9.3492128917429,-5.52999603395315" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-11.8492128917429,2.931919822599834 L11.8492128917429,-2.931919822599834" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-9.3492128917429,5.52999603395315 L14.3492128917429,-0.3338436112465182" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-6.8492128917429,8.128072245306466 L16.8492128917429,2.264232600106798" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-4.3492128917429,10.726148456659782 L19.3492128917429,4.862308811460114" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-1.8492128917428996,13.324224668013098 L21.8492128917429,7.46038502281343" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-22.463723494102073,-5.33165785266175 L-5.536276505897927,12.25986108293726" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-18.963723494102073,-6.197683256446188 L-2.036276505897927,11.39383567915282" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-15.463723494102073,-7.063708660230628 L1.463723494102073,10.527810275368381" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-11.963723494102073,-7.929734064015066 L4.963723494102073,9.661784871583944" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-8.463723494102073,-8.795759467799504 L8.463723494102073,8.795759467799504" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-4.963723494102073,-9.661784871583944 L11.963723494102073,7.929734064015066" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M-1.463723494102073,-10.527810275368381 L15.463723494102073,7.063708660230628" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M2.036276505897927,-11.39383567915282 L18.963723494102073,6.197683256446188" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+<path d="M5.536276505897927,-12.25986108293726 L22.463723494102073,5.33165785266175" stroke="red" stroke-width="0.1" stroke-dasharray="0.05,0.05" />
+</g>
+<g>
+<g>
+<path d="M-3.5,0.8660254037844386 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,0.8660254037844386 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,0.8660254037844386 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,0.8660254037844386 L-4.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,0.8660254037844386 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,0.8660254037844386 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.0,3.4641016151377544 L0.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,3.4641016151377544 L-0.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,3.4641016151377544 L-1.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,3.4641016151377544 L-2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,3.4641016151377544 L-1.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,3.4641016151377544 L-0.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.5,-2.598076211353316 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-2.598076211353316 L-2.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-2.598076211353316 L-3.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-2.598076211353316 L-3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-2.598076211353316 L-3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-2.598076211353316 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.0,-0.0 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-0.0 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-0.0 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-0.0 L-1.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-0.0 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-0.0 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.5,2.598076211353316 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.5,2.598076211353316 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.5,2.598076211353316 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.5,2.598076211353316 L1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.5,2.598076211353316 L2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.5,2.598076211353316 L3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.0,-3.4641016151377544 L2.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-3.4641016151377544 L1.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-3.4641016151377544 L0.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-3.4641016151377544 L0.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-3.4641016151377544 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-3.4641016151377544 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.5,-0.8660254037844386 L4.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-0.8660254037844386 L4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-0.8660254037844386 L3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-0.8660254037844386 L2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-0.8660254037844386 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-0.8660254037844386 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-5.0,-1.7320508075688774 L-4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-1.7320508075688774 L-4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-1.7320508075688774 L-5.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-1.7320508075688774 L-6.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-1.7320508075688774 L-5.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-1.7320508075688774 L-4.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.5,0.8660254037844386 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,0.8660254037844386 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,0.8660254037844386 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,0.8660254037844386 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,0.8660254037844386 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,0.8660254037844386 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.0,3.4641016151377544 L1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M0.0,3.4641016151377544 L0.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M0.0,3.4641016151377544 L-0.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M0.0,3.4641016151377544 L-1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M0.0,3.4641016151377544 L-0.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M0.0,3.4641016151377544 L0.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.5,-2.598076211353316 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-2.598076211353316 L-1.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-2.598076211353316 L-2.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-2.598076211353316 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-2.598076211353316 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-2.598076211353316 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.0,-0.0 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-0.0 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-0.0 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-0.0 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-0.0 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-0.0 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.5,2.598076211353316 L4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.5,2.598076211353316 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.5,2.598076211353316 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.5,2.598076211353316 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.5,2.598076211353316 L3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.5,2.598076211353316 L4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.0,-3.4641016151377544 L3.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-3.4641016151377544 L2.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-3.4641016151377544 L1.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-3.4641016151377544 L1.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-3.4641016151377544 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-3.4641016151377544 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.5,-0.8660254037844386 L5.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-0.8660254037844386 L5.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-0.8660254037844386 L4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-0.8660254037844386 L3.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-0.8660254037844386 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-0.8660254037844386 L5.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.5,-0.8660254037844388 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-0.8660254037844388 L-4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-0.8660254037844388 L-5.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-0.8660254037844388 L-5.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-0.8660254037844388 L-5.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-0.8660254037844388 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.0,1.7320508075688772 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,1.7320508075688772 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,1.7320508075688772 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,1.7320508075688772 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,1.7320508075688772 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,1.7320508075688772 L-1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.0,-1.7320508075688774 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-1.7320508075688774 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-1.7320508075688774 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-1.7320508075688774 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-1.7320508075688774 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-1.7320508075688774 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.5,0.8660254037844386 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M1.5,0.8660254037844386 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M1.5,0.8660254037844386 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M1.5,0.8660254037844386 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M1.5,0.8660254037844386 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M1.5,0.8660254037844386 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.0,3.4641016151377544 L5.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.0,3.4641016151377544 L4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,3.4641016151377544 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,3.4641016151377544 L3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.0,3.4641016151377544 L3.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M4.0,3.4641016151377544 L4.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.5,-2.598076211353316 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-2.598076211353316 L3.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-2.598076211353316 L2.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-2.598076211353316 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-2.598076211353316 L2.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-2.598076211353316 L3.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M5.0,-0.0 L6.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-0.0 L5.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-0.0 L4.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-0.0 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-0.0 L4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-0.0 L5.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-5.0,1.7320508075688772 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,1.7320508075688772 L-4.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,1.7320508075688772 L-5.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,1.7320508075688772 L-6.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,1.7320508075688772 L-5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,1.7320508075688772 L-4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.0,-1.7320508075688774 L-3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-1.7320508075688774 L-3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-1.7320508075688774 L-4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-1.7320508075688774 L-5.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-1.7320508075688774 L-4.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-1.7320508075688774 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.5,0.8660254037844386 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,0.8660254037844386 L-1.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,0.8660254037844386 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,0.8660254037844386 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,0.8660254037844386 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,0.8660254037844386 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.0,3.4641016151377544 L2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.0,3.4641016151377544 L1.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M1.0,3.4641016151377544 L0.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M1.0,3.4641016151377544 L0.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.0,3.4641016151377544 L0.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M1.0,3.4641016151377544 L1.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-0.5,-2.598076211353316 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-2.598076211353316 L0.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-2.598076211353316 L-1.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-2.598076211353316 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-2.598076211353316 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-2.598076211353316 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.0,-0.0 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-0.0 L2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-0.0 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-0.0 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-0.0 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-0.0 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.5,2.598076211353316 L5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.5,2.598076211353316 L5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.5,2.598076211353316 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.5,2.598076211353316 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.5,2.598076211353316 L4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.5,2.598076211353316 L5.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.0,-3.4641016151377544 L4.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-3.4641016151377544 L3.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-3.4641016151377544 L2.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-3.4641016151377544 L2.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-3.4641016151377544 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-3.4641016151377544 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-5.0,3.4641016151377544 L-4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,3.4641016151377544 L-4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,3.4641016151377544 L-5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,3.4641016151377544 L-6.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,3.4641016151377544 L-5.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,3.4641016151377544 L-4.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.0,-2.220446049250313e-16 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-2.220446049250313e-16 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-2.220446049250313e-16 L-4.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-2.220446049250313e-16 L-5.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-2.220446049250313e-16 L-4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-2.220446049250313e-16 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.5,2.598076211353316 L-0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,2.598076211353316 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,2.598076211353316 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,2.598076211353316 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,2.598076211353316 L-2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,2.598076211353316 L-1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.0,-3.464101615137755 L-2.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-3.464101615137755 L-2.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-3.464101615137755 L-3.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-3.464101615137755 L-4.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-3.464101615137755 L-3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-3.464101615137755 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-0.5,-0.8660254037844388 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-0.8660254037844388 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-0.8660254037844388 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-0.8660254037844388 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-0.8660254037844388 L-1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,-0.8660254037844388 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.0,1.7320508075688772 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.0,1.7320508075688772 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.0,1.7320508075688772 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.0,1.7320508075688772 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.0,1.7320508075688772 L1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.0,1.7320508075688772 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.0,-1.7320508075688772 L4.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-1.7320508075688772 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-1.7320508075688772 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-1.7320508075688772 L2.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-1.7320508075688772 L2.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-1.7320508075688772 L3.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.5,2.598076211353316 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,2.598076211353316 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,2.598076211353316 L-5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,2.598076211353316 L-5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,2.598076211353316 L-5.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,2.598076211353316 L-4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.5,-0.8660254037844388 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-0.8660254037844388 L-3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-0.8660254037844388 L-4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-0.8660254037844388 L-4.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-0.8660254037844388 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-0.8660254037844388 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.0,1.7320508075688772 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,1.7320508075688772 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,1.7320508075688772 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,1.7320508075688772 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,1.7320508075688772 L-1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,1.7320508075688772 L-0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.0,-1.7320508075688774 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-1.7320508075688774 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-1.7320508075688774 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-1.7320508075688774 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-1.7320508075688774 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-1.7320508075688774 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.5,0.8660254037844386 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.5,0.8660254037844386 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M2.5,0.8660254037844386 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M2.5,0.8660254037844386 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.5,0.8660254037844386 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M2.5,0.8660254037844386 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M5.0,3.4641016151377544 L6.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M5.0,3.4641016151377544 L5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,3.4641016151377544 L4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,3.4641016151377544 L4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M5.0,3.4641016151377544 L4.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M5.0,3.4641016151377544 L5.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.5,-2.598076211353316 L4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-2.598076211353316 L4.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-2.598076211353316 L3.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-2.598076211353316 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-2.598076211353316 L3.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.5,-2.598076211353316 L4.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.0,1.7320508075688772 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,1.7320508075688772 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,1.7320508075688772 L-4.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,1.7320508075688772 L-5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,1.7320508075688772 L-4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,1.7320508075688772 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.0,-1.7320508075688774 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-1.7320508075688774 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-1.7320508075688774 L-3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-1.7320508075688774 L-4.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-1.7320508075688774 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-1.7320508075688774 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-0.5,0.8660254037844386 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,0.8660254037844386 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,0.8660254037844386 L-1.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,0.8660254037844386 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,0.8660254037844386 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,0.8660254037844386 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.0,3.4641016151377544 L3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.0,3.4641016151377544 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.0,3.4641016151377544 L1.5,2.5980762113533156" stroke="black" stroke-width="0.01" />
+<path d="M2.0,3.4641016151377544 L1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M2.0,3.4641016151377544 L1.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M2.0,3.4641016151377544 L2.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.5,-2.598076211353316 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-2.598076211353316 L1.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-2.598076211353316 L0.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-2.598076211353316 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-2.598076211353316 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-2.598076211353316 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.0,-0.0 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-0.0 L3.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-0.0 L2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-0.0 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-0.0 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.0,-0.0 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.0,-3.4641016151377544 L5.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-3.4641016151377544 L4.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-3.4641016151377544 L3.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-3.4641016151377544 L3.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-3.4641016151377544 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-3.4641016151377544 L4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.0,3.4641016151377544 L-3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,3.4641016151377544 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,3.4641016151377544 L-4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,3.4641016151377544 L-5.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,3.4641016151377544 L-4.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,3.4641016151377544 L-3.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.0,-2.220446049250313e-16 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-2.220446049250313e-16 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-2.220446049250313e-16 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-2.220446049250313e-16 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-2.220446049250313e-16 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,-2.220446049250313e-16 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-0.5,2.598076211353316 L0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,2.598076211353316 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,2.598076211353316 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,2.598076211353316 L-1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,2.598076211353316 L-1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-0.5,2.598076211353316 L0.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.0,-3.464101615137755 L-1.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-3.464101615137755 L-1.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-3.464101615137755 L-2.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-3.464101615137755 L-3.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-3.464101615137755 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-3.464101615137755 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.5,-0.8660254037844388 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-0.8660254037844388 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-0.8660254037844388 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-0.8660254037844388 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-0.8660254037844388 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M0.5,-0.8660254037844388 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.0,1.7320508075688772 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.0,1.7320508075688772 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.0,1.7320508075688772 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.0,1.7320508075688772 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.0,1.7320508075688772 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,1.7320508075688772 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.0,-1.7320508075688772 L5.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-1.7320508075688772 L4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-1.7320508075688772 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-1.7320508075688772 L3.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-1.7320508075688772 L3.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-1.7320508075688772 L4.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.5,2.598076211353316 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,2.598076211353316 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,2.598076211353316 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,2.598076211353316 L-4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,2.598076211353316 L-4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,2.598076211353316 L-3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-5.0,-3.4641016151377553 L-4.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-3.4641016151377553 L-4.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-3.4641016151377553 L-5.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-3.4641016151377553 L-6.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-3.4641016151377553 L-5.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-3.4641016151377553 L-4.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.5,-0.8660254037844388 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-0.8660254037844388 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-0.8660254037844388 L-3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-0.8660254037844388 L-3.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-0.8660254037844388 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,-0.8660254037844388 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.0,1.7320508075688772 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M0.0,1.7320508075688772 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M0.0,1.7320508075688772 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M0.0,1.7320508075688772 L-1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M0.0,1.7320508075688772 L-0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.0,1.7320508075688772 L0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.0,-1.7320508075688774 L2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-1.7320508075688774 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-1.7320508075688774 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-1.7320508075688774 L0.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-1.7320508075688774 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M1.0,-1.7320508075688774 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.5,0.8660254037844386 L4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.5,0.8660254037844386 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M3.5,0.8660254037844386 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M3.5,0.8660254037844386 L2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M3.5,0.8660254037844386 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M3.5,0.8660254037844386 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.5,-2.598076211353316 L5.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-2.598076211353316 L5.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-2.598076211353316 L4.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-2.598076211353316 L3.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-2.598076211353316 L4.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.5,-2.598076211353316 L5.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.0,1.7320508075688772 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,1.7320508075688772 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,1.7320508075688772 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,1.7320508075688772 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,1.7320508075688772 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,1.7320508075688772 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.0,-1.7320508075688774 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-1.7320508075688774 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-1.7320508075688774 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-1.7320508075688774 L-3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-1.7320508075688774 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-1.7320508075688774 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.5,0.8660254037844386 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M0.5,0.8660254037844386 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M0.5,0.8660254037844386 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M0.5,0.8660254037844386 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M0.5,0.8660254037844386 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M0.5,0.8660254037844386 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M3.0,3.4641016151377544 L4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.0,3.4641016151377544 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,3.4641016151377544 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M3.0,3.4641016151377544 L2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M3.0,3.4641016151377544 L2.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M3.0,3.4641016151377544 L3.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.5,-2.598076211353316 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-2.598076211353316 L2.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-2.598076211353316 L1.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-2.598076211353316 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-2.598076211353316 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-2.598076211353316 L2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.0,-0.0 L5.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-0.0 L4.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-0.0 L3.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-0.0 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-0.0 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.0,-0.0 L4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M5.0,-3.4641016151377544 L6.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-3.4641016151377544 L5.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-3.4641016151377544 L4.5,-4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-3.4641016151377544 L4.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-3.4641016151377544 L4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-3.4641016151377544 L5.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.0,3.4641016151377544 L-2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,3.4641016151377544 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,3.4641016151377544 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,3.4641016151377544 L-4.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,3.4641016151377544 L-3.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M-3.0,3.4641016151377544 L-2.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.5,-2.5980762113533165 L-3.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-2.5980762113533165 L-4.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-2.5980762113533165 L-5.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-2.5980762113533165 L-5.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-2.5980762113533165 L-5.0,-1.7320508075688776" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,-2.5980762113533165 L-4.0,-1.7320508075688776" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.0,-2.220446049250313e-16 L-1.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-2.220446049250313e-16 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-2.220446049250313e-16 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-2.220446049250313e-16 L-3.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-2.220446049250313e-16 L-2.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,-2.220446049250313e-16 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.5,2.598076211353316 L1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.5,2.598076211353316 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M0.5,2.598076211353316 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M0.5,2.598076211353316 L-0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.5,2.598076211353316 L0.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M0.5,2.598076211353316 L1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.0,-3.464101615137755 L0.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-3.464101615137755 L-0.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-3.464101615137755 L-1.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-3.464101615137755 L-2.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-3.464101615137755 L-1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-3.464101615137755 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.5,-0.8660254037844388 L2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-0.8660254037844388 L2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-0.8660254037844388 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-0.8660254037844388 L0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-0.8660254037844388 L1.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M1.5,-0.8660254037844388 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.0,1.7320508075688772 L5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.0,1.7320508075688772 L4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.0,1.7320508075688772 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.0,1.7320508075688772 L3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.0,1.7320508075688772 L3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M4.0,1.7320508075688772 L4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M5.0,-1.7320508075688772 L6.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-1.7320508075688772 L5.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-1.7320508075688772 L4.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-1.7320508075688772 L4.0,-1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-1.7320508075688772 L4.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M5.0,-1.7320508075688772 L5.5,-0.8660254037844384" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-5.0,-2.220446049250313e-16 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-2.220446049250313e-16 L-4.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-2.220446049250313e-16 L-5.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-2.220446049250313e-16 L-6.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-2.220446049250313e-16 L-5.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-5.0,-2.220446049250313e-16 L-4.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.5,2.598076211353316 L-1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,2.598076211353316 L-2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,2.598076211353316 L-3.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,2.598076211353316 L-3.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,2.598076211353316 L-3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-2.5,2.598076211353316 L-2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.0,-3.4641016151377553 L-3.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-3.4641016151377553 L-3.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-3.4641016151377553 L-4.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-3.4641016151377553 L-5.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-3.4641016151377553 L-4.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+<path d="M-4.0,-3.4641016151377553 L-3.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.5,-0.8660254037844388 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-0.8660254037844388 L-1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-0.8660254037844388 L-2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-0.8660254037844388 L-2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-0.8660254037844388 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-1.5,-0.8660254037844388 L-1.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.0,1.7320508075688772 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M1.0,1.7320508075688772 L1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M1.0,1.7320508075688772 L0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M1.0,1.7320508075688772 L0.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M1.0,1.7320508075688772 L0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.0,1.7320508075688772 L1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.0,-1.7320508075688774 L3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-1.7320508075688774 L2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-1.7320508075688774 L1.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-1.7320508075688774 L1.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-1.7320508075688774 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M2.0,-1.7320508075688774 L2.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M4.5,0.8660254037844386 L5.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.5,0.8660254037844386 L5.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M4.5,0.8660254037844386 L4.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M4.5,0.8660254037844386 L3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M4.5,0.8660254037844386 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M4.5,0.8660254037844386 L5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-4.5,0.8660254037844384 L-3.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,0.8660254037844384 L-4.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,0.8660254037844384 L-5.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,0.8660254037844384 L-5.5,0.8660254037844384" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,0.8660254037844384 L-5.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M-4.5,0.8660254037844384 L-4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-2.0,3.4641016151377544 L-1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,3.4641016151377544 L-1.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,3.4641016151377544 L-2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,3.4641016151377544 L-3.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,3.4641016151377544 L-2.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+<path d="M-2.0,3.4641016151377544 L-1.5,4.330127018922193" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-3.5,-2.5980762113533165 L-2.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-2.5980762113533165 L-3.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-2.5980762113533165 L-4.0,-3.4641016151377553" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-2.5980762113533165 L-4.5,-2.5980762113533165" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-2.5980762113533165 L-4.0,-1.7320508075688776" stroke="black" stroke-width="0.01" />
+<path d="M-3.5,-2.5980762113533165 L-3.0,-1.7320508075688776" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M-1.0,-2.220446049250313e-16 L0.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-2.220446049250313e-16 L-0.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-2.220446049250313e-16 L-1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-2.220446049250313e-16 L-2.0,-2.220446049250313e-16" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-2.220446049250313e-16 L-1.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M-1.0,-2.220446049250313e-16 L-0.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M1.5,2.598076211353316 L2.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.5,2.598076211353316 L2.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M1.5,2.598076211353316 L1.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M1.5,2.598076211353316 L0.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M1.5,2.598076211353316 L1.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M1.5,2.598076211353316 L2.0,3.4641016151377544" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M0.0,-3.464101615137755 L1.0,-3.4641016151377544" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-3.464101615137755 L0.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-3.464101615137755 L-0.5,-4.330127018922194" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-3.464101615137755 L-1.0,-3.464101615137755" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-3.464101615137755 L-0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M0.0,-3.464101615137755 L0.5,-2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M2.5,-0.8660254037844388 L3.5,-0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-0.8660254037844388 L3.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-0.8660254037844388 L2.0,-1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-0.8660254037844388 L1.5,-0.8660254037844388" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-0.8660254037844388 L2.0,-0.0" stroke="black" stroke-width="0.01" />
+<path d="M2.5,-0.8660254037844388 L3.0,-0.0" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<path d="M5.0,1.7320508075688772 L6.0,1.7320508075688774" stroke="black" stroke-width="0.01" />
+<path d="M5.0,1.7320508075688772 L5.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M5.0,1.7320508075688772 L4.5,0.8660254037844386" stroke="black" stroke-width="0.01" />
+<path d="M5.0,1.7320508075688772 L4.0,1.7320508075688772" stroke="black" stroke-width="0.01" />
+<path d="M5.0,1.7320508075688772 L4.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+<path d="M5.0,1.7320508075688772 L5.5,2.598076211353316" stroke="black" stroke-width="0.01" />
+</g>
+<g>
+<circle cx="-3.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d0)" />
+</g>
+<g>
+<circle cx="-1.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d1)" />
+</g>
+<g>
+<circle cx="-2.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d2)" />
+</g>
+<g>
+<circle cx="0.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d3)" />
+</g>
+<g>
+<circle cx="2.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d4)" />
+</g>
+<g>
+<circle cx="1.0" cy="-3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d5)" />
+</g>
+<g>
+<circle cx="3.5" cy="-0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d6)" />
+</g>
+<g>
+<circle cx="-5.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d7)" />
+</g>
+<g>
+<circle cx="-2.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d8)" />
+</g>
+<g>
+<circle cx="0.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d9)" />
+</g>
+<g>
+<circle cx="-1.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d10)" />
+</g>
+<g>
+<circle cx="1.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d11)" />
+</g>
+<g>
+<circle cx="3.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d12)" />
+</g>
+<g>
+<circle cx="2.0" cy="-3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d13)" />
+</g>
+<g>
+<circle cx="4.5" cy="-0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d14)" />
+</g>
+<g>
+<circle cx="-4.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d15)" />
+</g>
+<g>
+<circle cx="-2.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d16)" />
+</g>
+<g>
+<circle cx="-1.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d17)" />
+</g>
+<g>
+<circle cx="1.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d18)" />
+</g>
+<g>
+<circle cx="4.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d19)" />
+</g>
+<g>
+<circle cx="2.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d20)" />
+</g>
+<g>
+<circle cx="5.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d21)" />
+</g>
+<g>
+<circle cx="-5.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d22)" />
+</g>
+<g>
+<circle cx="-4.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d23)" />
+</g>
+<g>
+<circle cx="-1.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d24)" />
+</g>
+<g>
+<circle cx="1.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d25)" />
+</g>
+<g>
+<circle cx="-0.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d26)" />
+</g>
+<g>
+<circle cx="2.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d27)" />
+</g>
+<g>
+<circle cx="4.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d28)" />
+</g>
+<g>
+<circle cx="3.0" cy="-3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d29)" />
+</g>
+<g>
+<circle cx="-5.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d30)" />
+</g>
+<g>
+<circle cx="-4.0" cy="-2.220446049250313e-16" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d31)" />
+</g>
+<g>
+<circle cx="-1.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d32)" />
+</g>
+<g>
+<circle cx="-3.0" cy="-3.464101615137755" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d33)" />
+</g>
+<g>
+<circle cx="-0.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d34)" />
+</g>
+<g>
+<circle cx="2.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d35)" />
+</g>
+<g>
+<circle cx="3.0" cy="-1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d36)" />
+</g>
+<g>
+<circle cx="-4.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d37)" />
+</g>
+<g>
+<circle cx="-3.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d38)" />
+</g>
+<g>
+<circle cx="-1.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d39)" />
+</g>
+<g>
+<circle cx="0.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d40)" />
+</g>
+<g>
+<circle cx="2.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d41)" />
+</g>
+<g>
+<circle cx="5.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d42)" />
+</g>
+<g>
+<circle cx="3.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d43)" />
+</g>
+<g>
+<circle cx="-4.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d44)" />
+</g>
+<g>
+<circle cx="-3.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d45)" />
+</g>
+<g>
+<circle cx="-0.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d46)" />
+</g>
+<g>
+<circle cx="2.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d47)" />
+</g>
+<g>
+<circle cx="0.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d48)" />
+</g>
+<g>
+<circle cx="3.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d49)" />
+</g>
+<g>
+<circle cx="4.0" cy="-3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d50)" />
+</g>
+<g>
+<circle cx="-4.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d51)" />
+</g>
+<g>
+<circle cx="-3.0" cy="-2.220446049250313e-16" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d52)" />
+</g>
+<g>
+<circle cx="-0.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d53)" />
+</g>
+<g>
+<circle cx="-2.0" cy="-3.464101615137755" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d54)" />
+</g>
+<g>
+<circle cx="0.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d55)" />
+</g>
+<g>
+<circle cx="3.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d56)" />
+</g>
+<g>
+<circle cx="4.0" cy="-1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d57)" />
+</g>
+<g>
+<circle cx="-3.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d58)" />
+</g>
+<g>
+<circle cx="-5.0" cy="-3.4641016151377553" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d59)" />
+</g>
+<g>
+<circle cx="-2.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d60)" />
+</g>
+<g>
+<circle cx="0.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d61)" />
+</g>
+<g>
+<circle cx="1.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d62)" />
+</g>
+<g>
+<circle cx="3.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d63)" />
+</g>
+<g>
+<circle cx="4.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d64)" />
+</g>
+<g>
+<circle cx="-3.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d65)" />
+</g>
+<g>
+<circle cx="-2.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d66)" />
+</g>
+<g>
+<circle cx="0.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d67)" />
+</g>
+<g>
+<circle cx="3.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d68)" />
+</g>
+<g>
+<circle cx="1.5" cy="-2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d69)" />
+</g>
+<g>
+<circle cx="4.0" cy="-0.0" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d70)" />
+</g>
+<g>
+<circle cx="5.0" cy="-3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d71)" />
+</g>
+<g>
+<circle cx="-3.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d72)" />
+</g>
+<g>
+<circle cx="-4.5" cy="-2.5980762113533165" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d73)" />
+</g>
+<g>
+<circle cx="-2.0" cy="-2.220446049250313e-16" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d74)" />
+</g>
+<g>
+<circle cx="0.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d75)" />
+</g>
+<g>
+<circle cx="-1.0" cy="-3.464101615137755" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d76)" />
+</g>
+<g>
+<circle cx="1.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d77)" />
+</g>
+<g>
+<circle cx="4.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d78)" />
+</g>
+<g>
+<circle cx="5.0" cy="-1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d79)" />
+</g>
+<g>
+<circle cx="-5.0" cy="-2.220446049250313e-16" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d80)" />
+</g>
+<g>
+<circle cx="-2.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d81)" />
+</g>
+<g>
+<circle cx="-4.0" cy="-3.4641016151377553" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d82)" />
+</g>
+<g>
+<circle cx="-1.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d83)" />
+</g>
+<g>
+<circle cx="1.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d84)" />
+</g>
+<g>
+<circle cx="2.0" cy="-1.7320508075688774" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d85)" />
+</g>
+<g>
+<circle cx="4.5" cy="0.8660254037844386" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d86)" />
+</g>
+<g>
+<circle cx="-4.5" cy="0.8660254037844384" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d87)" />
+</g>
+<g>
+<circle cx="-2.0" cy="3.4641016151377544" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d88)" />
+</g>
+<g>
+<circle cx="-3.5" cy="-2.5980762113533165" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d89)" />
+</g>
+<g>
+<circle cx="-1.0" cy="-2.220446049250313e-16" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d90)" />
+</g>
+<g>
+<circle cx="1.5" cy="2.598076211353316" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d91)" />
+</g>
+<g>
+<circle cx="0.0" cy="-3.464101615137755" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d92)" />
+</g>
+<g>
+<circle cx="2.5" cy="-0.8660254037844388" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d93)" />
+</g>
+<g>
+<circle cx="5.0" cy="1.7320508075688772" r="0.2" stroke="black" stroke-width="0.01" fill="url(#d94)" />
+</g>
+</g>
+<g>
+<path d="M-3.0,-0.8660254037844387 L0.20878239698175483,-1.659993138356588" stroke="red" stroke-width="0.1" fill="none" marker-end="url(#d95)" />
+<path d="M-3.0,-0.8660254037844387 L-0.7080125735844609,1.5158777999320097" stroke="red" stroke-width="0.1" fill="none" marker-end="url(#d96)" />
+<text x="0.5" y="-1.7320508075688772" font-size="1.0" fill="red">v₁</text>
+<text x="-0.5" y="1.7320508075688772" font-size="1.0" fill="red">v₂</text>
+</g>
+</svg>
