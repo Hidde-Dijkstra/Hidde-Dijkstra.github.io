@@ -30,19 +30,6 @@ from scipy import integrate
 import matplotlib.pyplot as plt
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-f = lambda k: (1-np.cos(np.mod(k, np.pi*2)/2)**5)*np.pi + (k - np.mod(k, 2*np.pi))
-
-fig, ax = plt.subplots()    
-ax.set_xlabel(r"$k$")
-ax.set_ylabel(r"$f$")
-ax.plot(np.linspace(0, 20, 100), f(np.linspace(0, 20, 100)))
-ax.plot(np.linspace(0, 20, 100), np.linspace(0, 20, 100))
-glue("fig:f_func", fig, display=False)
-```
-
 ## Projection method
 
 One way to remove the gauge inconsistency is to project trial orbitals $|g_n\rangle$ on the basis of the Bloch wavefunctions:
@@ -76,23 +63,38 @@ We illustrate the projection method using an example of a 1d isolated band with 
 * $\psi_{\mathbf k+\mathbf G}(\mathbf r)=\psi_{\mathbf k}(\mathbf r)$, with $\mathbf G$ a reciprocal lattice vector $\rightarrow u_{\mathbf k+\mathbf G}(\mathbf r)=\text e^{-i\mathbf G\cdot\mathbf r}u_{\mathbf k}(\mathbf r)$.
 * $u_\mathbf k(\mathbf r+\mathbf T)=u_\mathbf k(\mathbf r)$, with $\mathbf T$ a lattice vector.
 
-We take lattice spacing $a=1$ in 1d with mock Bloch wavefunction:
+Since $u_\mathbf k(\mathbf r)$ is periodic in real space we can express it as a Fourier series:
 
 $$
-u_{k}(x)=\cos(\pi x) (\cos(6\pi x)-2\cos(k))\cdot \text e^{ixf(k)},
-$$(eq:trialu)
-````{margin}
-```{glue:figure} fig:f_func
-Phase of $u_k$ compared to linear dependance on $k$.
-```
-````
-with $f(k+2\pi)=f(k)+2\pi$:
+u_\mathbf k(\mathbf r)=\sum_\mathbf G C_{\mathbf G+\mathbf k}\text e^{i\mathbf G\cdot r} 
+$$(eq:u_transform)
+
+with the $C_{\mathbf G+\mathbf k}$ some Fourier components and the sum over all reciprocal lattice vectors. We show that this choice complies with the periodicity of the Bloch function in $\mathbf k$ space:
 
 $$
-    f(k) = \pi\left(1-\cos^5\frac{\text{mod}(k, 2\pi)}2\right) + (k - \text{mod}(k, 2\pi))
+u_{\mathbf k+\mathbf G'}(\mathbf r)=\sum_\mathbf G C_{\mathbf G+\mathbf G'+\mathbf k}\text e^{i\mathbf G\cdot r} =\sum_\mathbf {\tilde G}C_{\mathbf {\tilde G}+\mathbf k}\text e^{i(\mathbf {\tilde G}-\mathbf G')\cdot r}=\text e^{-i\mathbf G'\cdot r}\sum_\mathbf {\tilde G}C_{\mathbf {\tilde G}+\mathbf k}\text e^{i\mathbf {\tilde G}\cdot r}=\text e^{-i\mathbf G'\cdot r}u_{\mathbf k}(\mathbf r)
+$$(hjavvsvzd a)
+
+Now we plug this form of $u$ in equation `numref`{eq:wannier_transform} to get the Wannier function for $R=0$:
+
+$$
+w_0(\mathbf r)\propto\int_{BZ}\text d\mathbf k\, \text e^{i\mathbf k\cdot\mathbf r}\sum_\mathbf G C_{\mathbf G+\mathbf k}\text e^{i\mathbf G\cdot r} 
+=\sum_\mathbf G\int_{BZ}\text d\mathbf k\, C_{\mathbf G+\mathbf k}\text e^{i(\mathbf G+\mathbf k)\cdot r}=\int\text d\mathbf k\, C_{\mathbf k}\text e^{i\mathbf k\cdot r},
+$$(iophseocbpnb)
+
+where the last integral is over all $\mathbf k$ space.
+
++++
+
+This description makes clear that $C_k$ needs to have power law or Gaussian decay to acquire exponentially localized Wannier functions. If we neglect this condition the according Bloch waves become highly irregular and oscillate wildly in the unit cell.
+
+For this example we choose:
+
+$$
+C_\mathbf k = \text e^{-k^2/100}\cos(k/3.4),
 $$
 
-We plot $\psi_{k}(x)$:
+which leads to the following Bloch function:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -100,58 +102,59 @@ We plot $\psi_{k}(x)$:
 # Create figure
 fig = go.Figure()
 fig.update_layout(yaxis=dict(range=[-2.5, 2.5]))
-M = 200
-k_N = 100
-x_0 = 1.5
-k_mesh = np.linspace(0, 2*np.pi, k_N)
-
-def f(k):
-    return (1-np.cos(np.mod(k, np.pi*2)/2)**5)*np.pi + (k - np.mod(k, 2*np.pi))
+N_x = 100
+N_k = 100
+c = 3
+x_mesh = np.linspace(-0.5, 0.5, N_x)
+k_mesh = np.linspace(0, 2*np.pi, N_k)
 
 def u(x, k):
-    return np.cos(np.pi*x) *(np.cos(np.pi*6*x)-2*np.cos(k)) * np.exp(-1j*x*f(k))
+    N = 15
+    C = lambda k: np.exp(-k**2/100) * np.cos(k/3.4)
+    x, G = np.meshgrid(x, 2*np.pi*np.arange(-N, N+1))
+    return np.sum(C(k+G)*np.exp(1j*G*x), axis=0)
 
-norms = np.sqrt([integrate.quad(lambda x: np.abs(u(x, k))**2, -0.5, 0.5)[0] for k in k_mesh])
+norms = np.sqrt([np.sum(np.abs(u(x_mesh, k))**2)/N_x for k in k_mesh])
 
 def bloch(x, j):
-    k = 2*np.pi*j/k_N
-    return u(x, k) * np.exp(1j*x*k) / norms[int(j%k_N)]
+    k = 2*np.pi*j/N_k
+    return u(x, k) * np.exp(1j*x*k) / norms[int(j%N_k)]
 
 # Add traces, one for each slider step
-for step in np.arange(0, 2*k_N):
-    my_y = bloch(np.linspace(-x_0, x_0, M), step)
+for step in np.arange(0, c*N_k):
+    y = bloch(c*x_mesh, step)
     fig.add_trace(
         go.Scatter(
             visible=False,
             name="abs",
-            x=np.linspace(-x_0, x_0, M),
-            y=np.abs(my_y),
+            x=c*x_mesh,
+            y=np.abs(y),
             line = dict(color='red')))
     fig.add_trace(
         go.Scatter(
             visible=False,
             name="real",
-            x=np.linspace(-x_0, x_0, M),
+            x=c*x_mesh,
             line = dict(color='blue'),
-            y=np.real(my_y)))
+            y=np.real(y)))
     fig.add_trace(
         go.Scatter(
             visible=False,
             name="imag",
             line = dict(color='green'),
-            x=np.linspace(-x_0, x_0, M),
-            y=np.imag(my_y)))
+            x=c*x_mesh,
+            y=np.imag(y)))
 
 # Make 10th trace visible
 fig.data[10].visible = True
 
 # Create and add slider
 steps = []
-for i in range(2*k_N):
+for i in range(2*N_k):
     step = dict(
         method="update",
         args=[{"visible": [False] * len(fig.data)}],  # layout attribute
-        label=str(5 * i)
+        label=str(i/N_k)
     )
     for j in range(3):
         step["args"][0]["visible"][3*i+j] = True  # Toggle i'th trace to "visible"
@@ -159,7 +162,7 @@ for i in range(2*k_N):
 
 sliders = [dict(
     active=10,
-    currentvalue={"prefix": "k: "},
+    currentvalue={"prefix": "k: ", "suffix": "*2π"},
     steps=steps
 )]
 
@@ -170,7 +173,11 @@ fig.update_layout(
 fig.show()
 ```
 
-We note that the real part of $\psi_k(x)$ is symmetric while the imaginary part is antisymmetric. Any symmetric $g$ will then be purely real. For this function we choose a Gaussian:
+```{code-cell} ipython3
+np.exp(-(10*2*np.pi)/10)
+```
+
+We note that the real part of $\psi_k(x)$ is symmetric while the imaginary part is antisymmetric. Any symmetric $g$ will then have a purely real overlap wth $\psi$. For this function we choose a Gaussian:
 
 $$
 g(x)=\text e^{-x^2}.
@@ -184,89 +191,79 @@ Any normalization of $g$ and $\psi$ will cancel in the construction of the ortho
 def g(x):
     return np.exp(-x**2*6)
 
-L = 3
-norm = np.sqrt(integrate.quad(lambda x: g(x)**2, -L, L)[0])
-
-def f_norm(x):
-    return g(x) / norm
-
-N = k_N
-f_k = np.zeros(N, dtype=complex)
-
-
-for j in range(N):
-    f_k[j] = integrate.quad(lambda x: f_norm(x)*np.real(bloch(x, j)), -L, L)[0]
-    f_k[j] += 1j*integrate.quad(lambda x: f_norm(x)*np.imag(bloch(x, j)), -L, L)[0]
-plt.plot(np.real(f_k))
-plt.plot(np.imag(f_k))
+g_k = np.zeros(N_k, dtype=complex)
+for j in range(N_k):
+    g_k[j] = np.sum(g(x_mesh)*bloch(x_mesh, j))
+    
+plt.plot(np.real(g_k))
+plt.plot(np.imag(g_k))
 plt.show()
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-import matplotlib.pyplot as plt
-
-x = np.linspace(-5, 5, 100)  
-y = np.zeros(100, dtype=complex)
-for i in range(100):
-    y[i] = integrate.quad(lambda k: np.cos(k*x[i]), -np.pi, np.pi)[0] + 1j*integrate.quad(lambda k: np.sin(k*x[i]), -np.pi, np.pi)[0]
-
-fig, ax = plt.subplots()    
-ax.plot(x, np.real(y))
-ax.plot(x, np.imag(y))
-ax.set_xlabel(r"$x$")
-ax.set_ylabel(r"$y$")
-glue("fig:sinc", fig, display=False)
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-x_0 = 10
-M = 200
-y = sum([(f_k[step]/ np.abs(f_k[step])* np.conj(bloch(np.linspace(-x_0, x_0, M), step))) for step in range(N)])
-my_y = np.divide(y, np.sqrt(2*x_0/M*sum(np.abs(y)**2)))
+c = 5
+y = np.sum([(g_k[step]/ np.abs(g_k[step]+0.00001)* np.conj(bloch(c*x_mesh, step))) for step in range(N_k)], axis=0)
+my_y = y / np.sqrt(c/N_x*np.sum(np.abs(y)**2))
+
 fig = go.Figure()
 fig.add_trace(
         go.Scatter(
             name="real",
-            x=np.linspace(-x_0, x_0, M),
+            x=c*x_mesh,
             line = dict(color='blue'),
             y=np.real(my_y)))
 fig.add_trace(
         go.Scatter(
             name="imag",
             line = dict(color='green'),
-            x=np.linspace(-x_0, x_0, M),
+            x=c*x_mesh,
             y=np.imag(my_y)))
 fig.show()
 ```
 
-We see that the Wannier function is localized around $x=0$ with local maxima (minima) appearing around $x\in \mathbb Z$ which become smaller for larger $x$. We explain this behavior by taking some $u(x)$ independent of $k$. Now the Wannier function for a single band is quite simple:
-````{margin}
-```{glue:figure} fig:sinc
-The sinc function which forces the Wannier orbital do decay with a power law for a single band with $u$ independant of $k$.
-```
-````
-
-$$
-|\mathbf Rn\rangle=\frac{V}{(2\pi)^2}u(\mathbf r)\int_{BZ}\text d\mathbf k\, \text e^{i\mathbf k\cdot(\mathbf r-\mathbf R)}\propto u(\mathbf r)\text{sinc}(\pi(\mathbf r-\mathbf R)),
-$$(bhibasbc)
-
-which means that any wannierization of a single band boils down to removing the complex phase and using a sinc function as a weight to restrict the $u$ to a unit cell as best as possible. This also means any decay of a Wannier orbital with $u$ independent of $k$ follows a power law.
+We see that the Wannier function is exponentially localized around $x=0$ with local maxima (minima) appearing around $x\in \mathbb Z$ which become exponentially smaller for larger $x$.
 
 +++
 
 ### Example: 2d atomic orbitals as Bloch wavefunction
 
-To make matters a bit more interesting we'll look at the hibridization of the s, p_$x$ and p$_y$ orbitals in a triangular lattice. As $u$ component of the Bloch waves we take the three sp$^2$ orbitals which we label with $\gamma_i$ and as $g_n$ we take the normal orbitals. Since we need to adhere to periodicity of $u$ we take:
+To make matters a bit more interesting we'll look at the hibridization of the s, p_$x$ and p$_y$ orbitals in a triangular lattice. As $u$ component of the Bloch waves we take the three sp$^2$ orbitals which we label with $\gamma_m$ and as $g_n$ we take the normal orbitals. We take the $C_{i\mathbf k}$ to be the inverse Fourier transforms of the $\gamma_m$:
 
 $$
-u_i(\mathbf r)=\sum_\mathbf R \gamma_i(\mathbf r+\mathbf R),
+C_{m\mathbf k}\propto\int\textbf d\mathbf r\,\gamma_m(\mathbf r)\text e^{-i\textbf r\cdot k},
 $$(bbdaaibwd)
 
-with $\{\mathbf R\}=\left\{\left(0, 0\right), \left(\pm 1,0\right), \left(\pm 1/2,\pm\sqrt{3}/2\right), \left(0, \pm \sqrt3\right), \left(\pm 3/2, \pm\sqrt3/2\right)\right\}$, integration beyond NNN is exponentially surpressed.
+which we then plug in equation `numref`{eq:u_transform}:
+
+$$
+\begin{align}
+u_{m\mathbf k}(\mathbf r)&\propto\sum_\mathbf G\text e^{i\mathbf G\cdot r}\int\textbf d\mathbf {r}'\,\gamma_m(\mathbf{r}')\text e^{-i\mathbf{r}'\cdot (\mathbf G+\mathbf k)}\\
+&=\int\textbf d\mathbf {r}'\,\gamma_m(\mathbf{r}')\text e^{-i\mathbf{r}'\cdot\mathbf k}\sum_\mathbf G\text e^{i\mathbf G\cdot (\mathbf r - \mathbf{r}')}\\
+&=\int\textbf d\mathbf {r}'\,\gamma_m(\mathbf{r}')\text e^{-i\mathbf{r}'\cdot\mathbf k}\sum_\mathbf R\delta(\mathbf R+\mathbf r - \mathbf{r}')\\
+&=\sum_\mathbf R\gamma_m(\mathbf{r}+\mathbf R)\text e^{-i(\mathbf{r}+\mathbf R)\cdot\mathbf k},
+\end{align}
+$$(jipibscp sbip)
+
+or:
+
+$$
+\psi_{m\mathbf k}(\mathbf r)=\frac1\Omega\sum_\mathbf R\gamma_m(\mathbf{r}+\mathbf R)\text e^{-i\mathbf R\cdot\mathbf k}.
+$$(kbbasi efci)
+
+with $\Omega$ a normalization constant, where we follow the normalization convention of `cite`{wannier_review}:
+
+$$
+\begin{align}
+\frac{4\pi^2}{V}=\langle \psi_{m\mathbf k}|\psi_{m\mathbf k}\rangle &= \frac1{\Omega^2}\frac1N\sum_{\mathbf R\mathbf R'}\text e^{i(\mathbf R-\mathbf R')\cdot\mathbf k}\int\text d\mathbf r\,\gamma_m(\mathbf{r}+\mathbf R)\cdot\gamma_m(\mathbf{r}+\mathbf R')\\
+&=\frac1{\Omega^2}\sum_{\mathbf R}\text e^{i\mathbf R\cdot\mathbf k}\int\text d\mathbf r\,\gamma_m(\mathbf{r}+\mathbf R)\cdot\gamma_m(\mathbf{r})\\
+&=\frac1{\Omega^2}\int\text d\mathbf r\,\gamma_m(\mathbf{r})^2\\
+&=\frac1{\Omega^2}
+\end{align}
+$$(kbibi)
+
+where the factor N is the amount of unit cells in the lattice which cancels with one of the summations. Summations over nonzero $\mathbf R$ cancel due to lattice symmetry.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -274,32 +271,40 @@ with $\{\mathbf R\}=\left\{\left(0, 0\right), \left(\pm 1,0\right), \left(\pm 1/
 def p_rot(x, y, θ):
     R = np.array([[np.cos(θ),  np.sin(θ)],
                       [-np.sin(θ), np.cos(θ)]])
-    return p(*np.tensordot(R, np.array([x, y]), axes=(1, 0)))
+    return p_x(*np.tensordot(R, np.array([x, y]), axes=(1, 0)))
     
-def p(x, y):
+def p_x(x, y):
     return x*np.exp(-np.sqrt(x**2+y**2)*7)
+
+def p_y(x, y):
+    return y*np.exp(-np.sqrt(x**2+y**2)*7)
 
 def s(x, y):
     return np.exp(-np.sqrt(x**2+y**2)*7)
 
 L = 1.5
-N = 100
+N = 50
 mesh_tile = (L/N)**2
-x, y = np.meshgrid(np.linspace(-L, L, N), np.linspace(-L, L, N))
+x_mesh, y_mesh = np.meshgrid(np.linspace(-L, L, N), np.linspace(-L, L, N))
+k_x_mesh, k_y_mesh = np.meshgrid(np.linspace(-np.pi, np.pi, N), np.linspace(-np.pi, np.pi, N))
 
-p_x = p(x, y)
-p_y = p(y, x)
-s_ = s(x, y)
+p_x_ = p_x(x_mesh, y_mesh)
+p_y_ = p_y(x_mesh, y_mesh)
+s_ = s(x_mesh, y_mesh)
 
-p_norm = np.sqrt(np.sum(p_x**2)*mesh_tile)
+p_norm = np.sqrt(np.sum(p_x_**2)*mesh_tile)
 s_norm = np.sqrt(np.sum(s_**2)*mesh_tile)
-p_x = p_x / p_norm
-p_y = p_y / p_norm
+p_x_ = p_x_ / p_norm
+p_y_ = p_y_ / p_norm
 s_ = s_ / s_norm
 
-def γ_1(x, y):
-    return (s(x, y)/s_norm + p(x, y)/p_norm) / np.sqrt(2)
+a_1 = np.array([1, 0])
+a_2 = np.array([1/2, np.sqrt(3)/2])
+R_list = [(1, 0), (0, 1), (1, -1), (2, 0), (2, 0), (1, 1), (2, -1), (-1, 2), (0, 2)]
+R_list = [σ*(R[0]*a_1+R[1]*a_2) for R in R_list for σ in [-1, 1]] + [np.zeros(2)]
 
+def γ_1(x, y):
+    return (s(x, y)/s_norm + p_x(x, y)/p_norm) / np.sqrt(2)
 
 def γ_2(x, y):
     return (s(x, y)/s_norm + p_rot(x, y, np.pi*2/3)/p_norm) / np.sqrt(2)
@@ -308,27 +313,26 @@ def γ_2(x, y):
 def γ_3(x, y):
     return (s(x, y)/s_norm + p_rot(x, y, -np.pi*2/3)/p_norm) / np.sqrt(2)
 
-def u(x, y, γ):
-    my_sum = γ(x, y)
-    for σ in [-1, 1]:
-        for r in [(σ, 0), (σ/2, np.sqrt(3)/2), (σ/2, -np.sqrt(3)/2), (0, σ*np.sqrt(3)), (σ*3/2, np.sqrt(3)/2), (σ*3/2, -np.sqrt(3)/2)]:
-            my_sum += γ(x-r[0], y-r[1])
+def ψ(x, y, k_x, k_y, γ):
+    my_sum = 0
+    for R in R_list:
+        my_sum += γ(x+R[0], y+R[1]) * np.exp(-1j*(R[0]*k_x+R[1]*k_y))
     return my_sum
     
-u_1 = u(x, y, γ_1)
-u_2 = u(x, y, γ_2)
-u_3 = u(x, y, γ_3)
+ψ_1 = ψ(x_mesh, y_mesh, 0, 0, γ_1)
+ψ_2 = ψ(x_mesh, y_mesh, 0, 0, γ_2)
+ψ_3 = ψ(x_mesh, y_mesh, 0, 0, γ_3)
 
 my_max = np.max(s_)
 my_range = dict(vmin=-my_max, vmax=my_max, cmap="bwr", extent=[-L,L,-L,L])
 
 
 fig, axes = plt.subplots(2, 3, sharey=True, sharex=True, figsize=(15,7))
-f =[[u_1, u_2, u_3], [p_x, p_y, s_]]
-f_name = [[r"$u_1$", r"$u_2$", r"$u_3$"], [r"$p_x$", r"$p_y$", r"$s$"]]
+f =[[ψ_1, ψ_2, ψ_3], [p_x_, p_y_, s_]]
+f_name = [[r"$\psi_1$", r"$\psi_2$", r"$\psi_3$"], [r"$p_x$", r"$p_y$", r"$s$"]]
 for i in range(2):
     for j in range(3):
-        im = axes[i, j].imshow(f[i][j], **my_range)
+        im = axes[i, j].imshow(np.real(f[i][j]), **my_range)
         axes[i, j].title.set_text(f_name[i][j])
         axes[i, j].set_xlabel(r"$x$")
         axes[i, j].set_ylabel(r"$y$")
@@ -342,7 +346,7 @@ Three periodic $u_i(\mathbf r)$ in a triangular lattice based on sp$^2$ orbitals
 
 +++
 
-Since calculation of integrals in 2d is much more computationally exhausting we move to a mesh representation of the functions. Any integration is just the sum of the mesh times the mesh tile size. We write `ref`{eq:nonorthogonal} out in matrix form:
+We write `ref`{eq:nonorthogonal} out in matrix form:
 
 $$
 \begin{pmatrix}
@@ -351,18 +355,29 @@ $$
     |\phi_{3\mathbf k}\rangle\\
 \end{pmatrix}=\underbrace{
 \begin{pmatrix}
-    \langle u_1|\text e^{-i\mathbf k\cdot\mathbf r}|g_{1}\rangle  & \langle u_2|\text e^{-i\mathbf k\cdot\mathbf r}|g_{1}\rangle &\langle u_3|\text e^{-i\mathbf k\cdot\mathbf r}|g_{1}\rangle\\
-        \langle u_1|\text e^{-i\mathbf k\cdot\mathbf r}|g_{2}\rangle  & \langle u_2|\text e^{-i\mathbf k\cdot\mathbf r}|g_{2}\rangle &\langle u_3|\text e^{-i\mathbf k\cdot\mathbf r}|g_{2}\rangle\\
-        \langle u_1|\text e^{-i\mathbf k\cdot\mathbf r}|g_{3}\rangle  & \langle u_2|\text e^{-i\mathbf k\cdot\mathbf r}|g_{3}\rangle &\langle u_3|\text e^{-i\mathbf k\cdot\mathbf r}|g_{3}\rangle\\
+    \langle \psi_{1\mathbf k}|g_{1}\rangle  & \langle  \psi_{2\mathbf k}|g_{1}\rangle &\langle  \psi_{3\mathbf k}|g_{1}\rangle\\
+        \langle  \psi_{1\mathbf k}|g_{2}\rangle  & \langle  \psi_{2\mathbf k}|g_{2}\rangle &\langle  \psi_{3\mathbf k}|g_{2}\rangle\\
+        \langle  \psi_{1\mathbf k}|g_{3}\rangle  & \langle  \psi_{2\mathbf k}|g_{3}\rangle &\langle  \psi_{3\mathbf k}|g_{3}\rangle\\
 \end{pmatrix}}_{A_\mathbf k}
 \begin{pmatrix}
-    e^{i\mathbf k\cdot\mathbf r}| u_{1}\rangle\\
-    e^{i\mathbf k\cdot\mathbf r}| u_{2}\rangle\\
-    e^{i\mathbf k\cdot\mathbf r}| u_{3}\rangle\\
+    |  \psi_{1\mathbf k}\rangle\\
+    |  \psi_{2\mathbf k}\rangle\\
+    |  \psi_{3\mathbf k}\rangle\\
 \end{pmatrix},
 $$
 
 then $S_\mathbf k=A_\mathbf k^\dagger A_\mathbf k$, which we diagonalize: $S_\mathbf k=U_\mathbf k^\dagger S^d_\mathbf k U_\mathbf k$. Now we get: $S_\mathbf k^{-1/2}=U_\mathbf k \left(S^d_\mathbf k\right)^{-1/2} U_\mathbf k^\dagger$ and $S_\mathbf k^{-1/2}A_\mathbf k$ is the rotation matrix for the Bloch functions. We remind that any normalization of $g_i$ cancels in this product.
+
+The components of $A_\mathbf k $ can be simplified analytically:
+
+$$
+\begin{align}
+\langle \psi_{m\mathbf k}|g_n\rangle&=\int\text d\mathbf r\sum_\mathbf R\gamma_m(\mathbf{r}+\mathbf R)\text e^{i\mathbf R\cdot\mathbf k}g_n(\mathbf r)\\
+&=\sum_\mathbf R\text e^{i\mathbf R\cdot\mathbf k}\int\text d\mathbf r\,\gamma_m(\mathbf{r}+\mathbf R)g_n(\mathbf r),
+\end{align}
+$$
+
+where the integral does no longer depend on $\mathbf k$. We compute this integral using sums over coordinate meshes to speed up calculations.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -372,53 +387,64 @@ def in_hex(k_x, k_y):
 
 k_x, k_y = np.meshgrid(np.linspace(-np.pi, np.pi, N), np.linspace(-np.pi, np.pi, N))
 
-
-u_list = [u_1, u_2, u_3] 
 g_list = [p_x, p_y, s_]
-overlap_mat = np.zeros((3, 3, N, N))
+g_norm = [p_norm, p_norm, s_norm]
+γ_list = [γ_1, γ_2, γ_3]
 
-for i in range(3):
-    for j in range(3):
-        overlap_mat[i, j, :, :] = u_list[i] * g_list[j] 
-        
-A_k = np.zeros((N, N, 3, 3), dtype=complex)
+R_int = np.zeros((3, 3, len(R_list)))
 
-for i in range(N):
-    for j in range(N):
-        e_mat = np.exp(-1j*(k_x[i, j]*x+k_y[i, j]*y))
-        A_k[i, j, :, :] = np.sum(overlap_mat * e_mat, axis=(2, 3)) * mesh_tile
+for i, R in enumerate(R_list):
+    for m, γ in enumerate([γ_1, γ_2, γ_3]):
+        for n, g in enumerate([p_x, p_y, s]):
+            R_int[m, n, i] = np.sum(γ(x_mesh+R[0], y_mesh+R[1])*g(x_mesh, y_mesh)/g_norm[n]) * mesh_tile
         
 transform = np.zeros((3, 3, N, N), dtype=complex)
 
 for i in range(N):
     for j in range(N):
-        if in_hex(k_y[i, j], k_x[i, j]):
-            overlap = A_k[i, j, :, :]
-            S = np.conj(overlap.T) @ overlap
+        if in_hex(k_y_mesh[i, j], k_x_mesh[i, j]):
+            e_list = [np.exp(-1j*(k_x_mesh[i, j]*R[0]+k_y_mesh[i, j]*R[1])) for R in R_list]
+            A_k = np.sum(R_int * e_list, axis=2)
+            S = np.conj(A_k.T) @ A_k
             eig_val, eig_vec = np.linalg.eigh(S)
-            transform[:, :, i, j] = eig_vec.T @ np.diag(1/np.sqrt(eig_val)) @ np.conj(eig_vec) @ overlap
+            transform[:, :, i, j] = eig_vec.T @ np.diag(1/np.sqrt(eig_val)) @ np.conj(eig_vec) @ A_k
 
-weight = np.zeros((N, N, 3, 3), dtype=complex)
+ϕ_list = np.zeros((3, N, N), dtype=complex)
 
 for i in range(N):
     for j in range(N):
-        e_mat = np.exp(1j*(k_x*x[i, j]+k_y*y[i, j]))
-        weight[i, j, :, :] = np.sum(transform * e_mat, axis=(2, 3)) * mesh_tile
-        
-ϕ_list = np.sum(np.moveaxis(weight, (0, 1), (2, 3)) * u_list, axis=0)
-max_list = [np.max(np.abs(ϕ_list[i, :, :])) for i in range(3)]
-my_range = [dict(vmin=-my_max, vmax=my_max, cmap="bwr", extent=[-L,L,-L,L]) for my_max in max_list]
+        ψ_arr = np.array([ψ(x_mesh[i, j], y_mesh[i, j], k_x_mesh, k_y_mesh, γ) for γ in [γ_1, γ_2, γ_3]])
+        ϕ_list[:, i, j] = np.sum(np.swapaxes(transform, 0, 1) * ψ_arr, axis=(1, 2, 3)) * mesh_tile
 
+data =[np.real(ϕ_list), np.imag(ϕ_list)]
+max_list = [[np.max(np.abs((data[i][j, :, :]))) for j in range(3)] for i in range(2)]
+my_range = [[dict(vmin=-my_max, vmax=my_max, cmap="bwr", extent=[-L,L,-L,L]) for my_max in max_sub_list] for max_sub_list in max_list]
 
-fig, axes = plt.subplots(1, 3, sharey=True, sharex=True, figsize=(15,7))
+fig, axes = plt.subplots(2, 3, sharey=True, sharex=True, figsize=(15,7))
 f_name = [r"$\tilde\psi_1$", r"$\tilde\psi_2$", r"$\tilde\psi_3$"]
-for i in range(3):
-    im = axes[i].imshow(np.real(ϕ_list[i, :, :]), **(my_range[i]))
-    axes[i].title.set_text(f_name[i])
-    axes[i].set_xlabel(r"$x$")
-    axes[i].set_ylabel(r"$y$")
-    plt.colorbar(im, ax=axes[i], shrink=0.5)
+for i in range(2):
+    for j in range(3):
+        im = axes[i, j].imshow(data[i][j, :, :], **(my_range[i][j]))
+        axes[i, j].title.set_text(f_name[j])
+        axes[i, j].set_xlabel(r"$x$")
+        axes[i, j].set_ylabel(r"$y$")
+        plt.colorbar(im, ax=axes[i, j], shrink=1)
 glue("fig:output_functions", fig, display=False)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+print(g_norm)
+for n in range(3):
+    print(np.sum(data[0][n, :, :]**2+data[1][n, :, :]**2) * mesh_tile/4/(np.pi**2))
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+for γ in [γ_1, γ_2, γ_3]:
+    print(np.sum(ψ_1**2)*mesh_tile)
 ```
 
 ```{glue:figure} fig:output_functions
@@ -429,3 +455,41 @@ glue("fig:output_functions", fig, display=False)
 +++
 
 The three Wannier wavefunctions in {ref}`three-band-wannier` resemble the atomic orbitals chosen for the $g_i$. The $p$ orbitals delocalize to neighboring sites.
+
++++
+
+## DFT WSe$_2$
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+f = open("/home/hidde/hidde/Unige/dft/wse/wse2.bands.out", "r")
+bands = f.read().split("End of band structure calculation")[1]
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+data = bands.split("k = ")
+N = 100
+k_arr = np.zeros((N, 2))
+band_arr = np.zeros((N, 36))
+
+for i in range(1, N+1):
+    k, band_list = data[i].split("bands (ev):\n\n")
+    k_arr[i-1, :] = k.split(" ")[0:2]
+    band_arr[i-1, :] = [float(band) for band in band_list.replace("\n", "").split(" ") if band != ""]
+    
+fig = go.Figure()
+for i in range(36):
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(100),
+            line = dict(color='blue'),
+            y=band_arr[:, i]))
+fig.show()
+```
+
+```{code-cell} ipython3
+
+```

@@ -1,0 +1,124 @@
+Traceback (most recent call last):
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/hidde/anaconda3/lib/python3.7/asyncio/base_events.py", line 583, in run_until_complete
+    return future.result()
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 541, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/hidde/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def p_rot(x, y, θ):
+    R = np.array([[np.cos(θ),  np.sin(θ)],
+                      [-np.sin(θ), np.cos(θ)]])
+    return p(*np.tensordot(R, np.array([x, y]), axes=(1, 0)))
+    
+def p_x(x, y):
+    return x*np.exp(-np.sqrt(x**2+y**2)*7)
+
+def p_y(x, y):
+    return y*np.exp(-np.sqrt(x**2+y**2)*7)
+
+def s(x, y):
+    return np.exp(-np.sqrt(x**2+y**2)*7)
+
+L = 1.5
+N = 30
+mesh_tile = (L/N)**2
+x_mesh, y_mesh = np.meshgrid(np.linspace(-L, L, N), np.linspace(-L, L, N))
+k_x_mesh, k_y_mesh = np.meshgrid(np.linspace(-np.pi, np.pi, N), np.linspace(-np.pi, np.pi, N))
+
+p_x_ = p_x(x_mesh, y_mesh)
+p_y_ = p_y(x_mesh, y_mesh)
+s_ = s(x_mesh, y_mesh)
+
+p_norm = np.sqrt(np.sum(p_x_**2)*mesh_tile)
+s_norm = np.sqrt(np.sum(s_**2)*mesh_tile)
+p_x_ = p_x_ / p_norm
+p_y_ = p_y_ / p_norm
+s_ = s_ / s_norm
+
+a_1 = np.array([1, 0])
+a_2 = np.array([1/2, np.sqrt(3)/2])
+R_list = [(1, 0), (0, 1), (1, -1), (2, 0), (2, 0), (1, 1), (2, -1), (-1, 2), (0, 2)]
+R_list = [σ*(R[0]*a_1+R[1]*a_2) for R in R_list for σ in [-1, 1]] + [np.zeros(2)]
+
+def γ_1(x, y):
+    return (s(x, y)/s_norm + p_x(x, y)/p_norm) / np.sqrt(2)
+
+def γ_2(x, y):
+    return (s(x, y)/s_norm + p_rot(x, y, np.pi*2/3)/p_norm) / np.sqrt(2)
+
+
+def γ_3(x, y):
+    return (s(x, y)/s_norm + p_rot(x, y, -np.pi*2/3)/p_norm) / np.sqrt(2)
+
+def ψ(x, y, k_x, k_y, γ):
+    my_sum = 0
+    for R in R_list:
+        my_sum += γ(x+R[0], y+R[1]) * np.exp(-1j*(R[0]*k_x+R[1]*k_y))
+    return my_sum
+    
+ψ_1 = ψ(x_mesh, y_mesh, 0, 0, γ_1)
+ψ_2 = ψ(x_mesh, y_mesh, 0, 0, γ_2)
+ψ_3 = ψ(x_mesh, y_mesh, 0, 0, γ_3)
+
+my_max = np.max(s_)
+my_range = dict(vmin=-my_max, vmax=my_max, cmap="bwr", extent=[-L,L,-L,L])
+
+
+fig, axes = plt.subplots(2, 3, sharey=True, sharex=True, figsize=(15,7))
+f =[[ψ_1, ψ_2, ψ_3], [p_x_, p_y_, s_]]
+f_name = [[r"$\psi_1$", r"$\psi_2$", r"$\psi_3$"], [r"$p_x$", r"$p_y$", r"$s$"]]
+for i in range(2):
+    for j in range(3):
+        im = axes[i, j].imshow(np.real(f[i][j]), **my_range)
+        axes[i, j].title.set_text(f_name[i][j])
+        axes[i, j].set_xlabel(r"$x$")
+        axes[i, j].set_ylabel(r"$y$")
+cbar = fig.colorbar(im, ax=axes.ravel().tolist(), shrink=0.95)
+glue("fig:basis_functions", fig, display=False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-ff20b81b8cb1>[0m in [0;36m<module>[0;34m[0m
+[1;32m     51[0m [0;34m[0m[0m
+[1;32m     52[0m [0mψ_1[0m [0;34m=[0m [0mψ[0m[0;34m([0m[0mx_mesh[0m[0;34m,[0m [0my_mesh[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mγ_1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 53[0;31m [0mψ_2[0m [0;34m=[0m [0mψ[0m[0;34m([0m[0mx_mesh[0m[0;34m,[0m [0my_mesh[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mγ_2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     54[0m [0mψ_3[0m [0;34m=[0m [0mψ[0m[0;34m([0m[0mx_mesh[0m[0;34m,[0m [0my_mesh[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0;36m0[0m[0;34m,[0m [0mγ_3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     55[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-6-ff20b81b8cb1>[0m in [0;36mψ[0;34m(x, y, k_x, k_y, γ)[0m
+[1;32m     47[0m     [0mmy_sum[0m [0;34m=[0m [0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m     [0;32mfor[0m [0mR[0m [0;32min[0m [0mR_list[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 49[0;31m         [0mmy_sum[0m [0;34m+=[0m [0mγ[0m[0;34m([0m[0mx[0m[0;34m+[0m[0mR[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0my[0m[0;34m+[0m[0mR[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m)[0m [0;34m*[0m [0mnp[0m[0;34m.[0m[0mexp[0m[0;34m([0m[0;34m-[0m[0;36m1j[0m[0;34m*[0m[0;34m([0m[0mR[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m*[0m[0mk_x[0m[0;34m+[0m[0mR[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m*[0m[0mk_y[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     50[0m     [0;32mreturn[0m [0mmy_sum[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     51[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-6-ff20b81b8cb1>[0m in [0;36mγ_2[0;34m(x, y)[0m
+[1;32m     38[0m [0;34m[0m[0m
+[1;32m     39[0m [0;32mdef[0m [0mγ_2[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 40[0;31m     [0;32mreturn[0m [0;34m([0m[0ms[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m/[0m[0ms_norm[0m [0;34m+[0m [0mp_rot[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mpi[0m[0;34m*[0m[0;36m2[0m[0;34m/[0m[0;36m3[0m[0;34m)[0m[0;34m/[0m[0mp_norm[0m[0;34m)[0m [0;34m/[0m [0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     41[0m [0;34m[0m[0m
+[1;32m     42[0m [0;34m[0m[0m
+
+[0;32m<ipython-input-6-ff20b81b8cb1>[0m in [0;36mp_rot[0;34m(x, y, θ)[0m
+[1;32m      2[0m     R = np.array([[np.cos(θ),  np.sin(θ)],
+[1;32m      3[0m                       [-np.sin(θ), np.cos(θ)]])
+[0;32m----> 4[0;31m     [0;32mreturn[0m [0mp[0m[0;34m([0m[0;34m*[0m[0mnp[0m[0;34m.[0m[0mtensordot[0m[0;34m([0m[0mR[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0mx[0m[0;34m,[0m [0my[0m[0;34m][0m[0;34m)[0m[0;34m,[0m [0maxes[0m[0;34m=[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mdef[0m [0mp_x[0m[0;34m([0m[0mx[0m[0;34m,[0m [0my[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'p' is not defined
+NameError: name 'p' is not defined
+
