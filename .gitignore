@@ -1,4 +1,4 @@
 ghp-import/
 project-book/_build/
-*.ipynb
 *.ipynb_checkpoints
+sources/

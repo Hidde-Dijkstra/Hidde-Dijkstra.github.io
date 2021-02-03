@@ -1,6 +1,7 @@
 # Book settings
-title: Twisted bilayer WSe2
+title: hidde-dijkstra.github.io
 author: Hidde Dijkstra
+logo: logo.svg
 
 latex:
   latex_documents:
