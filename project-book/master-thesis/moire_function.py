@@ -255,13 +255,12 @@ class BandStructure:
                 fig.add_trace(go.Scatter(y=energies[:, i, j], showlegend=False, **style_dict))
         return fig
     
-    def plot_from_H(self, H, σ_list=[0], color_list=['red']):
-        N = len(H((0, 0), 0))
-        for i in range(len(σ_list)):
-            bands = np.zeros((len(self.k_path), N))
-            for j in range(len(self.k_path)):
-                bands[j, :] = np.linalg.eigvalsh(H(self.k_path[j], σ_list[i]))
-            self.add_bands(bands, color_list[i], 'σ='+str(σ_list[i]))
+    def plot_from_H(self, H, name, color='red', N_input=2):
+        N = len(H(np.zeros(N_input)))
+        bands = np.zeros((len(self.k_path), N))
+        for j in range(len(self.k_path)):
+            bands[j, :] = np.linalg.eigvalsh(H(self.k_path[j]))
+        self.add_bands(bands, color, name)
             
     def add_bands(self, bands, color, name, k_arr=None):
         style_dict = {
@@ -326,13 +325,6 @@ class DFT:
             self.w90_dic['num_bands'] = self.qe_dic['nbnd']
         for key in w90_dic.keys():
             self.w90_dic[key] = w90_dic[key]
-        file = "&inputpp\n   outdir = '" + self.qe_dic['&CONTROL']['outdir'] +"'\n   "
-        file += "prefix = '" + self.qe_dic['&CONTROL']['prefix'] +"'\n   "
-        file += "seedname = '" + self.qe_dic['&CONTROL']['prefix'] +"'\n   "
-        file += 'write_unk = .true.\n   write_mmn = .true.\n   write_amn = .true.\n/\n'
-        f = open(self.dir+'/'+self.qe_dic['&CONTROL']['prefix']+'.pw2wan', 'w')
-        f.write(file)
-        f.close()
         
     def dir_exists(self, data_dir):
         if not os.path.exists(data_dir):
@@ -442,6 +434,13 @@ class DFT:
         
     def write_w90_file(self):
         os.chdir(self.dir)
+        file = "&inputpp\n   outdir = '" + self.qe_dic['&CONTROL']['outdir'] +"'\n   "
+        file += "prefix = '" + self.qe_dic['&CONTROL']['prefix'] +"'\n   "
+        file += "seedname = '" + self.qe_dic['&CONTROL']['prefix'] +"'\n   "
+        file += 'write_unk = .true.\n   write_mmn = .true.\n   write_amn = .true.\n/\n'
+        f = open(self.dir+'/'+self.qe_dic['&CONTROL']['prefix']+'.pw2wan', 'w')
+        f.write(file)
+        f.close()
         file = ''
         for key in self.w90_dic.keys():
             file += key + ' = ' + str(self.w90_dic[key]) + '\n'
@@ -510,25 +509,27 @@ class DFT:
         x_arr += [self.N_k-1]
         np.save(self.data_dir+'/'+self.prefix +'/w90_bands', w90_bands[:, :, 1].T)
         np.save(self.data_dir+'/'+self.prefix +'/w90_band_ticks', np.array(x_arr))
-        #self.band_plot.add_bands(w90_bands[:, :, 1].T, color, 'w90 bands', k_arr=np.array(x_arr))
         
-    def create_H(self, NN_list):
-        f = open(self.dir+'/'+self.prefix+'_hr.dat', "r")
-        n_wan = int(f.read().split("\n")[1])
-        n_NN = len(NN_list)
-        hop_list = np.array([[float(item) for item in lst.split("   ") if item!=''] for lst in f.read().split("\n")[8:-1]])
-        hopping = np.zeros((n_NN, n_wan, n_wan), dtype=complex)
-        test = 0
-        f.close()
-        for i, vec in enumerate(NN_list):
-            for hop in hop_list:
-                if np.all(vec == hop[0:2]):
-                    test += 1
-                    hopping[i, int(hop[3])-1, int(hop[4])-1] = hop[5] + hop[6]*1j
-        if test != n_wan**2*n_NN:
-            print("Not all hoppings found", test)
-        self.H = lambda k, σ: sum([hopping[i] * np.exp(2*np.pi*1j*(NN[0]*k[0]+NN[1]*k[1])) for i, NN in enumerate(NN_list)])
-        self.band_plot.plot_from_H(self.H)
+    def create_H(self, R_max):
+        hop_list = np.load(self.data_dir+'/'+self.prefix +'/hopping_elements.npy')
+        vec_span = np.load(self.data_dir+'/'+self.prefix +'/w90_vec_span.npy')
+        wan_orbital_centers = np.load(self.data_dir+'/'+self.prefix +'/w90_orbitals/orbital_centers.npy')
+        hoppings = []
+        N = 0
+        for hop in hop_list:
+            ΔL = wan_orbital_centers[int(hop[2])-1, :] - wan_orbital_centers[int(hop[3])-1, :]
+            ΔR = (hop[0]*self.a[0]+hop[1]*self.a[1]-ΔL)
+            if (hop[1] == 1) and (hop[0] == 0):
+                print(ΔR, ΔL)
+            if np.dot(ΔR, ΔR) <= R_max**2:
+                N += 1
+                hop_mat = np.zeros((self.w90_dic['num_wann'], self.w90_dic['num_wann']), dtype=complex)
+                hop_mat[int(hop[2])-1, int(hop[3])-1] = hop[4] + 1j*hop[5]
+                hoppings.append([hop_mat, hop[0:2]])
+                print(hop)
+        print(N, 'hoppings found')
+        return lambda k: sum([hop[0]*np.exp(2*np.pi*1j*(hop[1][0]*k[0]+hop[1][1]*k[1]))for hop in hoppings])
+        
         
     def extract_orbitals(self):
         coordinates = []
@@ -566,11 +567,13 @@ class DFT:
         qe_path = self.data_dir+'/'+self.prefix +'/qe_bands.npy'
         w90_path = self.data_dir+'/'+self.prefix +'/w90_bands.npy'
         w90_ticks = self.data_dir+'/'+self.prefix +'/w90_band_ticks.npy'
-        print(os.getcwd(), qe_path)
         if os.path.exists(qe_path):
-            self.band_plot.add_bands(np.load(qe_path), 'blue', 'qe_bands')
+            self.band_plot.add_bands(np.load(qe_path), 'blue', 'qe bands')
         if os.path.exists(w90_path):
-            self.band_plot.add_bands(np.load(w90_path), 'green', 'w90_bands', k_arr=w90_ticks)
+            self.band_plot.add_bands(np.load(w90_path), 'green', 'w90 bands', k_arr=np.load(w90_ticks))
+            
+    def plot_tight_binding(self, R_max, name='tb', color='red'):
+        self.band_plot.plot_from_H(self.create_H(R_max), name, color, N_input=3)
     
     def plot_wannier(self):
         fig = go.Figure()
@@ -586,7 +589,7 @@ class DFT:
                 xanchor="right",
                 x=1) 
         )
-        for i in range(1, w90_dic['num_wann']+1):
+        for i in range(1, self.w90_dic['num_wann']+1):
             fig.add_trace(go.Isosurface(
                 x=x.flatten(),
                 y=y.flatten(),
@@ -601,7 +604,6 @@ class DFT:
                 name='orbital '+str(i)
             ))
         return fig
-
 
 # +
 qe_dic = {
@@ -639,7 +641,12 @@ graphene.set_k_path([(0, 0, 0), (0.5, 0, 0), (1/3, 1/3, 0), (0, 0, 0)], ["Γ", "
 graphene.set_w90_window(-12, 8, -4.3, -4.1, 500)
 # -
 
+NN = [(0, 1), (1, 1), (-1, -1), (0, -1)]
+NNN = [(1, 0), (-1, 0)]
+NNNN = [(2*elem[0], 2*elem[1]) for elem in NN]
 graphene.plot_bands()
+graphene.plot_tight_binding(1.5, name='tb NN', color='red')
+#graphene.plot_tight_binding([(0, 0)]+NN+NNN, name='tb NNN', color='black')
 graphene.band_plot.fig
 
 """
@@ -813,6 +820,10 @@ fig.show()
 
 # -
 def V(r):
+
+
+
+
 
 
 
