@@ -17,24 +17,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import numpy as np
-from myst_nb import glue
-from scipy import integrate
-import matplotlib.pyplot as plt
-import moire_function as moire
-import pandas as pd
+import plotly.graph_objects as go
+import os
+from datetime import datetime
+
+from moire import bandstructure as bs
+from moire import diagram_gen as dg
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-0b3b94c179ef>[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mintegrate[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 7[0;31m [0;32mimport[0m [0mmoire_function[0m [0;32mas[0m [0mmoire[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      8[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-1-65be27d2595a>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mdatetime[0m [0;32mimport[0m [0mdatetime[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mfrom[0m [0mmoire[0m [0;32mimport[0m [0mbandstructure[0m [0;32mas[0m [0mbs[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mfrom[0m [0mmoire[0m [0;32mimport[0m [0mdiagram_gen[0m [0;32mas[0m [0mdg[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'moire_function'
-ModuleNotFoundError: No module named 'moire_function'
+[0;31mModuleNotFoundError[0m: No module named 'moire'
+ModuleNotFoundError: No module named 'moire'
 
