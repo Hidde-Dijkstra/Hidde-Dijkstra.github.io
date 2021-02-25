@@ -1,10 +1,20 @@
 - file: intro
 - file: master-thesis/intro
   sections:
-    - file: master-thesis/monolayer
-    - file: master-thesis/supercell
-    - file: master-thesis/dft
-    - file: master-thesis/moire_functions
-    - file: master-thesis/logbook
+    - file: master-thesis/lattice/intro
+      sections:
+        - file: master-thesis/lattice/monolayer
+        - file: master-thesis/lattice/supercell
+    - file: master-thesis/wannierization/intro
+      sections:
+        - file: master-thesis/wannierization/theory
+        - file: master-thesis/wannierization/graphene
+        - file: master-thesis/wannierization/wse2
+    - file: master-thesis/code/intro
+      sections:
+        - file: master-thesis/code/moire/diagram_gen
+        - file: master-thesis/code/moire/supercell
+        - file: master-thesis/code/moire/bandstructure
+        - file: master-thesis/code/moire/dft  
     - file: master-thesis/zbibliography
 
