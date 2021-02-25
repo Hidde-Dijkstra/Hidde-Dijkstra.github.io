@@ -25,7 +25,7 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Logbook" href="logbook.html" />
+    <link rel="prev" title="Numerics" href="code/moire/dft.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Home
@@ -99,41 +96,94 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="intro.html">
    Twisted bilayer WSe
    <span class="math notranslate nohighlight">
     \(_2\)
    </span>
   </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="monolayer.html">
-     Monolayer WSe
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="lattice/intro.html">
+     Supercell WSe
      <span class="math notranslate nohighlight">
       \(_2\)
      </span>
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="lattice/monolayer.html">
+       Monolayer WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="lattice/supercell.html">
+       Supercell
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="supercell.html">
-     Supercell
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dft.html">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="wannierization/intro.html">
      Wannierization
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/theory.html">
+       Wannierization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/graphene.html">
+       Graphene
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/wse2.html">
+       WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="moire_functions.html">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="code/intro.html">
      Code
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="logbook.html">
-     Logbook
-    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/diagram_gen.html">
+       Diagram drawing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/supercell.html">
+       Supercell
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/bandstructure.html">
+       Bandstructure plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/dft.html">
+       Numerics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
@@ -141,12 +191,12 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -175,11 +225,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -191,8 +241,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
@@ -218,24 +268,6 @@
                 
   <div class="section" id="bibliography">
 <h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
-<p id="bibtex-bibliography-master-thesis/zbibliography-0"><dl class="citation">
-<dt class="bibtex label" id="continuum-model"><span class="brackets">BM11</span></dt>
-<dd><p>Rafi Bistritzer and Allan H. MacDonald. Moiré bands in twisted double-layer graphene. <em>Proceedings of the National Academy of Sciences</em>, 108(30):12233–12237, 2011. URL: <a class="reference external" href="https://www.pnas.org/content/108/30/12233">https://www.pnas.org/content/108/30/12233</a>, <a class="reference external" href="https://arxiv.org/abs/https://www.pnas.org/content/108/30/12233.full.pdf">arXiv:https://www.pnas.org/content/108/30/12233.full.pdf</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1108174108">doi:10.1073/pnas.1108174108</a>.</p>
-</dd>
-<dt class="bibtex label" id="three-band"><span class="brackets">LSY+13</span></dt>
-<dd><p>Gui-Bin Liu, Wen-Yu Shan, Yugui Yao, Wang Yao, and Di Xiao. Three-band tight-binding model for monolayers of group-vib transition metal dichalcogenides. <em>Phys. Rev. B</em>, 88:085433, Aug 2013. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevB.88.085433">https://link.aps.org/doi/10.1103/PhysRevB.88.085433</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevB.88.085433">doi:10.1103/PhysRevB.88.085433</a>.</p>
-</dd>
-<dt class="bibtex label" id="wannier-review"><span class="brackets">MMY+12</span></dt>
-<dd><p>Nicola Marzari, Arash A. Mostofi, Jonathan R. Yates, Ivo Souza, and David Vanderbilt. Maximally localized wannier functions: theory and applications. <em>Rev. Mod. Phys.</em>, 84:1419–1475, Oct 2012. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/RevModPhys.84.1419">https://link.aps.org/doi/10.1103/RevModPhys.84.1419</a>, <a class="reference external" href="https://doi.org/10.1103/RevModPhys.84.1419">doi:10.1103/RevModPhys.84.1419</a>.</p>
-</dd>
-<dt class="bibtex label" id="twse2-experiment"><span class="brackets">WSG+19</span></dt>
-<dd><p>Lei Wang, En-Min Shih, Augusto Ghiotto, Lede Xian, Daniel Rhodes, Cheng Tan, Martin Claassen, Dante Kennes, Yusong Bai, Bumho Kim, Kenji Watanabe, Takashi Taniguchi, Xiaoyang Zhu, James Hone, Angel Rubio, Abhay Pasupathy, and Cory Dean. Magic continuum in twisted bilayer wse2. pages, 10 2019.</p>
-</dd>
-<dt class="bibtex label" id="interlayer-coupling"><span class="brackets">WWY+17</span></dt>
-<dd><p>Yong Wang, Zhan Wang, Wang Yao, Gui-Bin Liu, and Hongyi Yu. Interlayer coupling in commensurate and incommensurate bilayer structures of transition-metal dichalcogenides. <em>Phys. Rev. B</em>, 95:115429, Mar 2017. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevB.95.115429">https://link.aps.org/doi/10.1103/PhysRevB.95.115429</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevB.95.115429">doi:10.1103/PhysRevB.95.115429</a>.</p>
-</dd>
-</dl>
-</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -266,7 +298,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="logbook.html" title="previous page">Logbook</a>
+    <a class='left-prev' id="prev-link" href="code/moire/dft.html" title="previous page">Numerics</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

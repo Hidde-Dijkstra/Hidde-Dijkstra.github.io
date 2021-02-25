@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerics &#8212; hidde-dijkstra.github.io</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Bibliography" href="../../zbibliography.html" />
+    <link rel="prev" title="Bandstructure plotting" href="bandstructure.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Home
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../../intro.html">
+   Twisted bilayer WSe
+   <span class="math notranslate nohighlight">
+    \(_2\)
+   </span>
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../lattice/intro.html">
+     Supercell WSe
+     <span class="math notranslate nohighlight">
+      \(_2\)
+     </span>
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../lattice/monolayer.html">
+       Monolayer WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../lattice/supercell.html">
+       Supercell
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../wannierization/intro.html">
+     Wannierization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../wannierization/theory.html">
+       Wannierization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../wannierization/graphene.html">
+       Graphene
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../wannierization/wse2.html">
+       WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../intro.html">
+     Code
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="diagram_gen.html">
+       Diagram drawing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="supercell.html">
+       Supercell
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="bandstructure.html">
+       Bandstructure plotting
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Numerics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../zbibliography.html">
+     Bibliography
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/master-thesis/code/moire/dft.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/master-thesis/code/moire/dft.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numerics">
+<h1>Numerics<a class="headerlink" href="#numerics" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">moire</span> <span class="kn">import</span> <span class="n">bandstructure</span> <span class="k">as</span> <span class="n">bs</span>
+<span class="kn">from</span> <span class="nn">moire</span> <span class="kn">import</span> <span class="n">diagram_gen</span> <span class="k">as</span> <span class="n">dg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DFT</span><span class="p">:</span>
+    
+    <span class="n">qe</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">w90</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">lattice_vectors</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;dft_data&#39;</span><span class="p">,</span> <span class="n">Δz</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">directory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">data_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_exists</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_exists</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">lattice_vectors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Δz</span> <span class="o">=</span> <span class="n">Δz</span>
+        
+    <span class="k">def</span> <span class="nf">dir_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory created:&#39;</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">set_atoms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">atoms</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;loc&#39;</span><span class="p">])):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;loc&#39;</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Δz</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;SYSTEM&#39;</span><span class="p">][</span><span class="s1">&#39;nat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;SYSTEM&#39;</span><span class="p">][</span><span class="s1">&#39;ntyp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90</span><span class="p">:</span>
+            <span class="n">projections</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">key</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s1">&#39;projections&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;projections&#39;</span> <span class="ow">in</span> <span class="n">val</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orbital_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">projections</span>
+            <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;projections&#39;</span> <span class="ow">in</span> <span class="n">atom</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">])):</span>
+                        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="s1">&#39;projections&#39;</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;spinors&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;true&#39;</span><span class="p">))):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_wann&#39;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Number of wannier orbitals and number of projections do not match: &#39;</span><span class="o">+</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39; != &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_wann&#39;</span><span class="p">]))</span>
+                    
+    <span class="k">def</span> <span class="nf">set_k_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_list</span><span class="p">,</span> <span class="n">k_tags</span><span class="p">,</span> <span class="n">N_k</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_list</span> <span class="o">=</span> <span class="n">k_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_tags</span> <span class="o">=</span> <span class="n">k_tags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N_k</span> <span class="o">=</span> <span class="n">N_k</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">)):</span>
+            <span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span> <span class="o">=</span> <span class="n">bs</span><span class="o">.</span><span class="n">BandStructure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">set_k_path</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">k_tags</span><span class="p">,</span> <span class="n">N_k</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">set_k_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span> <span class="o">=</span> <span class="n">N</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+        
+    <span class="k">def</span> <span class="nf">join_grid_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid_point</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{:.9f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">grid_point</span><span class="p">])</span>
+        
+    <span class="k">def</span> <span class="nf">join_k_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_grid</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">k_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">grid_point</span> <span class="ow">in</span> <span class="n">k_grid</span><span class="p">:</span>
+            <span class="n">k_str</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="n">grid_point</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; 1&#39;</span><span class="o">*</span><span class="n">weight</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">k_str</span>
+    
+    <span class="k">def</span> <span class="nf">plot_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">qe_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/qe_bands.npy&#39;</span>
+        <span class="n">w90_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_bands.npy&#39;</span>
+        <span class="n">w90_ticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_band_ticks.npy&#39;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">qe_path</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">add_bands</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">qe_path</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;qe bands&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">w90_path</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_win_min&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_win_max&#39;</span><span class="p">]])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">add_bands</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">w90_path</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;w90 bands&#39;</span><span class="p">,</span> <span class="n">k_arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">w90_ticks</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">QE</span><span class="p">(</span><span class="n">DFT</span><span class="p">):</span>
+    
+    <span class="n">qe</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qe_dic</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">lattice_vectors</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;dft_data&#39;</span><span class="p">,</span> <span class="n">Δz</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">lattice_vectors</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">Δz</span><span class="o">=</span><span class="n">Δz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="n">prefix</span><span class="p">,</span>
+                <span class="s1">&#39;outdir&#39;</span><span class="p">:</span> <span class="s1">&#39;./out&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;verbosity&#39;</span><span class="p">:</span> <span class="s1">&#39;high&#39;</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;&amp;SYSTEM&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;assume_isolated&#39;</span><span class="p">:</span> <span class="s1">&#39;2D&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ibrav&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;nat&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;ntyp&#39;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;&amp;ELECTRONS&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">qe_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sub_key</span> <span class="ow">in</span> <span class="n">qe_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">sub_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">qe_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">sub_key</span><span class="p">]</span>
+                
+    <span class="k">def</span> <span class="nf">write_qe_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qe_type</span><span class="p">):</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">][</span><span class="s1">&#39;calculation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">qe_type</span>
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="n">elem</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="k">for</span> <span class="n">sub_elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="n">elem</span><span class="p">][</span><span class="n">sub_elem</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+                    <span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">var</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+                    <span class="n">var</span> <span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">var</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">sub_elem</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="n">var</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;/</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;CELL_PARAMETERS angstrom</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">a_i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Δz</span><span class="p">)]:</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="n">a_i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;ATOMIC_SPECIES</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">atom</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]),</span> <span class="s2">&quot;&#39;&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;pseudo&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;ATOMIC_POSITIONS angstrom</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;loc&#39;</span><span class="p">]:</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">atom</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="n">site</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="n">qe_type</span> <span class="o">==</span> <span class="s1">&#39;scf&#39;</span><span class="p">:</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;K_POINTS automatic</span><span class="se">\n</span><span class="s1">  9 9 1 1 1 1&#39;</span>
+        <span class="k">elif</span> <span class="n">qe_type</span> <span class="o">==</span> <span class="s1">&#39;nscf&#39;</span><span class="p">:</span>
+            <span class="n">file</span> <span class="o">+=</span>  <span class="s1">&#39;K_POINTS crystal</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_grid</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_k_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_grid</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">qe_type</span> <span class="o">==</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span>
+            <span class="n">file</span> <span class="o">+=</span>  <span class="s1">&#39;K_POINTS crystal</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">k_path</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_k_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">k_path</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="o">+</span><span class="n">qe_type</span><span class="o">+</span><span class="s1">&#39;.in&#39;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">run_qe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qe_type</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="o">+</span><span class="n">qe_type</span>
+        <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">qe_type</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;mpirun -n &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">cores</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; pw.x &lt; &#39;</span><span class="o">+</span><span class="n">file</span><span class="o">+</span><span class="s1">&#39;.in &gt; &#39;</span><span class="o">+</span><span class="n">file</span><span class="o">+</span><span class="s1">&#39;.out&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">startTime</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cwd</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">qe_type</span> <span class="o">==</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extract_qe_bands</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">extract_qe_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;.bands.out&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">N_data</span><span class="p">,</span> <span class="n">band_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;End of band structure calculation&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">N_b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N_data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;number of Kohn-Sham states=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">band_data</span> <span class="o">=</span> <span class="n">band_data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;k = &quot;</span><span class="p">)</span>
+        <span class="n">qe_bands</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">N_k</span><span class="p">,</span> <span class="n">N_b</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_k</span><span class="p">):</span>
+            <span class="n">k</span><span class="p">,</span> <span class="n">band_list</span> <span class="o">=</span> <span class="n">band_data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;bands (ev):</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">band_list</span> <span class="o">=</span> <span class="n">band_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;Writing&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">qe_bands</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">band</span><span class="p">)</span> <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">band_list</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">band</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/qe_bands&#39;</span><span class="p">,</span> <span class="n">qe_bands</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">W90</span><span class="p">(</span><span class="n">QE</span><span class="p">):</span>
+    
+    <span class="n">w90</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w90_dic</span><span class="p">,</span> <span class="n">qe_dic</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">lattice_vectors</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;dft_data&#39;</span><span class="p">,</span> <span class="n">Δz</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">qe_dic</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">lattice_vectors</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">Δz</span><span class="o">=</span><span class="n">Δz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;guiding_centres&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;write_hr&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;wannier_plot&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;bands_plot&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;wannier_plot_supercell&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;spinors&#39;</span><span class="p">:</span> <span class="s1">&#39;false&#39;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;nbnd&#39;</span> <span class="ow">in</span> <span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;SYSTEM&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_bands&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;SYSTEM&#39;</span><span class="p">][</span><span class="s1">&#39;nbnd&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">w90_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">w90_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span> <span class="o">=</span> <span class="p">[]</span>
+            
+    <span class="k">def</span> <span class="nf">set_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">win_min</span><span class="p">,</span> <span class="n">win_max</span><span class="p">,</span> <span class="n">froz_min</span><span class="p">,</span> <span class="n">froz_max</span><span class="p">,</span> <span class="n">num_iter</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_win_min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">win_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_win_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">win_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_froz_min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">froz_min</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_froz_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">froz_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;dis_num_iter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_iter</span>
+        
+    <span class="k">def</span> <span class="nf">write_w90_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbital_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;&amp;inputpp</span><span class="se">\n</span><span class="s2">   outdir = &#39;&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">][</span><span class="s1">&#39;outdir&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;&#39;</span><span class="se">\n</span><span class="s2">   &quot;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s2">&quot;prefix = &#39;&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">][</span><span class="s1">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;&#39;</span><span class="se">\n</span><span class="s2">   &quot;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s2">&quot;seedname = &#39;&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">][</span><span class="s1">&#39;prefix&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;&#39;</span><span class="se">\n</span><span class="s2">   &quot;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;write_unk = .true.</span><span class="se">\n</span><span class="s1">   write_mmn = .true.</span><span class="se">\n</span><span class="s1">   write_amn = .true.</span><span class="se">\n</span><span class="s1">/</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">qe_dic</span><span class="p">[</span><span class="s1">&#39;&amp;CONTROL&#39;</span><span class="p">][</span><span class="s1">&#39;prefix&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pw2wan&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">var</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">begin unit_cell_cart</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">a_i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Δz</span><span class="p">)]:</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="n">a_i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;end unit_cell_cart</span><span class="se">\n\n</span><span class="s1">Begin projections&#39;</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;projections&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">]:</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">  &#39;</span> <span class="o">+</span> <span class="n">atom</span> <span class="o">+</span><span class="s1">&#39;:  &#39;</span> <span class="o">+</span> <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;projections&#39;</span><span class="p">])</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">End projections</span><span class="se">\n\n</span><span class="s1">Begin atoms_cart</span><span class="se">\n</span><span class="s1">ang</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">][</span><span class="s1">&#39;loc&#39;</span><span class="p">]:</span>
+                <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">atom</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="n">site</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;End atoms_cart</span><span class="se">\n\n</span><span class="s1">Begin Kpoint_Path</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_tags</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_tags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span>
+            <span class="n">file</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_tags</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_grid_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;End Kpoint_Path</span><span class="se">\n\n</span><span class="s1">mp_grid = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N_grid</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;, 1&#39;</span>
+        <span class="n">file</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Begin kpoints</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">join_k_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_grid</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;End kpoints&#39;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;.win&#39;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cwd</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">run_w90</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span>
+        <span class="k">if</span> <span class="n">pp</span><span class="p">:</span>
+            <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pp&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wannier90.x -pp &#39;</span><span class="o">+</span><span class="n">file</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">startTime</span><span class="p">)</span>
+            <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pw2wan&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;mpirun -n &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">cores</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; pw2wannier90.x &lt; &#39;</span><span class="o">+</span><span class="n">file</span><span class="o">+</span><span class="s1">&#39;.pw2wan &gt; &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/pw2wan.out&#39;</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">startTime</span><span class="p">)</span>
+        <span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w90&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wannier90.x &#39;</span><span class="o">+</span><span class="n">file</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="n">startTime</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cwd</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;_band.dat&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">w90_bands</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">elem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">lst</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">elem</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">lst</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;_hr.dat&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">hop_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;   &quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">8</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/hopping_elements&#39;</span><span class="p">,</span> <span class="n">hop_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_w90_bands</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_orbitals</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">extract_w90_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;_band.dat&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">w90_bands</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">elem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">lst</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">elem</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">lst</span><span class="o">!=</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+        <span class="n">my_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">w90_bands</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;_band.gnu&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="n">x_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">k_tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">x_ticks</span><span class="p">]</span>
+        <span class="n">k_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mf">0.0001</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">x_ticks</span><span class="p">]</span>
+        <span class="n">n_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w90_bands</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_vals</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">n_ticks</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">w90_bands</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">x_arr</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">spacing</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">spacing</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">Δx</span> <span class="o">=</span> <span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">Δn</span> <span class="o">=</span> <span class="n">n_ticks</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">n_ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">x_arr</span> <span class="o">+=</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">Δx</span><span class="o">/</span><span class="n">Δn</span><span class="o">+</span><span class="n">ticks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Δn</span><span class="p">)]</span>
+        <span class="n">x_arr</span> <span class="o">+=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">N_k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_bands&#39;</span><span class="p">,</span> <span class="n">w90_bands</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_band_ticks&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x_arr</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">extract_orbitals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">iso_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_wann&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.xsf&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;BEGIN_DATAGRID_3D_UNKNOWN</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">N_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="n">wan_origin</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+            <span class="n">vec_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/N_w90_grid_points&#39;</span><span class="p">,</span> <span class="n">N_grid</span><span class="p">)</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_grid_origin&#39;</span><span class="p">,</span> <span class="n">wan_origin</span><span class="p">)</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_vec_span&#39;</span><span class="p">,</span> <span class="n">vec_span</span><span class="p">)</span>
+            <span class="n">iso_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">*</span><span class="nb">reversed</span><span class="p">(</span><span class="n">N_grid</span><span class="p">))</span>
+            <span class="n">iso_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">iso_vals</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbital_dir</span><span class="o">+</span><span class="s1">&#39;/w90_orbitals&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">iso_list</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">create_H</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_max</span><span class="p">,</span> <span class="n">show_amount_NN</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">hop_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/hopping_elements.npy&#39;</span><span class="p">)</span>
+        <span class="n">vec_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_vec_span.npy&#39;</span><span class="p">)</span>
+        <span class="n">hoppings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">hop</span> <span class="ow">in</span> <span class="n">hop_list</span><span class="p">:</span>
+            <span class="n">ΔL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbital_centers</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">ΔR</span> <span class="o">=</span> <span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">hop</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ΔL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ΔR</span><span class="p">,</span> <span class="n">ΔR</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">R_max</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">hop_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_wann&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">w90_dic</span><span class="p">[</span><span class="s1">&#39;num_wann&#39;</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+                <span class="n">hop_mat</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">hop</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">hop</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+                <span class="n">hoppings</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">hop_mat</span><span class="p">,</span> <span class="n">hop</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="n">show_amount_NN</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;hoppings found&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">sum</span><span class="p">([</span><span class="n">hop</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">hop</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">hop</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="k">for</span> <span class="n">hop</span> <span class="ow">in</span> <span class="n">hoppings</span><span class="p">])</span>
+    
+    <span class="k">def</span> <span class="nf">plot_tight_binding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R_max</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tb&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">show_amount_NN</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">band_plot</span><span class="o">.</span><span class="n">plot_from_H</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_H</span><span class="p">(</span><span class="n">R_max</span><span class="p">,</span> <span class="n">show_amount_NN</span><span class="o">=</span><span class="n">show_amount_NN</span><span class="p">),</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">N_input</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">convert_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+        <span class="n">n_1</span><span class="p">,</span> <span class="n">n_2</span><span class="p">,</span> <span class="n">n_3</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_1</span><span class="o">+</span><span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">n_3</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">)):</span>
+                <span class="n">grid</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Δn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:,</span> <span class="n">n</span><span class="o">-</span><span class="n">Δn</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="n">Δn</span><span class="o">+</span><span class="n">n_2</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">plot_wannier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orbital_list</span><span class="p">,</span> <span class="n">NN_distance</span><span class="p">,</span> <span class="n">display_bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_grid_origin.npy&#39;</span><span class="p">)</span>
+        <span class="n">orbitals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orbital_dir</span><span class="o">+</span><span class="s1">&#39;/w90_orbitals.npy&#39;</span><span class="p">)</span>
+        <span class="n">vec_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">+</span><span class="s1">&#39;/w90_vec_span.npy&#39;</span><span class="p">)</span>
+        <span class="n">N_wan</span><span class="p">,</span> <span class="n">n_1</span><span class="p">,</span> <span class="n">n_2</span><span class="p">,</span> <span class="n">n_3</span> <span class="o">=</span> <span class="n">orbitals</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">n_x</span><span class="p">,</span> <span class="n">n_y</span><span class="p">,</span> <span class="n">n_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_grid</span><span class="p">(</span><span class="n">orbitals</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:])</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">n_ref</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">n_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">n_y</span><span class="p">,</span> <span class="n">n_ref</span><span class="o">/</span><span class="n">n_3</span><span class="p">:(</span><span class="n">n_ref</span><span class="o">+</span><span class="n">n_2</span><span class="p">)</span><span class="o">/</span><span class="n">n_3</span><span class="p">:</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">n_z</span><span class="p">]</span>
+        <span class="n">grid_origin</span> <span class="o">=</span> <span class="n">origin</span> <span class="o">+</span> <span class="p">[</span><span class="nb">min</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+        <span class="n">factors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec_span</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+        <span class="n">iso_max</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">orbitals</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_wan</span><span class="p">)])</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="n">axis</span><span class="o">*</span><span class="n">factors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">grid_origin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">axis</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">])]</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">factors</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">lattice</span> <span class="o">=</span> <span class="n">dg</span><span class="o">.</span><span class="n">Lattice3d</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">atom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">atom</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]:</span>
+                <span class="n">lattice</span><span class="o">.</span><span class="n">add_atom</span><span class="p">(</span><span class="n">dg</span><span class="o">.</span><span class="n">LatticeAtom</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">atom_color</span><span class="o">=</span><span class="n">atom</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]))</span>
+        <span class="n">lattice</span><span class="o">.</span><span class="n">gen_NN</span><span class="p">(</span><span class="n">NN_distance</span><span class="p">)</span>
+        <span class="n">lattice</span><span class="o">.</span><span class="n">draw_3d</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">))</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+                <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span>
+                <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">scene_aspectmode</span><span class="o">=</span><span class="s1">&#39;cube&#39;</span>         
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">display_bool</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">display_bool</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">orbital_list</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j_orb</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">orbital_list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">display_bool</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">visible</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">visible</span><span class="o">=</span><span class="s1">&#39;legendonly&#39;</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Isosurface</span><span class="p">(</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_grid</span><span class="p">(</span><span class="n">orbitals</span><span class="p">[</span><span class="n">j_orb</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:])</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+                <span class="n">isomin</span><span class="o">=-</span><span class="n">iso_max</span><span class="p">,</span>
+                <span class="n">isomax</span><span class="o">=</span><span class="n">iso_max</span><span class="p">,</span>
+                <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                <span class="n">surface_count</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                <span class="n">caps</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x_show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">y_show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">z_show</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">visible</span><span class="o">=</span><span class="n">visible</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;orbital &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">))</span>
+        <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./master-thesis/code/moire"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="bandstructure.html" title="previous page">Bandstructure plotting</a>
+    <a class='right-next' id="next-link" href="../../zbibliography.html" title="next page">Bibliography</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Hidde Dijkstra<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

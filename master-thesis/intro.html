@@ -25,7 +25,7 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Monolayer WSe\(_2\)" href="monolayer.html" />
+    <link rel="next" title="Supercell WSe\(_2\)" href="lattice/intro.html" />
     <link rel="prev" title="Home" href="../intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,15 +84,12 @@
   <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Home
@@ -100,41 +97,94 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
    Twisted bilayer WSe
    <span class="math notranslate nohighlight">
     \(_2\)
    </span>
   </a>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="monolayer.html">
-     Monolayer WSe
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="lattice/intro.html">
+     Supercell WSe
      <span class="math notranslate nohighlight">
       \(_2\)
      </span>
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="lattice/monolayer.html">
+       Monolayer WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="lattice/supercell.html">
+       Supercell
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="supercell.html">
-     Supercell
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dft.html">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="wannierization/intro.html">
      Wannierization
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/theory.html">
+       Wannierization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/graphene.html">
+       Graphene
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="wannierization/wse2.html">
+       WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="moire_functions.html">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="code/intro.html">
      Code
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="logbook.html">
-     Logbook
-    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/diagram_gen.html">
+       Diagram drawing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/supercell.html">
+       Supercell
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/bandstructure.html">
+       Bandstructure plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="code/moire/dft.html">
+       Numerics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="zbibliography.html">
@@ -142,12 +192,12 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -176,11 +226,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -192,8 +242,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
@@ -219,7 +269,7 @@
                 
   <div class="section" id="twisted-bilayer-wse-2">
 <h1>Twisted bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span><a class="headerlink" href="#twisted-bilayer-wse-2" title="Permalink to this headline">¶</a></h1>
-<p>In October last year Wang et al published an experimental paper on the magic continuum in twisted bilayer tungsten-diselinide (tWSe<span class="math notranslate nohighlight">\(_2\)</span>) <a class="bibtex reference internal" href="zbibliography.html#twse2-experiment" id="id1">[WSG+19]</a>. Here they found flat bands similar to the ones found in twisted bilayer graphene but at a larger twist angle of approximately 5 degrees. At low temperatures varying the electron density gives rise to insulating and superconducting states. Due to the large twist angle we aim to build a tight binding (TB) Hamiltonian for tWSe<span class="math notranslate nohighlight">\(_2\)</span> without having to resort to a continuum model <a class="bibtex reference internal" href="zbibliography.html#continuum-model" id="id2">[BM11]</a>.</p>
+<p>In October last year Wang et al published an experimental paper on the magic continuum in twisted bilayer tungsten-diselinide (tWSe<span class="math notranslate nohighlight">\(_2\)</span>) <a href="#id1"><span class="problematic" id="id2">:cite:`tWSe2_experiment`</span></a>. Here they found flat bands similar to the ones found in twisted bilayer graphene but at a larger twist angle of approximately 5 degrees. At low temperatures varying the electron density gives rise to insulating and superconducting states. Due to the large twist angle we aim to build a tight binding (TB) Hamiltonian for tWSe<span class="math notranslate nohighlight">\(_2\)</span> without having to resort to a continuum model <a href="#id3"><span class="problematic" id="id4">:cite:`continuum_model`</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -253,7 +303,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Home</a>
-    <a class='right-next' id="next-link" href="monolayer.html" title="next page">Monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span></a>
+    <a class='right-next' id="next-link" href="lattice/intro.html" title="next page">Supercell WSe<span class="math notranslate nohighlight">\(_2\)</span></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
