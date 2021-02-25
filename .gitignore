@@ -1,4 +1,5 @@
 ghp-import/
+dft_data/
 project-book/_build/
 *.ipynb_checkpoints
 sources/
