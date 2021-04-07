@@ -1,0 +1,36 @@
+&CONTROL
+  calculation = 'relax'
+  prefix = 'bwse2_aa'
+  outdir = '../out/'
+  pseudo_dir = '../pseudo/'
+  tprnfor = .true.
+  verbosity = 'high'
+/
+&SYSTEM
+  assume_isolated = '2D'
+  ibrav = 4
+  a = 3.325
+  c = 40.00
+  nat = 6
+  ntyp = 2
+  occupations = 'fixed'
+  ecutwfc = 30
+  ecutrho = 120
+  input_dft = 'vdw-df-cx'
+/
+&ELECTRONS
+/
+&IONS
+/
+ATOMIC_SPECIES
+  W     183.840    W_pbe_v1.2.uspp.F.UPF
+  Se     78.960    Se_pbe_v1.uspp.F.UPF
+ATOMIC_POSITIONS angstrom
+  W     0.000000    0.000000      0.0000000000	0	0	1
+  Se    0.000000    1.919689645   1.6786259871	0	0	1
+  Se    0.000000    1.919689645  -1.6786259871	0	0	1
+  W     0.000000    0.000000      5.1572519742	0	0	1
+  Se    0.000000    1.919689645   6.8358779613	0	0	1
+  Se    0.000000    1.919689645   3.4786359871	0	0	1
+K_POINTS automatic
+  8 8 1 1 1 1
