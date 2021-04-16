@@ -79,40 +79,44 @@ def extract_relax(self):
 @save
 @change_directory('work_directory')
 def extract_projwfc(self):
-    f = read_file(self.prefix+'projwfc.out')
+    f = read_file(self.prefix+'.projwfc.out')
     projwfc_data = f.split(' k =   ')
-    states = gen_lst(projwfc_data[0], '\n     state #', separate_state)
+    states = gen_lst(projwfc_data[0], '\n     state #', separate_state, True)
     occupations = []
     bands = []
     k_points = []
     for k_point in projwfc_data[1:]:
-        occupation = []
-        band = []
-        for i, band in enumerate(k_point.split('\n    |psi|^2')[:-1]):
-            occupation.append(np.array(len(states)))
+        band_k = []
+        band_data = k_point.split('\n    |psi|^2')[:-1]
+        occupation = np.zeros((len(band_data), len(states)))
+        for i, band in enumerate(band_data):
             ε, ψ = band.split(' eV ==== \n     psi = ')
-            band.append(float(ε.split('=')[1]))
+            band_k.append(scrub_str(ε.split(') = ')[1]))
             ψ = gen_lst(ψ, '+', lambda x: scrub_str(x, '*'))
             for φ in ψ:
-                occupation[i][φ[0]] = φ[1]
-        occupations.append(occupations)
-        bands.append(band)
+                occupation[i, int(φ[1])-1] = φ[0]
+        occupations.append(occupation)
+        bands.append(band_k)
         k_points.append(k_point)
     return {
         'projwfc/k_points': k_points, 
         'projwfc/bands': bands, 
         'projwfc/states': states, 
-        'projwfc/occupation': occupations
+        'projwfc/occupations': occupations
     }
 
 def scrub_str(string, char=None):
     if char == None:
-        return float(re.sub("[^0-9.]", "", string))
+        return float(re.sub("[^0-9.-]", "", string))
     else:
-        return [float(re.sub("[^0-9.]", "", x)) for x in string.split(char)]
+        return [float(re.sub("[^0-9.-]", "", x)) for x in string.split(char)]
 
-def gen_lst(lst, str, func=lambda x: x):
-    return [func(item) for item in lst.split(str) if (item!='' and item!=[])]
+def gen_lst(lst, str, func=lambda x: x, ignore_first=False):
+    new_lst = []
+    for i, item in enumerate(lst.split(str)):
+        if (item!='' and item!=[]) and (i!=0 or not ignore_first):
+            new_lst.append(func(item))
+    return new_lst
 
 def read_file(file_name):
     f = open(file_name, "r")
@@ -122,6 +126,7 @@ def read_file(file_name):
 
 def separate_state(state):
     atom, q_num = state.split(', wfc')
+    q_num = q_num.replace('= ', '=')
     atom = int(atom.split('atom')[1].split('(')[0])
     q_num = q_num.split('(')[1].split(')')[0]
     q_num = [scrub_str(q) for q in q_num.split(' ')]

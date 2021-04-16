@@ -36,8 +36,49 @@ def plot_relax(self):
     pass
 
 @change_directory('data_directory')
-def plot_wfc(self, i_ε):
-    pass
+def plot_wfc(
+        self,
+        ε_range, 
+        orbital=None, 
+        i_orbital=0, 
+        size=15, 
+        showlegend=True
+    ):
+    bands = np.load(self.prefix+'/projwfc/bands.npy')
+    states = sort_states(np.load(self.prefix+'/projwfc/states.npy'))
+    occupations = np.load(self.prefix+'/projwfc/occupations.npy')
+    occupations /= np.sum(occupations, axis=2)
+
+    orbital_states = orbital.states(states, i_orbital)
+    orbital_density = np.sum(occupations[:, :, orbital_states], axis=2)
+
+    traces = []
+
+    for band in bands.T:
+        if np.logical_and(ε_range[0]<band, band<ε_range[1]).any():
+            marker_dic = dict(
+                size=size*orbital_density,
+                color=orbital.colors[i_orbital],
+                line=dict(width=1),
+            )
+            x = np.arange(len(band))
+            traces.append(go.Scattergl(
+                x = x, 
+                y = band,
+                opacity=0.3,
+                legendgroup = orbital.name[i_orbital], 
+                text = orbital_density,
+                name = orbital.name[i_orbital],
+                mode = 'markers', 
+                showlegend = showlegend, 
+                marker = marker_dic
+            ))
+            showlegend = False
+    return traces
+    
+def interpolate(data):
+    x = np.linspace(-1, 2, 3*len(data))
+    return RectBivariateSpline(x, x, np.tile(data, (3, 3, 1)))
 
 def plot_tight_binding(
         self, 
@@ -63,6 +104,11 @@ def convert_grid(A):
     Δn = int(n_2/2)
     return grid[::2, :, n-Δn:n-Δn+n_2]
 
+def sort_states(states):
+    atom, l, j, m_j = states
+    m_l = m_j - np.sign((j-l)*m_j) / 2
+    m_s = np.sign(j-l)*np.sign(m_j) / 2
+    return np.array([atom, l, m_l, m_s])
 
 def legend(func):
     def wrapper(**kwargs):
@@ -75,6 +121,14 @@ def legend(func):
             return traces
         else:
             return func(**kwargs)
+    return wrapper
+
+def cut(func):
+    def wrapper(**kwargs):
+        if 'cut' in kwargs:
+            pass
+        else:
+            return func(kwargs)
     return wrapper
 
 def slider(func):
@@ -116,3 +170,29 @@ def slider(func):
         else:
             return fig.add_trace(func(**kwargs))
     return wrapper
+
+    class Orbital:
+
+        def __init__(
+            self, 
+            names=[''], 
+            colors=['black'],
+            layer=False,
+            spin=False, 
+            layer_1=[], 
+            layer_2=[]
+        ):
+            self.names = names
+            self.colors = colors
+            self.layers = [layer_1, layer_2]
+            self.type_list = []
+            if layer;
+            self.spin = spin
+            self.options = [[layer, spin] for spin ]
+
+        def check_state(states, i):
+            for state in states:
+                atom, l, m_l, m_s = state
+                include = atom in 
+
+        

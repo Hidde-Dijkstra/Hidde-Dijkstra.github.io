@@ -6,9 +6,9 @@ import numpy as np
 class DFT:
 
     from .write_file import write_qe, write_w90
-    from .extract import extract_nscf, extract_w90_bands
+    from .extract import extract_nscf, extract_w90_bands, extract_projwfc
     from .lattice import import_lattice
-    from .plot import plot_nscf
+    from .plot import plot_nscf, plot_wfc
 
     def __init__(self, prefix, work_dir, data_dir='', Δz=32):
         self.prefix = prefix
