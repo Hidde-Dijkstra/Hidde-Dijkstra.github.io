@@ -110,6 +110,36 @@ def sort_states(states):
     m_s = np.sign(j-l)*np.sign(m_j) / 2
     return np.array([atom, l, m_l, m_s])
 
+class Orbital:
+
+        def __init__(
+            self, 
+            names=[''], 
+            colors=['black'],
+            layer=False,
+            spin=False, 
+            layer_1=[], 
+            layer_2=[]
+        ):
+            self.names = names
+            self.colors = colors
+            self.layers = [layer_1, layer_2]
+            self.type_list = []
+            if layer:
+                pass
+            self.spin = spin
+            self.options = [[layer, spin] for spin in []]
+
+        def check_state(states, i):
+            for state in states:
+                atom, l, m_l, m_s = state
+                include = atom in []
+
+        
+def layout(func):
+    def wrapper(**kwargs):
+        
+
 def legend(func):
     def wrapper(**kwargs):
         if 'legend' in kwargs:
@@ -170,29 +200,3 @@ def slider(func):
         else:
             return fig.add_trace(func(**kwargs))
     return wrapper
-
-    class Orbital:
-
-        def __init__(
-            self, 
-            names=[''], 
-            colors=['black'],
-            layer=False,
-            spin=False, 
-            layer_1=[], 
-            layer_2=[]
-        ):
-            self.names = names
-            self.colors = colors
-            self.layers = [layer_1, layer_2]
-            self.type_list = []
-            if layer;
-            self.spin = spin
-            self.options = [[layer, spin] for spin ]
-
-        def check_state(states, i):
-            for state in states:
-                atom, l, m_l, m_s = state
-                include = atom in 
-
-        
