@@ -18,7 +18,7 @@ class _Atom:
             weight=None,
             scaling=1, 
             projections=[],
-            key=''
+            key=None
     ):
         self.id = str(len(_Atom.lst))
         _Atom.lst.append(self)
@@ -30,7 +30,10 @@ class _Atom:
         self.weight = weight
         self.projections = projections
         self.NN = {}
-        self.key = key
+        if key == None:
+            self.key = name
+        else:
+            self.key = key
         
     def copy(self, position=None, scaling=1):
         if np.any(position == None):

@@ -1,6 +1,7 @@
 from collections import defaultdict
 import numpy as np
 import plotly.graph_objects as go
+from itertools import product
 
 class _DrawLattice:
 
@@ -19,7 +20,18 @@ class _DrawLattice:
         self.a_2 = lattice.a_2
         self.a = lattice.a
 
-    def plot(self, plot_3d=False, atom_keys=[], bonds=False, show_z=False, **kwargs):
+    def plot(
+            self, 
+            plot_3d=False, 
+            atom_keys=[], 
+            bonds=False, 
+            show_z=False, 
+            cell_border=True,
+            cell_attributes=dict(
+                line=dict(color='black', dash='dash'),
+                name='cell border'), 
+            **kwargs
+        ):
         general_dic = dict(
             mode='markers',
             showlegend=False,
@@ -29,6 +41,8 @@ class _DrawLattice:
             for key, value in kwargs['all'].items():
                 general_dic[key] = value
         fig = go.Figure()
+        if cell_border and not plot_3d:
+            fig.add_traces(self.get_cell_border(**cell_attributes))
         fig.update_xaxes(range=[-self.W/2, self.W/2])
         fig.update_yaxes(scaleanchor='x', scaleratio=1, range=[-1*self.H/2, self.H/2])
         if plot_3d:
@@ -74,8 +88,40 @@ class _DrawLattice:
         for vec in [i*self.a_1+j*self.a_2 for i in n_range for j in n_range]:
             if self._in_grid(vec, atom):
                 positions.append(atom.position+vec)
-        return positions
+        return positions   
 
     def _in_grid(self, vec, atom):
         origin = np.abs((atom.position+vec))
-        return np.all((origin)[:2] < [self.W/2, self.H/2])  
+        return np.all((origin)[:2] < [self.W/2, self.H/2])
+
+    
+    def get_cell_border(self, offset=None, **kwargs):
+        if offset == None:
+            offset = np.zeros(2)
+        Δn = int(max(self.W, self.H)/np.linalg.norm(self.a_1)) + 2
+        lines = []
+        for n in range(-Δn, Δn+1):
+            for a_1, a_2 in [(self.a_1, self.a_2), (self.a_2, self.a_1)]:
+                points = self.get_line(offset, a_1[:2], a_2[:2], n)
+                if points != []:
+                    x, y = np.transpose(points)
+                    showlegend = (lines==[])
+                    lines.append(go.Scatter(
+                        x=x, y=y, legendgroup= 'cell', mode='lines',
+                        showlegend=showlegend, **kwargs))
+        return lines
+
+
+    def get_line(self, offset, a_1, a_2, n):
+        points = []
+        for σ in [-1, 1]:
+            with np.errstate(divide='ignore'):
+                t = (σ*np.array([self.W, self.H])/2-offset-n*a_1) / a_2
+            border = offset + n*a_1 + np.flip(t) * a_2
+            in_figure = np.abs(border) < [self.W/2, self.H/2]
+            if in_figure[0]:
+                points.append(np.array([border[0], σ*self.H/2]))
+            if in_figure[1]:
+                points.append(np.array([σ*self.W/2, border[1]]))
+        return points
+

@@ -2,6 +2,7 @@ import numpy as np
 from .decorators import change_directory, check
 import plotly.graph_objects as go
 from moire import lattice as dg
+from moire.plot import figure, BandStructure
 from scipy.interpolate import RectBivariateSpline
 
 @change_directory('data_directory')
@@ -36,29 +37,39 @@ def plot_relax(self):
     pass
 
 @change_directory('data_directory')
-def plot_wfc(
-        self,
-        ε_range, 
-        orbital=None, 
-        i_orbital=0, 
-        size=15, 
-        showlegend=True
-    ):
+def plot_wfc(self, k_list=[], k_tags=[], N_k=[], **kwargs):
+    bs = BandStructure(cut=kwargs.get('cut'))
+    bs.set_k_path(k_list, k_tags, N_k)
+    bs.add_bands(bands=np.load(self.prefix+'/projwfc/bands.npy'))
+    return _plot_wfc(self=self, fig=bs.fig, **kwargs)
+
+@change_directory('data_directory')
+@figure
+def _plot_wfc(
+        self, ε_range=[-np.inf, np.inf], orbital={}, 
+        elements={}, size=15,**kwargs):
     bands = np.load(self.prefix+'/projwfc/bands.npy')
     states = sort_states(np.load(self.prefix+'/projwfc/states.npy'))
     occupations = np.load(self.prefix+'/projwfc/occupations.npy')
-    occupations /= np.sum(occupations, axis=2)
+    occupations = occupations / np.expand_dims(np.sum(occupations, axis=2), axis=2)
 
-    orbital_states = orbital.states(states, i_orbital)
+    wfc = {}
+    for key in ['atoms', 'l', 'm_l', 'm_s']:
+        if key in orbital:
+            wfc[key] = list_transform(orbital[key])
+        elif key in elements:
+            wfc[key] = list_transform(elements[key])
+        else:
+            wfc[key] = []
+
+    orbital_states = check_states(states, wfc)
     orbital_density = np.sum(occupations[:, :, orbital_states], axis=2)
-
     traces = []
 
-    for band in bands.T:
+    for i, band in enumerate(bands.T):
         if np.logical_and(ε_range[0]<band, band<ε_range[1]).any():
             marker_dic = dict(
-                size=size*orbital_density,
-                color=orbital.colors[i_orbital],
+                size=size*orbital_density[:, i],
                 line=dict(width=1),
             )
             x = np.arange(len(band))
@@ -66,14 +77,10 @@ def plot_wfc(
                 x = x, 
                 y = band,
                 opacity=0.3,
-                legendgroup = orbital.name[i_orbital], 
-                text = orbital_density,
-                name = orbital.name[i_orbital],
+                text = orbital_density[:, i],
                 mode = 'markers', 
-                showlegend = showlegend, 
                 marker = marker_dic
             ))
-            showlegend = False
     return traces
     
 def interpolate(data):
@@ -105,98 +112,23 @@ def convert_grid(A):
     return grid[::2, :, n-Δn:n-Δn+n_2]
 
 def sort_states(states):
-    atom, l, j, m_j = states
+    atom, l, j, m_j = states.T
     m_l = m_j - np.sign((j-l)*m_j) / 2
     m_s = np.sign(j-l)*np.sign(m_j) / 2
     return np.array([atom, l, m_l, m_s])
 
-class Orbital:
+def check_states(states, wfc):
+    valid_states = []
+    for i, state in enumerate(states.T):
+        valid_state = True
+        for key, value in zip(['atoms', 'l', 'm_l', 'm_s'], state):
+            valid_state &= (np.abs(value) in wfc[key]) or (wfc[key] == [])
+        if valid_state:
+            valid_states.append(i)
+    return valid_states
 
-        def __init__(
-            self, 
-            names=[''], 
-            colors=['black'],
-            layer=False,
-            spin=False, 
-            layer_1=[], 
-            layer_2=[]
-        ):
-            self.names = names
-            self.colors = colors
-            self.layers = [layer_1, layer_2]
-            self.type_list = []
-            if layer:
-                pass
-            self.spin = spin
-            self.options = [[layer, spin] for spin in []]
-
-        def check_state(states, i):
-            for state in states:
-                atom, l, m_l, m_s = state
-                include = atom in []
-
-        
-def layout(func):
-    def wrapper(**kwargs):
-        
-
-def legend(func):
-    def wrapper(**kwargs):
-        if 'legend' in kwargs:
-            legend = kwargs['legend']
-            key, args = list(legend['args'].items())[0]
-            traces = []
-            for i in range(len(args)):
-                traces.append(func(**{key: args[i]}, **kwargs))
-            return traces
-        else:
-            return func(**kwargs)
-    return wrapper
-
-def cut(func):
-    def wrapper(**kwargs):
-        if 'cut' in kwargs:
-            pass
-        else:
-            return func(kwargs)
-    return wrapper
-
-def slider(func):
-    def wrapper(**kwargs):
-        fig = go.Figure()
-        if 'slider' in kwargs:
-            slider = kwargs['slider']
-            key, args = list(slider['args'].items())[0]
-            N_slider = len(args)
-            for i in range(len(args)):
-                traces = func(**{key: args[i]}, **kwargs)
-                N_traces = 1
-                if type(traces) == list:
-                    N_traces = len(traces)
-                    for trace in traces:
-                        fig.add_trace(trace)
-                else:
-                    fig.add_trace(traces)
-            steps = []
-            for i in range(N_slider):
-                step = dict(
-                    method="update",
-                    args=[{"visible": [False] * len(fig.data)}],  # layout attribute
-                    label=str(i)
-                )
-                for j in range(N_traces):
-                    step['args'][0]['visible'][N_traces*i+j] = True
-                steps.append(step)
-            if 'active' in slider:
-                active = slider['active']
-            else:
-                active = 0
-            for i in range(N_traces):
-                fig.data[active+i].visible = True
-            fig.update_layout(
-                sliders = [dict(steps=steps, active=active)]
-            )
-            return fig
-        else:
-            return fig.add_trace(func(**kwargs))
-    return wrapper
+def list_transform(variable):
+    if type(variable) == list:
+        return variable
+    else:
+        return [variable]
