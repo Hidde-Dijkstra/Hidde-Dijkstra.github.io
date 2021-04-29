@@ -1,1 +1,0 @@
-# Supercell WSe$_2$
