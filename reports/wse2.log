@@ -17,19 +17,57 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import plotly.graph_objects as go
-import numpy as np
-from myst_nb import glue
-import moire
+qe_dic = {
+            '&CONTROL': {
+                'pseudo_dir': '../'
+            },
+            '&SYSTEM': {
+                'occupations': 'fixed', 
+                'ecutwfc': 30,
+                'ecutrho': 120,
+                'lspinorb': True,
+                'noncolin': True,
+                'nbnd': 36
+            }
+        }
+w90_dic = {
+    'num_wann': 6,
+    'num_iter': 2000,
+    'spinors': 'true'
+}
+
+atoms = {
+    'W': {'weight': 183.840,
+         'pseudo_potential': 'pslibrary.1.0.0/rel-pbe/PSEUDOPOTENTIALS/W.rel-pbe-spn-rrkjus_psl.1.0.0.UPF',
+         'loc': [np.array([0, 0, 0])],
+          'projections': ['dxy', 'dz2', 'dx2-y2'],
+          'color': 'red'
+    },
+    'Se': {'weight': 78.960,
+          'pseudo': 'pseudo/Se_pbe_v1.uspp.F.UPF',
+           'loc': [np.array([0, 1.919689645, 1.67871166]), np.array([0, 1.919689645, -1.67871166])],
+          'color': 'blue'
+          }
+}
+
+data_dir = '../'*3 + 'dft_data'
+wse2 = moire.dft.W90(w90_dic, qe_dic, "/home/hidde/hidde/Unige/dft/wse2", 'wse2', 
+           [np.array([3.325, 0, 0]), np.array([-1.6625, 2.8795344676, 0])], data_dir=data_dir)
+wse2.set_atoms(atoms)
+wse2.set_k_grid(8)
+wse2.set_k_path([(0, 0, 0), (0.5, 0, 0), (1/3, 1/3, 0), (0, 0, 0)], ["Γ", "M", "K", "Γ"], 100)
+wse2.set_window(-12, 1, -6, -2.8, 500)
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-93795440bf09>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0mmyst_nb[0m [0;32mimport[0m [0mglue[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mimport[0m [0mmoire[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mModuleNotFoundError[0m: No module named 'moire'
-ModuleNotFoundError: No module named 'moire'
+[0;31m--------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-2-9196bfdd06f6>[0m in [0;36m<module>[0;34m[0m
+[1;32m     33[0m [0;34m[0m[0m
+[1;32m     34[0m [0mdata_dir[0m [0;34m=[0m [0;34m'../'[0m[0;34m*[0m[0;36m3[0m [0;34m+[0m [0;34m'dft_data'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 35[0;31m wse2 = moire.dft.W90(w90_dic, qe_dic, "/home/hidde/hidde/Unige/dft/wse2", 'wse2', 
+[0m[1;32m     36[0m            [np.array([3.325, 0, 0]), np.array([-1.6625, 2.8795344676, 0])], data_dir=data_dir)
+[1;32m     37[0m [0mwse2[0m[0;34m.[0m[0mset_atoms[0m[0;34m([0m[0matoms[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'moire' has no attribute 'dft'
+AttributeError: module 'moire' has no attribute 'dft'
 
