@@ -2,6 +2,7 @@ from .decorators import check
 
 @check('qe')
 def import_lattice(self, lattice):
+    self.lattice = lattice
     self.qe_dic['&SYSTEM']['ibrav'] = 4
     self.qe_dic['&SYSTEM']['a'] = lattice.a
     self.qe_dic['&SYSTEM']['c'] = self.Δz

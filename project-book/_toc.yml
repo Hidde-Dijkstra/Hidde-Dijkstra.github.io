@@ -5,16 +5,12 @@
       sections:
         - file: master-thesis/lattice/monolayer
         - file: master-thesis/lattice/supercell
-    - file: master-thesis/wannierization/intro
+#    - file: master-thesis/dft/friday_discussion
+    - file: master-thesis/numerics/intro
       sections:
-        - file: master-thesis/wannierization/theory
-        - file: master-thesis/wannierization/graphene
-        - file: master-thesis/wannierization/wse2
-    - file: master-thesis/code/intro
-      sections:
-        - file: master-thesis/code/moire/diagram_gen
-        - file: master-thesis/code/moire/supercell
-        - file: master-thesis/code/moire/bandstructure
-        - file: master-thesis/code/moire/dft  
+        - file: master-thesis/numerics/dft
+        - file: master-thesis/numerics/wannier_theory
+        - file: master-thesis/numerics/graphene
+#        - file: master-thesis/wannierization/wse2 
     - file: master-thesis/zbibliography
 

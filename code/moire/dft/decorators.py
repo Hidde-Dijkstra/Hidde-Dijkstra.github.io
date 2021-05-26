@@ -7,7 +7,10 @@ def change_directory(directory_name):
     def decorator(func):
         def wrapper(self, *args, **kwargs):
             current_dir = os.getcwd()
-            os.chdir(self.__dict__[directory_name])
+            new_dir = self.__dict__[directory_name]
+            if not os.path.isdir(new_dir):
+                os.mkdir(new_dir)
+            os.chdir(new_dir)
             output = func(self, *args, **kwargs)
             os.chdir(current_dir)
             return output
@@ -25,8 +28,13 @@ def time(func):
 def save(func):
     def wrapper(self, *args, **kwargs):
         data_dic = func(self, *args, **kwargs)
-        for file_name, np_array in data_dic.items():
-            np.save(self.prefix+'/'+file_name, np_array)
+        for file_name, array in data_dic.items():
+            file_loc = self.prefix+'/'+file_name
+            folders = file_loc.split('/')
+            for folder in ['/'.join(folders[:i]) for i in range(1, len(folders))]:
+                if not os.path.isdir(folder):
+                    os.mkdir(folder)           
+            np.save(file_loc, np.array(array))
     return wrapper
 
 def check(*check_args):

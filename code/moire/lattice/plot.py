@@ -23,7 +23,8 @@ class _DrawLattice:
     def plot(
             self, 
             plot_3d=False, 
-            atom_keys=[], 
+            atom_keys=[],
+            units='Å', 
             bonds=False, 
             show_z=False, 
             cell_border=True,
@@ -37,24 +38,35 @@ class _DrawLattice:
             showlegend=False,
             line_width=1
         )
+        if units == '':
+            scale = 1
+        else:
+            scale = self.a
         if 'all' in kwargs:
             for key, value in kwargs['all'].items():
                 general_dic[key] = value
         fig = go.Figure()
         if cell_border and not plot_3d:
-            fig.add_traces(self.get_cell_border(**cell_attributes))
-        fig.update_xaxes(range=[-self.W/2, self.W/2])
-        fig.update_yaxes(scaleanchor='x', scaleratio=1, range=[-1*self.H/2, self.H/2])
+            fig.add_traces(self.get_cell_border(scale, **cell_attributes))
+        x_range = scale*np.array([-self.W/2, self.W/2])
+        y_range = scale*np.array([-1*self.H/2, self.H/2])
+        fig.update_xaxes(range=x_range, constrain='domain', title=units)
+        fig.update_yaxes(scaleanchor='x', scaleratio=1, range=y_range, title=units)
         if plot_3d:
-            z_range = dict(range=[-1*self.D/2, self.D/2])
-            fig.update_layout(scene=dict(zaxis=z_range))
+            z_range = scale*np.array([-1*self.D/2, self.D/2])
+            xaxis = dict(range=x_range, title=units)
+            yaxis = dict(range=y_range, title=units)
+            zaxis = dict(range=z_range, title=units)
+            scene = dict(xaxis=xaxis, yaxis=yaxis, zaxis=zaxis, 
+                         aspectratio=dict(x=1, y=1, z=1))
+            fig.update_layout(scene=scene)
         scatter_dic, position_dic = self._gen_plot_dics(general_dic, atom_keys)
         for atom_key, positions in position_dic.items():
             x, y, z = np.transpose(positions)
-            scatter_dic[atom_key]['x'] = x
-            scatter_dic[atom_key]['y'] = y
+            scatter_dic[atom_key]['x'] = x * scale
+            scatter_dic[atom_key]['y'] = y * scale
             if plot_3d:
-                scatter_dic[atom_key]['z'] = z - self.z0
+                scatter_dic[atom_key]['z'] = (z - self.z0) * scale
                 fig.add_trace(go.Scatter3d(**scatter_dic[atom_key]))
             else:
                 if show_z:
@@ -95,16 +107,18 @@ class _DrawLattice:
         return np.all((origin)[:2] < [self.W/2, self.H/2])
 
     
-    def get_cell_border(self, offset=None, **kwargs):
-        if offset == None:
+    def get_cell_border(self, scale=1, offset=None, **kwargs):
+        if np.any(offset == None):
             offset = np.zeros(2)
+        else:
+            offset = (offset[0]*self.a_1 + offset[1]*self.a_2)[:2]
         Δn = int(max(self.W, self.H)/np.linalg.norm(self.a_1)) + 2
         lines = []
         for n in range(-Δn, Δn+1):
             for a_1, a_2 in [(self.a_1, self.a_2), (self.a_2, self.a_1)]:
                 points = self.get_line(offset, a_1[:2], a_2[:2], n)
                 if points != []:
-                    x, y = np.transpose(points)
+                    x, y = scale*np.transpose(points)
                     showlegend = (lines==[])
                     lines.append(go.Scatter(
                         x=x, y=y, legendgroup= 'cell', mode='lines',

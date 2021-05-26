@@ -12,4 +12,5 @@ sphinx:
     html_js_files:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
 
-    
+bibtex_bibfiles:
+    - master-thesis/references.bib 

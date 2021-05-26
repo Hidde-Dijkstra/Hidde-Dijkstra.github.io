@@ -3,6 +3,7 @@ import numpy as np
 from plotly.subplots import make_subplots
 from itertools import product
 import drawSvg as draw
+import plotly
 
 def arrow(start, end, stroke_width=0.1, stroke='black', **kwargs):
     start, end = np.array(start), np.array(end)
@@ -18,12 +19,7 @@ def figure(func):
     def wrapper(self=None, **kwargs):
         def f(**kwargs2):
             return func(self=self, **kwargs, **kwargs2)
-        plot = Plot(
-            f, 
-            cut=kwargs.get('cut'),  
-            slider=kwargs.get('slider'), 
-            legend=kwargs.get('legend')
-        )
+        plot = Plot(f, **kwargs)
         plot.prepare_traces()
         return plot.plot(fig=kwargs.get('fig'))
     return wrapper
@@ -31,21 +27,28 @@ def figure(func):
 class Plot:
 
     default_colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692', '#B6E880', '#FF97FF', '#FECB52']
-    
-    def __init__(self, f, cut=None, legend=None, slider=None, showlegend=True):
+    default_markers = ['circle', 'square', 'diamond', 'cross', 'x', 'star']
+    i = 0
+
+    def __init__(self, f, showlegend=True, autolegend=True, cut=None, 
+                 plot_range=[-np.inf, np.inf], reset_color=False, **kwargs):
+        if kwargs.get('legend') == None:
+            self.legend = dict(exists=False)
+        else:
+            self.legend = kwargs.get('legend')
+            self.legend['exists'] = True
+        if kwargs.get('slider') == None:
+            self.slider = dict(exists=False)
+        else:
+            self.slider = kwargs.get('slider')
+            self.slider['exists'] = True
+        self.plot_range = np.array(plot_range)
+        self.autolegend = autolegend
         self.showlegend = showlegend
         self.cut = cut
         self.f = f
-        if legend == None:
-            self.legend = dict(exists=False)
-        else:
-            self.legend = legend
-            self.legend['exists'] = True
-        if slider == None:
-            self.slider = dict(exists=False)
-        else:
-            self.slider = slider
-            self.slider['exists'] = True
+        if reset_color:
+            Plot.i = 0
             
     def prepare_traces(self):
         self.traces = []
@@ -58,10 +61,6 @@ class Plot:
                 arg_list.append(args)
                 dic['arg'] = key
                 dic['N'] = len(args)
-        if not self.legend['exists']:
-            keys.append('legend')
-            self.legend['arg'] = 'legend'
-            arg_list.append([None])
         for trace_id, trace in enumerated_product(*arg_list):
             f_args = {}
             f_args_id = {}
@@ -69,6 +68,8 @@ class Plot:
                 f_args[key] = trace[i]
                 f_args_id[key] = trace_id[i]
             self.traces.append([f_args, f_args_id])
+        if arg_list == []:
+            self.traces.append([{}, {}])
         if self.slider['exists']:
             self.traces.sort(key=lambda x: x[1].get(self.slider['arg']))
 
@@ -81,33 +82,46 @@ class Plot:
                 shared_xaxes=True,
             )
         N_0 = len(fig.data)
+        Δi = {}
         if self.slider['exists']:
             N_traces = np.zeros(self.slider['N'], dtype=int)
         visibility_list = []
         for trace in self.traces:
             f_traces = self.f(**trace[0])
             if type(f_traces) != list:
-                f_traces = [f_traces]
-            for i, f_trace in enumerate(f_traces):
+                if type(f_traces) == plotly.graph_objs._figure.Figure:
+                    fig.update_layout(f_traces.layout)
+                    f_traces = list(f_traces.data)
+                else:
+                    raise Exception('invalid input')
+            rows = []
+            valid_traces = []
+            for f_trace in list_transform(f_traces):
+                range_bool, row = self.in_range(f_trace.y)
+                if range_bool:
+                    valid_traces.append(f_trace)
+                    rows.append(row)
+            for i, f_trace in enumerate(valid_traces):
                 visibility, visibility_list = self.check_legend_visibility(trace, visibility_list)
-                f_trace.showlegend = visibility
-                f_trace.legendgroup = str(trace[1][self.legend['arg']])
-                if 'tags' in self.legend:
-                    f_trace.name = self.legend.get('tags')[trace[1][self.legend['arg']]]
-                if 'colors' in self.legend:
-                    f_trace.marker['color'] = self.legend.get('colors')[trace[1][self.legend['arg']]]
-                elif self.legend.get('auto_color'):
-                    f_trace.marker['color'] = self.default_colors[trace[1][self.legend['arg']]%10]
-            if self.cut != None:
-                rows = []
-                for f_trace in f_traces:
-                    rows.append(1+(np.max(f_trace.y)<self.cut))
-            else:
-                rows = [1] * len(f_traces)
-            fig.add_traces(f_traces, cols=1, rows=rows)
+                if self.autolegend:
+                    f_trace.showlegend = visibility
+                if self.legend['exists']:
+                    f_trace.legendgroup = str(trace[1][self.legend['arg']])#+str(self.show_legend)
+                    if 'tags' in self.legend:
+                        f_trace.name = self.legend.get('tags')[trace[1][self.legend['arg']]]
+                        f_trace.legendgroup += f_trace.name
+                    if 'colors' in self.legend:
+                        f_trace.marker['color'] = self.legend.get('colors')[trace[1][self.legend['arg']]]
+                    elif self.legend.get('autocolor'):
+                        i = trace[1][self.legend['arg']]
+                        f_trace.marker['color'] = self.default_colors[(Plot.i+i)%10]
+                        Δi[str(i)] = None
+                    if self.legend.get('autosymbol'):
+                        f_trace.marker['symbol'] = self.default_markers[trace[1][self.legend['arg']]%6]+'-open'
+            fig.add_traces(valid_traces, cols=1, rows=rows)
             if self.slider['exists']:
-                N_traces[trace[1][self.slider['arg']]] += len(f_traces)
-
+                N_traces[trace[1][self.slider['arg']]] += len(valid_traces)
+        Plot.i += len(Δi)
         if self.slider['exists']:
             steps = []
             for i in range(self.slider['N']):
@@ -144,7 +158,10 @@ class Plot:
             i_slider = trace[1][self.slider['arg']]
         else:
             i_slider = 0
-        i_legend = trace[1][self.legend['arg']]
+        if self.legend['exists']:
+            i_legend = trace[1][self.legend['arg']]
+        else:
+            i_legend = 0
         if (i_slider, i_legend) not in visibility_list:
             visibility = self.showlegend
             visibility_list.append((i_slider, i_legend))
@@ -152,8 +169,25 @@ class Plot:
             visibility = False
         return visibility, visibility_list
 
+    def in_range(self, arr):
+        if self.cut == None:
+            return np.all((self.plot_range[0]<arr)&(self.plot_range[1]>arr)), 1
+        else:
+            if np.all((self.plot_range[0]<arr)&(self.cut>arr)):
+                return True, 2
+            elif np.all((self.plot_range[1]>arr) & (self.cut<arr)):
+                return True, 1
+            else:
+                return False, 1
+
 def enumerated_product(*args):
     yield from zip(product(*(range(len(x)) for x in args)), product(*args))
+
+def list_transform(variable):
+    if type(variable) == list:
+        return variable
+    else:
+        return [variable]
 
 class BandStructure:
     
@@ -163,46 +197,77 @@ class BandStructure:
             cols = 1, 
             vertical_spacing = 0.05, 
             shared_xaxes=True,
+            x_title='Momentum', 
+            y_title= 'Energy (eV)',
         )
-        self.cut = None
-        self.fig.update_layout(xaxis_title='Momentum', yaxis_title= 'Energy (eV)')
+        self.fig.update_layout(legend= {'itemsizing': 'constant'})
+        self.cut = cut
+        dic = dict(
+            legendgroup='none',
+            hoverinfo='skip',
+            showlegend=False, 
+            line=dict(color='blue'))
     
+    def plot_from_H(self, name='', showlegend=True, autocolor=True, **kwargs):
+        legend = dict(args=dict(_=[None]), tags=[name], autocolor=autocolor)
+        self._plot_from_H(fig=self.fig, cut=self.cut, legend=legend, showlegend=showlegend, **kwargs)
+
+    def add_bands(self, bands, name='', showlegend=True, autocolor=True, k_arr=None, **kwargs):
+        legend = dict(args=dict(_=[None]), tags=[name], autocolor=autocolor)
+        self._plot_bands(bands=bands, fig=self.fig, cut=self.cut, legend=legend, showlegend=showlegend,
+            k_arr=k_arr, **kwargs)
     @figure
-    def _plot_from_H(self, H=lambda k: 0, N_input=2, **kwargs):
+    def _plot_from_H(self, H=lambda k: 0, N_input=2, k_arr=None, **kwargs):
         N = len(H(np.zeros(N_input)))
         bands = np.zeros((len(self.k_path), N))
+        if 'band_dic' in kwargs:
+            band_dic = kwargs['band_dic']
+        else:
+            band_dic = {}
         for j in range(len(self.k_path)):
             bands[j] = np.linalg.eigvalsh(H(self.k_path[j]))
         traces = []
         for band in np.transpose(bands):
-            traces.append(go.Scatter(y=band))
+            traces.append(go.Scatter(x=self.k_spacing, y=band, **band_dic))
         return traces
 
-    def plot_from_H(self, **kwargs):
-        self._plot_from_H(fig=self.fig, **kwargs)
-
-    def add_bands(self, **kwargs):
-        self._plot_bands(fig=self.fig, **kwargs)
-
     @figure        
-    def _plot_bands(self, bands=[], **kwargs):
+    def _plot_bands(self, bands=[], k_arr=None, **kwargs):
+        if 'band_dic' in kwargs:
+            band_dic = kwargs['band_dic']
+        else:
+            band_dic = {}
         traces = []
         for band in bands:
-            traces.append(go.Scatter(y=band))
+            if np.all(k_arr == None):
+                traces.append(go.Scatter(x=self.k_spacing, y=band, **band_dic))
+            else:
+                traces.append(go.Scatter(x=k_arr, y=band, **band_dic))
         return traces
     
     def set_k_path(self, k_list, k_tags, N_k):
+        k_list = [np.array(k) for k in k_list]
+        k_norms = [np.linalg.norm(k_list[i+1]-k_list[i]) for i in range(len(k_list)-1)]
         if type(N_k) == int:
-            k_norms = [np.linalg.norm(k_list[i+1]-k_list[i]) for i in range(len(k_list)-1)]
-            spacing = [int(N_k*k_norms[i]/sum(k_norms)) for i in range(len(k_norms))]
+            n = [int(N_k*k_norms[i]/sum(k_norms)) for i in range(len(k_norms))] 
+            ΔN_k = N_k - sum(n)
+            if ΔN_k != 0:
+                rest = np.array(k_norms) - sum(k_norms) * np.array(n)/N_k
+                np.array(n, dtype=int)[rest.argsort()[-ΔN_k:]] += 1
+            self.spacing = n
         else:
-            spacing = N_k
+            self.spacing  = N_k
         k_path = []
-        for i in range(len(spacing)):
-            k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/spacing[i] for j in range(spacing[i])]
+        k_spacing = []
+        for i, Δn in enumerate(self.spacing):
+            k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/Δn for j in range(Δn)]
+            k_spacing += [sum(k_norms[:i]) + (k_norms[i])*j/Δn for j in range(Δn)]
         k_path.append(k_list[-1])
+        k_spacing.append(sum(k_norms))
+        self.k_spacing = np.array(k_spacing) / sum(k_norms)
         self.k_path = k_path
-        self.fig.update_xaxes(ticktext=k_tags, tickvals=[sum(spacing[:i]) for i in range(len(spacing)+1)])
+        tickvals = [self.k_spacing[sum(self.spacing[:i])] for i in range(len(self.spacing)+1)]
+        self.fig.update_xaxes(ticktext=k_tags, tickvals=tickvals)
 
 class Orbital:  
     

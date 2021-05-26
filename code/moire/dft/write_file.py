@@ -45,15 +45,15 @@ def write_qe(self, qe_type, k_auto=9):
 @change_directory('work_directory')
 def write_w90(self, pw2wan=True):
     if pw2wan:
-        write_pw2wan(self.qe_dic['&CONTROL'])
+        write_pw2wan(self.qe_dic['&CONTROL'], self.w90_dic['wannier_plot'])
     w90_file = ''
     for setting, value in self.w90_dic.items():
         if type(value) == list:
             w90_file += setting + ' = ' + ', '.join([str(item) for item in value]) + '\n'
         else:
-            w90_file += setting + ' = ' + str(value) + '\n'
+            w90_file += setting + ' = ' + str(value).lower() + '\n'
     w90_file += '\nbegin unit_cell_cart\n'
-    for a_i in self.a + [(0, 0, self.Δz)]:
+    for a_i in self.a:
         w90_file += '  ' + join_grid_point(a_i) + '\n'
     w90_file += 'end unit_cell_cart\n\nBegin projections'
     for atom_name, atom in self.atoms.items():
@@ -71,12 +71,14 @@ def write_w90(self, pw2wan=True):
     w90_file += '\n\nBegin kpoints\n' + join_grid(self.k_grid, weight=False) + 'End kpoints'
     write_file(self.prefix+'.win', w90_file)
 
-def write_pw2wan(control_dic):
+def write_pw2wan(control_dic, wannier_plot):
     pw2wan_file = "&inputpp\n   outdir = '" + control_dic['outdir'] +"'\n   "
     pw2wan_file += "prefix = '" + control_dic['prefix'] +"'\n   "
     pw2wan_file += "seedname = '" + control_dic['prefix'] +"'\n   "
-    pw2wan_file  += 'write_unk = .true.\n   write_mmn = .true.\n   write_amn = .true.\n/\n'
-    write_file(control_dic['prefix']+'.pw2wan', pw2wan_file)
+    if wannier_plot:
+        pw2wan_file += 'write_unk = .true.\n'
+    pw2wan_file  += 'write_mmn = .true.\n   write_amn = .true.\n/\n'
+    write_file(control_dic['prefix']+'.pw2wan.in', pw2wan_file)
     
 def write_file(file_name, file_content):
     f = open(file_name, "w")
