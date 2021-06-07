@@ -4,11 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monolayer WSe\(_2\) &#8212; hidde-dijkstra.github.io</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,13 +20,9 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -35,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -47,7 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -61,14 +57,14 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Supercell" href="supercell.html" />
     <link rel="prev" title="Lattice" href="intro.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -77,40 +73,50 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.svg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro.html">
    Home
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../intro.html">
    Twisted bilayer WSe
    <span class="math notranslate nohighlight">
     \(_2\)
    </span>
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active collapsible-parent">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="intro.html">
      Lattice
     </a>
-    <ul class="current collapse-ul">
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
        Monolayer WSe
@@ -125,14 +131,17 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../numerics/intro.html">
      Numerics
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../numerics/dft.html">
        DFT
@@ -157,8 +166,6 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../zbibliography.html">
@@ -166,11 +173,10 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -186,21 +192,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -218,16 +224,16 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -246,16 +252,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lattice">
    Lattice
@@ -278,8 +284,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -287,17 +293,15 @@
         
               <div>
                 
-  <section id="monolayer-wse-2">
+  <div class="section" id="monolayer-wse-2">
 <h1>Monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span><a class="headerlink" href="#monolayer-wse-2" title="Permalink to this headline">¶</a></h1>
-<section id="lattice">
+<div class="section" id="lattice">
 <h2>Lattice<a class="headerlink" href="#lattice" title="Permalink to this headline">¶</a></h2>
-<p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model by Liu et al. <span id="id1">[<a class="reference internal" href="../zbibliography.html#id4"><span>LSY+13</span></a>]</span>. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
-<figure class="margin align-default" id="wse2-lattice">
+<p>We base our tight binding model of monolayer WSe<span class="math notranslate nohighlight">\(_2\)</span> (mWSe<span class="math notranslate nohighlight">\(_2\)</span>) on the three band model by Liu et al. <span id="id1">[<a class="reference internal" href="../zbibliography.html#id4">LSY+13</a>]</span>. In this model of mWSe2 we consider only the tungsten sites, which form a triangular lattice in the <span class="math notranslate nohighlight">\(xy\)</span> plane:</p>
+<div class="margin figure align-default" id="wse2-lattice">
 <a class="reference internal image-reference" href="../../_images/logo1.png"><img alt="../../_images/logo1.png" src="../../_images/logo1.png" style="height: 0px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Lattice structure of WSe<span class="math notranslate nohighlight">\(_2\)</span>, forming a triangular lattice of tungsten atoms.</span><a class="headerlink" href="#wse2-lattice" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Lattice structure of WSe<span class="math notranslate nohighlight">\(_2\)</span>, forming a triangular lattice of tungsten atoms.</span><a class="headerlink" href="#wse2-lattice" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_hide-output tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">        <script type="text/javascript">
@@ -438,8 +442,8 @@ if (outputEl) {{
 \vec b_1=2\pi\begin{pmatrix}1\\ -1/\sqrt{3}\end{pmatrix}\text{ and } \vec b_2=2\pi\begin{pmatrix}0\\ 2/\sqrt{3}\end{pmatrix},    
 \end{split}\]</div>
 <p>where length is in units of the lattice spacing <span class="math notranslate nohighlight">\(a\)</span> between two tungsten atoms.</p>
-</section>
-<section id="symmetries">
+</div>
+<div class="section" id="symmetries">
 <h2>Symmetries<a class="headerlink" href="#symmetries" title="Permalink to this headline">¶</a></h2>
 <p>The symmetric point group of this triangular lattice is <span class="math notranslate nohighlight">\(D_3\)</span> with generators <span class="math notranslate nohighlight">\(\{C_3, \sigma\}\)</span>. <span class="math notranslate nohighlight">\(C_3\)</span> is a rotation of <span class="math notranslate nohighlight">\(2\pi/3\)</span> in the <span class="math notranslate nohighlight">\(xy\)</span> plane and <span class="math notranslate nohighlight">\(\sigma\)</span> is a reflection with respect to the bisector of <span class="math notranslate nohighlight">\(\vec a_1\)</span> and <span class="math notranslate nohighlight">\(\vec a_2\)</span>. <span class="math notranslate nohighlight">\(C_6\)</span> is not a symmetry element of this lattice due to the hexagonal nature of the lattice.</p>
 <p>We restrict the orbitals of tungsten to the <span class="math notranslate nohighlight">\(d\)</span> orbitals <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, which dictate the low energy <span class="math notranslate nohighlight">\(K\)</span> points. The other orbitals are either at a different energy scale or do not mix with these orbitals due to the symmetries of the lattice. The tight binding hopping matrix between these orbitals in the hopping direction <span class="math notranslate nohighlight">\(\vec a_1\)</span> writes:</p>
@@ -454,7 +458,7 @@ if (outputEl) {{
 <p>in the basis <span class="math notranslate nohighlight">\((d_{x^2-y^2}\, d_{xy}\,d_{z^2})\)</span>.</p>
 <div class="admonition-gga-coupling-constants-in-ev admonition">
 <p class="admonition-title">GGA coupling constants in eV</p>
-<p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <span id="id2">[<a class="reference internal" href="../zbibliography.html#id4"><span>LSY+13</span></a>]</span>.</p>
+<p>GGA coupling constants for WSe<span class="math notranslate nohighlight">\(_2\)</span> in the hopping direction <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, subscripts 1, 2 and 3 refer to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span>, <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals respectively. <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> are the on-site energies where <span class="math notranslate nohighlight">\(\varepsilon_1=\varepsilon_2\)</span> due to symmetry. <span class="math notranslate nohighlight">\(\lambda_\text{SOC}\)</span> is the spin orbit coupling. <span id="id2">[<a class="reference internal" href="../zbibliography.html#id4">LSY+13</a>]</span>.</p>
 <table class="table" id="tab-constants">
 <colgroup>
 <col style="width: 11%" />
@@ -495,25 +499,21 @@ if (outputEl) {{
 <p>where all energies are measured in eV.</p>
 </div>
 <p>Surprisingly, <span class="math notranslate nohighlight">\(\mathcal H_0\)</span> is not symmetric. We recognize the lack of <span class="math notranslate nohighlight">\(C_6\)</span> symmetry as the source of this irregularity. This is more easily understood when we consider the interaction between orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>:</p>
-<figure class="align-default" id="id4">
+<div class="figure align-default" id="id4">
 <div class="cell_output docutils container">
 <img alt="../../_images/monolayer_10_0.svg" src="../../_images/monolayer_10_0.svg" /></div>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Representation of atomic orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, the colors represent the different signs of the lobes. We see that the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital is symmetric under reflection while the <span class="math notranslate nohighlight">\(d_{xy}\)</span> are antisymmetric.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Representation of atomic orbitals <span class="math notranslate nohighlight">\(d_{xy}\)</span> and <span class="math notranslate nohighlight">\(d_{z^2}\)</span>, the colors represent the different signs of the lobes. We see that the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital is symmetric under reflection while the <span class="math notranslate nohighlight">\(d_{xy}\)</span> are antisymmetric.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <p>Mirroring the hopping direction is equivalent to applying a reflection with respect to the <span class="math notranslate nohighlight">\(y\)</span>-axis. The <span class="math notranslate nohighlight">\(d_{xy}\)</span> orbital changes sign under this operation so <span class="math notranslate nohighlight">\(t_{32}=-t_{23}\)</span>. If this reflection was a symmetry of the lattice we would require <span class="math notranslate nohighlight">\(t_{32}=t^*_{23}\)</span>, forcing <span class="math notranslate nohighlight">\(t_{23}=0\)</span>. We can use a similar argument to exclude the <span class="math notranslate nohighlight">\(d_{xz}\)</span> and <span class="math notranslate nohighlight">\(d_{yz}\)</span> orbitals from our model, since for a monolayer we do have a reflection symmetry with respect to the <span class="math notranslate nohighlight">\(xy\)</span> plane.</p>
-</section>
-<section id="rotating-orbitals">
+</div>
+<div class="section" id="rotating-orbitals">
 <h2>Rotating orbitals<a class="headerlink" href="#rotating-orbitals" title="Permalink to this headline">¶</a></h2>
 <p>Having figured out the hopping terms for <span class="math notranslate nohighlight">\(\pm\vec a_1\)</span>, we need also formulate the coupling between orbitals at an angle with respect to the principal axis:</p>
-<figure class="align-default" id="id5">
+<div class="figure align-default" id="id5">
 <div class="cell_output docutils container">
 <img alt="../../_images/monolayer_11_0.svg" src="../../_images/monolayer_11_0.svg" /></div>
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Two <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals at angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect to the principal axis of the orbitals.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Two <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbitals at angle <span class="math notranslate nohighlight">\(\theta\)</span> with respect to the principal axis of the orbitals.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 <p>We can however decompose any misaligned <span class="math notranslate nohighlight">\(d\)</span> orbital as a linear sum of all <span class="math notranslate nohighlight">\(d\)</span> orbitals aligned with the hopping axis. Since <span class="math notranslate nohighlight">\(d_{z^2}\)</span> is symmetric under rotation in the <span class="math notranslate nohighlight">\(xy\)</span> plane we can exclude this orbital from our analysis. We assume the existence of some matrix <span class="math notranslate nohighlight">\(R(\theta) = R'(\theta)\oplus 1\)</span> which governs rotations in our basis and apply it to the <span class="math notranslate nohighlight">\(d_{x^2-y^2}\)</span> orbital:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -537,8 +537,8 @@ R'(\theta)=\begin{pmatrix}\cos2\theta&amp;-\sin2\theta\\ \sin2\theta&amp;\cos2\t
 \[
 \mathcal H_i = \mathcal R^i C_6^i \mathcal H_0C_6^i \mathcal R^{-i}.
 \]</div>
-</section>
-<section id="hamiltonian">
+</div>
+<div class="section" id="hamiltonian">
 <h2>Hamiltonian<a class="headerlink" href="#hamiltonian" title="Permalink to this headline">¶</a></h2>
 <p>The total hopping Hamiltonian is now the sum of all <span class="math notranslate nohighlight">\(\mathcal H_i\)</span> multiplied by the appropriate complex phases:</p>
 <div class="math notranslate nohighlight">
@@ -648,7 +648,7 @@ with: (click dropdown for justification)<div class="summary-down docutils">
 </tr>
 </tbody>
 </table>
-<p>Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow <span id="id3">[<a class="reference internal" href="../zbibliography.html#id4"><span>LSY+13</span></a>]</span> which gives the SOC contribution of the Hamiltonian as:
+<p>Now for the total Hamiltonian we need only to include the on-site energies. Here the spin-orbit coupling, which is quite high for tungsten, also plays an important role. We follow <span id="id3">[<a class="reference internal" href="../zbibliography.html#id4">LSY+13</a>]</span> which gives the SOC contribution of the Hamiltonian as:
 $<span class="math notranslate nohighlight">\(
     \frac{\lambda_{SOC}}2\mathbf{L\cdot S}=\frac{\lambda_{SOC}}2\begin{pmatrix}L_z&amp;L_-\\L_+&amp;-L_z\end{pmatrix},
 \)</span>$ (bkjalvldv)</p>
@@ -672,16 +672,14 @@ $<span class="math notranslate nohighlight">\(
 <span class="eqno">(3)<a class="headerlink" href="#equation-on-site-h" title="Permalink to this equation">¶</a></span>\[
 \mathcal H^\sigma(\mathbf k) = \mathcal H_\text{hop}(\mathbf k)+\mathcal H_\text{on-site}(\sigma).
 \]</div>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
-<figure class="align-default" id="fig-k-path">
+<div class="figure align-default" id="fig-k-path">
 <div class="cell_output docutils container">
 <img alt="../../_images/monolayer_14_0.svg" src="../../_images/monolayer_14_0.svg" /></div>
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Path along high symmetry points of the Brillouin zone: <span class="math notranslate nohighlight">\(\Gamma:(0,\,0)\)</span>, <span class="math notranslate nohighlight">\(K:(4\pi/3, \,0)\)</span> and <span class="math notranslate nohighlight">\(M:(\pi,\,\pi/\sqrt3)\)</span>.</span><a class="headerlink" href="#fig-k-path" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</aside>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Path along high symmetry points of the Brillouin zone: <span class="math notranslate nohighlight">\(\Gamma:(0,\,0)\)</span>, <span class="math notranslate nohighlight">\(K:(4\pi/3, \,0)\)</span> and <span class="math notranslate nohighlight">\(M:(\pi,\,\pi/\sqrt3)\)</span>.</span><a class="headerlink" href="#fig-k-path" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 <p>We solve for the bandstructure along the path connecting the high symmetry <span class="math notranslate nohighlight">\(\Gamma\)</span>, <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(M\)</span> points as shown in <a class="reference internal" href="#fig-k-path"><span class="std std-numref">Fig. 4</span></a>. We set the zero of energy at the maximum of the valence band, at the <span class="math notranslate nohighlight">\(K\)</span> point: <span class="math notranslate nohighlight">\((4\pi/3, \,0)\)</span>. Here the couplings with the <span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbital in <a class="reference internal" href="#tab-hopping-terms"><span class="std std-numref">Table 3</span></a> go to zero and we solve for the eigenvalues of the Hamiltonian:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -697,12 +695,10 @@ $<span class="math notranslate nohighlight">\(
     E_K(\sigma) = \varepsilon_1-\frac32(t_1+t_2)-(3\sqrt3t_{12}-\lambda_\text{SOC}\sigma).
 \]</div>
 <p>We notice that the SOC lowers (raises) the <span class="math notranslate nohighlight">\(K\)</span> point of the valence band, at the <span class="math notranslate nohighlight">\(-K\)</span> point the opposite takes place. The <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(-K\)</span> points of the conduction band at energies <span class="math notranslate nohighlight">\(-3t_3+\varepsilon_3\)</span> are however unaffected.</p>
-<figure class="margin align-default" id="three-band-model-band-structure">
+<div class="margin figure align-default" id="three-band-model-band-structure">
 <a class="reference internal image-reference" href="../../_images/logo1.png"><img alt="../../_images/logo1.png" src="../../_images/logo1.png" style="height: 0px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Three band model with an without spin-orbit coupling.</span><a class="headerlink" href="#three-band-model-band-structure" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Three band model with an without spin-orbit coupling.</span><a class="headerlink" href="#three-band-model-band-structure" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>                            <div id="d8dec127-dfe3-4169-9c24-9ea2c44d1d5e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d8dec127-dfe3-4169-9c24-9ea2c44d1d5e")) {                    Plotly.newPlot(                        "d8dec127-dfe3-4169-9c24-9ea2c44d1d5e",                        [{"legendgroup": "0spinless", "marker": {"color": "#636EFA"}, "name": "spinless", "showlegend": true, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [-0.30000000000000004, -0.3025033783639466, -0.30992730321405676, -0.32201872598650194, -0.3383737242769247, -0.3584617051426703, -0.3816548691304205, -0.4072597762951211, -0.4345482434539824, -0.4627855370527186, -0.49125466002162427, -0.519276272729393, -0.5462243368283062, -0.571537906377134, -0.5947296439385065, -0.6153916617068841, -0.6331992300146165, -0.6479127979506206, -0.6593786603020702, -0.6675284971686583, -0.6723779147971418, -0.6740240308835057, -0.6726420748954139, -0.6684809135717484, -0.6618573642947838, -0.6531491269945674, -0.6427861534853758, -0.6312402888650352, -0.6190130716801712, -0.6066216767115359, -0.5945831321131536, -0.583397139750248, -0.5735280609183242, -0.565386871608688, -0.5593141003855295, -0.555564887776007, -0.5542973023691625, -0.5527482887062806, -0.5480710001444771, -0.5401780000939077, -0.5289343414688163, -0.5141729540963668, -0.4957148076759618, -0.4733928611196137, -0.4470789815971377, -0.41671339252723694, -0.3823367387786821, -0.3441254713162278, -0.30243185065914463, -0.25783025051675657, -0.211171168163165, -0.1636424542911113, -0.11683188353322121, -0.07277334147897585, -0.03393807845263974, -0.00310700953256704, 0.01694576675995285, 0.023965852929517584, 0.016783647266702895, -0.004347818756651689, -0.03784825897650834, -0.08126886024051305, -0.1318443895278687, -0.186913106837131, -0.24414029311407165, -0.3015899133898634, -0.35771236029720144, -0.4112981704918637, -0.46142461110095645, -0.5074065048854602, -0.5487545968945611, -0.5851413179737104, -0.616372674097425, -0.6423648716428432, -0.6631245383434521, -0.6787317388327087, -0.6893253022418044, -0.695090238684729, -0.6962472104251399, -0.6930441402270318, -0.6857500855084259, -0.6746514868015863, -0.6600508204205053, -0.6422675596834079, -0.6216411911820546, -0.5985358584079414, -0.5733460295709537, -0.5465024220021194, -0.5184772715343869, -0.4897879203158093, -0.46099762289975194, -0.43271245999263463, -0.40557333831356435, -0.380242294939792, -0.3573827720603975, -0.33763422181900976, -0.3215823237964806, -0.3097271368263349, -0.30245243594427806, -0.30000000000000004], "yaxis": "y"}, {"legendgroup": "0spinless", "marker": {"color": "#636EFA"}, "name": "spinless", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [3.07, 3.068611064803487, 3.0644548298494567, 3.0575629265955095, 3.047987806586856, 3.0358023422683766, 3.0210992723813197, 3.003990496165482, 2.984606221738426, 2.9630939751330896, 2.9396174775355877, 2.914355399268132, 2.8875000000000006, 2.859255665535355, 2.8298373523138687, 2.79946895146242, 2.76838158484843, 2.7368118461028947, 2.705, 2.6731881538971045, 2.6416184151515703, 2.61053104853758, 2.5801626476861306, 2.5507443344646448, 2.5225, 2.495644600731868, 2.470382522464412, 2.4469060248669106, 2.4253937782615727, 2.4060095038345173, 2.3889007276186796, 2.3741976577316226, 2.3620121934131433, 2.3524370734044906, 2.3455451701505434, 2.341388935196512, 2.3399999999999994, 2.3393515471899127, 2.337205180541439, 2.3329718504659955, 2.325720096816819, 2.314262619372602, 2.2972924433779465, 2.2735659049003236, 2.2421076601420564, 2.2023917885495514, 2.154452034836673, 2.098901526880819, 2.0368812714381734, 1.969980351709718, 1.9001681677182076, 1.8297599229146981, 1.7614141824320102, 1.6981399174875165, 1.643266871375082, 1.6003084733526216, 1.5726426639385889, 1.563, 1.5729015206853583, 1.602324953776011, 1.6498048136891899, 1.712896379450148, 1.7887335709260215, 1.8744551983249083, 1.967435464173688, 2.0653633082965666, 2.166238600231053, 2.2683351122456257, 2.370157184779873, 2.470401430830186, 2.567926700154393, 2.6617319524355105, 2.7509401881905493, 2.834784699366808, 2.912578549170431, 2.9825619270754684, 2.969635841732861, 2.94867717628271, 2.9312156770499205, 2.9174973360002316, 2.9076281678489946, 2.901613202225241, 2.8993622896085482, 2.9006946742176725, 2.9053454526180054, 2.9129742890057457, 2.9231761803892136, 2.9354938631699175, 2.9494313683037143, 2.9644682106291795, 2.980073719654707, 2.995721070771854, 3.01090064534623, 3.0251324245006384, 3.0379771958103508, 3.0490464183713932, 3.058010646235299, 3.0646064517755818, 3.068641819626793, 3.07], "yaxis": "y"}, {"legendgroup": "0spinless", "marker": {"color": "#636EFA"}, "name": "spinless", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [3.07, 3.0725224048734887, 3.080003264448997, 3.0921890968550554, 3.108675261172995, 3.128930166207486, 3.152324742111497, 3.1781640160736764, 3.2057180212383862, 3.2342500031467853, 3.2630407219731925, 3.2914083905476383, 3.3187243368283053, 3.34442481506843, 3.3680195432218794, 3.3890975664813716, 3.407330989126282, 3.4224770192368803, 3.4343786603020714, 3.442964275882397, 3.448246155685477, 3.4503181261090186, 3.449352175612042, 3.445594004880454, 3.439357364294783, 3.431017009176323, 3.4210000915338075, 3.4097758227709676, 3.3978432938957663, 3.38571743693298, 3.3739132591320766, 3.3629286786854307, 3.3532265240222534, 3.3452165007401353, 3.3392381391505896, 3.335545861266465, 3.334297302369163, 3.3329497894433295, 3.32908578828423, 3.3232301572283705, 3.3162178671631954, 3.309122394887938, 3.3031391335918836, 3.29942561249778, 3.2989225124372266, 3.3022009758673874, 3.3093832650245636, 3.3201571453714016, 3.3338660048531636, 3.3496334804725265, 3.366483672902173, 3.3834352743632303, 3.3995649220773707, 3.4140446556200423, 3.4261611102962757, 3.435323217130117, 3.441063235746274, 3.443034147070482, 3.441005134398539, 3.4348560570861855, 3.424571339586048, 3.4102334353996318, 3.3920158913765754, 3.3701759760655152, 3.3450468132388256, 3.3170289598989684, 3.2865813776545125, 3.2542117634011256, 3.2204662295273847, 3.1859183590258637, 3.1511577188920277, 3.1167780377568293, 3.0833656259087125, 3.0514903821137267, 3.021717331963502, 2.995743243599773, 3.0486493668685286, 3.1055750380468954, 3.1550315333752184, 3.196831780654964, 3.2309420426186515, 3.257440845133352, 3.276513565510279, 3.2884506154638684, 3.2936458292683435, 3.292594240905075, 3.285888836047732, 3.274215901971909, 3.258348538941818, 3.2391378035957477, 3.217500860024488, 3.1944054527496215, 3.170850036211677, 3.1478390598990456, 3.1263532824991556, 3.107315617209766, 3.0915538800437323, 3.079762811995036, 3.0724686475220677, 3.07], "yaxis": "y"}, {"legendgroup": "1\u03c3: 1/2", "marker": {"color": "#EF553B"}, "name": "\u03c3: 1/2", "showlegend": true, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [-0.30000000000000004, -0.3025293303113972, -0.3100300442437177, -0.32224602687129994, -0.33876866112945475, -0.3590615592514474, -0.3824906080946858, -0.40835607332173773, -0.4359239245911481, -0.4644543159064058, -0.4932260213865252, -0.5215563892689669, -0.5488169344636438, -0.5744450252778194, -0.597952267769582, -0.6189302062443544, -0.6370538937304961, -0.652083783068402, -0.6638662747960149, -0.6723331477573039, -0.6774999994151533, -0.6794637373781941, -0.6783990915381953, -0.6745540570037254, -0.6682441322351242, -0.6598451868134424, -0.6497847837859237, -0.6385317994345772, -0.6265842369874978, -0.6144552283209401, -0.6026573639853883, -0.5916856847836479, -0.5819998943834368, -0.5740065849941157, -0.5680424667599971, -0.564359708668752, -0.5631144907610794, -0.5478372979898928, -0.5294566814118447, -0.50796645118285, -0.4833041959030067, -0.45536160448346324, -0.4240006993301156, -0.38907520951050073, -0.3504563082541109, -0.30806221711749643, -0.26189174902412865, -0.21206271851887262, -0.15885727545076478, -0.10277755697356336, -0.04461633903786784, 0.014452303374664029, 0.07276054194082646, 0.12802378294819095, 0.17725278631744423, 0.2168130509744926, 0.24281526791224362, 0.25196585292951756, 0.24265122104086617, 0.21557966865690087, 0.17346250240594618, 0.12001965809651438, 0.05902127581305311, -0.0062485625961682945, -0.07314968358364513, -0.1396460808118668, -0.2042019931570418, -0.26567632546561676, -0.3232354236981732, -0.3762861470431178, -0.42442552697969044, -0.46740255533716296, -0.5050884166272631, -0.537452509408982, -0.5645424997397058, -0.5864673430330635, -0.6033827172891306, -0.6154786643694703, -0.6229694640213982, -0.6260858864144769, -0.6250699969839562, -0.6201726360965626, -0.611653582011207, -0.5997842489019104, -0.5848525943781966, -0.5671697337610752, -0.5470775974440764, -0.5249568321715489, -0.5012340393977955, -0.4763873626270629, -0.450949381091858, -0.4255062485479328, -0.4006920585388219, -0.3771775662633198, -0.35565271348803723, -0.3368029480101305, -0.3212801316018197, -0.30966984161333905, -0.30245792715516606, -0.30000000000000004], "yaxis": "y"}, {"legendgroup": "1\u03c3: 1/2", "marker": {"color": "#EF553B"}, "name": "\u03c3: 1/2", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [2.8419999999999996, 2.84276336723293, 2.8449107971956975, 2.8480280200604953, 2.8514712079365285, 2.854438371330068, 2.8560674224206046, 2.855549175689373, 2.852232574280845, 2.845695377511111, 2.8357637473545747, 2.8224843933163912, 2.806069222742713, 2.786835286879129, 2.765154968608758, 2.7414214059669857, 2.7160276506035514, 2.6893556793359346, 2.661771481522831, 2.633623439334422, 2.6052422409683427, 2.5769413302116315, 2.549017385103442, 2.5217506037718387, 2.4954047302505837, 2.470226831394029, 2.4464468723637602, 2.424277152603829, 2.4039116675029937, 2.3855254581845267, 2.3692740049509524, 2.3552927091036904, 2.3436964930330184, 2.334579530163595, 2.328015096477277, 2.3240555174178787, 2.3227321723811674, 2.3280958455658762, 2.3324969607591566, 2.335575450035073, 2.3365321374005514, 2.334126401890592, 2.326729928130297, 2.3124769655111734, 2.289541746508432, 2.256515222970431, 2.2127613579268033, 2.158597436854323, 2.095236961174942, 2.02458253669636, 1.9490162576303236, 1.87128421101847, 1.7944931974154401, 1.7221848818038241, 1.6584127020554476, 1.6076888289000457, 1.5746060038057896, 1.563, 1.5748770906009766, 1.6097822170469152, 1.6651263527243363, 1.7371880674410165, 1.8220779547420731, 1.9162795419707488, 2.016809690113009, 2.1211774182100314, 2.2272701222949047, 2.3332189440386046, 2.437235100859639, 2.537337221543291, 2.630701420231222, 2.711775697691718, 2.768323296559389, 2.7885954002273317, 2.78415739483426, 2.7711806792327773, 2.756790283435126, 2.7437467219379186, 2.733274850636893, 2.72596893093702, 2.7220945706475717, 2.721703381420602, 2.7246831988514284, 2.730784212529074, 2.7396358051207272, 2.7507600912001298, 2.7635849822972594, 2.7774587541182476, 2.791668513084357, 2.8054662575543494, 2.818107872772413, 2.82891097881668, 2.8373342374449306, 2.843070303549153, 2.8461279744272447, 2.8468667880599576, 2.845955400245026, 2.8442562668354348, 2.842672139628973, 2.8419999999999996], "yaxis": "y"}, {"legendgroup": "1\u03c3: 1/2", "marker": {"color": "#EF553B"}, "name": "\u03c3: 1/2", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [3.298, 3.2983960543914947, 3.299650038132414, 3.30195130427487, 3.3055867966758545, 3.3108939912545727, 3.3181923310364794, 3.3277016335764014, 3.3394673498331353, 3.3533173796224496, 3.3688658135191036, 3.385559513038953, 3.402747711720931, 3.4197523126253424, 3.435924550758067, 3.4506836565142756, 3.46353958708704, 3.474104171121624, 3.482094793273186, 3.487333641033727, 3.4897444144867142, 3.4893475509296525, 3.4862544548375123, 3.480660879005236, 3.4728394019845417, 3.463130838333037, 3.451934371935007, 3.4396962056035902, 3.426896569961671, 3.414035034192377, 3.401614213672036, 3.3901221723467616, 3.380014057867493, 3.371693757366456, 3.3654965791983242, 3.3616740999378436, 3.360382318379911, 3.339294500350978, 3.315179689333879, 3.288415008748234, 3.259775681013654, 3.2304472627570444, 3.201987540493686, 3.1761969002778168, 3.154865752727825, 3.1394263660367665, 3.1306289521798805, 3.1283984826005433, 3.131935739908015, 3.139978601942691, 3.151080753864759, 3.163816228593684, 3.176893481619894, 3.1892025668765673, 3.1998244148458266, 3.208022801075632, 3.2132303947267817, 3.215034147070482, 3.2131619907087554, 3.2074713064017284, 3.1979390391684466, 3.1846532290717358, 3.1678058422196034, 3.147687088178709, 3.1246819777690766, 3.0992710174075055, 3.0720394884505025, 3.0437060865818975, 3.0151991260448336, 2.9878622104704164, 2.9640539289003303, 2.948995529864076, 2.954698260069711, 2.992767319019344, 3.051556447695926, 3.1148600956428196, 3.175552340213592, 3.2308939180764282, 3.279694613384505, 3.321401931905621, 3.355795551295605, 3.3828718152329698, 3.4027954178580995, 3.4158777663709685, 3.422566879961763, 3.423442314063827, 3.419211602012811, 3.4107054211930095, 3.398868162024583, 3.384739198981831, 3.3694184650988888, 3.3540093332600924, 3.3395351643382347, 3.326836452174056, 3.3164724453099033, 3.308663973712321, 3.303306933839344, 3.300055701722185, 3.298443818730776, 3.298], "yaxis": "y"}, {"legendgroup": "2\u03c3: -1/2", "marker": {"color": "#00CC96"}, "name": "\u03c3: -1/2", "showlegend": true, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [-0.30000000000000004, -0.3025293303113972, -0.3100300442437177, -0.32224602687130094, -0.3387686611294543, -0.35906155925144645, -0.3824906080946858, -0.40835607332173773, -0.4359239245911481, -0.4644543159064049, -0.49322602138652427, -0.5215563892689682, -0.5488169344636447, -0.5744450252778198, -0.5979522677695833, -0.6189302062443544, -0.6370538937304961, -0.652083783068402, -0.6638662747960145, -0.6723331477573044, -0.6774999994151542, -0.6794637373781945, -0.6783990915381953, -0.6745540570037258, -0.6682441322351242, -0.659845186813442, -0.6497847837859251, -0.6385317994345772, -0.6265842369874982, -0.61445522832094, -0.6026573639853888, -0.591685684783647, -0.5819998943834368, -0.5740065849941153, -0.5680424667599976, -0.5643597086687524, -0.5631144907610799, -0.5752343427202147, -0.584085497104497, -0.5895080267115937, -0.5913077446788065, -0.5892749301986789, -0.5832063691043694, -0.5729297283146496, -0.558329557177397, -0.5393745774428206, -0.5161463151600817, -0.4888694571411403, -0.4579444607014744, -0.4239827010467711, -0.3878434329370707, -0.3506694450420329, -0.31391362359737207, -0.2793410110049942, -0.24898123412352902, -0.22499976915980313, -0.20946583768777938, -0.20403414707048195, -0.2096224910984874, -0.22621228215324662, -0.25286578339935184, -0.28794709419762354, -0.3294394989639629, -0.3752400170006057, -0.42336560080348584, -0.4720644140670104, -0.5198563050406799, -0.5655312795369014, -0.6081277267227215, -0.6469034851737026, -0.6813063922031112, -0.7109471046872335, -0.7355749940135633, -0.7550570432595093, -0.7693593860349625, -0.778531115573571, -0.7826900945808618, -0.7820106270337787, -0.7767129707096551, -0.7670547527240565, -0.7533243893100545, -0.7358366011120347, -0.7149300565915561, -0.690967072975937, -0.6643351642291322, -0.6354500590353828, -0.6047596303765691, -0.5727479941498388, -0.5399388605831961, -0.5068970753672676, -0.47422719125491963, -0.44256790161352955, -0.4125812965519069, -0.38493623243024083, -0.36028569355180395, -0.33923888812737496, -0.3223298929318443, -0.3099857567215296, -0.3024977926460028, -0.30000000000000004], "yaxis": "y"}, {"legendgroup": "2\u03c3: -1/2", "marker": {"color": "#00CC96"}, "name": "\u03c3: -1/2", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [2.8419999999999996, 2.84276336723293, 2.8449107971956975, 2.848028020060495, 2.8514712079365276, 2.854438371330069, 2.8560674224206046, 2.855549175689374, 2.8522325742808454, 2.8456953775111105, 2.8357637473545747, 2.8224843933163912, 2.806069222742713, 2.786835286879129, 2.765154968608757, 2.7414214059669857, 2.7160276506035514, 2.689355679335934, 2.6617714815228304, 2.633623439334422, 2.605242240968343, 2.576941330211632, 2.5490173851034426, 2.521750603771838, 2.4954047302505833, 2.470226831394029, 2.4464468723637607, 2.424277152603829, 2.4039116675029937, 2.3855254581845258, 2.369274004950953, 2.3552927091036904, 2.3436964930330184, 2.3345795301635954, 2.3280150964772774, 2.3240555174178787, 2.3227321723811674, 2.3163582590061322, 2.3085674293213345, 2.298658748391133, 2.2857207374734565, 2.2687364135390693, 2.2467068875346885, 2.218782775581359, 2.1843855284115716, 2.143299358946592, 2.0957213630158416, 2.0422700198822965, 1.9839639075875324, 1.9221875596745979, 1.8586588078218014, 1.795404104764604, 1.7347379238377707, 1.6792306933446584, 1.6316380392900793, 1.5947571937922707, 1.5711860136356752, 1.563, 1.571428043045982, 1.5966530987338345, 1.6378310096489612, 1.693314167636383, 1.7609723913130997, 1.8384916727344367, 1.9235850573660944, 2.0141088506440727, 2.108107905035573, 2.203818200723126, 2.2996474732594425, 2.394145247607531, 2.485965886424336, 2.573822078846812, 2.656420305777858, 2.7323637825051525, 2.8000084792313453, 2.8572994910282414, 2.901808691444325, 2.931577246725769, 2.946940924876082, 2.951242608414188, 2.948911928728724, 2.9434506034941053, 2.936994460813818, 2.9306520389048463, 2.9248808127698025, 2.919738917540907, 2.915042500460932, 2.910473746258235, 2.9056681906798074, 2.9002946911001244, 2.894129379468086, 2.8871154624789352, 2.879395750309891, 2.8713069780661313, 2.863333921036053, 2.856032068746158, 2.8499343395109165, 2.8454579049295963, 2.8428239778796005, 2.8419999999999996], "yaxis": "y"}, {"legendgroup": "2\u03c3: -1/2", "marker": {"color": "#00CC96"}, "name": "\u03c3: -1/2", "showlegend": false, "type": "scatter", "x": [0.0, 0.01016737232734552, 0.02033474465469104, 0.030502116982036562, 0.04066948930938208, 0.05083686163672759, 0.061004233964073125, 0.07117160629141864, 0.08133897861876416, 0.09150635094610968, 0.10167372327345518, 0.11184109560080072, 0.12200846792814625, 0.13217584025549176, 0.14234321258283728, 0.1525105849101828, 0.16267795723752831, 0.1728453295648738, 0.18301270189221935, 0.19318007421956487, 0.20334744654691037, 0.21351481887425589, 0.22368219120160143, 0.23384956352894695, 0.2440169358562925, 0.25418430818363796, 0.2643516805109835, 0.274519052838329, 0.28468642516567455, 0.29485379749302004, 0.3050211698203656, 0.3151885421477111, 0.32535591447505663, 0.3355232868024021, 0.3456906591297476, 0.3558580314570932, 0.3660254037844387, 0.3760884926132571, 0.38615158144207556, 0.39621467027089396, 0.4062777590997124, 0.4163408479285309, 0.4264039367573493, 0.43646702558616773, 0.44653011441498613, 0.4565932032438046, 0.466656292072623, 0.47671938090144145, 0.48678246973025996, 0.4968455585590783, 0.5069086473878968, 0.5169717362167152, 0.5270348250455337, 0.537097913874352, 0.5471610027031705, 0.5572240915319889, 0.5672871803608074, 0.5773502691896258, 0.5874133580184443, 0.5974764468472628, 0.6075395356760812, 0.6176026245048996, 0.627665713333718, 0.6377288021625365, 0.6477918909913549, 0.6578549798201733, 0.6679180686489917, 0.6779811574778102, 0.6880442463066286, 0.6981073351354471, 0.7081704239642654, 0.718233512793084, 0.7282966016219024, 0.7383596904507208, 0.7484227792795392, 0.7584858681083577, 0.7685489569371762, 0.7786120457659945, 0.788675134594813, 0.7987382234236314, 0.8088013122524499, 0.8188644010812683, 0.8289274899100867, 0.8389905787389051, 0.8490536675677236, 0.8591167563965421, 0.8691798452253605, 0.8792429340541789, 0.8893060228829973, 0.8993691117118158, 0.9094322005406341, 0.9194952893694526, 0.929558378198271, 0.9396214670270895, 0.9496845558559079, 0.9597476446847265, 0.9698107335135447, 0.9798738223423632, 0.9899369111711815, 1.0], "xaxis": "x", "y": [3.298, 3.2983960543914947, 3.2996500381324143, 3.30195130427487, 3.3055867966758536, 3.310893991254573, 3.3181923310364794, 3.3277016335764023, 3.3394673498331353, 3.3533173796224514, 3.368865813519103, 3.3855595130389533, 3.4027477117209313, 3.4197523126253424, 3.435924550758066, 3.4506836565142764, 3.46353958708704, 3.474104171121623, 3.482094793273184, 3.487333641033726, 3.489744414486715, 3.4893475509296534, 3.486254454837513, 3.480660879005235, 3.4728394019845394, 3.4631308383330364, 3.451934371935008, 3.43969620560359, 3.426896569961672, 3.414035034192377, 3.401614213672037, 3.3901221723467625, 3.380014057867493, 3.371693757366455, 3.3654965791983256, 3.3616740999378436, 3.3603823183799113, 3.3784291316410453, 3.393738036464356, 3.40687328592092, 3.4185906297165474, 3.429750576823783, 3.441216250863549, 3.4537456090117784, 3.4678952197479727, 3.48395459038593, 3.501923513226795, 3.521532638194837, 3.542295978746134, 3.5635787230376628, 3.5846652975724833, 3.604818083264247, 3.6233229207357613, 3.6395215492889195, 3.6528330980521693, 3.6627672563177045, 3.66893149049692, 3.6710341470704817, 3.6688847504031044, 3.662392375524956, 3.651562668049121, 3.6364938811705074, 3.617372180425593, 3.594466411819459, 3.5681225277358326, 3.5387579182286104, 3.5068560175934684, 3.4729617839686626, 3.437679056669579, 3.4016715225367613, 3.3656703279306375, 3.330493698059053, 3.2970878282375415, 3.2666034705920493, 3.2405222495940973, 3.2208050563878623, 3.209841309496121, 3.2095953559528843, 3.219772045833573, 3.2370971207380315, 3.2572325855405513, 3.27678855817494, 3.293760630476058, 3.3071927640692227, 3.3168044421636234, 3.322743812997354, 3.3254361167816304, 3.3254815910313127, 3.3235733056145342, 3.3204204781762625, 3.3166747685662763, 3.312866502663434, 3.3093628894863594, 3.3063584438239997, 3.3038994787648597, 3.301934633143365, 3.3003777559034795, 3.2991699787362148, 3.2983318459709867, 3.298], "yaxis": "y"}],                        {"annotations": [{"font": {"size": 16}, "showarrow": false, "text": "Momentum", "x": 0.5, "xanchor": "center", "xref": "paper", "y": 0, "yanchor": "top", "yref": "paper", "yshift": -30}, {"font": {"size": 16}, "showarrow": false, "text": "Energy (eV)", "textangle": -90, "x": 0, "xanchor": "right", "xref": "paper", "xshift": -40, "y": 0.5, "yanchor": "middle", "yref": "paper"}], "legend": {"itemsizing": "constant"}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "ticktext": ["\u0393", "M", "K", "\u0393"], "tickvals": [0.0, 0.3660254037844387, 0.5773502691896258, 1.0]}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0]}},                        {"responsive": true}                    ).then(function(){
@@ -731,8 +727,8 @@ if (outputEl) {{
 
                         })                };                });            </script>        </div></div></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -756,15 +752,15 @@ if (outputEl) {{
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Lattice</a>
     <a class='right-next' id="next-link" href="supercell.html" title="next page">Supercell</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -772,7 +768,7 @@ if (outputEl) {{
         
           By Hidde Dijkstra<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -781,11 +777,9 @@ if (outputEl) {{
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>

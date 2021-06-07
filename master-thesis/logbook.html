@@ -4,11 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logbook &#8212; hidde-dijkstra.github.io</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,13 +20,9 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -35,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -47,7 +43,7 @@
     <script src="../_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -59,14 +55,14 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -75,40 +71,50 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.svg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">hidde-dijkstra.github.io</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Home
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="intro.html">
    Twisted bilayer WSe
    <span class="math notranslate nohighlight">
     \(_2\)
    </span>
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2 collapsible-parent">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="lattice/intro.html">
      Lattice
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="lattice/monolayer.html">
        Monolayer WSe
@@ -123,14 +129,17 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="numerics/intro.html">
      Numerics
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="numerics/dft.html">
        DFT
@@ -155,8 +164,6 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="zbibliography.html">
@@ -164,11 +171,10 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -184,21 +190,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -216,16 +222,16 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -244,16 +250,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#to-do">
    To-do:
@@ -391,8 +397,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -400,9 +406,9 @@
         
               <div>
                 
-  <section id="logbook">
+  <div class="section" id="logbook">
 <h1>Logbook<a class="headerlink" href="#logbook" title="Permalink to this headline">¶</a></h1>
-<section id="to-do">
+<div class="section" id="to-do">
 <h2>To-do:<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Rename files for clarity</p></li>
@@ -418,64 +424,64 @@
 <li><p>Update captions</p></li>
 <li><p>Probably mistake in energy levels monolayer, look into it.</p></li>
 </ul>
-</section>
-<section id="october">
+</div>
+<div class="section" id="october">
 <h2>23-29 October<a class="headerlink" href="#october" title="Permalink to this headline">¶</a></h2>
-<section id="id1">
+<div class="section" id="id1">
 <h3>29 October<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Wrote proposal hopping function</p></li>
 </ul>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h3>27-28 October<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Selenide atoms ruin nice interlayer hopping, no regularity.</p></li>
 <li><p>New idea: restrict interlayer NN to 1/2 of distance between tungsten atoms. Not so strange, for AB stacked bilayer graphene other hoppings are also ignored.</p></li>
 <li><p>DFT to find coupling and fit exponential curve.</p></li>
 </ul>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3>-26 October<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Realize my original idea for interlayer coupling using <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
 transition metal dichalcogenides</a> does not work since it is difficult to untangle the Fourier approach to hoppings between different sites instead of bands.</p></li>
 </ul>
-</section>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>16-22 October<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<section id="meeting">
+<div class="section" id="meeting">
 <h3>Meeting<a class="headerlink" href="#meeting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Gave presentation on <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
 transition metal dichalcogenides</a>.</p></li>
 <li><p>Figure out how to rotate interlayer coupling.</p></li>
 </ul>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h3>21 October<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>New proposal for sign choice which adheres to symmetries: divide circle in six and have the signs alternate between following parts.</p></li>
 <li><p>Inspect paper and prepare presentation.</p></li>
 </ul>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3>20 October<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Finally managed to visualize interlayer coupling without errors. Proof that code works.</p></li>
 </ul>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h3>17-18 October<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Figured out that a space is required after a <span class="math notranslate nohighlight">\(:name:\)</span> keyword for myst markdown to allow buiding of jupyterbook</p></li>
 </ul>
-</section>
-</section>
-<section id="id8">
+</div>
+</div>
+<div class="section" id="id8">
 <h2>9-15 October<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<section id="id9">
+<div class="section" id="id9">
 <h3>Meeting<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Next week: presentation on <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
@@ -483,8 +489,8 @@ transition metal dichalcogenides</a></p></li>
 <li><p>Consider symmetry sign choice for interlayer coupling.</p></li>
 <li><p>Interlayer coupling vanishes at <span class="math notranslate nohighlight">\(K\)</span> point for conductance band (<span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals) so we need to take all orbital hopping into account.</p></li>
 </ul>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3>15 October<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Find papers on bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span>:</p>
@@ -495,37 +501,37 @@ Bilayer WSe2</a> AB stacking tight-binding useless since assumes coupling of d_<
 </ul>
 </li>
 </ul>
-</section>
-<section id="id11">
+</div>
+<div class="section" id="id11">
 <h3>14 October<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Made tabbed plots for different supercells</p></li>
 <li><p>Wrote pseudocode to explain NN code</p></li>
 </ul>
-</section>
-<section id="id12">
+</div>
+<div class="section" id="id12">
 <h3>12-13 October<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Combine svg objects into groups for clearer code, apparently groups cannot be elements of groups.</p></li>
 </ul>
-</section>
-<section id="id13">
+</div>
+<div class="section" id="id13">
 <h3>10-11 October<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Fail to add caption to html figure, probable need to wait for update of jupyterbook</p></li>
 </ul>
-</section>
-</section>
-<section id="id14">
+</div>
+</div>
+<div class="section" id="id14">
 <h2>2-8 October<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
-<section id="id15">
+<div class="section" id="id15">
 <h3>Meeting<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Find papers using people that cite relevant papers</p></li>
 <li><p>Consider only in plane rotations of orbitals for interlayer hopping</p></li>
 </ul>
-</section>
-<section id="id16">
+</div>
+<div class="section" id="id16">
 <h3>8 October<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Looking for papers on twisted bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span></p>
@@ -539,33 +545,33 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 </li>
 <li><p>Just do DFT ourselves?</p></li>
 </ul>
-</section>
-<section id="id17">
+</div>
+<div class="section" id="id17">
 <h3>6-7 October<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Rewrite explanation for derivation of Hamiltonian elements.</p></li>
 <li><p>Change band structure code to its own class (previously part of WSe2 class).</p></li>
 <li><p>Figure out how to use plotly to plot functions interactively. Main issue resolved: plotting all bands for one spin to the same toggle key in the legend.</p></li>
 </ul>
-</section>
-<section id="id18">
+</div>
+<div class="section" id="id18">
 <h3>5 October<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Simplify symmetry explanation</p></li>
 <li><p>Refactoring orbital drawing code</p></li>
 <li><p>Include rotating orbitals for the monolayer</p></li>
 </ul>
-</section>
-<section id="id19">
+</div>
+<div class="section" id="id19">
 <h3>3-4 October<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Write lattice drawing class for svg lattice which also works for (rotated) bilayer lattices.</p></li>
 </ul>
-</section>
-</section>
-<section id="id20">
+</div>
+</div>
+<div class="section" id="id20">
 <h2>1 October<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
-<section id="id21">
+<div class="section" id="id21">
 <h3>Meeting<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>Talked about restarting the project. Louk set out the general plan of the project and the immenent hurdles to cross:</p>
 <ul class="simple">
@@ -574,9 +580,9 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 <li><p>Find articles on interlayer coupling of WSe<span class="math notranslate nohighlight">\(_2\)</span></p></li>
 <li><p>Consider <span class="math notranslate nohighlight">\(d\)</span> orbital decomposition between the bilayer atoms.</p></li>
 </ul>
-</section>
-</section>
-<section id="completed">
+</div>
+</div>
+<div class="section" id="completed">
 <h2>Completed<a class="headerlink" href="#completed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Draw lattice vectors in lattice plots</p></li>
@@ -584,8 +590,8 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 <li><p>Insert pseudo code</p></li>
 <li><p>Resolve reference conflicts</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -609,13 +615,13 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -623,7 +629,7 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
         
           By Hidde Dijkstra<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -632,11 +638,9 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>
