@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Logbook &#8212; hidde-dijkstra.github.io</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -103,23 +104,54 @@
    </span>
   </a>
   <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="dft/friday_discussion.html">
-     Twisted bilayer WSe
-     <span class="math notranslate nohighlight">
-      \(_2\)
-     </span>
-     DFT
-    </a>
-   </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="wannierization/intro.html">
-     Wannierization
+    <a class="reference internal" href="lattice/intro.html">
+     Lattice
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="wannierization/theory.html">
+      <a class="reference internal" href="lattice/monolayer.html">
+       Monolayer WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="lattice/supercell.html">
+       Supercell
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="numerics/intro.html">
+     Numerics
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="numerics/dft.html">
+       DFT
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numerics/wannier_theory.html">
        Wannierization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numerics/graphene.html">
+       Graphene
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numerics/wse2.html">
+       WSe
+       <span class="math notranslate nohighlight">
+        \(_2\)
+       </span>
       </a>
      </li>
     </ul>
@@ -368,9 +400,9 @@
         
               <div>
                 
-  <div class="section" id="logbook">
+  <section id="logbook">
 <h1>Logbook<a class="headerlink" href="#logbook" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="to-do">
+<section id="to-do">
 <h2>To-do:<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Rename files for clarity</p></li>
@@ -386,64 +418,64 @@
 <li><p>Update captions</p></li>
 <li><p>Probably mistake in energy levels monolayer, look into it.</p></li>
 </ul>
-</div>
-<div class="section" id="october">
+</section>
+<section id="october">
 <h2>23-29 October<a class="headerlink" href="#october" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
+<section id="id1">
 <h3>29 October<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Wrote proposal hopping function</p></li>
 </ul>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>27-28 October<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Selenide atoms ruin nice interlayer hopping, no regularity.</p></li>
 <li><p>New idea: restrict interlayer NN to 1/2 of distance between tungsten atoms. Not so strange, for AB stacked bilayer graphene other hoppings are also ignored.</p></li>
 <li><p>DFT to find coupling and fit exponential curve.</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h3>-26 October<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Realize my original idea for interlayer coupling using <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
 transition metal dichalcogenides</a> does not work since it is difficult to untangle the Fourier approach to hoppings between different sites instead of bands.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id4">
+</section>
+</section>
+<section id="id4">
 <h2>16-22 October<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="meeting">
+<section id="meeting">
 <h3>Meeting<a class="headerlink" href="#meeting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Gave presentation on <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
 transition metal dichalcogenides</a>.</p></li>
 <li><p>Figure out how to rotate interlayer coupling.</p></li>
 </ul>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>21 October<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>New proposal for sign choice which adheres to symmetries: divide circle in six and have the signs alternate between following parts.</p></li>
 <li><p>Inspect paper and prepare presentation.</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>20 October<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Finally managed to visualize interlayer coupling without errors. Proof that code works.</p></li>
 </ul>
-</div>
-<div class="section" id="id7">
+</section>
+<section id="id7">
 <h3>17-18 October<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Figured out that a space is required after a <span class="math notranslate nohighlight">\(:name:\)</span> keyword for myst markdown to allow buiding of jupyterbook</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id8">
+</section>
+</section>
+<section id="id8">
 <h2>9-15 October<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id9">
+<section id="id9">
 <h3>Meeting<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Next week: presentation on <a class="reference external" href="https://arxiv.org/pdf/1610.00869.pdf">Interlayer coupling in commensurate and incommensurate bilayer structures of
@@ -451,8 +483,8 @@ transition metal dichalcogenides</a></p></li>
 <li><p>Consider symmetry sign choice for interlayer coupling.</p></li>
 <li><p>Interlayer coupling vanishes at <span class="math notranslate nohighlight">\(K\)</span> point for conductance band (<span class="math notranslate nohighlight">\(d_{z^2}\)</span> orbitals) so we need to take all orbital hopping into account.</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
+</section>
+<section id="id10">
 <h3>15 October<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Find papers on bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span>:</p>
@@ -463,37 +495,37 @@ Bilayer WSe2</a> AB stacking tight-binding useless since assumes coupling of d_<
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id11">
+</section>
+<section id="id11">
 <h3>14 October<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Made tabbed plots for different supercells</p></li>
 <li><p>Wrote pseudocode to explain NN code</p></li>
 </ul>
-</div>
-<div class="section" id="id12">
+</section>
+<section id="id12">
 <h3>12-13 October<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Combine svg objects into groups for clearer code, apparently groups cannot be elements of groups.</p></li>
 </ul>
-</div>
-<div class="section" id="id13">
+</section>
+<section id="id13">
 <h3>10-11 October<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Fail to add caption to html figure, probable need to wait for update of jupyterbook</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id14">
+</section>
+</section>
+<section id="id14">
 <h2>2-8 October<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id15">
+<section id="id15">
 <h3>Meeting<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Find papers using people that cite relevant papers</p></li>
 <li><p>Consider only in plane rotations of orbitals for interlayer hopping</p></li>
 </ul>
-</div>
-<div class="section" id="id16">
+</section>
+<section id="id16">
 <h3>8 October<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Looking for papers on twisted bilayer WSe<span class="math notranslate nohighlight">\(_2\)</span></p>
@@ -507,33 +539,33 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 </li>
 <li><p>Just do DFT ourselves?</p></li>
 </ul>
-</div>
-<div class="section" id="id17">
+</section>
+<section id="id17">
 <h3>6-7 October<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Rewrite explanation for derivation of Hamiltonian elements.</p></li>
 <li><p>Change band structure code to its own class (previously part of WSe2 class).</p></li>
 <li><p>Figure out how to use plotly to plot functions interactively. Main issue resolved: plotting all bands for one spin to the same toggle key in the legend.</p></li>
 </ul>
-</div>
-<div class="section" id="id18">
+</section>
+<section id="id18">
 <h3>5 October<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Simplify symmetry explanation</p></li>
 <li><p>Refactoring orbital drawing code</p></li>
 <li><p>Include rotating orbitals for the monolayer</p></li>
 </ul>
-</div>
-<div class="section" id="id19">
+</section>
+<section id="id19">
 <h3>3-4 October<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Write lattice drawing class for svg lattice which also works for (rotated) bilayer lattices.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id20">
+</section>
+</section>
+<section id="id20">
 <h2>1 October<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id21">
+<section id="id21">
 <h3>Meeting<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>Talked about restarting the project. Louk set out the general plan of the project and the immenent hurdles to cross:</p>
 <ul class="simple">
@@ -542,9 +574,9 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 <li><p>Find articles on interlayer coupling of WSe<span class="math notranslate nohighlight">\(_2\)</span></p></li>
 <li><p>Consider <span class="math notranslate nohighlight">\(d\)</span> orbital decomposition between the bilayer atoms.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="completed">
+</section>
+</section>
+<section id="completed">
 <h2>Completed<a class="headerlink" href="#completed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Draw lattice vectors in lattice plots</p></li>
@@ -552,8 +584,8 @@ WSe2</a> talks a lot about AA vs AB stacking and localization of wavefunctions b
 <li><p>Insert pseudo code</p></li>
 <li><p>Resolve reference conflicts</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
