@@ -1,14 +1,13 @@
-import os
-from .decorators import check, time, change_directory
-from moire.plot import BandStructure
+from .decorators import check
+from moire.bandstructure import BandStructure
 import numpy as np
 
-class DFT:
+from .wannier import Wannier
+from .w90 import W90
+from .qe import QE
+from .projwfc import PROJWFC
 
-    from .write_file import write_qe, write_w90
-    from .extract import extract_nscf, extract_w90, extract_projwfc, extract_orbitals
-    from .lattice import import_lattice
-    from .plot import plot_nscf, plot_wfc, plot_qe_bands, plot_w90_bands, plot_wannier
+class DFT:
 
     a_1 = np.array([1, 0, 0])
     a_2 = np.array([-1/2, np.sqrt(3)/2, 0])
@@ -22,98 +21,34 @@ class DFT:
         self.w90 = False
         self.Δz = Δz
 
-    def prepare_qe(self, qe_dic):
+    def prepare_qe(self, qe_dic, lattice):
+        self.lattice = lattice
+        self.atoms = {}
+        for atom in lattice.unit_cell:
+            if atom.name not in self.atoms:
+                self.atoms[atom.name] = atom.__dict__
+                self.atoms[atom.name]['loc'] = [atom.position*lattice.a]
+            else:
+                self.atoms[atom.name]['loc'].append(atom.position*lattice.a)
         self.qe = True
-        self.qe_dic = {
-            '&CONTROL': {
-                'prefix': self.prefix,
-                'outdir': './out',
-                'verbosity': 'high'
-            },
-            '&SYSTEM': {
-                'assume_isolated': '2D',
-                'ibrav': 0,
-                'nat': 0,
-                'ntyp': 0
-            },
-            '&ELECTRONS': {},
-            '&IONS': {}
-        }
-        for key in qe_dic.keys():
-            for sub_key in qe_dic[key].keys():
-                self.qe_dic[key][sub_key] = qe_dic[key][sub_key]
+        self.QE = QE(self, qe_dic, lattice)
+        return self.QE
+
+    @check('qe')
+    def prepare_projwfc(self, projwfc_dir=''):
+        self.PROJWFC = PROJWFC(self, projwfc_dir)
+        return self.PROJWFC
     
     @check('qe')
     def prepare_w90(self, w90_dic):
         self.w90 = True
-        self.w90_dic = dict(guiding_centres=True, write_hr=True, wannier_plot=False,
-                            bands_plot=True)
-        if 'nbnd' in self.qe_dic['&SYSTEM']:
-            self.w90_dic['num_bands'] = self.qe_dic['&SYSTEM']['nbnd']
-        for key in w90_dic.keys():
-            self.w90_dic[key] = w90_dic[key]
-        self.orbital_centers = []
-        a = self.qe_dic['&SYSTEM']['a']
-        c = self.qe_dic['&SYSTEM']['c']
-        self.a = [a*self.a_1, a*self.a_2, c*self.a_3]
-        if self.w90_dic['wannier_plot']:
-            self.w90_dic['wannier_plot_supercell']  = '3, 3, 1'
+        self.W90 = W90(self, w90_dic)
+        return self.W90
 
     @check('w90')
-    def set_w90_window(self, win_min, win_max, froz_min, froz_max, num_iter):
-        self.w90_dic['dis_win_min'] = win_min
-        self.w90_dic['dis_win_max'] = win_max
-        self.w90_dic['dis_froz_min'] = froz_min
-        self.w90_dic['dis_froz_max'] = froz_max
-        self.w90_dic['dis_num_iter'] = num_iter
-
-    def run_qe(self, task, n_cores=4, nk=1):
-        self._run('pw.x -nk '+str(nk), task, n_cores)
-
-    @change_directory('work_directory')
-    @time
-    def run_w90(self, pp=True, n_cores=4):
-        if pp:
-            print('pp', os.system('wannier90.x -pp '+self.prefix+'.win'))
-            self._run('pw2wannier90.x', 'pw2wan', n_cores)
-        print('w90', os.system('wannier90.x '+self.prefix+'.win'))
-
-
-    @change_directory('work_directory')
-    @time
-    def _run(self, executor, task, n_cores):
-        command = (
-            'mpirun -n ' + str(n_cores) + ' '
-            + executor
-            + ' -in ' 
-            + self.prefix + '.' + task + '.in >'
-            + self.prefix + '.' + task + '.out'
-        )
-        print(task, os.system(command))
-
-    @change_directory('data_directory')
-    def create_H(self, R_max, spin=False, print_N=True):
-        orbitals = []
-        for atom in self.lattice.unit_cell:
-            for projection in atom.projections:
-                orbitals.append(dict(position=atom.position, orbital=projection))
-                if spin:
-                    orbitals.append(dict(position=atom.position, orbital=projection))
-        hop_list = np.load(self.prefix +'/w90_hopping.npy')
-        hoppings = []
-        N = 0
-        for hop in hop_list:
-            ΔL = orbitals[int(hop[3])-1]['position'] - orbitals[int(hop[4])-1]['position']
-            ΔR = (hop[0]*self.a[0]+hop[1]*self.a[1]-ΔL*self.lattice.a)
-
-            if np.dot(ΔR, ΔR) <= R_max**2:
-                N += 1
-                hop_mat = np.zeros((self.w90_dic['num_wann'], self.w90_dic['num_wann']), dtype=complex)
-                hop_mat[int(hop[3])-1, int(hop[4])-1] = hop[5] + 1j*hop[6]
-                hoppings.append([hop_mat, hop[0:2]])
-        if print_N:
-            print(N, 'hoppings found')
-        return lambda k: sum([hop[0]*np.exp(2*np.pi*1j*(hop[1][0]*k[0]+hop[1][1]*k[1]))for hop in hoppings])
+    def wannier_orbitals(self, orbital_dir=''):
+        self.Wannier = Wannier(self, orbital_dir)
+        return self.Wannier
 
     def set_k_path(self, k_list, k_tags, N_k):
         self.k_list = k_list
@@ -124,6 +59,7 @@ class DFT:
         bs = self.gen_bs()
         self.spacing = bs.spacing
         self.k_spacing = bs.k_spacing
+        self.k_path = bs.k_path  
     
     def set_k_grid(self, N):
         self.N_grid = N 

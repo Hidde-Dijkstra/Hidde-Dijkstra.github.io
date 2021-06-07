@@ -1,16 +1,16 @@
-- file: intro
+format: jb-article
+root: intro
+sections:
 - file: master-thesis/intro
   sections:
-    - file: master-thesis/lattice/intro
-      sections:
-        - file: master-thesis/lattice/monolayer
-        - file: master-thesis/lattice/supercell
-#    - file: master-thesis/dft/friday_discussion
-    - file: master-thesis/numerics/intro
-      sections:
-        - file: master-thesis/numerics/dft
-        - file: master-thesis/numerics/wannier_theory
-        - file: master-thesis/numerics/graphene
-#        - file: master-thesis/wannierization/wse2 
-    - file: master-thesis/zbibliography
-
+  - file: master-thesis/lattice/intro
+    sections:
+    - file: master-thesis/lattice/monolayer
+    - file: master-thesis/lattice/supercell
+  - file: master-thesis/numerics/intro
+    sections:
+    - file: master-thesis/numerics/dft
+    - file: master-thesis/numerics/wannier_theory
+    - file: master-thesis/numerics/graphene
+    - file: master-thesis/numerics/wse2
+  - file: master-thesis/zbibliography
