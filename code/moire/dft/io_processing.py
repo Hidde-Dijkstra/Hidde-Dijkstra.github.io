@@ -1,4 +1,6 @@
 import re
+import subprocess
+from .decorators import time
 
 def read_file(file_name):
     f = open(file_name, "r")
@@ -18,20 +20,30 @@ def scrub_str(string, char=None):
     if char == None:
         return float(re.sub("[^0-9.-]", "", string))
     else:
-        return [float(re.sub("[^0-9.-]", "", x)) for x in string.split(char)]
+        return [float(re.sub("[^0-9.-]", "", x)) 
+                for x in string.split(char)]
+    
+def delim(string, lim1, lim2, lim3=None):
+    if lim3 == None:
+        return string.split(lim1)[1].split(lim2)[0]
+    else:
+        return string.split(lim1)[1].split(lim2)[0].split(lim3)[0]
 
 def gen_lst(lst, str, func=lambda x: x, ignore_first=False):
-    new_lst = []
-    for i, item in enumerate(lst.split(str)):
-        if (not empty(item)) and (i!=0 or not ignore_first):
-            new_lst.append(func(item))
-    return new_lst
+    return [func(item) for i, item in enumerate(lst.split(str))
+            if (not empty(item)) and (i!=0 or not ignore_first)]
 
 def join_grid_point(grid_point):
     return '   '.join(['{:.9f}'.format(item)[0:9] for item in grid_point])
 
 def join_grid(k_grid, weight=True):
-    grid_str = ''
-    for grid_point in k_grid:
-        grid_str += '  ' + join_grid_point(grid_point) + ' 1'*weight+'\n'
-    return grid_str
+    return '\n'.join([f"  {join_grid_point(grid_point)}{' 1'*weight}"
+                      for grid_point in k_grid])
+ 
+@time   
+def run(command=''): 
+    print(command)
+    print(subprocess.run(command, 
+                         capture_output=True, 
+                         text=True,
+                         shell=True).stdout)

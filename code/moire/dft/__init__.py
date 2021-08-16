@@ -1,11 +1,12 @@
 from .decorators import check
-from moire.bandstructure import BandStructure
+from moire.bandstructure import Path
 import numpy as np
-
 from .wannier import Wannier
 from .w90 import W90
 from .qe import QE
+from .relax import RELAX
 from .projwfc import PROJWFC
+from .tb import TB
 
 class DFT:
 
@@ -21,18 +22,17 @@ class DFT:
         self.w90 = False
         self.Δz = Δz
 
-    def prepare_qe(self, qe_dic, lattice):
+    def prepare_qe(self, qe_dic, lattice, middle=False):
+        self.middle = middle
         self.lattice = lattice
-        self.atoms = {}
-        for atom in lattice.unit_cell:
-            if atom.name not in self.atoms:
-                self.atoms[atom.name] = atom.__dict__
-                self.atoms[atom.name]['loc'] = [atom.position*lattice.a]
-            else:
-                self.atoms[atom.name]['loc'].append(atom.position*lattice.a)
         self.qe = True
-        self.QE = QE(self, qe_dic, lattice)
+        self.QE = QE(self, qe_dic)
         return self.QE
+    
+    @check('qe')
+    def prepare_relax(self, relax_dir=''):
+        self.RELAX = RELAX(self, relax_dir)
+        return self.RELAX
 
     @check('qe')
     def prepare_projwfc(self, projwfc_dir=''):
@@ -40,32 +40,24 @@ class DFT:
         return self.PROJWFC
     
     @check('qe')
-    def prepare_w90(self, w90_dic):
+    def prepare_w90(self, w90_dic, N_super=3):
         self.w90 = True
-        self.W90 = W90(self, w90_dic)
+        self.W90 = W90(self, w90_dic, N_super=N_super)
         return self.W90
+    
+    @check('w90')
+    def tight_binding(self):
+        self.TB = TB(self)
+        return self.TB
 
     @check('w90')
     def wannier_orbitals(self, orbital_dir=''):
         self.Wannier = Wannier(self, orbital_dir)
         return self.Wannier
 
-    def set_k_path(self, k_list, k_tags, N_k):
-        self.k_list = k_list
-        self.k_tags = k_tags
-        self.N_k = N_k
-        for i in range(len(k_list)):
-            self.k_list[i] = np.array(k_list[i])
-        bs = self.gen_bs()
-        self.spacing = bs.spacing
-        self.k_spacing = bs.k_spacing
-        self.k_path = bs.k_path  
+    def set_k_path(self, k_list, tags, N):
+        self.path = Path(k_list, tags, N)
     
     def set_k_grid(self, N):
         self.N_grid = N 
         self.k_grid = [np.array([i/N, j/N, 0]) for i in range(N) for j in range(N)] 
-
-    def gen_bs(self):
-        bs = BandStructure()
-        bs.set_k_path(self.k_list, self.k_tags, self.N_k)
-        return bs 

@@ -1,113 +1,174 @@
 from .plot.figure import figure
 from plotly.subplots import make_subplots
 import numpy as np
+from numpy.linalg import norm, eigvalsh
 import plotly.graph_objects as go
+from dataclasses import dataclass, field
+from typing import List
 
 
 class BandStructure:
-    
-    def __init__(self, cut=None):
-        self.fig = make_subplots(
-            rows = 1 + (cut!=None), 
-            cols = 1, 
-            vertical_spacing = 0.05, 
-            shared_xaxes=True,
-            x_title='Momentum', 
-            y_title= 'Energy (eV)',
-        )
-        self.fig.update_layout(legend= {'itemsizing': 'constant'})
+    def __init__(self, cut=None, path=None):
         self.cut = cut
-        self.spacing = None
-    
-    def plot_from_H(self, name='', showlegend=True, autocolor=True, **kwargs):
-        if 'legend' not in kwargs:
-            kwargs['legend'] = dict(args=dict(_=[None]), tags=[name], autocolor=autocolor)
-        elif 'autocolor' not in kwargs['legend']:
-            kwargs['legend']['autocolor'] = True
-        self._plot_from_H(fig=self.fig, cut=self.cut, showlegend=showlegend, **kwargs)
+        self.path = path
+        if path != None:
+            self.gen_fig()
 
-    def add_bands(self, bands, name='', showlegend=True, autocolor=True, k_arr=None, **kwargs):
-        if 'legend' not in kwargs:
-            kwargs['legend'] = dict(args=dict(_=[None]), tags=[name], autocolor=autocolor)
-        self._plot_bands(bands=bands, fig=self.fig, cut=self.cut, showlegend=showlegend,
-            k_arr=k_arr, **kwargs)
+    def gen_fig(self):
+        self.fig = make_subplots(
+            rows=1 + (self.cut != None),
+            cols=1,
+            vertical_spacing=0.05,
+            shared_xaxes=True,
+            x_title="Momentum",
+            y_title="Energy (eV)",
+        )
+        self.fig.update_layout(legend={"itemsizing": "constant"})
+        self.fig.update_xaxes(
+            ticktext=[k.tag for k in self.path.sym_points],
+            tickvals=[k.linear for k in self.path.sym_points],
+            constrain="domain",
+        )
+
+    def set_k_path(self, k_list, tags, N):
+        self.path = Path(k_list, tags, N)
+        self.gen_fig()
+        return self.path
+
+    def plot_from_H(self, name="", autocolor=True, new_plot=False, **kwargs):
+        if new_plot:
+            self.gen_fig()
+        if "legend" not in kwargs:
+            kwargs["legend"] = dict(
+                args=dict(_=[None]), tags=[name], autocolor=autocolor
+            )
+        elif "autocolor" not in kwargs["legend"]:
+            kwargs["legend"]["autocolor"] = True
+        self._plot_from_H(fig=self.fig, cut=self.cut, **kwargs)
+
+    def add_bands(self, bands, name="", autocolor=True, new_plot=False, **kwargs):
+        if new_plot:
+            self.gen_fig()
+        if "legend" not in kwargs:
+            kwargs["legend"] = dict(
+                args=dict(_=[None]), tags=[name], autocolor=autocolor
+            )
+        self._plot_from_bands(bands=bands, fig=self.fig, cut=self.cut, **kwargs)
+
     @figure
-    def _plot_from_H(self, H=lambda k: 0, N_input=2, untangle_bands=True, α=1, **kwargs):
-        N = len(H(np.zeros(N_input)))
-        bands = np.zeros((N, len(self.k_path)))
-        if 'band_dic' in kwargs:
-            band_dic = kwargs['band_dic']
-        else:
-            band_dic = {}
-        for j in range(len(self.k_path)):
-            bands[:, j] = np.linalg.eigvalsh(H(self.k_path[j]))
-        traces = []
+    def _plot_from_H(self, H=lambda _: 0, **kwargs):
+        path = kwargs.get("path", self.path)
+        bands = np.transpose([eigvalsh(H(k.vector)) for k in path])
+        return self._plot_bands(bands=bands, **kwargs)
+
+    @figure
+    def _plot_from_bands(self, **kwargs):
+        return self._plot_bands(**kwargs)
+
+    def _plot_bands(self, bands=[], untangle_bands=True, α=1, band_dic={}, **kwargs):
+        path = kwargs.get("path", self.path)
         if untangle_bands:
-            bands = bands[untangle(bands, α=α, spacing=self.spacing)]
-        for band in bands:
-            traces.append(go.Scatter(x=self.k_spacing, y=band, **band_dic))
-        return traces
-
-    @figure        
-    def _plot_bands(self, bands=[], k_arr=None, untangle_bands=True, α=1, **kwargs):
-        if 'band_dic' in kwargs:
-            band_dic = kwargs['band_dic']
-        else:
-            band_dic = {}
-        traces = []
-        if np.all(k_arr == None):
-            x = self.k_spacing
-            spacing = self.spacing
-        else:
-            x = k_arr
-            spacing = kwargs.get('spacing')
-        if untangle_bands:
-            bands = bands[untangle(bands, α=α, spacing=spacing)]
-        for band in bands:
-            traces.append(go.Scatter(x=x, y=band, **band_dic))
-        return traces
-    
-    def set_k_path(self, k_list, k_tags, N_k):
-        k_list = [np.array(k) for k in k_list]
-        k_norms = [np.linalg.norm(k_list[i+1]-k_list[i]) for i in range(len(k_list)-1)]
-        if type(N_k) == int:
-            n = [int(N_k*k_norms[i]/sum(k_norms)) for i in range(len(k_norms))] 
-            ΔN_k = N_k - sum(n)
-            if ΔN_k != 0:
-                rest = np.array(k_norms) - sum(k_norms) * np.array(n)/N_k
-                np.array(n, dtype=int)[rest.argsort()[-ΔN_k:]] += 1
-            self.spacing = n
-        else:
-            self.spacing  = N_k
-        k_path = []
-        k_spacing = []
-        for i, Δn in enumerate(self.spacing):
-            k_path += [k_list[i] + (k_list[i+1]-k_list[i])*j/Δn for j in range(Δn)]
-            k_spacing += [sum(k_norms[:i]) + (k_norms[i])*j/Δn for j in range(Δn)]
-        k_path.append(k_list[-1])
-        k_spacing.append(sum(k_norms))
-        self.k_spacing = np.array(k_spacing) / sum(k_norms)
-        self.k_path = k_path
-        tickvals = [self.k_spacing[sum(self.spacing[:i])] for i in range(len(self.spacing)+1)]
-        self.fig.update_xaxes(ticktext=k_tags, tickvals=tickvals)
+            bands = bands[untangle(bands, α=α, ignore_points=path.N_k.Σ)]
+        return [
+            go.Scatter(x=[k.linear for k in path], y=band, **band_dic) for band in bands
+        ]
 
 
-def untangle(unsorted_bands, α=1, spacing=None):
+@dataclass
+class KPoint:
+    vector: np.ndarray = np.zeros(3)
+    linear: float = 0
+    tag: str = ""
+
+    def __add__(self, other):
+        return KPoint(
+            vector=self.vector + other.vector, linear=self.linear + other.linear
+        )
+
+    def __sub__(self, other):
+        return KPoint(
+            vector=self.vector - other.vector, linear=self.linear - other.linear
+        )
+
+    def __mul__(self, other):
+        return KPoint(vector=self.vector * other, linear=self.linear * other)
+
+    def __rmul__(self, other):
+        return self * other
+
+    def __truediv__(self, other):
+        return KPoint(vector=self.vector / other, linear=self.linear / other)
+
+
+@dataclass
+class NK:
+    Σ: List[int] = field(default_factory=list)
+    Δ: List[int] = field(default_factory=list)
+
+
+class Path:
+    def __init__(self, k_list, tags, N=None, ΔN=None):
+        Δk_arr = [norm(np.subtract(k1, k2)) for k1, k2 in zip(k_list, k_list[1:])]
+        self.Δk_arr = np.array(Δk_arr) / sum(Δk_arr)
+        self.N_k = self.separate(N, ΔN)
+        self.sym_points = [
+            KPoint(vector=np.array(k), linear=k_lin, tag=tag)
+            for k, k_lin, tag in zip(
+                k_list, np.cumsum(np.pad(self.Δk_arr, (1, 0))), tags
+            )
+        ]
+        self.path = [
+            k1 + (k2 - k1) * j / Δn
+            for k1, k2, Δn in zip(self.sym_points, self.sym_points[1:], self.N_k.Δ)
+            for j in range(Δn)
+        ]
+        self.path.append(self.sym_points[-1])
+
+    def __getitem__(self, i=0):
+        return self.path[i]
+
+    def __len__(self):
+        return len(self.path)
+
+    def copy(self, N=None, ΔN=None):
+        if np.all(N == None) and np.all(ΔN == None):
+            return self
+        else:
+            return Path(
+                k_list=[k.vector for k in self.sym_points],
+                tags=[k.tag for k in self.sym_points],
+                N=N,
+                ΔN=ΔN,
+            )
+
+    def separate(self, N, ΔN):
+        if type(N) == int:
+            N -= 1
+            δn = np.array([int(N * Δk) for Δk in self.Δk_arr], dtype=int)
+            δN = N - np.sum(δn)
+            if δN != 0:
+                rest = self.Δk_arr - δn / N
+                δn[rest.argsort()[-δN:]] += 1
+            ΔN = δn
+        elif np.all(N != None):
+            return NK(Σ=N, Δ=np.array([n2 - n1 for n1, n2 in zip(N, N[1:])]))
+        return NK(Σ=np.cumsum(np.pad(ΔN, (1, 0))), Δ=ΔN)
+
+
+def untangle(unsorted_bands, α=1, **kwargs):
     bands = np.sort(unsorted_bands, axis=0)
     N, M = bands.shape
-    if spacing == None:
-        spacing = [M-1]
-    points = [sum(spacing[:i]) for i in range(len(spacing)+1)]
+    ignore_points = kwargs.get("ignore_points", [0, M - 1])
     band_slices = np.zeros((M, N))
     index = np.zeros((M, N), dtype=int)
-    for i, point in enumerate(points[:-1]):
+    for i, point in enumerate(ignore_points[:-1]):
         index[point] = range(N)
-        index[point+1] = range(N)
-        band_slices[point:point+2] = bands[:, point:point+2].T
-        δ_bands = band_slices[point+1] - band_slices[point]
-        for m in range(2+point, points[i+1]+1):
-            δ_bands = α*(band_slices[m-1]-band_slices[m-2]) + (1-α)*δ_bands   
-            bands_estimate = δ_bands + band_slices[m-1]
+        index[point + 1] = range(N)
+        band_slices[point : point + 2] = bands[:, point : point + 2].T
+        δ_bands = band_slices[point + 1] - band_slices[point]
+        for m in range(2 + point, ignore_points[i + 1] + 1):
+            δ_bands = α * (band_slices[m - 1] - band_slices[m - 2]) + (1 - α) * δ_bands
+            bands_estimate = δ_bands + band_slices[m - 1]
             band_slices = band_slices[:, np.argsort(bands_estimate)]
             δ_bands = δ_bands[np.argsort(bands_estimate)]
             index = index[:, np.argsort(bands_estimate)]
